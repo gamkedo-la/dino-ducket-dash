@@ -2,8 +2,8 @@ function playerClass(){
 	//Player Variables
 	this.x = 0;
 	this.y = 0;
-	this.width = 8;
-	this.height = 8;
+	this.width = 10;
+	this.height = 10;
 	this.speed = 5;
 	this.coinsCarried = 0;
 

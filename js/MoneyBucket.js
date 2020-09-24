@@ -12,8 +12,8 @@ function moneyBucketClass(){
   }
   
   this.draw = function(){
-    drawRect(this.x,this.y, this.width,this.height, 'black');
-    canvasContext.fillStyle = 'white';
+    drawRect(this.x,this.y, this.width,this.height, 'white');
+    canvasContext.fillStyle = 'black';
 		canvasContext.fillText(score, this.x+8,this.y+16);
   }
   

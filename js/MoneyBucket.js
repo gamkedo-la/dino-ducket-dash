@@ -14,7 +14,8 @@ function moneyBucketClass(){
   this.draw = function(){
     drawRect(this.x,this.y, this.width,this.height, 'white');
     canvasContext.fillStyle = 'black';
-		canvasContext.fillText(score, this.x+8,this.y+16);
+    canvasContext.font = '24px "Press2Start"'
+		canvasContext.fillText(score, this.x+8*PIXEL_SCALE_UP,this.y+16*PIXEL_SCALE_UP);
   }
   
 }

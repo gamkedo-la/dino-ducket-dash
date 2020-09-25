@@ -1,5 +1,6 @@
 const FPS = 60;
 const ANIMATION_DELAY = 10;
+const PIXEL_SCALE_UP = 3;
 
 var canvas;
 var canvasContext;
@@ -20,7 +21,16 @@ window.onload = function(){
 
 function init(){
 	canvas = document.getElementById('gameCanvas');
+	canvas.width = PIXEL_SCALE_UP * canvas.width;
+	canvas.height = PIXEL_SCALE_UP * canvas.height;
+	
 	canvasContext = canvas.getContext('2d');
+	
+	//let's keep those pixels crisp
+	canvasContext.mozImageSmoothingEnabled = false;
+	canvasContext.imageSmoothingEnabled = false;
+	canvasContext.msImageSmoothingEnabled = false;
+	
 
 	initInput();
 

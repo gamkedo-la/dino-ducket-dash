@@ -1,6 +1,6 @@
 function drawRect(atX,atY, rectWidth,rectHeight, fillColor){
 	canvasContext.fillStyle = fillColor;
-	canvasContext.fillRect(atX,atY, rectWidth, rectHeight);
+	canvasContext.fillRect(atX,atY, rectWidth*PIXEL_SCALE_UP, rectHeight*PIXEL_SCALE_UP);
 }
 
 function cls(){
@@ -9,7 +9,6 @@ function cls(){
 }
 
 function animate(toAnimate){
-	canvasContext.imageSmoothingEnabled = false;
 	toAnimate.animationFrameDelay--
 	if(toAnimate.animationFrameDelay <= 0){
 		//console.log(toAnimate.currentFrame);
@@ -30,5 +29,5 @@ function animate(toAnimate){
 							column*toAnimate.frameWidth,row*toAnimate.frameHeight,
 							toAnimate.frameWidth,toAnimate.frameHeight,
 							toAnimate.x,toAnimate.y,
-							toAnimate.frameWidth,toAnimate.frameHeight);
+							toAnimate.frameWidth*PIXEL_SCALE_UP,toAnimate.frameHeight*PIXEL_SCALE_UP);
 }

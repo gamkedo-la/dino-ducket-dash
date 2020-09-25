@@ -4,7 +4,7 @@ function playerClass(){
 	this.y = 0;
 	this.width = 10;
 	this.height = 10;
-	this.speed = 5;
+	this.speed = 10;
 	this.coinsCarried = 0;
 
 	// Animation Variables
@@ -27,7 +27,7 @@ function playerClass(){
 	this.update = function(){
 		//console.log(this.x+"/"+this.y);
 		if(moveRight){
-			if(this.x < canvas.width - this.width){
+			if(this.x < canvas.width - this.width*PIXEL_SCALE_UP){
 				this.x += (this.speed);
 			}
 		}
@@ -42,7 +42,7 @@ function playerClass(){
 			}
 		}
 		if(moveDown){
-			if(this.y < canvas.height-this.height){
+			if(this.y < canvas.height-this.height*PIXEL_SCALE_UP){
 				this.y += (this.speed);
 			}
 		}
@@ -51,6 +51,7 @@ function playerClass(){
 	this.draw = function(){
 		//drawRect(this.x,this.y, this.sprite.width,this.sprite.height, 'white');
 		canvasContext.fillStyle = 'black';
+		canvasContext.font = '12px "Press2Start"'
 		canvasContext.fillText(this.coinsCarried, this.x+10,this.y-2);
 		animate(this);
 	}

@@ -5,8 +5,8 @@ function enemyClass(){
 	this.y = 100;
 	this.width = 20;
 	this.height = 20;
-	this.speedX = 2;
-	this.speedY = 4;
+	this.speedX = 4;
+	this.speedY = 8;
 
 	// Animation Variables
 	this.sprite = new Image();
@@ -31,13 +31,13 @@ function enemyClass(){
 		if(this.x < 0){
 			this.speedX *= -1;
 		}
-		if(this.x > canvas.width - this.width){
+		if(this.x > canvas.width - this.width*PIXEL_SCALE_UP){
 			this.speedX *= -1;
 		}
 		if(this.y < 0){
 			this.speedY *= -1;
 		}
-		if(this.y > canvas.height - this.height){
+		if(this.y > canvas.height - this.height*PIXEL_SCALE_UP){
 			this.speedY *= -1;
 		}
 
@@ -58,16 +58,5 @@ function enemyClass(){
 	this.draw = function(){
 		// drawRect(this.x,this.y, this.width,this.height, 'white');
 		animate(this);
-	}
-
-	this.playerCollision = function(){
-		if(this.x < player.x + PLAYER_WIDTH &&
-			this.x + this.width > player.x &&
-			this.y < player.y + PLAYER_HEIGHT &&
-			this.y + this.height > player.y){
-
-			this.speedX *= -1;
-			this.speedY *= -1;
-		}
 	}
 }

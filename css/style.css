@@ -1,4 +1,4 @@
-#gameCanvas {
-  width:640;
-  height: 480;
+@font-face {
+  font-family: 'Press2Start'
+  src: url('/fonts/PressStart2P-Regular.ttf');
 }

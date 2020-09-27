@@ -43,11 +43,12 @@ function init(){
 	menuSprite = new menuClass();
 	menuSprite.init();
 	
-	moneyBucket = new moneyBucketClass;
+	moneyBucket = new moneyBucketClass();
 	
 	score = 0;
 
 	for (var i = 0; i < 20; i++) {
+		//WARM UP: limit coin positioning so all of them are 100% on screen
 		var coin = new coinClass();
 		coin.x = Math.floor(Math.random()*canvas.width);
 		coin.y = Math.floor(Math.random()*canvas.height);

@@ -4,6 +4,8 @@ function drawRect(atX,atY, rectWidth,rectHeight, fillColor){
 }
 
 function cls(){
+	//WARM UP: We could change this to using a variable instead of hard coding it
+	//setting a default value of '#cdc29e' for the variable would preserve current behavior
 	canvasContext.fillStyle = '#cdc29e';
 	canvasContext.fillRect(0,0, canvas.width, canvas.height);
 }

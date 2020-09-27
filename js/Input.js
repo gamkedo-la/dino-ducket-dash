@@ -3,6 +3,10 @@ const KEY_W = 87;
 const KEY_S = 83;
 const KEY_A = 65;
 const KEY_D = 68;
+//WARM UP: Add values for ARROW Keys
+//WARM UP: Add values for "P" and "M" in preparation for Pause & Mute functionality
+//WARM UP: Add values for "+" and "-" in preparation for volume controls
+//WARM UP: Add values for cheats (stop the enemy's movement? spawn more enemies or coins?)
 
 var moveLeft = false;
 var moveRight = false;
@@ -31,6 +35,9 @@ function keyPressed(evt){
 		case KEY_D:
 			moveRight = true;
 			break
+		//WARM UP: Add cases to handle ARROW Keys as alternative to WASD
+		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down
+		//WARM UP: Add cases to handle cheats (stop the enemy's movement? spawn more enemies or coins?)
 	}
 }
 
@@ -48,5 +55,6 @@ function keyReleased(evt){
 		case KEY_D:
 			moveRight = false;
 			break
+		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down
 	}
 }

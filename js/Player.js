@@ -8,6 +8,7 @@ function playerClass(){
 	this.coinsCarried = 0;
 
 	// Animation Variables
+	//WARM UP: Need a Player Sprite sheet with three animations (idle, moving, hurt) - Trello card: https://trello.com/c/OpkypkYK
 	this.sprite = new Image();
 	this.animColumns = 5;
 	this.animRows = 1;
@@ -46,6 +47,12 @@ function playerClass(){
 				this.y += (this.speed);
 			}
 		}
+
+		//WARM UP: Check for collision with the enemy (see the enemy class for an example)
+		//WARM UP: if player hit by enemy, lose some/all duckets carried (maybe depends on which enemy?) Trell card - https://trello.com/c/KkRCpNMk
+		//WARM UP: if player hit by enemy, need hurt SFX
+		//WARM UP: if player hit by enemy, transition to hurt animation (once there is one)
+		//WARM UP: if player hit by enemy, screen shake? Trello card - https://trello.com/c/UQpCL4pt
 	}
 
 	this.draw = function(){

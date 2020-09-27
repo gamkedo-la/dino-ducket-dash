@@ -7,8 +7,10 @@ function enemyClass(){
 	this.height = 20;
 	this.speedX = 4;
 	this.speedY = 8;
+	//WARM UP: how many duckets does the player lose when hit by this enemy?
 
 	// Animation Variables
+	//WARM UP: Need an enemy spritesheet with two animations (idle, walking) Trello card - https://trello.com/c/wBKqdxs8
 	this.sprite = new Image();
 	this.animColumns = 5;
 	this.animRows = 1;
@@ -28,6 +30,7 @@ function enemyClass(){
 		var oldX = this.x;
 		var oldY = this.y;
 
+		//WARM UP: Does the enemy make a sound when hitting the edges of the canvas?
 		if(this.x < 0){
 			this.speedX *= -1;
 		}
@@ -46,6 +49,7 @@ function enemyClass(){
 			this.y = oldY;
 			this.speedX *= -1;
 			this.speedY *= -1;
+			//WARM UP: enemy makes a sound?
 		}
 
 		this.x += this.speedX;

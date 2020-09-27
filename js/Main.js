@@ -20,6 +20,8 @@ window.onload = function(){
 }
 
 function init(){
+	//WARM UP: can we listen to the "resize" event and resize the canvas while
+	//maintaining the aspect ratio?
 	canvas = document.getElementById('gameCanvas');
 	canvas.width = PIXEL_SCALE_UP * canvas.width;
 	canvas.height = PIXEL_SCALE_UP * canvas.height;

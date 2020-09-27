@@ -30,6 +30,7 @@ function coinClass(){
 
   this.draw = function(){
 		if(checkCollision(this,player)){
+			//WARM UP: play SFX. Trello card - https://trello.com/c/Q0F3tYby
 			this.readyToRemove = true;
 			player.coinsCarried++
 		} else{

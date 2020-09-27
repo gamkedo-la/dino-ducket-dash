@@ -11,6 +11,7 @@ function cls(){
 }
 
 function animate(toAnimate){
+	//WARM UP: use each entities "flipped" property to render them reversed. Trello card - https://trello.com/c/hMlK5Dfh
 	toAnimate.animationFrameDelay--
 	if(toAnimate.animationFrameDelay <= 0){
 		//console.log(toAnimate.currentFrame);

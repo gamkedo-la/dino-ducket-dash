@@ -6,7 +6,7 @@ const KEY_D = 68;
 //WARM UP: Add values for ARROW Keys
 //WARM UP: Add values for "P" and "M" in preparation for Pause & Mute functionality
 //WARM UP: Add values for "+" and "-" in preparation for volume controls
-//WARM UP: Add values for cheats (stop the enemy's movement? spawn more enemies or coins?)
+//WARM UP: Add values for cheats (stop the enemy's movement? spawn more enemies or coins?) Trello Card: https://trello.com/c/J4VYQDmw
 
 var moveLeft = false;
 var moveRight = false;

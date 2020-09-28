@@ -1,4 +1,4 @@
-function coinClass(){
+function ducketClass(){
   //Coin Variables
 	this.x = 8;
 	this.y = 8;
@@ -19,7 +19,7 @@ function coinClass(){
 
 	this.initCoin = function(){
 		// console.log(this.x+"/"+this.y);
-		this.sprite.src = 'images/coin.png';
+		this.sprite.src = 'images/ducket.png';
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 	}
@@ -32,7 +32,7 @@ function coinClass(){
 		if(checkCollision(this,player)){
 			//WARM UP: play SFX. Trello card - https://trello.com/c/Q0F3tYby
 			this.readyToRemove = true;
-			player.coinsCarried++
+			player.ducketsCarried++
 		} else{
 			animate(this);
 		}

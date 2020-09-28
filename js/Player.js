@@ -5,10 +5,9 @@ function playerClass(){
 	this.width = 10;
 	this.height = 10;
 	this.speed = 10;
-	this.coinsCarried = 0;
+	this.ducketsCarried = 0;
 
 	// Animation Variables
-	//WARM UP: Need a Player Sprite sheet with three animations (idle, moving, hurt) - Trello card: https://trello.com/c/OpkypkYK
 	this.sprite = new Image();
 	this.animColumns = 5;
 	this.animRows = 1;
@@ -47,19 +46,13 @@ function playerClass(){
 				this.y += (this.speed);
 			}
 		}
-
-		//WARM UP: Check for collision with the enemy (see the enemy class for an example)
-		//WARM UP: if player hit by enemy, lose some/all duckets carried (maybe depends on which enemy?) Trell card - https://trello.com/c/KkRCpNMk
-		//WARM UP: if player hit by enemy, need hurt SFX
-		//WARM UP: if player hit by enemy, transition to hurt animation (once there is one)
-		//WARM UP: if player hit by enemy, screen shake? Trello card - https://trello.com/c/UQpCL4pt
 	}
 
 	this.draw = function(){
 		//drawRect(this.x,this.y, this.sprite.width,this.sprite.height, 'white');
 		canvasContext.fillStyle = 'black';
 		canvasContext.font = '12px "Press2Start"'
-		canvasContext.fillText(this.coinsCarried, this.x+10,this.y-2);
+		canvasContext.fillText(this.ducketsCarried, this.x+10,this.y-2);
 		animate(this);
 	}
 }

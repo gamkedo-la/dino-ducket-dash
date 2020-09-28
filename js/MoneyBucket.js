@@ -6,10 +6,8 @@ function moneyBucketClass(){
   
   this.update = function(){
     if(checkCollision(this,player)){
-      //WARM UP: Need an SFX to support this. Cha-Ching! Trello card - https://trello.com/c/O295lfdz
-      //WARM UP: Screen shake? Trell card - https://trello.com/c/UQpCL4pt
-			score += player.coinsCarried;
-      player.coinsCarried = 0;
+			score += player.ducketsCarried;
+      player.ducketsCarried = 0;
 		}
   }
   

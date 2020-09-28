@@ -7,7 +7,7 @@ var canvasContext;
 
 var player;
 var enemy;
-var coinList = [];
+var ducketList = [];
 var menuSprite;
 var moneyBucket;
 var gameState = "menu";
@@ -49,14 +49,7 @@ function init(){
 	
 	score = 0;
 
-	for (var i = 0; i < 20; i++) {
-		//WARM UP: limit coin positioning so all of them are 100% on screen
-		var coin = new coinClass();
-		coin.x = Math.floor(Math.random()*canvas.width);
-		coin.y = Math.floor(Math.random()*canvas.height);
-		coin.initCoin();
-		coinList.push(coin);
-	}
+	spawnCoins();
 
 	console.log("Game Initialized");
 }
@@ -68,16 +61,34 @@ function update(){
 		player.update();
 		enemy.update();
 		moneyBucket.update();
+		checkIfCoinsNeedToRespawn()
 		
-		for (var i = 0; i < coinList.length; i++) {
-			if(coinList[i].readyToRemove){
-				coinList.splice(i,1);
+		for (var i = 0; i < ducketList.length; i++) {
+			if(ducketList[i].readyToRemove){
+				ducketList.splice(i,1);
 			}
 		}
 	}
 	
-	//coin.update();
+	//ducket.update();
 	draw();
+}
+
+function spawnCoins(){
+	for (var i = 0; i < 20; i++) {
+		//WARM UP: limit ducket positioning so all of them are 100% on screen
+		var ducket = new ducketClass();
+		ducket.x = Math.floor(Math.random()*canvas.width);
+		ducket.y = Math.floor(Math.random()*canvas.height);
+		ducket.initCoin();
+		ducketList.push(ducket);
+	}
+}
+
+function checkIfCoinsNeedToRespawn(){
+	if(ducketList.length == 0 && player.ducketsCarried == 0){
+		spawnCoins();
+	}
 }
 
 function draw(){
@@ -85,8 +96,8 @@ function draw(){
 	if(gameState == "menu"){
 		menuSprite.draw();
 	} else{
-		for (var i = 0; i < coinList.length; i++) {
-			coinList[i].draw();
+		for (var i = 0; i < ducketList.length; i++) {
+			ducketList[i].draw();
 		}
 		moneyBucket.draw();
 		player.draw();

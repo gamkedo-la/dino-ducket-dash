@@ -6,8 +6,11 @@ function moneyBucketClass(){
   
   this.update = function(){
     if(checkCollision(this,player)){
-			score += player.ducketsCarried;
-      player.ducketsCarried = 0;
+      if(player.ducketsCarried > 0){
+        score += player.ducketsCarried;
+        player.ducketsCarried = 0;
+        spawnEnemy();
+      }
 		}
   }
   

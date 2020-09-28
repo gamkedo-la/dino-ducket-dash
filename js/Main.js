@@ -6,7 +6,7 @@ var canvas;
 var canvasContext;
 
 var player;
-var enemy;
+var enemies = [];
 var ducketList = [];
 var menuSprite;
 var moneyBucket;
@@ -38,9 +38,8 @@ function init(){
 
 	player = new playerClass();
 	player.initPlayer();
-
-	enemy = new enemyClass();
-	enemy.init();
+	
+	spawnEnemy();
 	
 	menuSprite = new menuClass();
 	menuSprite.init();
@@ -59,7 +58,11 @@ function update(){
 		
 	} else{
 		player.update();
-		enemy.update();
+		
+		for (var i = 0; i < enemies.length; i++) {
+			enemies[i].update()
+		}
+		
 		moneyBucket.update();
 		checkIfCoinsNeedToRespawn()
 		
@@ -85,6 +88,12 @@ function spawnCoins(){
 	}
 }
 
+function spawnEnemy(){
+	var enemy = new enemyClass();
+	enemy.init();
+	enemies.push(enemy);
+}
+
 function checkIfCoinsNeedToRespawn(){
 	if(ducketList.length == 0 && player.ducketsCarried == 0){
 		spawnCoins();
@@ -101,7 +110,10 @@ function draw(){
 		}
 		moneyBucket.draw();
 		player.draw();
-		enemy.draw();
+		
+		for (var i = 0; i < enemies.length; i++) {
+			enemies[i].draw()
+		}
 	}
 	
 }

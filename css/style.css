@@ -3,20 +3,16 @@ body { overflow:hidden; margin:0; padding:0; user-select:none; background:black;
 
 canvas { margin:auto; padding:0; border:0; user-select:none; }
 
-@font-face {
-    font-family: 'Press2Start';
-    src: url('/fonts/PressStart2P-Regular.ttf');
-    /* fixme: we can't use .ttf - need to convert to a webfont */
-}
-
 .header { 
+    font-family: 'Press Start 2P', cursive;
     position:absolute;
     text-align:center;
     text-shadow:1px 1px rgba(0,0,0,0.5);
     top:0px;
     left:0px;
     width:100%;
-    font-family: Press2Start;
+    padding:8px;
+    font-size:16px;
     color:white;
-    background:none;
+    background:rgba(0,0,0,0.2);
 }

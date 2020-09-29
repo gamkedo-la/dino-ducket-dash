@@ -20,7 +20,7 @@ function initInput(){
 }
 
 function keyPressed(evt){
-	console.log(evt.keyCode);
+	//console.log(evt.keyCode);
 	if(gameState == "menu"){
 		initGame();
 	}

@@ -2,6 +2,7 @@ function resetGame(){
   score = 0;
   enemies = [];
   ducketList = [];
+  resetTimer();
 }
 
 function initGame(){
@@ -19,6 +20,7 @@ function initGame(){
 }
 
 function gameUpdate(){
+  updateTimer();
   player.update();
   
   for (var i = 0; i < enemies.length; i++) {
@@ -45,4 +47,5 @@ function gameDraw(){
   for (var i = 0; i < enemies.length; i++) {
     enemies[i].draw()
   }
+  drawTimer();
 }

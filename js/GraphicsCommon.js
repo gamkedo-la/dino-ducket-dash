@@ -3,6 +3,18 @@ function drawRect(atX,atY, rectWidth,rectHeight, fillColor){
 	canvasContext.fillRect(atX,atY, rectWidth*PIXEL_SCALE_UP, rectHeight*PIXEL_SCALE_UP);
 }
 
+ function colorTextShadow(showWords, textX, textY, fillColor="black", font = "14px Arial Black", align="left") {
+    textX = Math.round(textX); // snap to integer coords for clearer text
+    textY = Math.round(textY);
+    canvasContext.textAlign = align;
+    canvasContext.font = font;
+    canvasContext.fillStyle = "black";
+    canvasContext.fillText(showWords, textX+1, textY+1);
+    canvasContext.strokeText(showWords, textX, textY);
+    canvasContext.fillStyle = fillColor;
+    canvasContext.fillText(showWords, textX, textY);
+}
+
 function cls(){
 	//WARM UP: We could change this to using a variable instead of hard coding it
 	//setting a default value of '#cdc29e' for the variable would preserve current behavior

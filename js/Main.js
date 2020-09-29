@@ -27,7 +27,6 @@ window.onload = function(){
 
 }
 
-
 function startgameIfDownloadsComplete() {
     console.log(allImages[imagesDownloaded]+" downloaded ok.")
     imagesDownloaded++;
@@ -51,15 +50,15 @@ function init(){
 	canvasContext.mozImageSmoothingEnabled = false;
 	canvasContext.imageSmoothingEnabled = false;
     canvasContext.msImageSmoothingEnabled = false;
-    
-    canvasContext.font = "8px Press Start 2P";
+    canvasContext.font = "Press Start 2P";
 	
 	initInput();
 	menuInit();
 
+	console.log("Initialization complete. Running game!");
+
     setInterval(update,1000/FPS);
 
-	console.log("Game Initialized");
 }
 
 function update(){

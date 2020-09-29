@@ -3,7 +3,7 @@ function drawRect(atX,atY, rectWidth,rectHeight, fillColor){
 	canvasContext.fillRect(atX,atY, rectWidth*PIXEL_SCALE_UP, rectHeight*PIXEL_SCALE_UP);
 }
 
- function colorTextShadow(showWords, textX, textY, fillColor="white", font = "8px Press Start 2P", align="left") {
+ function colorTextShadow(showWords, textX, textY, fillColor="white", font = "Press Start 2P", align="left") {
     textX = Math.round(textX); // snap to integer coords for clearer text
     textY = Math.round(textY);
     canvasContext.textAlign = align;
@@ -24,7 +24,7 @@ function cls(){
 
 function animate(toAnimate){
 	//WARM UP: use each entities "flipped" property to render them reversed. Trello card - https://trello.com/c/hMlK5Dfh
-	toAnimate.animationFrameDelay--
+	toAnimate.animationFrameDelay--;
 	if(toAnimate.animationFrameDelay <= 0){
 		//console.log(toAnimate.currentFrame);
 		toAnimate.currentFrame++;

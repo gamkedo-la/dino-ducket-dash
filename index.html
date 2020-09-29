@@ -5,15 +5,29 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/style.css">
 	<style>
-		@font-face {
+		body { overflow:hidden; margin:0; padding:0; user-select:none; background:magenta; }
+        canvas { margin:0; padding:0; border:0; user-select:none; }
+        @font-face {
 			font-family: 'Press2Start';
 			src: url('/fonts/PressStart2P-Regular.ttf');
+            /* fixme: we can't use .ttf - need to convert to a webfont */
 		}
+        .header { 
+            position:absolute;
+            text-align:center;
+            text-shadow:1px 1px rgba(0,0,0,0.5);
+            top:0px;
+            left:0px;
+            width:100%;
+            font-family: Press2Start;
+            color:white;
+            background:none;
+        }
 	</style>
 </head>
 <body>
 	<!-- WARP UP: horizontally center the canvas in the window -->
-	<div style="font-family: Press2Start;">DINO DUCKET DASH! Any Key to Play, WASD to move</div>
+	<div class='header'>DINO DUCKET DASH! Any Key to Play, WASD to move</div>
 	<canvas id='gameCanvas' width="320" height="240"></canvas>
 	<script src="js/Coin.js"></script>
 	<script src="js/Main.js"></script>

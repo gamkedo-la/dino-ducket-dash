@@ -3,7 +3,7 @@ function drawRect(atX,atY, rectWidth,rectHeight, fillColor){
 	canvasContext.fillRect(atX,atY, rectWidth*PIXEL_SCALE_UP, rectHeight*PIXEL_SCALE_UP);
 }
 
- function colorTextShadow(showWords, textX, textY, fillColor="black", font = "14px Arial Black", align="left") {
+ function colorTextShadow(showWords, textX, textY, fillColor="white", font = "8px Press Start 2P", align="left") {
     textX = Math.round(textX); // snap to integer coords for clearer text
     textY = Math.round(textY);
     canvasContext.textAlign = align;
@@ -40,7 +40,13 @@ function animate(toAnimate){
 	var row = Math.floor(toAnimate.currentFrame / toAnimate.animColumns);
 
 	canvasContext.imageSmoothingEnabled = false;
-	canvasContext.drawImage(toAnimate.sprite,
+
+    if (!toAnimate.sprite.loaded) {
+        // we are still downloading the image!
+        return;
+    }
+
+    canvasContext.drawImage(toAnimate.sprite,
 							column*toAnimate.frameWidth,row*toAnimate.frameHeight,
 							toAnimate.frameWidth,toAnimate.frameHeight,
 							toAnimate.x,toAnimate.y,

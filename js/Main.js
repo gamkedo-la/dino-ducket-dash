@@ -13,14 +13,32 @@ var moneyBucket;
 var gameState = "menu";
 var score;
 
-window.onload = function(){
-	init();
+var allImages = ['images/ducket.png','images/enemy_run.png','images/menu_title.png','images/player_idle.png'];
+var imagesDownloaded = 0;
 
-	setInterval(update,1000/FPS);
+window.onload = function(){
+    
+    console.log("Initializing game. Downloading "+allImages.length+" sprites.");
+    for (var i=0; i<allImages.length; i++) {
+        var nextone = new Image();
+        nextone.src = allImages[i];
+        nextone.onload = startgameIfDownloadsComplete;
+    }
+
+}
+
+
+function startgameIfDownloadsComplete() {
+    console.log(allImages[imagesDownloaded]+" downloaded ok.")
+    imagesDownloaded++;
+    if (imagesDownloaded>=allImages.length) {
+        console.log("All "+imagesDownloaded+" downloads complete! Starting game.");
+        init();
+    }
 }
 
 function init(){
-	//WARM UP: can we listen to the "resize" event and resize the canvas while
+    //WARM UP: can we listen to the "resize" event and resize the canvas while
     //maintaining the aspect ratio?
 	canvas = document.getElementById('gameCanvas');
     // todo: round these values to the nearest integer to ensure crisp pixels
@@ -32,10 +50,14 @@ function init(){
 	//let's keep those pixels crisp
 	canvasContext.mozImageSmoothingEnabled = false;
 	canvasContext.imageSmoothingEnabled = false;
-	canvasContext.msImageSmoothingEnabled = false;
+    canvasContext.msImageSmoothingEnabled = false;
+    
+    canvasContext.font = "8px Press Start 2P";
 	
 	initInput();
 	menuInit();
+
+    setInterval(update,1000/FPS);
 
 	console.log("Game Initialized");
 }

@@ -18,10 +18,11 @@ function ducketClass(){
 	this.readyToRemove = false;
 
 	this.initCoin = function(){
-		// console.log(this.x+"/"+this.y);
-		this.sprite.src = 'images/ducket.png';
-		this.frameWidth = this.sprite.width / this.animColumns;
-		this.frameHeight = this.sprite.height / this.animRows;
+        // console.log(this.x+"/"+this.y);
+        this.sprite.src = 'images/ducket.png';
+        this.frameWidth = this.sprite.width / this.animColumns;
+        this.frameHeight = this.sprite.height / this.animRows;
+        this.sprite.loaded = true; 
 	}
 
   this.update = function(){

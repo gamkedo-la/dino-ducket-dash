@@ -3,6 +3,7 @@ const KEY_W = 87;
 const KEY_S = 83;
 const KEY_A = 65;
 const KEY_D = 68;
+const KEY_R = 82;
 //WARM UP: Add values for ARROW Keys
 //WARM UP: Add values for "P" and "M" in preparation for Pause & Mute functionality
 //WARM UP: Add values for "+" and "-" in preparation for volume controls
@@ -19,8 +20,15 @@ function initInput(){
 }
 
 function keyPressed(evt){
+	console.log(evt.keyCode);
 	if(gameState == "menu"){
-		gameState = "game";
+		initGame();
+	}
+	
+	if(gameState == 'gameOver'){
+		if(evt.keyCode == KEY_R){
+			initGame();
+		}
 	}
 	switch(evt.keyCode){
 		case KEY_W:

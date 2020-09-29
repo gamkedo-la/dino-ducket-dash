@@ -33,47 +33,25 @@ function init(){
 	canvasContext.imageSmoothingEnabled = false;
 	canvasContext.msImageSmoothingEnabled = false;
 	
-
 	initInput();
-
-	player = new playerClass();
-	player.initPlayer();
-	
-	spawnEnemy();
-	
-	menuSprite = new menuClass();
-	menuSprite.init();
-	
-	moneyBucket = new moneyBucketClass();
-	
-	score = 0;
-
-	spawnCoins();
+	menuInit();
 
 	console.log("Game Initialized");
 }
 
 function update(){
-	if(gameState == "menu"){
-		
-	} else{
-		player.update();
-		
-		for (var i = 0; i < enemies.length; i++) {
-			enemies[i].update()
-		}
-		
-		moneyBucket.update();
-		checkIfCoinsNeedToRespawn()
-		
-		for (var i = 0; i < ducketList.length; i++) {
-			if(ducketList[i].readyToRemove){
-				ducketList.splice(i,1);
-			}
-		}
-	}
-	
-	//ducket.update();
+	switch (gameState) {
+		case 'menu': 
+			menuUpdate(); 
+			break;
+		case 'game': 
+			gameUpdate();
+			break;
+		case 'gameOver': 
+			gameOverUpdate();
+			break;
+	}	
+
 	draw();
 }
 
@@ -102,18 +80,17 @@ function checkIfCoinsNeedToRespawn(){
 
 function draw(){
 	cls();
-	if(gameState == "menu"){
-		menuSprite.draw();
-	} else{
-		for (var i = 0; i < ducketList.length; i++) {
-			ducketList[i].draw();
-		}
-		moneyBucket.draw();
-		player.draw();
-		
-		for (var i = 0; i < enemies.length; i++) {
-			enemies[i].draw()
-		}
-	}
+	
+	switch (gameState) {
+		case 'menu': 
+			menuDraw();
+			break;
+		case 'game': 
+			gameDraw();
+			break;
+		case 'gameOver': 
+			gameOverDraw();
+			break;
+	}	
 	
 }

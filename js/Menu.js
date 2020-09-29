@@ -26,3 +26,16 @@ function menuClass(){
     animate(this);
   }
 }
+
+function menuInit(){
+	menuSprite = new menuClass();
+	menuSprite.init();
+}
+
+function menuUpdate(){
+	return;
+}
+
+function menuDraw(){
+	menuSprite.draw();
+}

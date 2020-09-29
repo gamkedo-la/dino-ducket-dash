@@ -48,12 +48,14 @@ function enemyClass(){
 			this.speedX *= -1;
 			this.speedY *= -1;
 			//WARM UP: enemy makes a sound?
+			
+			if(player.ducketsCarried <= 0){
+				gameState = 'gameOver';
+			}
 		}
 
 		this.x += this.speedX;
 		this.y += this.speedY;
-
-
 
 	}
 

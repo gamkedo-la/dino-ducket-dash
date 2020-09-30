@@ -50,12 +50,9 @@ function playerClass(){
 
 	this.draw = function(){
 		//drawRect(this.x,this.y, this.sprite.width,this.sprite.height, 'white');
-        
-        //canvasContext.fillStyle = 'black';
-		//canvasContext.font = '12px "Press2Start"'
-        //canvasContext.fillText(this.ducketsCarried, this.x+10,this.y-2);
-        
-        colorTextShadow(this.ducketsCarried,this.x+10,this.y-2);
+		canvasContext.fillStyle = 'black';
+		canvasContext.font = '12px "Press Start 2P"'
+		canvasContext.fillText(this.ducketsCarried, this.x+10,this.y-2);
 		animate(this);
 	}
 }

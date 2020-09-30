@@ -22,6 +22,7 @@ function enemyClass(){
 		this.sprite.src = 'images/enemy_run.png';
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
+		this.sprite.loaded = true;
 	}
 
 	this.update = function(){

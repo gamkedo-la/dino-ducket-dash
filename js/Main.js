@@ -22,7 +22,7 @@ window.onload = function(){
     for (var i=0; i<allImages.length; i++) {
         var nextone = new Image();
         nextone.src = allImages[i];
-        nextone.onload = startgameIfDownloadsComplete;
+        nextone.onload = startgameIfDownloadsComplete();
     }
 
 }
@@ -49,15 +49,15 @@ function init(){
 	//let's keep those pixels crisp
 	canvasContext.mozImageSmoothingEnabled = false;
 	canvasContext.imageSmoothingEnabled = false;
-    canvasContext.msImageSmoothingEnabled = false;
-    canvasContext.font = "Press Start 2P";
+  canvasContext.msImageSmoothingEnabled = false;
+  canvasContext.font = "Press Start 2P";
 	
 	initInput();
 	menuInit();
 
 	console.log("Initialization complete. Running game!");
 
-    setInterval(update,1000/FPS);
+  setInterval(update,1000/FPS);
 
 }
 

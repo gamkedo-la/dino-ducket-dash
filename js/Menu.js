@@ -20,6 +20,7 @@ function menuClass(){
 		this.sprite.src = 'images/menu_title.png';
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
+		this.sprite.loaded = true;
 	}
   
   this.draw = function(){

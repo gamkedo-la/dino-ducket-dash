@@ -22,6 +22,7 @@ function playerClass(){
 		this.sprite.src = 'images/player_idle.png';
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
+		this.sprite.loaded = true;
 	}
 
 	this.update = function(){

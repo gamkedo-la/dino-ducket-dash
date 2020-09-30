@@ -32,11 +32,14 @@ function resetTimer(){
 
 
 function drawTimer(){
-	let timerBoxWidth = 15;
+	let timerBoxWidth = 20;
 	let timerBoxHeight = 10;
 	let xPos = canvas.width/2 - timerBoxWidth/2;
-	let yPos = 5;
+	let yPos = 0;
 	timerText = gameMinutes + ":" + gameSeconds;
-	drawRect(xPos, yPos, timerBoxWidth, timerBoxHeight, "grey");
-	colorTextShadow(timerText, xPos+5, yPos+20, fillColor="black", font = "14px Arial Black", align="left") 
+	drawRect(xPos, yPos, timerBoxWidth, timerBoxHeight, "black");
+	canvasContext.fillStyle = 'white';
+	canvasContext.font = '12px "Press Start 2P"'
+	canvasContext.fillText(timerText, xPos+5,yPos+20);
+	// colorTextShadow(timerText, xPos+5, yPos+20, fillColor="black", font = "14px Arial Black", align="left") 
 }

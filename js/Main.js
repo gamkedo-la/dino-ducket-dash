@@ -25,7 +25,12 @@ window.onload = function(){
   for (var i=0; i<allImages.length; i++) {
       var nextone = new Image();
       nextone.src = allImages[i];
-      nextone.onload = startgameIfDownloadsComplete();
+      
+      // bugfix: this would run the function NOW, not when the image has loaded
+      // nextone.onload = startgameIfDownloadsComplete();
+      
+      // instead, we want a reference to the function we want run later on
+      nextone.onload = startgameIfDownloadsComplete;
   }
 
 }

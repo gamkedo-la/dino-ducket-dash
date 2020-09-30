@@ -17,13 +17,16 @@ var allImages = ['images/ducket.png','images/enemy_run.png','images/menu_title.p
 var imagesDownloaded = 0;
 
 window.onload = function(){
-    
-    console.log("Initializing game. Downloading "+allImages.length+" sprites.");
-    for (var i=0; i<allImages.length; i++) {
-        var nextone = new Image();
-        nextone.src = allImages[i];
-        nextone.onload = startgameIfDownloadsComplete();
-    }
+	// Check for game controller plugged in
+	window.addEventListener("gamepadconnected", gamepadAPI.connect);
+	window.addEventListener("gamepaddisconnected", gamepadAPI.disconnect);
+	
+  console.log("Initializing game. Downloading "+allImages.length+" sprites.");
+  for (var i=0; i<allImages.length; i++) {
+      var nextone = new Image();
+      nextone.src = allImages[i];
+      nextone.onload = startgameIfDownloadsComplete();
+  }
 
 }
 

@@ -18,8 +18,12 @@ var imagesDownloaded = 0;
 
 window.onload = function(){
 	// Check for game controller plugged in
-	window.addEventListener("gamepadconnected", gamepadAPI.connect);
-	window.addEventListener("gamepaddisconnected", gamepadAPI.disconnect);
+	window.addEventListener("gamepadconnected", (evt)=>{
+		console.log("gamepad connected");
+	});
+	window.addEventListener("gamepaddisconnected", (evt)=>{
+		console.log("gamepad disconnected");
+	});
 	
   console.log("Initializing game. Downloading "+allImages.length+" sprites.");
   for (var i=0; i<allImages.length; i++) {

@@ -6,6 +6,7 @@ function playerClass(){
 	this.height = 10;
 	this.speed = 10;
 	this.ducketsCarried = 0;
+	this.controllerThreshold = 0.5;
 
 	// Animation Variables
 	this.sprite = new Image();
@@ -26,7 +27,35 @@ function playerClass(){
 	}
 
 	this.update = function(){
-		//console.log(this.x+"/"+this.y);
+		//get connected gamepads
+		var gamepads = navigator.getGamepads();
+
+		//check if there's gamepads connected.
+		if(gamepads.length > 0){
+			
+			//gamepad player movement code
+			if(gamepads[0].axes[0] > this.controllerThreshold){
+				if(this.x < canvas.width - this.width*PIXEL_SCALE_UP){
+					this.x += (this.speed);
+				}
+			}
+			if(gamepads[0].axes[0] < -this.controllerThreshold){
+				if(this.x > 0){
+					this.x -= (this.speed);
+				}
+			}
+			if(gamepads[0].axes[1] < -this.controllerThreshold){
+				if(this.y > 0){
+					this.y -= (this.speed);
+				}
+			}
+			if(gamepads[0].axes[1] > this.controllerThreshold){
+				if(this.y < canvas.height-this.height*PIXEL_SCALE_UP){
+					this.y += (this.speed);
+				}
+			}
+		}
+		
 		if(moveRight){
 			if(this.x < canvas.width - this.width*PIXEL_SCALE_UP){
 				this.x += (this.speed);
@@ -43,6 +72,29 @@ function playerClass(){
 			}
 		}
 		if(moveDown){
+			if(this.y < canvas.height-this.height*PIXEL_SCALE_UP){
+				this.y += (this.speed);
+			}
+		}
+	}
+	
+	function playerGamepadMovement(gamepads){
+		if(gamepads[0].axes[0] > this.controllerThreshold){
+			if(this.x < canvas.width - this.width*PIXEL_SCALE_UP){
+				this.x += (this.speed);
+			}
+		}
+		if(gamepads[0].axes[0] < -this.controllerThreshold){
+			if(this.x > 0){
+				this.x -= (this.speed);
+			}
+		}
+		if(gamepads[0].axes[1] < -this.controllerThreshold){
+			if(this.y > 0){
+				this.y -= (this.speed);
+			}
+		}
+		if(gamepads[0].axes[1] > this.controllerThreshold){
 			if(this.y < canvas.height-this.height*PIXEL_SCALE_UP){
 				this.y += (this.speed);
 			}

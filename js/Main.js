@@ -59,7 +59,6 @@ function init(){
 	canvasContext = canvas.getContext('2d');
 	
 	//let's keep those pixels crisp
-	canvasContext.mozImageSmoothingEnabled = false;
 	canvasContext.imageSmoothingEnabled = false;
   canvasContext.msImageSmoothingEnabled = false;
   canvasContext.font = "Press Start 2P";

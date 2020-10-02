@@ -31,7 +31,7 @@ function playerClass(){
 		var gamepads = navigator.getGamepads();
 
 		//check if there's gamepads connected.
-		if(gamepads.length > 0){
+		if(gamepads.length > 0 && gamepads[0] && gamepads[0].buttons!=undefined){
 			
 			//gamepad player movement code
 			if(gamepads[0].axes[0] > this.controllerThreshold){

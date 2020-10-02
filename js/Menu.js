@@ -38,14 +38,14 @@ function menuUpdate(){
 	var gamepads = navigator.getGamepads();
 	
 	//check if any button on the gamepad has been pressed
-	if(gamepads.length > 0){
-		for (var i = 0; i < gamepads[0].buttons.length; i++) {
-			if(gamepads[0].buttons[i].pressed){
-				if(gameState == "menu"){
-					initGame();
-				}
-			} // end gamepad button if
-		} // end buttons for loop
+	if(gamepads.length > 0 && gamepads[0] && gamepads[0].buttons!=undefined){
+        for (var i = 0; i < gamepads[0].buttons.length; i++) {
+            if(gamepads[0].buttons[i].pressed){
+                if(gameState == "menu"){
+                    initGame();
+                }
+            } // end gamepad button if
+        } // end buttons for loop
 	} //end gamepad check
 }
 

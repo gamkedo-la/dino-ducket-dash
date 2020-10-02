@@ -3,7 +3,7 @@ function gameOverUpdate(){
 	var gamepads = navigator.getGamepads();
 	
 	//check if any button on the gamepad has been pressed
-	if(gamepads.length > 0){
+	if(gamepads.length > 0 && gamepads[0] && gamepads[0].buttons!=undefined){
 		for (var i = 0; i < gamepads[0].buttons.length; i++) {
 			if(gamepads[0].buttons[i].pressed){
 				if(gameState == "gameOver"){

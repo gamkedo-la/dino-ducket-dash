@@ -1,0 +1,136 @@
+
+#allmenu{
+    width:0px;
+    height:0px;
+    
+    top:20px
+    left:8px;
+    border-radius: 25px:
+    border-left: 300px ;
+    border-top: 300px;
+    border-right:300px;
+    position:center;
+    margin:auto;
+    display: block;
+    cursor:pointer;
+}
+
+#single {
+    position:relative;
+    width:200px;
+    height:50px;
+    bottom:220px;
+    right:100;
+    background:orange;
+    text-align:center;
+    font-size:30px;
+    background-size:
+    color:white;
+    border-radius:50px;
+    transition:0.5s;
+
+}
+
+#single:hover {
+    background:#e3ff00;
+    color:black;
+    transform:scale(+0.99);
+
+}
+
+#multi {
+  position:relative;
+    width:200px;
+    height:50px;
+    bottom:230px;
+    right:100;
+    background:orange;
+    text-align:center;
+    font-size:30px;
+    background-size:
+    color:white;
+    border-radius:50px;
+    transition:0.5s;
+
+}
+
+#multi:hover {
+    background:#e3ff00;
+    color:black;
+    transform:scale(+1.5);
+
+}
+
+#options:active {
+  background-color: #ffffff;
+  box-shadow: 0 5px #666;
+  transform: translateY(40px);
+}
+
+#options {
+  position:relative;
+    width:200px;
+    height:50px;
+    bottom:240px;
+    right:100;
+    background:orange;
+    text-align:center;
+    font-size:30px;
+    background-size:
+    color:white;
+    border-radius:50px;
+    transition:0.5s;
+
+}
+
+#options:hover {
+    background:#e3ff00;
+    color:black;
+    transform:scale(+1.5);
+
+}
+
+#options:active {
+  background-color: #ffffff;
+  box-shadow: 0 5px #666;
+  transform: translateY(40px);
+}
+
+#credits {
+  position:relative;
+    width:250px;
+    height:45px;
+    bottom:250px;
+    right:100;
+    background:orange;
+    text-align:center;
+    font-size:30px;
+    background-size:300%;
+    color:white;
+    border-radius:50px;
+    transition:0.5s;
+}
+
+#credits:hover {
+    background:#e3ff00;
+    color:black;
+    transform:scale(+1.5);
+
+}
+
+#credits:active {
+  background-color: #ffffff;
+  box-shadow: 0 5px #666;
+  transform: translateY(40px);
+}
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border-radius: 15px;
+}

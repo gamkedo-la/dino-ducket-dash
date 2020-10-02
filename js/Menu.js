@@ -52,3 +52,12 @@ function menuUpdate(){
 function menuDraw(){
 	menuSprite.draw();
 }
+
+function menuButton() {
+	var x = document.getElementById("allmenu");
+	if (x.style.display === "none") {
+	  x.style.display = "block";
+	} else {
+	  x.style.display = "none";
+	}
+  }

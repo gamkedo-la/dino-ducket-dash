@@ -11,14 +11,13 @@
 <body>
 	<!-- WARP UP: horizontally center the canvas in the window -->
 	<div class='header'>DINO DUCKET DASH! Any Key to Play, WASD to move</div>
-		<!--<button class="button" onclick="menuButton()">Show/Hide Menu
-		<div id="allmenu">
-			<div id="single"><p>1PLAY</p></div>
-			<div id="multi"><p>2PLAY</p></div>
-			<div id="options"><p>OPTIONS</p></div>
-			<div id="credits"><p>CREDITS</p></div>
-		</div>
-	</button>-->
+	<div id="allmenu" onclick="menuState()">
+		<div id="single"><p>1PLAY</p></div>
+		<div id="multi"><p>2PLAY</p></div>
+		<div id="audio"><p>AUDIO</p></div>
+		<div id="credits"><p>CREDITS</p></div>
+	</div>
+	<button class="button" onclick="menuButton()">ducketMenu</button>
 	<canvas id='gameCanvas' width="320" height="240"></canvas>
 	<script src="js/Coin.js"></script>
 	<script src="js/Main.js"></script>

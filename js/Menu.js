@@ -52,9 +52,21 @@ function menuUpdate(){
 function menuDraw(){
 	menuSprite.draw();
 }
+//menuItem variables
+let x = document.getElementById("allmenu");
+let s = document.getElementById("single");
+let m = document.getElementById("multi");
+let a = document.getElementById("audio");
+let c = document.getElementById("credits");
+
+function menuState() {
+		if(s.onclick = true){
+			initGame();
+			x.style.display = "none";
+		}
+	  }
 
 function menuButton() {
-	var x = document.getElementById("allmenu");
 	if (x.style.display === "none") {
 	  x.style.display = "block";
 	} else {

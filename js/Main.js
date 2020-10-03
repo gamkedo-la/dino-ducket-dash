@@ -12,6 +12,7 @@ var menuSprite;
 var moneyBucket;
 var gameState = "menu";
 var score;
+var menuUI;
 
 var allImages = ['images/ducket.png','images/enemy_run.png','images/menu_title.png','images/player_idle.png'];
 var imagesDownloaded = 0;
@@ -63,6 +64,8 @@ function init(){
   canvasContext.msImageSmoothingEnabled = false;
   canvasContext.font = "Press Start 2P";
 	
+	menuUI = document.getElementById('allmenu');
+	
 	initInput();
 	menuInit();
 
@@ -78,6 +81,7 @@ function update(){
 			menuUpdate(); 
 			break;
 		case 'game': 
+			menuUI.style.display = 'none';
 			gameUpdate();
 			break;
 		case 'gameOver': 

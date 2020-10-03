@@ -3,8 +3,8 @@ function enemyClass(){
 	this.y = 100;
 	this.width = 20;
 	this.height = 20;
-	this.speedX = 4;
-	this.speedY = 8;
+	this.speedX; 
+	this.speedY; 
 	//WARM UP: how many duckets does the player lose when hit by this enemy?
 
 	// Animation Variables
@@ -19,10 +19,19 @@ function enemyClass(){
 	this.flipped = true;
 
 	this.init = function(){
-		this.sprite.src = 'images/enemy_run.png';
+		//this.sprite.src = 'images/enemy_run.png';
+		this.sprite.src = 'images/pterodactyl_sprite.png';
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true;
+		let randomSpeedX = randomIntFromInterval(3,8);
+		let randomSpeedY = randomIntFromInterval(3,8);
+		let randomX = randomIntFromInterval(0,canvas.width);
+		let randomY = randomIntFromInterval(0,canvas.height);
+		this.speedX = randomSpeedX;
+		this.speedY = randomSpeedY;
+		this.x = randomX;
+		this.y = randomY;
 	}
 
 	this.update = function(){

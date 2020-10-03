@@ -4,7 +4,7 @@
     height:0px;
     
     top:50%;
-    left:50%;
+    left:100%;
     position:sticky;
     margin:auto;
     display: block;
@@ -17,7 +17,7 @@
     height:50px;
     bottom:220px;
     padding:50%;
-    background:orange;
+    background:#fe4101;
     border-radius:50px;
     text-align:center;
     font-size:30px;
@@ -27,7 +27,7 @@
 }
 
 #single:hover {
-    background:#e3ff00;
+    background:#aad354;
     color:black;
     transform:scale(+1.5);
     transition:0.5s;
@@ -46,7 +46,7 @@
     height:50px;
     bottom:230px;
     right:50%;
-    background:orange;
+    background:#fe4101;
     border-radius:50px;
     text-align:center;
     font-size:30px;
@@ -55,7 +55,7 @@
 }
 
 #multi:hover {
-    background:#e3ff00;
+    background:#aad354;
     color:black;
     transform:scale(+1.5);
     transition:0.5s;
@@ -79,7 +79,7 @@
     height:50px;
     bottom:240px;
     right:50%;
-    background:orange;
+    background:#fe4101;
     border-radius:50px;
     text-align:center;
     font-size:30px;
@@ -88,7 +88,7 @@
 }
 
 #audio:hover {
-    background:#e3ff00;
+    background:#aad354;
     color:black;
     transform:scale(+1.5);
     transition:0.5s;
@@ -106,7 +106,7 @@
     height:50px;
     bottom:250px;
     right:50%;
-    background:orange;
+    background:#fe4101;
     text-align:center;
     font-size:30px;
     color:white;
@@ -115,7 +115,7 @@
 }
 
 #credits:hover {
-    background:#e3ff00;
+    background:#aad354;
     color:black;
     transform:scale(+1.5);
 

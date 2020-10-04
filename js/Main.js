@@ -14,6 +14,10 @@ var gameState = "menu";
 var score;
 var menuUI;
 
+//WARM UP: Looking for a good place to add a comment as a practice commit?
+//How about on the next line?
+
+//WARM UP: May want to move this list to another file because it will probably get very long
 var allImages = ['images/ducket.png','images/enemy_run.png','images/menu_title.png','images/player_idle.png'];
 var imagesDownloaded = 0;
 
@@ -53,7 +57,7 @@ function init(){
     //WARM UP: can we listen to the "resize" event and resize the canvas while
     //maintaining the aspect ratio?
 	canvas = document.getElementById('gameCanvas');
-    // todo: round these values to the nearest integer to ensure crisp pixels
+    //WARM UP: round these values to the nearest integer to ensure crisp pixels
 	canvas.width = PIXEL_SCALE_UP * canvas.width;
 	canvas.height = PIXEL_SCALE_UP * canvas.height;
 	
@@ -61,8 +65,8 @@ function init(){
 	
 	//let's keep those pixels crisp
 	canvasContext.imageSmoothingEnabled = false;
-  canvasContext.msImageSmoothingEnabled = false;
-  canvasContext.font = "Press Start 2P";
+	canvasContext.msImageSmoothingEnabled = false;
+	canvasContext.font = "Press Start 2P";
 	
 	menuUI = document.getElementById('allmenu');
 	

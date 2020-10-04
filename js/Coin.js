@@ -31,7 +31,6 @@ function ducketClass(){
 
   this.draw = function(){
 		if(checkCollision(this,player)){
-			//WARM UP: play SFX. Trello card - https://trello.com/c/Q0F3tYby
 			coinPickUpSFX.play();
 			this.readyToRemove = true;
 			player.ducketsCarried++

@@ -25,13 +25,16 @@ function enemyClass(){
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true;
 		let randomSpeedX = randomIntFromInterval(3,8);
-		let randomSpeedY = randomIntFromInterval(3,8);
 		let randomX = randomIntFromInterval(0,canvas.width);
 		let randomY = randomIntFromInterval(0,canvas.height);
 		this.speedX = randomSpeedX;
-		this.speedY = randomSpeedY;
+		this.speedY = 11 - randomSpeedX;
 		this.x = randomX;
 		this.y = randomY;
+		while((Math.abs(player.x - this.x) < this.frameWidth) && (Math.abs(player.y - this.x < this.frameHeight))) {
+			this.x = randomIntFromInterval(0,canvas.width);
+			this.y = randomIntFromInterval(0,canvas.height);
+		}
 	}
 
 	this.update = function(){

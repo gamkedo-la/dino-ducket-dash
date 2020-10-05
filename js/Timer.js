@@ -34,7 +34,7 @@ function resetTimer(){
 function drawTimer(){
 	let timerBoxWidth = 20;
 	let timerBoxHeight = 10;
-	let xPos = canvas.width/2 - timerBoxWidth/2;
+	let xPos = canvas.width/2 - (timerBoxWidth*PIXEL_SCALE_UP/2);
 	let yPos = 0;
 	timerText = gameMinutes + ":" + gameSeconds;
 	drawRect(xPos, yPos, timerBoxWidth, timerBoxHeight, "black");

@@ -57,19 +57,22 @@ let x = document.getElementById("allmenu");
 let s = document.getElementById("single");
 let m = document.getElementById("multi");
 let a = document.getElementById("audio");
-let c = document.getElementById("credits");
+let c = document.getElementById("highscore");
 
 function menuState() {
-		if(s.onclick = true){
+		if(s.onmouseup = true){
 			initGame();
-			x.style.display = "none";
 		}
 	  }
 
-function menuButton() {
-	if (x.style.display === "none") {
-	  x.style.display = "block";
-	} else {
-	  x.style.display = "none";
-	}
-  }
+function showHighScore(){
+}
+
+function showCredits() {
+	console.log('creditsss');
+	if(x.style.display === "none"){
+		x.style.display = "block"; 
+		 } else {
+		   x.style.display = "none";
+		 }
+}

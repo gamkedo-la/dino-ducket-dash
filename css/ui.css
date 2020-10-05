@@ -1,13 +1,16 @@
+.container {
+  margin: 0;
+  position: absolute;
+  top: 55%;
+  left: 45%;
+  display: block;
+  transform: translate(-50%, -50%);
+}
 
 #allmenu{
     width:0px;
     height:0px;
-    
-    top:50%;
-    left:100%;
     position:sticky;
-    margin:auto;
-    display: block;
     cursor:pointer;
 }
 
@@ -75,7 +78,7 @@
 
 #audio {
   position:relative;
-    width:220px;
+    width:230px;
     height:50px;
     bottom:240px;
     right:50%;
@@ -100,53 +103,50 @@
   transform: translateY(40px);
 }
 
-#credits {
+#highscore {
   position:relative;
-    width:230px;
+    width:245px;
     height:50px;
     bottom:250px;
     right:50%;
     background:#fe4101;
     text-align:center;
-    font-size:30px;
+    font-size:23px;
     color:white;
     border-radius:50px;
     transition:0.5s;
 }
 
-#credits:hover {
+#highscore:hover {
     background:#aad354;
     color:black;
     transform:scale(+1.5);
 
 }
 
-#credits:active {
+#highscore:active {
   background-color: #ffffff;
   box-shadow: 0 5px #666;
   transform: translateY(40px);
 }
 
-.button {
-  position: sticky;
-  padding: 10px 10px;
-  font-size: 18px;
+.popup {
+  top: 50%;
+  padding: 5px 5px 5px;
+  font-size: 15px;
   cursor: pointer;
   text-align: center;
-  top: 0;
-  left:50%;
   color: #fff;
-  background-color: #4CAF50;
-  border-radius: 15px;
+  background-color: rgb(41, 39, 39);
+  background-size: 15px;
 }
 
-.button:hover {
-  background:#4CAF60;
-  color:black;
+.popup:hover {
+  color:green;
   transform:scale(+1.05);
 }
 
-.button:active {
+.popup:active {
   background-color: #999;
   box-shadow: 0 5px #666;
 }

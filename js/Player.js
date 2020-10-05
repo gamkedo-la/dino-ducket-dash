@@ -1,4 +1,4 @@
-function playerClass(){
+function playerClass(){	
 	//Player Variables
 	this.x = 0;
 	this.y = 0;
@@ -59,21 +59,25 @@ function playerClass(){
 		if(moveRight){
 			if(this.x < canvas.width - this.width*PIXEL_SCALE_UP){
 				this.x += (this.speed);
+				this.animationFrameDelay = 1;
 			}
 		}
 		if(moveLeft){
 			if(this.x > 0){
 				this.x -= (this.speed);
+				this.animationFrameDelay = 1;
 			}
 		}
 		if(moveUp){
 			if(this.y > 0){
 				this.y -= (this.speed);
+				this.animationFrameDelay = 1;
 			}
 		}
 		if(moveDown){
 			if(this.y < canvas.height-this.height*PIXEL_SCALE_UP){
 				this.y += (this.speed);
+				this.animationFrameDelay = 1;
 			}
 		}
 	}

@@ -1,8 +1,12 @@
+let bucketSize = 32;
+let scaledbucketSize = bucketSize*PIXEL_SCALE_UP;
+//let bucketFontSize = "24px";
+
 function moneyBucketClass(){
-  this.x = canvas.width/2 - 16;
-  this.y = canvas.height/2 - 16;
-  this.width = 32;
-  this.height = 32;
+  this.x = (canvas.width/2) - (scaledbucketSize/2);
+  this.y = (canvas.height/2) - (scaledbucketSize/2);
+  this.width = bucketSize;
+  this.height = bucketSize;
   
   this.update = function(){
     if(checkCollision(this,player)){
@@ -15,10 +19,11 @@ function moneyBucketClass(){
   }
   
   this.draw = function(){
-    drawRect(this.x,this.y, this.width,this.height, 'white');
+    drawRect(this.x, this.y, this.width, this.height, 'white');
     canvasContext.fillStyle = 'black';
-    canvasContext.font = '24px "Press Start 2P"'
-		canvasContext.fillText(score, this.x+8*PIXEL_SCALE_UP,this.y+16*PIXEL_SCALE_UP);
+    //need to draw bucket score text centered. use CSS?
+    canvasContext.font = '30px "Press Start 2P"';
+    canvasContext.fillText(score, (canvas.width/2)-30, (canvas.height/2)+16);
   }
   
 }

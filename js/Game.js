@@ -38,10 +38,12 @@ function gameUpdate(){
 }
 
 function gameDraw(){
+  moneyBucket.draw();
+  
   for (var i = 0; i < ducketList.length; i++) {
     ducketList[i].draw();
   }
-  moneyBucket.draw();
+  
   player.draw();
   
   for (var i = 0; i < enemies.length; i++) {

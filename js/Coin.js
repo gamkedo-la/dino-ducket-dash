@@ -23,6 +23,17 @@ function ducketClass(){
         this.frameWidth = this.sprite.width / this.animColumns;
         this.frameHeight = this.sprite.height / this.animRows;
         this.sprite.loaded = true; 
+				
+				//Never spawn coin under MoneyBucket
+				while(checkCollision(this,moneyBucket)) {
+					this.x = randomIntFromInterval(0,canvas.width);
+					this.y = randomIntFromInterval(0,canvas.height);
+					
+					while(checkCollision(this,player)) {
+						this.x = randomIntFromInterval(0,canvas.width);
+						this.y = randomIntFromInterval(0,canvas.height);
+					}
+				}
 	}
 
   this.update = function(){

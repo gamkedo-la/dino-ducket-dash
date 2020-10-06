@@ -8,7 +8,7 @@ function ducketClass(){
 
 	// Animation Variables
 	this.sprite = new Image();
-	this.animColumns = 4;
+	this.animColumns = 6;
 	this.animRows = 1;
 	this.frameWidth;
 	this.frameHeight;

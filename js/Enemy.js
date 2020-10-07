@@ -65,6 +65,8 @@ function enemyClass(){
 			
 			if(player.ducketsCarried <= 0){
 				gameState = 'gameOver';
+			} else{
+				player.ducketsCarried = 0;
 			}
 		}
 

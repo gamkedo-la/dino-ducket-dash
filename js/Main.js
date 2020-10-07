@@ -6,6 +6,7 @@ var canvas;
 var canvasContext;
 
 var player;
+var decals;
 var enemies = [];
 var ducketList = [];
 var menuSprite;

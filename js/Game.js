@@ -13,8 +13,10 @@ function initGame(){
   
   moneyBucket = new moneyBucketClass();
 	
-	spawnEnemy();
+    spawnEnemy();
   spawnCoins();
+
+  decals.scatterDecorations(); // rocks and grass etc
   
   gameState = 'game';
 }

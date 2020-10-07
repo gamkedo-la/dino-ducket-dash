@@ -20,7 +20,7 @@ var decalManager = function() {
 
     var decalCount = 0;
     var decalCanvas = document.createElement("canvas");
-    var decalContext = decalCanvas.getContext('2d'); 
+    var decalContext = decalCanvas.getContext("2d"); 
     decalContext.imageSmoothingEnabled = false;
 	decalContext.msImageSmoothingEnabled = false;
 
@@ -28,13 +28,13 @@ var decalManager = function() {
     decalSpritesheet.onload = function(e) { decalSpritesheet.loaded = true; }
     decalSpritesheet.src = "images/decals.png";
 
-	this.add = function(x,y,rot=0,alpha=0.25,spritenum=0) {
+	this.add = function(x,y,rot=0,alpha=0.025,spritenum=0) {
         if (!decalSpritesheet.loaded) return;
         decalCount++;
-		console.log('decal '+decalCount+':'+x+','+y+','+rot+' alpha:'+alpha);
+		//console.log('decal '+decalCount+':'+x+','+y+','+rot+' alpha:'+alpha);
 		decalContext.save();
-		decalContext.translate(x,y);
-		decalContext.rotate(rot);
+		decalContext.translate(Math.round(x),Math.round(y));
+		if (rot) decalContext.rotate(rot);
 		decalContext.globalAlpha = alpha;
         decalContext.drawImage(
             decalSpritesheet, 
@@ -45,7 +45,7 @@ var decalManager = function() {
 		decalContext.restore()
 	};
 
-	this.draw = function() {
+    this.draw = function() {
 		canvasContext.drawImage(decalCanvas, 0, 0);
 	};
 
@@ -59,6 +59,20 @@ var decalManager = function() {
         this.resize();
         decalCanvas.clearRect(0, 0, decalCanvas.width, decalCanvas.height);
 	};
+
+    this.scatterDecorations = function() {
+        console.log("Scattering decoration decals");
+        var x,y,sprnum;
+        for (var x,y,sprnum,i=0; i<150; i++) {
+            x = randomIntFromInterval(0,decalCanvas.width);
+            y = randomIntFromInterval(0,decalCanvas.height);
+            sprnum = randomIntFromInterval(1,9);
+            // avoid center
+            if ((x<decalCanvas.width/2-50 || x>decalCanvas.width/2+50) &&
+                (y<decalCanvas.height/2-50 || y>decalCanvas.height/2+50))
+                this.add(x,y,0,1,sprnum);
+        }
+    }
 
     this.resize(); // fun the first time right away
 

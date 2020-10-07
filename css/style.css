@@ -15,10 +15,13 @@ canvas {
     border:0; 
     user-select:none; 
     font-family: 'Press Start 2P', cursive; 
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
-    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: pixelated;
 }
 
 .header { 

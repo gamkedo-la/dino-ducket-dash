@@ -20,6 +20,7 @@ var decalManager = function() {
 
     var decalCount = 0;
     var decalCanvas = document.createElement("canvas");
+    decalCanvas.style.imageRendering="pixelated";
     var decalContext = decalCanvas.getContext("2d"); 
     decalContext.imageSmoothingEnabled = false;
 	decalContext.msImageSmoothingEnabled = false;

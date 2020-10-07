@@ -13,7 +13,8 @@ function ducketClass(){
 	this.frameWidth;
 	this.frameHeight;
 	this.currentFrame = 0;
-	this.animationFrameDelay = ANIMATION_DELAY;
+	this.animationFrameDelay = 5;
+	this.currentAnimationFrameDelay = 5;
 	this.flipped = true;
 	this.readyToRemove = false;
 

@@ -14,6 +14,7 @@ function menuClass(){
 	this.frameHeight;
 	this.currentFrame = 0;
 	this.animationFrameDelay = ANIMATION_DELAY;
+	this.currentAnimationFrameDelay = ANIMATION_DELAY;
 	this.flipped = true;
 
 	this.init = function(){

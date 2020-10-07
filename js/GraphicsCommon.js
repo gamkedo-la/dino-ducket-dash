@@ -24,11 +24,11 @@ function cls(){
 
 function animate(toAnimate){
 	//WARM UP: use each entity's "flipped" property to render them reversed. Trello card - https://trello.com/c/hMlK5Dfh
-	toAnimate.animationFrameDelay--;
-	if(toAnimate.animationFrameDelay <= 0){
+	toAnimate.currentAnimationFrameDelay--;
+	if(toAnimate.currentAnimationFrameDelay <= 0){
 		//console.log(toAnimate.currentFrame);
 		toAnimate.currentFrame++;
-		toAnimate.animationFrameDelay = ANIMATION_DELAY;
+		toAnimate.currentAnimationFrameDelay = toAnimate.animationFrameDelay;
 	}
 
 	var maxFrame = toAnimate.animColumns * toAnimate.animRows - 1;

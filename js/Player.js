@@ -16,6 +16,7 @@ function playerClass(){
 	this.frameHeight;
 	this.currentFrame = 0;
 	this.animationFrameDelay = ANIMATION_DELAY;
+	this.currentAnimationFrameDelay = ANIMATION_DELAY;
 	this.flipped = true;
 
 	this.initPlayer = function(){
@@ -79,6 +80,10 @@ function playerClass(){
 				this.y += (this.speed);
 				this.animationFrameDelay = 1;
 			}
+		}
+		
+		if(!moveDown && !moveUp && !moveRight && !moveLeft){
+			this.animationFrameDelay = ANIMATION_DELAY;
 		}
 	}
 	

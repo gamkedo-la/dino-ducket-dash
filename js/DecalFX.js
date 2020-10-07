@@ -66,11 +66,21 @@ var decalManager = function() {
         for (var x,y,sprnum,i=0; i<150; i++) {
             x = randomIntFromInterval(0,decalCanvas.width);
             y = randomIntFromInterval(0,decalCanvas.height);
-            sprnum = randomIntFromInterval(1,9);
+            sprnum = randomIntFromInterval(3,9); // skip footsteps and bones
             // avoid center
             if ((x<decalCanvas.width/2-80 || x>decalCanvas.width/2+80) &&
                 (y<decalCanvas.height/2-80 || y>decalCanvas.height/2+80))
                 this.add(x,y,0,1,sprnum);
+        }
+    }
+
+    this.deathSplatter = function(x,y) {
+        console.log("deathSplatter");
+        var x,y,sprnum;
+        this.add(x,y,0,1,1); // skull
+        for (var i=0; i<4; i++) {
+            this.add(x+randomIntFromInterval(-50,50),
+            y+randomIntFromInterval(-50,50),0,1,2); // bone
         }
     }
 

@@ -63,7 +63,9 @@ function enemyClass(){
 			this.speedY *= -1;
 			//WARM UP: enemy makes a sound?
             
+
 			if(player.ducketsCarried <= 0){
+                decals.deathSplatter(this.x,this.y+50); // pile of bones!
 				gameState = 'gameOver';
 			} else{
 				player.ducketsCarried = 0;

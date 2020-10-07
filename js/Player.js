@@ -87,7 +87,7 @@ function playerClass(){
 			this.animationFrameDelay = ANIMATION_DELAY;
         } else { // we are moving
             this.stepCounter++;
-            if (this.stepCounter%4==0) decals.add(this.x+10,this.y+30);
+            if (this.stepCounter%3==0) decals.add(this.x+10,this.y+30);
         }
 	}
 	

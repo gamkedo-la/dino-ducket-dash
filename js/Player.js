@@ -6,7 +6,8 @@ function playerClass(){
 	this.height = 10;
 	this.speed = 10;
 	this.ducketsCarried = 0;
-	this.controllerThreshold = 0.5;
+    this.controllerThreshold = 0.5;
+    this.stepCounter = 0;
 
 	// Animation Variables
 	this.sprite = new Image();
@@ -82,9 +83,12 @@ function playerClass(){
 			}
 		}
 		
-		if(!moveDown && !moveUp && !moveRight && !moveLeft){
+		if(!moveDown && !moveUp && !moveRight && !moveLeft){ // idle?
 			this.animationFrameDelay = ANIMATION_DELAY;
-		}
+        } else { // we are moving
+            this.stepCounter++;
+            if (this.stepCounter%4==0) decals.add(this.x+10,this.y+30);
+        }
 	}
 	
 	function playerGamepadMovement(gamepads){

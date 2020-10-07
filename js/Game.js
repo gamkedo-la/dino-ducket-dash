@@ -39,6 +39,8 @@ function gameUpdate(){
 
 function gameDraw(){
   moneyBucket.draw();
+
+  decals.draw(); // footsteps etc
   
   for (var i = 0; i < ducketList.length; i++) {
     ducketList[i].draw();

@@ -68,10 +68,12 @@ function init(){
 	canvasContext.msImageSmoothingEnabled = false;
 	canvasContext.font = "Press Start 2P";
 	
-	menuUI = document.getElementById('allmenu');
+    decals = new decalManager(); // fx on the ground
+
+    menuUI = document.getElementById('allmenu');
 	
 	initInput();
-	menuInit();
+    menuInit();
 
 	console.log("Initialization complete. Running game!");
 

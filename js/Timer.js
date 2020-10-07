@@ -36,10 +36,10 @@ function drawTimer(){
 	let timerBoxHeight = 10;
 	let xPos = canvas.width/2 - (timerBoxWidth*PIXEL_SCALE_UP/2);
 	let yPos = 0;
-	timerText = gameMinutes + ":" + gameSeconds;
+	let secondDisplay = gameSeconds.toString().padStart(2,'0');
+	timerText = gameMinutes + ":" + secondDisplay;
 	drawRect(xPos, yPos, timerBoxWidth, timerBoxHeight, "black");
 	canvasContext.fillStyle = 'white';
 	canvasContext.font = '12px "Press Start 2P"'
 	canvasContext.fillText(timerText, xPos+5,yPos+20);
-	// colorTextShadow(timerText, xPos+5, yPos+20, fillColor="black", font = "14px Arial Black", align="left") 
 }

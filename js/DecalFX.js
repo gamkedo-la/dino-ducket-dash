@@ -61,15 +61,15 @@ var decalManager = function() {
 	};
 
     this.scatterDecorations = function() {
-        console.log("Scattering decoration decals");
+        //console.log("Scattering decoration decals");
         var x,y,sprnum;
         for (var x,y,sprnum,i=0; i<150; i++) {
             x = randomIntFromInterval(0,decalCanvas.width);
             y = randomIntFromInterval(0,decalCanvas.height);
             sprnum = randomIntFromInterval(1,9);
             // avoid center
-            if ((x<decalCanvas.width/2-50 || x>decalCanvas.width/2+50) &&
-                (y<decalCanvas.height/2-50 || y>decalCanvas.height/2+50))
+            if ((x<decalCanvas.width/2-80 || x>decalCanvas.width/2+80) &&
+                (y<decalCanvas.height/2-80 || y>decalCanvas.height/2+80))
                 this.add(x,y,0,1,sprnum);
         }
     }

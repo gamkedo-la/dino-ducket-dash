@@ -21,11 +21,11 @@ function playerClass(){
 	this.flipped = true;
 
 	this.initPlayer = function(){
-		console.log(this.x+"/"+this.y);
+		//console.log(this.x+"/"+this.y);
 		this.sprite.src = 'images/player_idle.png';
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
-		this.sprite.loaded = true;
+		this.sprite.loaded = true; // FIXME: this is a lie!!!
 	}
 
 	this.update = function(){

@@ -20,8 +20,10 @@ var decalManager = function() {
 
     var decalCount = 0;
     var decalCanvas = document.createElement("canvas");
-    decalCanvas.style.imageRendering="pixelated";
     var decalContext = decalCanvas.getContext("2d"); 
+
+    // FIXME sadly this seems to not do anything
+    decalCanvas.style.imageRendering="pixelated";
     decalContext.imageSmoothingEnabled = false;
 	decalContext.msImageSmoothingEnabled = false;
 
@@ -32,9 +34,16 @@ var decalManager = function() {
 	this.add = function(x,y,rot=0,alpha=0.025,spritenum=0) {
         if (!decalSpritesheet.loaded) return;
         decalCount++;
-		//console.log('decal '+decalCount+':'+x+','+y+','+rot+' alpha:'+alpha);
-		decalContext.save();
-		decalContext.translate(Math.round(x),Math.round(y));
+        x = Math.round(x);
+        y = Math.round(y);
+        
+        // debug spam to determine why the sprites are blurry
+        console.log('decal '+decalCount+':'+x+','+y+','+rot+' alpha:'+alpha+' decalsize:'+decalsize+' centerOffset:'+centerOffset+' drawSize:'+drawSize);
+        
+        // rotated and scaled - works great but seems blurry
+        /*
+        decalContext.save();
+		decalContext.translate(x,y);
 		if (rot) decalContext.rotate(rot);
 		decalContext.globalAlpha = alpha;
         decalContext.drawImage(
@@ -43,7 +52,18 @@ var decalManager = function() {
             decalsize, decalsize, 
             centerOffset, centerOffset,
             drawSize, drawSize);
-		decalContext.restore()
+        decalContext.restore();
+        */
+        
+        // no rotation but still scaled
+        decalContext.globalAlpha = alpha;
+        decalContext.drawImage(
+            decalSpritesheet, 
+            spritenum * decalsize, 0, 
+            decalsize, decalsize, 
+            x+centerOffset, y+centerOffset,
+            drawSize, drawSize);
+
 	};
 
     this.draw = function() {

@@ -61,8 +61,8 @@ function enemyClass(){
 			this.y = oldY;
 			this.speedX *= -1;
 			this.speedY *= -1;
-			//WARM UP: enemy makes a sound?
-            
+			
+			hitSFX.play();
 
 			if(player.ducketsCarried <= 0){
                 decals.deathSplatter(this.x,this.y+50); // pile of bones!

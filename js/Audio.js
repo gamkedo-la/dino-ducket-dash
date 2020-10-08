@@ -9,6 +9,8 @@ const VOLUME_INCREMENT = 0.0333;
 //define sounds
 // var backgroundSong = new soundLoopsClass("");
 var coinPickUpSFX = new soundSingleBufferClass("audio/coinPickUpSFX.wav");
+var hitSFX = new soundSingleBufferClass("audio/hitSFX.wav");
+var depositSFX = new soundSingleBufferClass("audio/depositSFX.wav");
 
 //--//sound classes-----------------------------------------------------------
 var backgroundMusic = function backgroundMusicClass() {

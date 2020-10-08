@@ -11,6 +11,7 @@ function moneyBucketClass(){
   this.update = function(){
     if(checkCollision(this,player)){
       if(player.ducketsCarried > 0){
+        depositSFX.play();
         score += player.ducketsCarried;
         player.ducketsCarried = 0;
         spawnEnemy();

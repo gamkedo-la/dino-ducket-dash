@@ -16,8 +16,11 @@ function gameOverUpdate(){
 }
 
 function gameOverDraw(){
-  canvasContext.fillStyle = 'black';
+  canvasContext.fillStyle = '#FFF';
   canvasContext.font = '72px "Press Start 2P"'
+	canvasContext.fillText('SCORE: '+ score, canvas.width/6,canvas.height/4);
+	
+	canvasContext.fillStyle = 'black';
   canvasContext.fillText('GAME OVER!', canvas.width/6,canvas.height/2);
   
   canvasContext.font = '24px "Press Start 2P"'

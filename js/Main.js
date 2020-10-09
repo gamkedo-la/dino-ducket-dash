@@ -8,6 +8,7 @@ var canvasContext;
 var player;
 var decals;
 var enemies = [];
+var enemyTelegraphs = [];
 var ducketList = [];
 var menuSprite;
 var moneyBucket;
@@ -110,10 +111,16 @@ function spawnCoins(){
 	}
 }
 
-function spawnEnemy(){
+function spawnEnemy(atX,atY){
 	var enemy = new enemyClass();
-	enemy.init();
+	enemy.init(atX,atY);
 	enemies.push(enemy);
+}
+
+function spawnEnemyTelegraph(){
+	var telegraph = new enemyTelegraphClass();
+	telegraph.init();
+	enemyTelegraphs.push(telegraph);
 }
 
 function checkIfCoinsNeedToRespawn(){

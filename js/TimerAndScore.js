@@ -6,6 +6,9 @@ var gameSeconds = START_SECONDS;
 var updateGameTime = START_UPDATEGAMETIME;
 var timerText = "3:00";
 
+var score;
+var highScore = 0;
+
 /*
  updateTimer is to keep track of Game Time.    
 */
@@ -40,6 +43,23 @@ function drawTimer(){
 	timerText = gameMinutes + ":" + secondDisplay;
 	drawRect(xPos, yPos, timerBoxWidth, timerBoxHeight, "black");
 	canvasContext.fillStyle = 'white';
-	canvasContext.font = '12px "Press Start 2P"'
 	canvasContext.fillText(timerText, xPos+5,yPos+20);
+}
+
+function checkScore(){
+	if(score > highScore){
+		highScore = score;
+	}
+	score = 0;
+}		
+
+function drawHighScore(){
+	let hsScoreBoxWidth = 100;
+	let hsScoreBoxHeight = 10;
+	let xPos = canvas.width - (hsScoreBoxWidth*PIXEL_SCALE_UP/2)-5;
+	let yPos = 0;
+	let hsScoreText = highScore.toString().padStart(10,'0');
+	drawRect(xPos, yPos, hsScoreBoxWidth, hsScoreBoxHeight, "black");
+	canvasContext.fillStyle = 'white';
+	canvasContext.fillText(hsScoreText, xPos+5,yPos+20);
 }

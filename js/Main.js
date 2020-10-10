@@ -13,7 +13,6 @@ var ducketList = [];
 var menuSprite;
 var moneyBucket;
 var gameState = "menu";
-var score;
 var menuUI;
 
 //WARM UP: Looking for a good place to add a comment as a practice commit?

@@ -67,6 +67,7 @@ function menuState() {
 	  }
 
 function showHighScore(){
+	
 }
 
 function showCredits() {

@@ -1,10 +1,10 @@
 gameIsPaused = false;
 
 function resetGame(){
-  score = 0;
   enemies = [];
   ducketList = [];
   resetTimer();
+  checkScore();
 }
 
 function initGame(){
@@ -75,4 +75,6 @@ function gameDraw(){
     enemyTelegraphs[i].draw()
   }
   drawTimer();
+  drawHighScore();
 }
+

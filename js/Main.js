@@ -95,14 +95,16 @@ function update(){
 		case 'gameOver': 
 			gameOverUpdate();
 			break;
-		
+
 	}	
 
 	draw();
 }
 
 function spawnCoins(){
+	ducketList = [];
 	for (var i = 0; i < 20; i++) {
+
 		//WARM UP: limit ducket positioning so all of them are 100% on screen
 		var ducket = new ducketClass();
 		ducket.x = Math.floor(Math.random()*canvas.width);

@@ -8,6 +8,7 @@ const KEY_D = 68;
 const KEY_R = 82;
 const KEY_M = 77;
 const KEY_P = 80;
+const KEY_C = 67;
 const KEY_E = 69;
 const KEY_SPACEBAR = 32;
 //WARM UP: Add values for ARROW Keys
@@ -37,6 +38,7 @@ function keyPressed(evt){
 		}
 	}
 	switch(evt.keyCode){
+		//movement
 		case KEY_W:
 			moveUp = true;
 			break
@@ -49,6 +51,8 @@ function keyPressed(evt){
 		case KEY_D:
 			moveRight = true;
 			break
+
+		//mute
 		case KEY_M:
 			if (!isMuted)
 			{
@@ -59,6 +63,8 @@ function keyPressed(evt){
 				isMuted = false;
 			}
 			break;
+
+		//pause
 		case KEY_P:
 			if (gameIsPaused === false)
 			{
@@ -71,6 +77,8 @@ function keyPressed(evt){
 			}
 			console.log('gameIsPaused: ' + gameIsPaused);
 			break;
+
+		//cheats and debugs
 		case KEY_SPACEBAR:
 			if (!debugOn)
 			{
@@ -86,6 +94,11 @@ function keyPressed(evt){
 		 		spawnEnemyTelegraph();
 		 	}
 			break;
+		case KEY_C:
+			if (gameState === 'game' && debugOn)
+			{
+				spawnCoins();
+			}
 		//WARM UP: Add cases to handle ARROW Keys as alternative to WASD
 		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down
 		//WARM UP: Add cases to handle cheats (stop the enemy's movement? spawn more enemies or duckets?)

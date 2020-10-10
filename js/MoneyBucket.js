@@ -23,8 +23,21 @@ function moneyBucketClass(){
     drawRect(this.x, this.y, this.width, this.height, 'white');
     canvasContext.fillStyle = 'black';
     //need to draw bucket score text centered. use CSS?
+    let scoreTextWidth = canvasContext.measureText(score).width;
+    console.log('scoreTextWidth: ' + scoreTextWidth);
     canvasContext.font = '30px "Press Start 2P"';
-    canvasContext.fillText(score, (canvas.width/2)-30, (canvas.height/2)+16);
+    canvasContext.textAlign = 'center';
+    canvasContext.fillText(score, canvas.width/2,(canvas.height/2)+16);
+
+    canvasContext.textAlign = 'start';
+    
+    if (debugOn)
+    {
+      canvasContext.strokeStyle = 'black';
+      canvasContext.moveTo(canvas.width/2,0);
+      canvasContext.lineTo(canvas.width/2,canvas.height);
+      canvasContext.stroke();
+    }
   }
   
 }

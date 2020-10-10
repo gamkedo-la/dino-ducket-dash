@@ -134,6 +134,12 @@ function checkIfCoinsNeedToRespawn(){
 
 function draw(){
 	cls();
+	if (debugOn)
+	{
+		canvasContext.fillStyle = 'blue';
+		canvasContext.font = '30px Helvetica';
+		canvasContext.fillText('Debug On', 30,30);
+	}
 	
 	switch (gameState) {
 		case 'menu': 

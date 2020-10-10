@@ -1,9 +1,10 @@
 function playerClass(){	
 	//Player Variables
-	this.x = 0;
-	this.y = 0;
 	this.width = 10;
 	this.height = 10;
+	this.x = 0;
+	this.y = this.height;
+	
 	this.speed = 10;
 	this.ducketsCarried = 0;
     this.controllerThreshold = 0.5;
@@ -37,7 +38,7 @@ function playerClass(){
 			
 			//gamepad player movement code
 			if(gamepads[0].axes[0] > this.controllerThreshold){
-				if(this.x < canvas.width - this.width*PIXEL_SCALE_UP){
+				if(this.x < canvas.width - this.width*PIXEL_SCALE_UP - 15){
 					this.x += (this.speed);
 				}
 			}
@@ -52,14 +53,14 @@ function playerClass(){
 				}
 			}
 			if(gamepads[0].axes[1] > this.controllerThreshold){
-				if(this.y < canvas.height-this.height*PIXEL_SCALE_UP){
+				if(this.y < canvas.height-this.height*PIXEL_SCALE_UP - this.height*4){
 					this.y += (this.speed);
 				}
 			}
 		}
 		
 		if(moveRight){
-			if(this.x < canvas.width - this.width*PIXEL_SCALE_UP){
+			if(this.x < canvas.width - this.width*PIXEL_SCALE_UP - 15){
 				this.x += (this.speed);
 				this.animationFrameDelay = 1;
 			}
@@ -71,13 +72,13 @@ function playerClass(){
 			}
 		}
 		if(moveUp){
-			if(this.y > 0){
+			if(this.y > 15){
 				this.y -= (this.speed);
 				this.animationFrameDelay = 1;
 			}
 		}
 		if(moveDown){
-			if(this.y < canvas.height-this.height*PIXEL_SCALE_UP){
+			if(this.y < canvas.height - this.height*PIXEL_SCALE_UP - this.height*4){
 				this.y += (this.speed);
 				this.animationFrameDelay = 1;
 			}

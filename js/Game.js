@@ -1,3 +1,5 @@
+gameIsPaused = false;
+
 function resetGame(){
   score = 0;
   enemies = [];
@@ -22,6 +24,11 @@ function initGame(){
 }
 
 function gameUpdate(){
+  if (gameIsPaused)
+  {
+    return;
+  }
+
   updateTimer();
   player.update();
   

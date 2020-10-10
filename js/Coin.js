@@ -49,6 +49,5 @@ function ducketClass(){
 		} else{
 			animate(this);
 		}
-
   }
 }

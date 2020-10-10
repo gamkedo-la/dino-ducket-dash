@@ -95,6 +95,7 @@ function update(){
 		case 'gameOver': 
 			gameOverUpdate();
 			break;
+		
 	}	
 
 	draw();

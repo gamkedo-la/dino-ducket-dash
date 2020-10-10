@@ -37,10 +37,10 @@ function animate(toAnimate){
 		if(toAnimate.currentFrame > maxFrame){
 			toAnimate.currentFrame = 0;
 		}
-
+	}
 		var column = toAnimate.currentFrame % toAnimate.animColumns;
 		var row = Math.floor(toAnimate.currentFrame / toAnimate.animColumns);
-	}
+
 	
 
 	canvasContext.imageSmoothingEnabled = false;

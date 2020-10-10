@@ -1,9 +1,12 @@
+const DUCKET_WIDTH = 16;
+const DUCKET_HEIGHT = 16;
+
 function ducketClass(){
   //Coin Variables
 	this.x = 8;
 	this.y = 8;
-	this.width = 16;
-	this.height = 16;
+	this.width = DUCKET_WIDTH;
+	this.height = DUCKET_HEIGHT;
 	this.speed = 5;
 
 	// Animation Variables

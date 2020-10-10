@@ -1,3 +1,5 @@
+debugOn = false;
+
 //Input Variables 
 const KEY_W = 87; 
 const KEY_S = 83;
@@ -6,6 +8,8 @@ const KEY_D = 68;
 const KEY_R = 82;
 const KEY_M = 77;
 const KEY_P = 80;
+const KEY_E = 69;
+const KEY_SPACEBAR = 32;
 //WARM UP: Add values for ARROW Keys
 //WARM UP: Add values for "P" and "M" in preparation for Pause & Mute functionality
 //WARM UP: Add values for "+" and "-" in preparation for volume controls
@@ -66,6 +70,21 @@ function keyPressed(evt){
 				gameIsPaused = false;
 			}
 			console.log('gameIsPaused: ' + gameIsPaused);
+			break;
+		case KEY_SPACEBAR:
+			if (!debugOn)
+			{
+				debugOn = true;
+			}
+			else
+			{
+				debugOn = false;
+			}
+		case KEY_E:
+		 	if (gameState === 'game' && debugOn)
+		 	{
+		 		spawnEnemyTelegraph();
+		 	}
 			break;
 		//WARM UP: Add cases to handle ARROW Keys as alternative to WASD
 		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down

@@ -13,8 +13,8 @@ function menuClass(){
 	this.frameWidth;
 	this.frameHeight;
 	this.currentFrame = 0;
-	this.animationFrameDelay = ANIMATION_DELAY;
-	this.currentAnimationFrameDelay = ANIMATION_DELAY;
+	this.animationFrameDelay = 5;
+	this.currentAnimationFrameDelay = 5;
 	this.flipped = true;
 
 	this.init = function(){

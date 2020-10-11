@@ -13,6 +13,7 @@ var hitSFX = new soundSingleBufferClass("audio/hitSFX.wav");
 var depositSFX = new soundSingleBufferClass("audio/depositSFX.wav");
 var countdownSecondSFX = new soundSingleBufferClass("audio/countdownSecond.wav");
 var gameStartSFX = new soundSingleBufferClass("audio/gameStart.wav");
+var mainMenuMusic = new soundSingleBufferClass("audio/mainmenu.wav");
 
 //--//sound classes-----------------------------------------------------------
 var backgroundMusic = function backgroundMusicClass() {

@@ -21,9 +21,19 @@ var moveRight = false;
 var moveUp = false;
 var moveDown = false;
 
+var firstClick = false;
+
 function initInput(){
 	document.addEventListener('keydown', keyPressed);
 	document.addEventListener('keyup', keyReleased);
+	document.addEventListener('mousedown',mouseClicked);
+}
+
+function mouseClicked(evt){
+	if(!firstClick){
+		firstClick = true;
+		mainMenuMusic.play();
+	}
 }
 
 function keyPressed(evt){

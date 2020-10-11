@@ -5,7 +5,7 @@ function resetGame(){
   ducketList = [];
   resetTimer();
   checkScore();
-}
+ }
 
 function initGame(){
   resetGame();
@@ -33,8 +33,6 @@ function gameUpdate(){
   {
     return;
   }
-
-
   updateTimer();
   player.update();
 

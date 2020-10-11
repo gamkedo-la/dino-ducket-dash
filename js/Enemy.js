@@ -21,7 +21,7 @@ function enemyClass(){
 
 	this.init = function(atX,atY){
 		//this.sprite.src = 'images/enemy_run.png';
-		this.sprite.src = 'images/pterodactyl_sprite.png';
+		this.sprite.src = 'images/pterodactyl_sprite_facing_left.png';
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true;
@@ -45,9 +45,11 @@ function enemyClass(){
 		//WARM UP: Does the enemy make a sound when hitting the edges of the canvas?
 		if(this.x < 0){
 			this.speedX *= -1;
+			this.sprite.src = 'images/pterodactyl_sprite_facing_right.png';
 		}
 		if(this.x > canvas.width - this.width*PIXEL_SCALE_UP){
 			this.speedX *= -1;
+			this.sprite.src = 'images/pterodactyl_sprite_facing_left.png';
 		}
 		if(this.y < 0){
 			this.speedY *= -1;
@@ -61,6 +63,15 @@ function enemyClass(){
 			this.y = oldY;
 			this.speedX *= -1;
 			this.speedY *= -1;
+			
+			if (this.sprite.src === 'images/pterodactyl_sprite_facing_right.png')
+			{
+				this.sprite.src = 'images/pterodactyl_sprite_facing_left.png';
+			}
+			else if (this.sprite.src = 'images/pterodactyl_sprite_facing_left.png')
+			{
+				this.sprite.src = 'images/pterodactyl_sprite_facing_right.png';
+			}
 			
 			hitSFX.play();
 

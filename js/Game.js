@@ -24,17 +24,20 @@ function initGame(){
   decals.scatterDecorations(); // rocks and grass etc
   
   gameState = 'game';
+  if (gameIsPaused === true)
+			{
+				gameIsPaused = false;
+			}
 }
 
 function gameUpdate(){
   if (gameIsPaused || countdownToGamePlayTimer)
   {
     if (gameIsPaused && x.style.display == "none"){
-      x.style.display = "block"
-      }
+      menuUI.style.display = 'block';
+      }  
     return;
-  } 
-  x.style.display = "none"; 
+  }
   updateTimer();
   player.update();
   

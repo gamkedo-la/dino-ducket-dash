@@ -23,14 +23,14 @@ var decalManager = function() {
     var decalContext = decalCanvas.getContext("2d"); 
 
     // FIXME sadly this seems to not do anything
+    // Is it possible the main canvas doesn't have these settings right
+    // so they're good on the decal canvas, but anti-aliased on the main canvas?
     decalCanvas.style.imageRendering="pixelated";
     decalContext.imageSmoothingEnabled = false;
 	decalContext.msImageSmoothingEnabled = false;
 
     var decalSpritesheet = images.decals;
     decalSpritesheet.loaded = true;
-    // decalSpritesheet.onload = function(e) { decalSpritesheet.loaded = true; }
-    // decalSpritesheet.src = "images/decals.png";
 
 	this.add = function(x,y,rot=0,alpha=0.025,spritenum=0) {
         if (!decalSpritesheet.loaded) return;

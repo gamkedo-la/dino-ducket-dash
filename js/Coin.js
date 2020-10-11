@@ -22,23 +22,22 @@ function ducketClass(){
 	this.readyToRemove = false;
 
 	this.initCoin = function(){
-        // console.log(this.x+"/"+this.y);
-		// this.sprite.src = 'images/ducket.png';
 		this.sprite = images.ducket;
 		this.sprite.loaded = true;
         this.frameWidth = this.sprite.width / this.animColumns;
         this.frameHeight = this.sprite.height / this.animRows;
 				
-				//Never spawn coin under MoneyBucket
-				while(checkCollision(this,moneyBucket)) {
-					this.x = randomIntFromInterval(0,canvas.width);
-					this.y = randomIntFromInterval(0,canvas.height);
-					
-					while(checkCollision(this,player)) {
-						this.x = randomIntFromInterval(0,canvas.width);
-						this.y = randomIntFromInterval(0,canvas.height);
-					}
-				}
+		//Never spawn coin under MoneyBucket
+		//WARM UP: Do we also need to make sure coins don't spawn on top of other coins?
+		while(checkCollision(this,moneyBucket)) {
+			this.x = randomIntFromInterval(0,canvas.width);
+			this.y = randomIntFromInterval(0,canvas.height);
+			
+			while(checkCollision(this,player)) {
+				this.x = randomIntFromInterval(0,canvas.width);
+				this.y = randomIntFromInterval(0,canvas.height);
+			}
+		}
 	}
 
   this.update = function(){
@@ -46,6 +45,7 @@ function ducketClass(){
   }
 
   this.draw = function(){
+	//WARM UP: Maybe this collision check belongs in the update method?
 		if(checkCollision(this,player)){
 			coinPickUpSFX.play();
 			this.readyToRemove = true;
@@ -63,7 +63,6 @@ function ducketClass(){
 function DucketParticlesInstance(ducket)
 {
 	this.sprite = images.enemy_run;
-	// this.sprite.src = 'images/enemy_run.png';//'images/ducket_particle.png';
 	this.arrayOfParticles = [];
 	this.width = 10;
 	this.height = 10;

@@ -21,7 +21,16 @@ function enemyClass(){
 
 	this.init = function(atX,atY){
 		//this.sprite.src = 'images/enemy_run.png';
-		this.sprite.src = 'images/pterodactyl_sprite_facing_left.png';
+		let coinFlipForDirection = Math.random();
+		if (coinFlipForDirection < 0.5)
+		{
+			this.sprite.src = 'images/pterodactyl_sprite_facing_right.png';
+		}
+		else
+		{
+			this.sprite.src = 'images/pterodactyl_sprite_facing_left.png';
+		}
+		
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true;
@@ -29,6 +38,10 @@ function enemyClass(){
 		// let randomX = randomIntFromInterval(0,canvas.width);
 		// let randomY = randomIntFromInterval(0,canvas.height);
 		this.speedX = randomSpeedX;
+		if (coinFlipForDirection >= 0.5)
+		{
+			this.speedX *= -1;
+		}
 		this.speedY = 11 - randomSpeedX;
 		this.x = atX;
 		this.y = atY;

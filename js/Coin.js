@@ -54,7 +54,7 @@ function ducketClass(){
 			ducketParticlesInstance.init();
 			ducketParticlesManager.arrayOfParticleInstances.push(ducketParticlesInstance);
 		} else{
-			animate(this);
+			animate(this,true);
 		}
   }
 }

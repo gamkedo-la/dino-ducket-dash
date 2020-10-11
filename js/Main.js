@@ -92,6 +92,7 @@ function update(){
 			gameUpdate();
 			break;
 		case 'gameOver': 
+			checkScore();
 			gameOverUpdate();
 			break;
 

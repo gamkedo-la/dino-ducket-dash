@@ -25,5 +25,20 @@ function gameOverDraw(){
   
   canvasContext.font = '24px "Press Start 2P"'
   canvasContext.fillText('PRESS R TO TRY AGAIN!', canvas.width/4,canvas.height/1.5);
+  
+  /// draw High Score List 
+  canvasContext.fillText('HIGH SCORES', canvas.width/4,canvas.height - 160);
+  canvasContext.fillText(sortedHighScoreList[0], canvas.width/4,canvas.height - 130);
+  if(sortedHighScoreList.length > 1){
+	canvasContext.fillText(sortedHighScoreList[1], canvas.width/4,canvas.height - 100);
+  }
+  if(sortedHighScoreList.length > 2){
+	 canvasContext.fillText(sortedHighScoreList[2], canvas.width/4,canvas.height - 70);
+  }
+  
+   
+  
+  
+  
   return;
 }

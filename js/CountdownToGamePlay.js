@@ -11,7 +11,7 @@ function CountdownToGamePlay()
 	this.draw = function()
 	{
 		canvasContext.fillStyle = 'black';
-		canvasContext.font = '30px Helvetica';
+		canvasContext.font = '100px Helvetica';
 		canvasContext.textAlign = 'center';
 		canvasContext.fillText(this.secondsLeft, canvas.width/2,canvas.height/3);
 

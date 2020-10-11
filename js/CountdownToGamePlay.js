@@ -31,6 +31,7 @@ function CountdownToGamePlay()
 			if (window.countdownToGamePlayTimer.secondsLeft === 0)
 			{
 				gameStartSFX.play();
+				clearInterval(window.countdownToGamePlayInterval);
 				window.countdownToGamePlayTimer = null;		
 			}
 		}

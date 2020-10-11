@@ -1,11 +1,10 @@
 function CountdownToGamePlay()
 {
-	this.isActive = false;
 	this.secondsLeft = 3;
 
 	this.init = function()
 	{
-		window.countdownToGamePlayTimer = setInterval(this.decreaseSecondsLeft,1000);
+		window.countdownToGamePlayInterval = setInterval(window.countdownToGamePlayTimer.decreaseSecondsLeft,1000);
 	}
 
 	this.draw = function()
@@ -20,16 +19,14 @@ function CountdownToGamePlay()
 
 	this.decreaseSecondsLeft = function()
 	{
-		this.secondsLeft--;
-		if (this.secondsLeft === 0)
+		if (window.countdownToGamePlayTimer)
 		{
-			this.deactivate();
+			window.countdownToGamePlayTimer.secondsLeft--;
+			console.log('countdownToGamePlayTimer.secondsLeft: ' + window.countdownToGamePlayTimer.secondsLeft);
+			if (window.countdownToGamePlayTimer.secondsLeft === 0)
+			{
+				window.countdownToGamePlayTimer = null;		
+			}
 		}
-	}
-
-	this.deactivate = function()
-	{
-		this.isActive = false;
-		clearInterval(window.countdownToGamePlayTimer);
 	}
 }

@@ -24,7 +24,7 @@ function moneyBucketClass(){
     canvasContext.fillStyle = 'black';
     //need to draw bucket score text centered. use CSS?
     let scoreTextWidth = canvasContext.measureText(score).width;
-    console.log('scoreTextWidth: ' + scoreTextWidth);
+    
     canvasContext.font = '30px "Press Start 2P"';
     canvasContext.textAlign = 'center';
     canvasContext.fillText(score, canvas.width/2,(canvas.height/2)+16);

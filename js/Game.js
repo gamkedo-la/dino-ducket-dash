@@ -10,6 +10,9 @@ function resetGame(){
 function initGame(){
   resetGame();
   
+  countdownToGamePlayTimer = new CountdownToGamePlay();
+  countdownToGamePlayTimer.init();
+
   player = new playerClass();
 	player.initPlayer();
   
@@ -24,10 +27,11 @@ function initGame(){
 }
 
 function gameUpdate(){
-  if (gameIsPaused)
+  if (gameIsPaused || countdownToGamePlayTimer)
   {
     return;
   }
+
 
   updateTimer();
   player.update();
@@ -74,6 +78,12 @@ function gameDraw(){
   for (var i = 0; i < enemyTelegraphs.length; i++) {
     enemyTelegraphs[i].draw()
   }
+
+  if (countdownToGamePlayTimer)
+  {
+    countdownToGamePlayTimer.draw();
+  }
+  
   drawTimer();
   drawHighScore();
 }

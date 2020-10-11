@@ -23,7 +23,7 @@ function playerClass(){
 
 	this.initPlayer = function(){
 		//console.log(this.x+"/"+this.y);
-		this.sprite.src = 'images/player_idle.png';
+		this.sprite.src = 'images/player_idle_facing_right.png';
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true; // FIXME: this is a lie!!!
@@ -31,6 +31,15 @@ function playerClass(){
 
 	this.update = function(){
 		//get connected gamepads
+		if (moveRight)
+		{
+			this.sprite.src = 'images/player_idle_facing_right.png';
+		}
+		else if (moveLeft)
+		{
+			this.sprite.src = 'images/player_idle_facing_left.png';
+		}
+
 		var gamepads = navigator.getGamepads();
 
 		//check if there's gamepads connected.

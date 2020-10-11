@@ -19,7 +19,7 @@ var menuUI;
 //How about on the next line?
 
 //WARM UP: May want to move this list to another file because it will probably get very long
-var allImages = ['images/ducket.png','images/enemy_run.png','images/menu_title.png','images/player_idle.png'];
+var allImages = ['images/ducket.png','images/enemy_run.png','images/menu_title.png','images/player_idle_facing_right.png','images/player_idle_facing_left.png'];
 var imagesDownloaded = 0;
 
 window.onload = function(){

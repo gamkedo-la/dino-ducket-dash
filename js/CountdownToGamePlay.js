@@ -27,7 +27,7 @@ function CountdownToGamePlay()
 			{
 				countdownSecondSFX.play();
 			}
-			console.log('countdownToGamePlayTimer.secondsLeft: ' + window.countdownToGamePlayTimer.secondsLeft);
+
 			if (window.countdownToGamePlayTimer.secondsLeft === 0)
 			{
 				gameStartSFX.play();

@@ -11,6 +11,8 @@ const VOLUME_INCREMENT = 0.0333;
 var coinPickUpSFX = new soundSingleBufferClass("audio/coinPickUpSFX.wav");
 var hitSFX = new soundSingleBufferClass("audio/hitSFX.wav");
 var depositSFX = new soundSingleBufferClass("audio/depositSFX.wav");
+var countdownSecondSFX = new soundSingleBufferClass("audio/countdownSecond.wav");
+var gameStartSFX = new soundSingleBufferClass("audio/gameStart.wav");
 
 //--//sound classes-----------------------------------------------------------
 var backgroundMusic = function backgroundMusicClass() {

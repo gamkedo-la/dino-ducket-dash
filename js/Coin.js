@@ -10,7 +10,7 @@ function ducketClass(){
 	this.speed = 5;
 
 	// Animation Variables
-	this.sprite = new Image();
+	this.sprite = {};
 	this.animColumns = 6;
 	this.animRows = 1;
 	this.frameWidth;
@@ -23,10 +23,11 @@ function ducketClass(){
 
 	this.initCoin = function(){
         // console.log(this.x+"/"+this.y);
-        this.sprite.src = 'images/ducket.png';
+		// this.sprite.src = 'images/ducket.png';
+		this.sprite = images.ducket;
+		this.sprite.loaded = true;
         this.frameWidth = this.sprite.width / this.animColumns;
         this.frameHeight = this.sprite.height / this.animRows;
-        this.sprite.loaded = true; 
 				
 				//Never spawn coin under MoneyBucket
 				while(checkCollision(this,moneyBucket)) {
@@ -61,8 +62,8 @@ function ducketClass(){
 
 function DucketParticlesInstance(ducket)
 {
-	this.sprite = new Image();
-	this.sprite.src = 'images/enemy_run.png';//'images/ducket_particle.png';
+	this.sprite = images.enemy_run;
+	// this.sprite.src = 'images/enemy_run.png';//'images/ducket_particle.png';
 	this.arrayOfParticles = [];
 	this.width = 10;
 	this.height = 10;

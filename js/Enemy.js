@@ -9,7 +9,9 @@ function enemyClass(){
 
 	// Animation Variables
 	//WARM UP: Need an enemy spritesheet with two animations (idle, walking) Trello card - https://trello.com/c/wBKqdxs8
-	this.sprite = new Image();
+	this.leftSprite;
+	this.rightSprite;
+	this.sprite;
 	this.animColumns = 5;
 	this.animRows = 1;
 	this.frameWidth;
@@ -20,15 +22,19 @@ function enemyClass(){
 	this.flipped = true;
 
 	this.init = function(atX,atY){
-		//this.sprite.src = 'images/enemy_run.png';
+		this.rightSprite = images.pterodactyl_sprite_facing_right;
+		this.rightSprite.loaded = true;
+		this.leftSprite = images.pterodactyl_sprite_facing_left;
+		this.leftSprite.loaded = true;
+
 		let coinFlipForDirection = Math.random();
 		if (coinFlipForDirection < 0.5)
 		{
-			this.sprite.src = 'images/pterodactyl_sprite_facing_right.png';
+			this.sprite = this.rightSprite;
 		}
 		else
 		{
-			this.sprite.src = 'images/pterodactyl_sprite_facing_left.png';
+			this.sprite = this.leftSprite;
 		}
 		
 		this.frameWidth = this.sprite.width / this.animColumns;
@@ -58,11 +64,11 @@ function enemyClass(){
 		//WARM UP: Does the enemy make a sound when hitting the edges of the canvas?
 		if(this.x < 0){
 			this.speedX *= -1;
-			this.sprite.src = 'images/pterodactyl_sprite_facing_right.png';
+			this.sprite = this.rightSprite;
 		}
 		if(this.x > canvas.width - this.width*PIXEL_SCALE_UP){
 			this.speedX *= -1;
-			this.sprite.src = 'images/pterodactyl_sprite_facing_left.png';
+			this.sprite = this.leftSprite;
 		}
 		if(this.y < 0){
 			this.speedY *= -1;
@@ -77,13 +83,13 @@ function enemyClass(){
 			this.speedX *= -1;
 			this.speedY *= -1;
 			
-			if (this.sprite.src === 'images/pterodactyl_sprite_facing_right.png')
+			if (this.sprite === this.rightSprite)
 			{
-				this.sprite.src = 'images/pterodactyl_sprite_facing_left.png';
+				this.sprite = this.leftSprite;
 			}
-			else if (this.sprite.src = 'images/pterodactyl_sprite_facing_left.png')
+			else if (this.sprite === this.leftSprite)
 			{
-				this.sprite.src = 'images/pterodactyl_sprite_facing_right.png';
+				this.sprite = this.rightSprite;
 			}
 			
 			hitSFX.play();

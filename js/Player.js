@@ -11,7 +11,9 @@ function playerClass(){
     this.stepCounter = 0;
 
 	// Animation Variables
-	this.sprite = new Image();
+	this.leftSprite;
+	this.rightSprite;
+	this.sprite;
 	this.animColumns = 6;
 	this.animRows = 1;
 	this.frameWidth;
@@ -23,7 +25,11 @@ function playerClass(){
 
 	this.initPlayer = function(){
 		//console.log(this.x+"/"+this.y);
-		this.sprite.src = 'images/player_idle_facing_right.png';
+		this.leftSprite = images.player_idle_facing_left;
+		this.leftSprite.loaded = true;
+		this.rightSprite = images.player_idle_facing_right;
+		this.rightSprite.loaded = true;
+		this.sprite = this.rightSprite;
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true; // FIXME: this is a lie!!!
@@ -33,11 +39,11 @@ function playerClass(){
 		//get connected gamepads
 		if (moveRight)
 		{
-			this.sprite.src = 'images/player_idle_facing_right.png';
+			this.sprite = this.rightSprite;
 		}
 		else if (moveLeft)
 		{
-			this.sprite.src = 'images/player_idle_facing_left.png';
+			this.sprite = this.leftSprite;
 		}
 
 		var gamepads = navigator.getGamepads();

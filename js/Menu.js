@@ -7,7 +7,7 @@ function menuClass(){
 	this.speed = 5;
 
 	// Animation Variables
-	this.sprite = new Image();
+	this.sprite;
 	this.animColumns = 4;
 	this.animRows = 1;
 	this.frameWidth;
@@ -18,7 +18,7 @@ function menuClass(){
 	this.flipped = true;
 
 	this.init = function(){
-		this.sprite.src = 'images/menu_title.png';
+		this.sprite = images.menu_title;
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true;

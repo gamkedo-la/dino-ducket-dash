@@ -27,9 +27,10 @@ var decalManager = function() {
     decalContext.imageSmoothingEnabled = false;
 	decalContext.msImageSmoothingEnabled = false;
 
-    var decalSpritesheet = new Image();
-    decalSpritesheet.onload = function(e) { decalSpritesheet.loaded = true; }
-    decalSpritesheet.src = "images/decals.png";
+    var decalSpritesheet = images.decals;
+    decalSpritesheet.loaded = true;
+    // decalSpritesheet.onload = function(e) { decalSpritesheet.loaded = true; }
+    // decalSpritesheet.src = "images/decals.png";
 
 	this.add = function(x,y,rot=0,alpha=0.025,spritenum=0) {
         if (!decalSpritesheet.loaded) return;

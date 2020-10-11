@@ -51,7 +51,8 @@ function animate(toAnimate,loop){
 	canvasContext.imageSmoothingEnabled = false;
 
     if (!toAnimate.sprite.loaded) {
-        // we are still downloading the image!
+		// we are still downloading the image!
+		console.log(`Still loading the image?`)
         return;
     }
 

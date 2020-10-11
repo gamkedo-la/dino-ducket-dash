@@ -5,7 +5,7 @@ function animUIClass(){
 	this.height = 240;
   this.timer = 60;
   this.visible = true;
-	this.sprite = new Image();
+	this.sprite;
 	this.animColumns = 9;
 	this.animRows = 1;
 	this.frameWidth;
@@ -16,7 +16,7 @@ function animUIClass(){
 	this.flipped = true;
 
 	this.init = function(){
-		this.sprite.src = 'images/UI_Anim.png';
+		this.sprite = images.UI_Anim;
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true;

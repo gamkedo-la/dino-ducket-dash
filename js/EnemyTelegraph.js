@@ -8,7 +8,7 @@ function enemyTelegraphClass(){
 
 	// Animation Variables
 	//WARM UP: Need an enemy spritesheet with two animations (idle, walking) Trello card - https://trello.com/c/wBKqdxs8
-	this.sprite = new Image();
+	this.sprite = {};
 	this.animColumns = 5;
 	this.animRows = 1;
 	this.frameWidth;
@@ -19,11 +19,11 @@ function enemyTelegraphClass(){
 	this.flipped = true;
 
 	this.init = function(){
-		//this.sprite.src = 'images/enemy_run.png';
-		this.sprite.src = 'images/enemy_telegraph.png';
+		this.sprite = images.enemy_telegraph;
+		this.sprite.loaded = true;
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
-		this.sprite.loaded = true;
+		
 		let randomX = randomIntFromInterval(0,canvas.width-20);
 		let randomY = randomIntFromInterval(0,canvas.height-20);
 		this.x = randomX;

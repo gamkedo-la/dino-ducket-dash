@@ -20,8 +20,35 @@ var animUI;
 //How about on the next line?
 
 //WARM UP: May want to move this list to another file because it will probably get very long
-var allImages = ['images/ducket.png','images/ducket_particle.png','images/enemy_run.png','images/menu_title.png','images/player_idle_facing_right.png','images/player_idle_facing_left.png'];
+var allImages = [
+	'images/decals.png',
+	'images/ducket_particle.png',
+	'images/ducket.png',
+	'images/enemy_run.png',
+	'images/enemy_telegraph.png',
+	'images/menu_title.png',
+	'images/player_idle_facing_left.png',
+	'images/player_idle_facing_right.png',
+	'images/pterodactyl_sprite_facing_left.png',
+	'images/pterodactyl_sprite_facing_right.png',
+	'images/tile-sand-01.png',
+	'images/UI_Anim.png'
+];
 var imagesDownloaded = 0;
+var images = {
+	decals: {},
+	ducket_particle: {},
+	ducket: {},
+	enemy_run: {},
+	enemy_telegraph: {},
+	menu_title: {},
+	player_idle_facing_left: {},
+	player_idle_facing_right: {},
+	pterodactyl_sprite_facing_left: {},
+	pterodactyl_sprite_facing_right: {},
+	tile_sand_01: {},
+	UI_Anim: {},
+};
 
 window.onload = function(){
 	// Check for game controller plugged in
@@ -33,21 +60,18 @@ window.onload = function(){
 	});
 	
   console.log("Initializing game. Downloading "+allImages.length+" sprites.");
+  const imagesKeys = Object.keys(images);
   for (var i=0; i<allImages.length; i++) {
-      var nextone = new Image();
-      nextone.src = allImages[i];
-      
-      // bugfix: this would run the function NOW, not when the image has loaded
-      // nextone.onload = startgameIfDownloadsComplete();
-      
-      // instead, we want a reference to the function we want run later on
-      nextone.onload = startgameIfDownloadsComplete;
-  }
+	  images[imagesKeys[i]] = new Image();
+	  images[imagesKeys[i]].onload = startgameIfDownloadsComplete;
 
+      images[imagesKeys[i]].src = allImages[i];      
+  }
 }
 
 function startgameIfDownloadsComplete() {
-    console.log(allImages[imagesDownloaded]+" downloaded ok.")
+	console.log(`${this.src} downloaded ok.`)
+    // console.log(allImages[imagesDownloaded]+" downloaded ok.")
     imagesDownloaded++;
     if (imagesDownloaded>=allImages.length) {
         console.log("All "+imagesDownloaded+" downloads complete! Starting game.");

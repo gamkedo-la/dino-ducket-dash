@@ -130,7 +130,7 @@ function playerClass(){
 		canvasContext.font = '12px "Press Start 2P"'
 		canvasContext.fillText(this.ducketsCarried, this.x+10,this.y-2);
 		
-		animate(this);
+		animate(this,true);
 		
 	}
 }

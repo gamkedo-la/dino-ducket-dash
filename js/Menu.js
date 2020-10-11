@@ -25,7 +25,7 @@ function menuClass(){
 	}
   
   this.draw = function(){
-    animate(this);
+    animate(this,true);
   }
 }
 

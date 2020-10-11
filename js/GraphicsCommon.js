@@ -22,7 +22,7 @@ function cls(){
 	canvasContext.fillRect(0,0, canvas.width, canvas.height);
 }
 
-function animate(toAnimate){
+function animate(toAnimate,loop){
 	//WARM UP: use each entity's "flipped" property to render them reversed. Trello card - https://trello.com/c/hMlK5Dfh
 	if (!gameIsPaused)
 	{
@@ -35,7 +35,12 @@ function animate(toAnimate){
 
 		var maxFrame = toAnimate.animColumns * toAnimate.animRows - 1;
 		if(toAnimate.currentFrame > maxFrame){
-			toAnimate.currentFrame = 0;
+			if(loop){
+				toAnimate.currentFrame = 0;
+			} else{
+				toAnimate.currentFrame = maxFrame;
+			}
+			
 		}
 	}
 		var column = toAnimate.currentFrame % toAnimate.animColumns;

@@ -10,10 +10,10 @@ function CountdownToGamePlay()
 
 	this.draw = function()
 	{
-		canvasContext.fillStyle = 'black';
-		canvasContext.font = '100px Helvetica';
+		canvasContext.fillStyle = 'white';
+		canvasContext.font = '150px "Press Start 2P"';
 		canvasContext.textAlign = 'center';
-		canvasContext.fillText(this.secondsLeft, canvas.width/2,canvas.height/3);
+		canvasContext.fillText(this.secondsLeft, canvas.width/2,canvas.height/1.75);
 
 		canvasContext.textAlign = 'start';
 	}

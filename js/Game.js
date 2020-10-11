@@ -16,6 +16,9 @@ function initGame(){
   player = new playerClass();
 	player.initPlayer();
   
+  animUI = new animUIClass();
+  animUI.init();
+  
   moneyBucket = new moneyBucketClass();
 
   ducketParticlesManager = new DucketParticlesManager();
@@ -42,6 +45,8 @@ function gameUpdate(){
   }
   updateTimer();
   player.update();
+  
+  animUI.update();
 
   ducketParticlesManager.updateParticleInstances();
   
@@ -89,6 +94,7 @@ function gameDraw(){
     enemyTelegraphs[i].draw()
   }
 
+  animUI.draw();
   if (countdownToGamePlayTimer)
   {
     countdownToGamePlayTimer.draw();
@@ -96,5 +102,6 @@ function gameDraw(){
   
   drawTimer();
   drawHighScore();
+  
+  
 }
-

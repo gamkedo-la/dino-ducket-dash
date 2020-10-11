@@ -14,6 +14,7 @@ var menuSprite;
 var moneyBucket;
 var gameState = "menu";
 var menuUI;
+var animUI;
 
 //WARM UP: Looking for a good place to add a comment as a practice commit?
 //How about on the next line?

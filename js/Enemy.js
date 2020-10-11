@@ -103,6 +103,6 @@ function enemyClass(){
 
 	this.draw = function(){
 		// drawRect(this.x,this.y, this.width,this.height, 'white');
-		animate(this);
+		animate(this,true);
 	}
 }

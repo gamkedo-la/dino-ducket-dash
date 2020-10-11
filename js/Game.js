@@ -29,8 +29,12 @@ function initGame(){
 function gameUpdate(){
   if (gameIsPaused || countdownToGamePlayTimer)
   {
+    if (gameIsPaused && x.style.display == "none"){
+      x.style.display = "block"
+      }
     return;
-  }
+  } 
+  x.style.display = "none"; 
   updateTimer();
   player.update();
   

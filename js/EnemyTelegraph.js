@@ -24,8 +24,8 @@ function enemyTelegraphClass(){
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true;
-		let randomX = randomIntFromInterval(0,canvas.width);
-		let randomY = randomIntFromInterval(0,canvas.height);
+		let randomX = randomIntFromInterval(0,canvas.width-20);
+		let randomY = randomIntFromInterval(0,canvas.height-20);
 		this.x = randomX;
 		this.y = randomY;
 		while((Math.abs(player.x - this.x) < this.frameWidth) && (Math.abs(player.y - this.x < this.frameHeight))) {

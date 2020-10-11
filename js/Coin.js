@@ -48,9 +48,110 @@ function ducketClass(){
 		if(checkCollision(this,player)){
 			coinPickUpSFX.play();
 			this.readyToRemove = true;
-			player.ducketsCarried++
+			player.ducketsCarried++;
+
+			let ducketParticlesInstance = new DucketParticlesInstance(this);
+			ducketParticlesInstance.init();
+			ducketParticlesManager.arrayOfParticleInstances.push(ducketParticlesInstance);
 		} else{
 			animate(this);
 		}
   }
+}
+
+function DucketParticlesInstance(ducket)
+{
+	this.sprite = new Image();
+	this.sprite.src = 'images/enemy_run.png';//'images/ducket_particle.png';
+	this.arrayOfParticles = [];
+	this.width = 10;
+	this.height = 10;
+
+	this.currentAlpha = 1;
+
+	this.init = function()
+	{
+		for (let i = 0; i < 8; i++)
+		{
+			let ducketParticle = {x: ducket.x + ducket.width/2 - this.width/2, y: ducket.y + ducket.height/2 - this.height/2};
+			this.arrayOfParticles.push(ducketParticle);
+		}
+	}
+
+	this.draw = function()
+	{
+		if (this.arrayOfParticles.length !== 0)
+		{
+			//canvasContext.globalAlpha = this.currentAlpha;
+			for (let i = 0; i < this.arrayOfParticles.length; i++)
+			{
+				canvasContext.draw(this.sprite, this.arrayOfParticles[i].x,this.arrayOfParticles[i].y, this.width,this.height);
+			}
+			canvasContext.globalAlpha = 1;
+		}
+	}
+
+	this.update = function()
+	{
+		if (this.arrayOfParticles.length !== 0)
+		{
+				//1st one goes up
+			// this.arrayOfParticles[0].y -= 0.05;
+			// //2nd one goes up right
+			// this.arrayOfParticles[1].x += 0.05;
+			// this.arrayOfParticles[1].y -= 0.05;
+			// //3rd one goes right
+			// this.arrayOfParticles[2].x += 0.05;
+			// //4th one goes down right
+			// this.arrayOfParticles[3].x += 0.05;
+			// this.arrayOfParticles[3].y += 0.05;
+			// //5th one goes down
+			// this.arrayOfParticles[4].y += 0.05;
+			// //6th one goes down left
+			// this.arrayOfParticles[5].x -= 0.05;
+			// this.arrayOfParticles[5].y += 0.05;
+			// //7th one goes left
+			// this.arrayOfParticles[6].x -= 0.05;
+			// //8th one goes up left
+			// this.arrayOfParticles[7].x -= 0.05;
+			// this.arrayOfParticles[7].y -= 0.05;
+			
+			// this.currentAlpha -= 0.0005;
+
+			// if (this.currentAlpha < 0.05)
+			// {
+			// 	this.arrayOfParticles = [];
+			// }
+		}
+	}
+}
+
+function DucketParticlesManager()
+{
+	this.arrayOfParticleInstances = [];
+
+	this.init = function()
+	{
+		this.arrayOfParticleInstances = [];
+	}
+
+	this.updateParticleInstances = function()
+	{
+		for (let i = 0; i < this.arrayOfParticleInstances.length; i++)
+		{
+			this.arrayOfParticleInstances[i].update();
+			if (this.arrayOfParticleInstances[i].arrayOfParticles.length === 0)
+			{
+				this.arrayOfParticleInstances.splice(i,1);
+			}
+		}
+	}
+
+	this.drawParticleInstances = function()
+	{
+		for (let i = 0; i < this.arrayOfParticleInstances.length; i++)
+		{
+			this.arrayOfParticleInstances[i].update();
+		}
+	}
 }

@@ -17,6 +17,8 @@ function initGame(){
 	player.initPlayer();
   
   moneyBucket = new moneyBucketClass();
+
+  ducketParticlesManager = new DucketParticlesManager();
 	
   spawnEnemy(100,100);
   spawnCoins();
@@ -35,6 +37,8 @@ function gameUpdate(){
 
   updateTimer();
   player.update();
+
+  ducketParticlesManager.updateParticleInstances();
   
   for (var i = 0; i < enemies.length; i++) {
     enemies[i].update()
@@ -69,6 +73,7 @@ function gameDraw(){
     ducketList[i].draw();
   }
   
+  ducketParticlesManager.drawParticleInstances();
   player.draw();
   
   for (var i = 0; i < enemies.length; i++) {

@@ -10,12 +10,17 @@ function resetGame(){
 function initGame(){
   resetGame();
   
+  if (firstPlayThrough)
+  {
+    setTimeout(function(){firstPlayThrough = false},3000);
+  }
+
   countdownToGamePlayTimer = new CountdownToGamePlay();
   countdownToGamePlayTimer.init();
 
   player = new playerClass();
 	player.initPlayer();
-  
+
   animUI = new animUIClass();
   animUI.init();
   
@@ -75,6 +80,8 @@ function gameUpdate(){
 }
 
 var screenShouldBeShaking = false;
+var firstPlayThrough = true;
+var depositInstructionShouldBeShowing = true;
 
 function gameDraw(){
   if (screenShouldBeShaking)
@@ -104,12 +111,33 @@ function gameDraw(){
     enemyTelegraphs[i].draw()
   }
 
+  if (depositInstructionShouldBeShowing)
+  {
+    canvasContext.fillStyle = 'white';
+    canvasContext.font = '15px "Press Start 2P"';
+    canvasContext.textAlign = 'center';
+    canvasContext.fillText("Deposit Coins Here!", canvas.width/2,(canvas.height/2) - (scaledbucketSize/2) - 15);
+    canvasContext.textAlign = 'start';
+  }
+
   animUI.draw();
+  
   if (countdownToGamePlayTimer)
   {
     countdownToGamePlayTimer.draw();
   }
   
+  if (firstPlayThrough)
+  {
+    canvasContext.fillStyle = 'white';
+    canvasContext.font = '35px "Press Start 2P"';
+    canvasContext.textAlign = 'center';
+    canvasContext.fillText("Collect and Deposit Coins!", canvas.width/2,canvas.height*0.33);
+    canvasContext.textAlign = 'start';
+  }
+
+  
+
   drawTimer();
   drawHighScore();
   

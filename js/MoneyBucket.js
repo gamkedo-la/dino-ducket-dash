@@ -15,6 +15,11 @@ function moneyBucketClass(){
         score += player.ducketsCarried;
         player.ducketsCarried = 0;
         spawnEnemyTelegraph();
+
+        if (depositInstructionShouldBeShowing)
+        {
+          depositInstructionShouldBeShowing = false;
+        }
       }
 		}
   }

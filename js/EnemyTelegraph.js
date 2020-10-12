@@ -29,8 +29,8 @@ function enemyTelegraphClass(){
 		this.x = randomX;
 		this.y = randomY;
 		while((Math.abs(player.x - this.x) < this.frameWidth) && (Math.abs(player.y - this.x < this.frameHeight))) {
-			this.x = randomIntFromInterval(0,canvas.width);
-			this.y = randomIntFromInterval(0,canvas.height);
+			this.x = randomIntFromInterval(0,canvas.width - ENEMY_WIDTH*10);
+			this.y = randomIntFromInterval(0,canvas.height - ENEMY_HEIGHT*10);
 		}
 	}
 

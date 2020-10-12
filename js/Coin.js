@@ -71,7 +71,6 @@ function DucketParticlesInstance(ducket)
 
 	this.init = function()
 	{
-		console.log('particles instance instantiated and initialized');
 		for (let i = 0; i < 8; i++)
 		{
 			let ducketParticle = {x: ducket.x + ducket.width/2 - this.width/2, y: ducket.y + ducket.height/2 - this.height/2};
@@ -150,7 +149,6 @@ function DucketParticlesManager()
 
 	this.drawParticleInstances = function()
 	{
-		console.log('particles manager call to draw particles instances');
 		for (let i = 0; i < this.arrayOfParticleInstances.length; i++)
 		{
 			this.arrayOfParticleInstances[i].draw();

@@ -1,8 +1,11 @@
+const ENEMY_WIDTH = 20;
+const ENEMY_HEIGHT = 20;
+
 function enemyClass(){
 	this.x = 100;
 	this.y = 100;
-	this.width = 20;
-	this.height = 20;
+	this.width = ENEMY_WIDTH;
+	this.height = ENEMY_HEIGHT;
 	this.speedX; 
 	this.speedY; 
 	//WARM UP: how many duckets does the player lose when hit by this enemy?
@@ -78,29 +81,32 @@ function enemyClass(){
 		}
 
 		if(checkCollision(this,player)){
-			this.x = oldX;
-			this.y = oldY;
-			this.speedX *= -1;
-			this.speedY *= -1;
-			
-			if (this.sprite === this.rightSprite)
+			if (!godMode)
 			{
-				this.sprite = this.leftSprite;
-			}
-			else if (this.sprite === this.leftSprite)
-			{
-				this.sprite = this.rightSprite;
-			}
-			
-			hitSFX.play();
+				this.x = oldX;
+				this.y = oldY;
+				this.speedX *= -1;
+				this.speedY *= -1;
+				
+				if (this.sprite === this.rightSprite)
+				{
+					this.sprite = this.leftSprite;
+				}
+				else if (this.sprite === this.leftSprite)
+				{
+					this.sprite = this.rightSprite;
+				}
+				
+				hitSFX.play();
 
-			if(player.ducketsCarried <= 0){
-                decals.deathSplatter(this.x,this.y+50); // pile of bones!
-				gameState = 'gameOver';
-			} else{
-				player.ducketsCarried = 0;
-			}
-		}
+				if(player.ducketsCarried <= 0){
+	                decals.deathSplatter(this.x,this.y+50); // pile of bones!
+					gameState = 'gameOver';
+				} else{
+					player.ducketsCarried = 0;
+				}
+			}//end of godMode check	
+		}// end of collision check with player
 
 		this.x += this.speedX;
 		this.y += this.speedY;

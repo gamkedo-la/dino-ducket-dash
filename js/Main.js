@@ -163,7 +163,11 @@ function draw(){
 	{
 		canvasContext.fillStyle = 'blue';
 		canvasContext.font = '30px Helvetica';
-		canvasContext.fillText('Debug On', 30,30);
+		canvasContext.fillText('Debug On', 30,canvas.height - 30);
+		if (godMode)
+		{
+			canvasContext.fillText('God Mode On', canvas.width/2,canvas.height - 30);
+		}
 	}
 	
 	switch (gameState) {

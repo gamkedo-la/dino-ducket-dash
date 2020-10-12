@@ -10,6 +10,7 @@ const KEY_M = 'KeyM';
 const KEY_P = 'KeyP';
 const KEY_C = 'KeyC';
 const KEY_E = 'KeyE';
+const KEY_G = 'KeyG';
 const KEY_SPACEBAR = 'Space';
 const KEY_UP = 'ArrowUp';
 const KEY_DOWN = 'ArrowDown';
@@ -122,6 +123,18 @@ function keyPressed(evt){
 			{
 				spawnCoins();
 			}
+		case KEY_G:
+		    if (debugOn)
+		    {
+		    	if (!godMode)
+		    	{
+		    		godMode = true;
+		    	}
+		    	else
+		    	{
+		    		godMode = false;
+		    	}
+		    }
 		//WARM UP: Add cases to handle ARROW Keys as alternative to WASD
 		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down
 		//WARM UP: Add cases to handle cheats (stop the enemy's movement? spawn more enemies or duckets?)

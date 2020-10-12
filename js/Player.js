@@ -1,3 +1,5 @@
+var godMode = false;
+
 function playerClass(){	
 	//Player Variables
 	this.width = 10;

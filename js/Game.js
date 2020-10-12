@@ -74,7 +74,17 @@ function gameUpdate(){
   }
 }
 
+var screenShouldBeShaking = false;
+
 function gameDraw(){
+  if (screenShouldBeShaking)
+  {
+    canvasContext.save();
+    let shakeCoordinateX = getRandomIntInclusive(0,canvas.width/20);
+    let shakeCoordinateY = getRandomIntInclusive(0,canvas.height/20);
+    canvasContext.translate(shakeCoordinateX,shakeCoordinateY);
+  }
+
   moneyBucket.draw();
 
   decals.draw(); // footsteps etc
@@ -103,5 +113,5 @@ function gameDraw(){
   drawTimer();
   drawHighScore();
   
-  
+  canvasContext.restore();
 }

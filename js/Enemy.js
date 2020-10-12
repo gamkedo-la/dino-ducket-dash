@@ -83,6 +83,9 @@ function enemyClass(){
 		if(checkCollision(this,player)){
 			if (!godMode)
 			{
+				screenShouldBeShaking = true;
+				setTimeout(function(){screenShouldBeShaking = false},100);
+
 				this.x = oldX;
 				this.y = oldY;
 				this.speedX *= -1;

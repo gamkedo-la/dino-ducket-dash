@@ -45,7 +45,7 @@ function drawTimer(){
 	timerText = gameMinutes + ":" + secondDisplay;
 	drawRect(xPos, yPos, timerBoxWidth, timerBoxHeight, "black");
 	canvasContext.fillStyle = 'white';
-	canvasContext.fillText(timerText, xPos+5,yPos+20);
+	canvasContext.fillText(timerText, xPos+5,yPos+25);
 }
 
 function checkScore(){

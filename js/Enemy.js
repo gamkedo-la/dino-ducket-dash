@@ -73,10 +73,10 @@ function enemyClass(){
 			this.speedX *= -1;
 			this.sprite = this.leftSprite;
 		}
-		if(this.y < 0){
+		if(this.y < this.height/2){
 			this.speedY *= -1;
 		}
-		if(this.y > canvas.height - this.height*PIXEL_SCALE_UP){
+		if(this.y > canvas.height - this.height*PIXEL_SCALE_UP*1.5){
 			this.speedY *= -1;
 		}
 

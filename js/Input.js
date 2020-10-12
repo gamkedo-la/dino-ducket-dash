@@ -15,6 +15,7 @@ const KEY_UP = 'ArrowUp';
 const KEY_DOWN = 'ArrowDown';
 const KEY_LEFT = 'ArrowLeft';
 const KEY_RIGHT = 'ArrowRight';
+const ENTER = 'Enter';
 
 //WARM UP: Add values for "P" and "M" in preparation for Pause & Mute functionality
 //WARM UP: Add values for "+" and "-" in preparation for volume controls

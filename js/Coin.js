@@ -71,6 +71,7 @@ function DucketParticlesInstance(ducket)
 
 	this.init = function()
 	{
+		console.log('particles instance instantiated and initialized');
 		for (let i = 0; i < 8; i++)
 		{
 			let ducketParticle = {x: ducket.x + ducket.width/2 - this.width/2, y: ducket.y + ducket.height/2 - this.height/2};
@@ -82,10 +83,10 @@ function DucketParticlesInstance(ducket)
 	{
 		if (this.arrayOfParticles.length !== 0)
 		{
-			//canvasContext.globalAlpha = this.currentAlpha;
+			canvasContext.globalAlpha = this.currentAlpha;
 			for (let i = 0; i < this.arrayOfParticles.length; i++)
 			{
-				canvasContext.draw(this.sprite, this.arrayOfParticles[i].x,this.arrayOfParticles[i].y, this.width,this.height);
+				canvasContext.drawImage(this.sprite, this.arrayOfParticles[i].x,this.arrayOfParticles[i].y, this.width,this.height);
 			}
 			canvasContext.globalAlpha = 1;
 		}
@@ -96,32 +97,32 @@ function DucketParticlesInstance(ducket)
 		if (this.arrayOfParticles.length !== 0)
 		{
 				//1st one goes up
-			// this.arrayOfParticles[0].y -= 0.05;
+			this.arrayOfParticles[0].y -= 1.5;
 			// //2nd one goes up right
-			// this.arrayOfParticles[1].x += 0.05;
-			// this.arrayOfParticles[1].y -= 0.05;
+			this.arrayOfParticles[1].x += 1.5;
+			this.arrayOfParticles[1].y -= 1.5;
 			// //3rd one goes right
-			// this.arrayOfParticles[2].x += 0.05;
+			this.arrayOfParticles[2].x += 1.5;
 			// //4th one goes down right
-			// this.arrayOfParticles[3].x += 0.05;
-			// this.arrayOfParticles[3].y += 0.05;
+			this.arrayOfParticles[3].x += 1.5;
+			this.arrayOfParticles[3].y += 1.5;
 			// //5th one goes down
-			// this.arrayOfParticles[4].y += 0.05;
+			this.arrayOfParticles[4].y += 1.5;
 			// //6th one goes down left
-			// this.arrayOfParticles[5].x -= 0.05;
-			// this.arrayOfParticles[5].y += 0.05;
+			this.arrayOfParticles[5].x -= 1.5;
+			this.arrayOfParticles[5].y += 1.5;
 			// //7th one goes left
-			// this.arrayOfParticles[6].x -= 0.05;
+			this.arrayOfParticles[6].x -= 1.5;
 			// //8th one goes up left
-			// this.arrayOfParticles[7].x -= 0.05;
-			// this.arrayOfParticles[7].y -= 0.05;
+			this.arrayOfParticles[7].x -= 1.5;
+			this.arrayOfParticles[7].y -= 1.5;
 			
-			// this.currentAlpha -= 0.0005;
+			this.currentAlpha -= 0.05;
 
-			// if (this.currentAlpha < 0.05)
-			// {
-			// 	this.arrayOfParticles = [];
-			// }
+			if (this.currentAlpha < 0.05)
+			{
+				this.arrayOfParticles = [];
+			}
 		}
 	}
 }
@@ -149,9 +150,10 @@ function DucketParticlesManager()
 
 	this.drawParticleInstances = function()
 	{
+		console.log('particles manager call to draw particles instances');
 		for (let i = 0; i < this.arrayOfParticleInstances.length; i++)
 		{
-			this.arrayOfParticleInstances[i].update();
+			this.arrayOfParticleInstances[i].draw();
 		}
 	}
 }

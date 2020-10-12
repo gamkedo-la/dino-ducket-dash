@@ -24,13 +24,13 @@ function enemyTelegraphClass(){
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		
-		let randomX = randomIntFromInterval(0,canvas.width-20);
-		let randomY = randomIntFromInterval(0,canvas.height-20);
+		let randomX = randomIntFromInterval(0,canvas.width-ENEMY_WIDTH*3);
+		let randomY = randomIntFromInterval(0,canvas.height-ENEMY_HEIGHT*4);
 		this.x = randomX;
 		this.y = randomY;
 		while((Math.abs(player.x - this.x) < this.frameWidth) && (Math.abs(player.y - this.x < this.frameHeight))) {
-			this.x = randomIntFromInterval(0,canvas.width - ENEMY_WIDTH*10);
-			this.y = randomIntFromInterval(0,canvas.height - ENEMY_HEIGHT*10);
+			this.x = randomIntFromInterval(0,canvas.width-ENEMY_WIDTH*3);
+			this.y = randomIntFromInterval(0,canvas.height-ENEMY_HEIGHT*4);
 		}
 	}
 

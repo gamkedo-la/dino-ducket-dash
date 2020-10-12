@@ -133,7 +133,7 @@ function spawnCoins(){
 		//WARM UP: limit ducket positioning so all of them are 100% on screen
 		var ducket = new ducketClass();
 		ducket.x = getRandomIntInclusive(DUCKET_WIDTH,canvas.width - DUCKET_WIDTH*2);
-		ducket.y = getRandomIntInclusive(DUCKET_HEIGHT,canvas.height - DUCKET_HEIGHT*5);
+		ducket.y = getRandomIntInclusive(DUCKET_HEIGHT,canvas.height - DUCKET_HEIGHT*4);
 		ducket.initCoin();
 		ducketList.push(ducket);
 	}

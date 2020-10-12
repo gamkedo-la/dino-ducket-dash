@@ -123,6 +123,7 @@ function keyPressed(evt){
 			{
 				spawnCoins();
 			}
+			break;
 		case KEY_G:
 		    if (debugOn)
 		    {

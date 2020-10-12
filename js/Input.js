@@ -1,17 +1,16 @@
 debugOn = false;
 
 //Input Variables 
-const KEY_W = 87; 
-const KEY_S = 83;
-const KEY_A = 65;
-const KEY_D = 68;
-const KEY_R = 82;
-const KEY_M = 77;
-const KEY_P = 80;
-const KEY_C = 67;
-const KEY_E = 69;
-const KEY_SPACEBAR = 32;
-//WARM UP: Add values for ARROW Keys
+const KEY_W = 'KeyW';
+const KEY_S = 'KeyS';
+const KEY_A = 'KeyA';
+const KEY_D = 'KeyD';
+const KEY_R = 'KeyR';
+const KEY_M = 'KeyM';
+const KEY_P = 'KeyP';
+const KEY_C = 'KeyC';
+const KEY_E = 'KeyE';
+const KEY_SPACEBAR = 'Space';
 //WARM UP: Add values for "P" and "M" in preparation for Pause & Mute functionality
 //WARM UP: Add values for "+" and "-" in preparation for volume controls
 //WARM UP: Add values for cheats (stop the enemy's movement? spawn more enemies or duckets?) Trello Card: https://trello.com/c/J4VYQDmw
@@ -37,17 +36,17 @@ function mouseClicked(evt){
 }
 
 function keyPressed(evt){
-	//console.log(evt.keyCode);
+	//console.log(evt.code);
 	if(gameState == "menu"){
 		initGame();
 	}
 	
 	if(gameState == 'gameOver'){
-		if(evt.keyCode == KEY_R){
+		if(evt.code == KEY_R){
 			initGame();
 		}
 	}
-	switch(evt.keyCode){
+	switch(evt.code){
 		//movement
 		case KEY_W:
 			moveUp = true;
@@ -116,7 +115,7 @@ function keyPressed(evt){
 }
 
 function keyReleased(evt){
-	switch(evt.keyCode){
+	switch(evt.code){
 		case KEY_W:
 			moveUp = false;
 			break

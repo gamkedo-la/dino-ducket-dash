@@ -110,7 +110,7 @@ function init(){
 function update(){
 	switch (gameState) {
 		case 'menu': 
-			menuUpdate(); 
+			menuUpdate(1000/FPS);
 			break;
 		case 'game': 
 			menuUI.style.display = 'none';

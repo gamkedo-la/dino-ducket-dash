@@ -42,17 +42,21 @@ function mouseClicked(evt){
 }
 
 function keyPressed(evt){
-	//console.log(evt.code);
+	let keyCode = evt.code;
+
 	if(gameState == "menu"){
-		initGame();
-	}
-	
-	if(gameState == 'gameOver'){
-		if(evt.code == KEY_R){
+		if(buttonSelectState === buttonsList.single &&
+			(keyCode === ENTER || keyCode === KEY_SPACEBAR)) {
 			initGame();
 		}
 	}
-	switch(evt.code){
+	
+	if(gameState == 'gameOver'){
+		if(keyCode == KEY_R){
+			initGame();
+		}
+	}
+	switch(keyCode){
 		//movement
 		case KEY_W:
 		case KEY_UP:

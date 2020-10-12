@@ -20,21 +20,28 @@
     height:50px;
     bottom:220px;
     padding:50%;
-    background:#fe4101;
     border-radius:50px;
     text-align:center;
     font-size:30px;
     color:white;
-    background-size:
-
 }
 
-#single:hover {
+/*#single:hover {*/
+/*    background:#aad354;*/
+/*    color:black;*/
+/*    transform:scale(+1.5);*/
+/*    transition:0.5s;*/
+/*}*/
+
+.buttonUnselected {
+    background:#fe4101;
+    transition:0.5s;
+}
+.buttonSelected {
     background:#aad354;
     color:black;
     transform:scale(+1.5);
     transition:0.5s;
-
 }
 
 #single:active {
@@ -49,7 +56,7 @@
     height:50px;
     bottom:230px;
     right:50%;
-    background:#fe4101;
+    /*background:#fe4101;*/
     border-radius:50px;
     text-align:center;
     font-size:30px;
@@ -57,12 +64,12 @@
 
 }
 
-#multi:hover {
-    background:#aad354;
-    color:black;
-    transform:scale(+1.5);
-    transition:0.5s;
-}
+/*#multi:hover {*/
+/*    background:#aad354;*/
+/*    color:black;*/
+/*    transform:scale(+1.5);*/
+/*    transition:0.5s;*/
+/*}*/
 
 #multi:active {
   background-color: #ffffff;
@@ -82,7 +89,7 @@
     height:50px;
     bottom:240px;
     right:50%;
-    background:#fe4101;
+    /*background:#fe4101;*/
     border-radius:50px;
     text-align:center;
     font-size:30px;
@@ -90,12 +97,12 @@
 
 }
 
-#audio:hover {
-    background:#aad354;
-    color:black;
-    transform:scale(+1.5);
-    transition:0.5s;
-}
+/*#audio:hover {*/
+/*    background:#aad354;*/
+/*    color:black;*/
+/*    transform:scale(+1.5);*/
+/*    transition:0.5s;*/
+/*}*/
 
 #audio:active {
   background-color: #ffffff;
@@ -109,7 +116,7 @@
     height:50px;
     bottom:250px;
     right:50%;
-    background:#fe4101;
+    /*background:#fe4101;*/
     text-align:center;
     font-size:23px;
     color:white;
@@ -117,12 +124,11 @@
     transition:0.5s;
 }
 
-#highscore:hover {
-    background:#aad354;
-    color:black;
-    transform:scale(+1.5);
-
-}
+/*#highscore:hover {*/
+/*    background:#aad354;*/
+/*    color:black;*/
+/*    transform:scale(+1.5);*/
+/*}*/
 
 #highscore:active {
   background-color: #ffffff;

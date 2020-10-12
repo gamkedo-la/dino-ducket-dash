@@ -11,11 +11,11 @@
 <body>
 	<!-- WARP UP: horizontally center the canvas in the window -->
 	<div class='header'>DINO DUCKET DASH! Any Key to Play, WASD or Arrow Keys to move</div>
-		<div class="container" id="allmenu" onmouseup="menuState()">
-			<div id="single"><p>1PLAY</p></div>
-			<div id="multi"><p>2PLAY</p></div>
-			<div id="audio"><p>AUDIO</p></div>
-			<div id="highscore"><p>SCOREBOARD</p></div>
+		<div class="container" id="allmenu">
+			<div id="single" onmouseup="menuState()" onmouseover="detectMouseHover(buttonsList.single)"><p>1PLAY</p></div>
+			<div id="multi" onmouseover="detectMouseHover(buttonsList.multi)"><p>2PLAY</p></div>
+			<div id="audio" onmouseover="detectMouseHover(buttonsList.audio)"><p>AUDIO</p></div>
+			<div id="highscore" onmouseover="detectMouseHover(buttonsList.highscore)"><p>SCOREBOARD</p></div>
 		</div>
 		<div class='popup'onclick="showCredits()">Click to show Credits</div>
 	<canvas id='gameCanvas' width="320" height="240"></canvas>
@@ -33,10 +33,13 @@
 	<script src='js/CountdownToGamePlay.js'></script>
 	<script src="js/Game.js"></script>
 	<script src="js/GameOver.js"></script>
-  <script src="js/Audio.js"></script>
-  <script src="js/DecalFX.js"></script>
+  	<script src="js/Audio.js"></script>
+  	<script src="js/DecalFX.js"></script>
 	<script src="js/EnemyTelegraph.js"></script>
 	<script src="js/UI_Anim.js"></script>
+	<script src="js/MainMenuButtonState.js"></script>
+	<script src="js/MainMenuKeyBoard.js"></script>
+	<script src="js/MainMenuMouse.js"></script>
     
 	
 

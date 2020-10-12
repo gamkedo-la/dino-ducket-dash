@@ -11,6 +11,11 @@ const KEY_P = 'KeyP';
 const KEY_C = 'KeyC';
 const KEY_E = 'KeyE';
 const KEY_SPACEBAR = 'Space';
+const KEY_UP = 'ArrowUp';
+const KEY_DOWN = 'ArrowDown';
+const KEY_LEFT = 'ArrowLeft';
+const KEY_RIGHT = 'ArrowRight';
+
 //WARM UP: Add values for "P" and "M" in preparation for Pause & Mute functionality
 //WARM UP: Add values for "+" and "-" in preparation for volume controls
 //WARM UP: Add values for cheats (stop the enemy's movement? spawn more enemies or duckets?) Trello Card: https://trello.com/c/J4VYQDmw
@@ -49,15 +54,19 @@ function keyPressed(evt){
 	switch(evt.code){
 		//movement
 		case KEY_W:
+		case KEY_UP:
 			moveUp = true;
 			break
 		case KEY_A:
+		case KEY_LEFT:
 			moveLeft = true;
 			break
 		case KEY_S:
+		case KEY_DOWN:
 			moveDown = true;
 			break
 		case KEY_D:
+		case KEY_RIGHT:
 			moveRight = true;
 			break
 
@@ -117,15 +126,19 @@ function keyPressed(evt){
 function keyReleased(evt){
 	switch(evt.code){
 		case KEY_W:
+		case KEY_UP:
 			moveUp = false;
 			break
 		case KEY_A:
+		case KEY_LEFT:
 			moveLeft = false;
 			break
 		case KEY_S:
+		case KEY_DOWN:
 			moveDown = false;
 			break
 		case KEY_D:
+		case KEY_RIGHT:
 			moveRight = false;
 			break
 		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down

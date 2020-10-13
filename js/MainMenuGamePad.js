@@ -4,9 +4,10 @@ let timeLimit = 200;
 
 function menuUpdate(time){
     var gamepads = navigator.getGamepads();
-    // make sure we have at least one controller
 
-    if(gamepads.length < 1) {
+    // make sure we have at least one controller
+    // the extra null checks avoid an error below due to chrome permissions
+    if(gamepads.length < 1 || !gamepads[0] || !gamepads[0].axes) { 
         return;
     }
 
@@ -17,7 +18,8 @@ function menuUpdate(time){
         hasBeenPressed = false;
     }
 
-    if(gamepads[0].axes[1] < -0.5) {
+    // note: gamepads.length can be >0 but gamepads[0] can be undefined!!!
+    if(gamepads[0].axes[1] < -0.5) { // error here on inactive gamepad on chrome
         hasBeenPressed = true;
         let evt = {
             code: KEY_UP

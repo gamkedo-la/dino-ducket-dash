@@ -35,6 +35,8 @@ var decalManager = function() {
 	this.add = function(x,y,rot=0,alpha=0.025,spritenum=0) {
         if (!decalSpritesheet.loaded) return;
         decalCount++;
+        
+        // why are these still blurry?
         x = Math.round(x);
         y = Math.round(y);
         
@@ -68,7 +70,8 @@ var decalManager = function() {
 	};
 
     this.draw = function() {
-		canvasContext.drawImage(decalCanvas, 0, 0);
+        // FIXME: why is this blurry?
+        canvasContext.drawImage(decalCanvas, 0, 0);
 	};
 
 	this.resize = function() {

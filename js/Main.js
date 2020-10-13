@@ -115,8 +115,10 @@ function update(){
 		case 'game': 
 			menuUI.style.display = 'none';
 			gameUpdate();
+			scoredNotChecked = true;
 			break;
 		case 'gameOver': 
+			console.log("Call Check Score");
 			checkScore();
 			gameOverUpdate();
 			break;

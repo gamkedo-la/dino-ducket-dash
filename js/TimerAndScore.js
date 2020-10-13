@@ -10,6 +10,7 @@ var score = 0;
 var highScore = 0;
 var highScoreList = []; //WIP for tracking all scores
 var sortedHighScoreList = [];
+var scoredNotChecked = true;
 
 /*
  updateTimer is to keep track of Game Time.    
@@ -49,10 +50,13 @@ function drawTimer(){
 }
 
 function checkScore(){
-	highScoreList.push(score);
-	highScore = Math.max(...highScoreList);
-	sortedHighScoreList = highScoreList.sort(function(a,b){return b-a});
-	//score = 0;
+	if(scoredNotChecked){
+		highScoreList.push(score);
+		highScore = Math.max(...highScoreList);
+		sortedHighScoreList = highScoreList.sort(function(a,b){return b-a});
+		//score = 0;
+		scoredNotChecked = false;
+	}
 }		
 
 function drawHighScore(){

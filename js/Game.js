@@ -20,7 +20,7 @@ function initGame(){
   countdownToGamePlayTimer.init();
 
   player = new playerClass();
-	player.initPlayer();
+  player.initPlayer();
 
   animUI = new animUIClass();
   animUI.init();

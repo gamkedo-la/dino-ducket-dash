@@ -9,6 +9,7 @@ function detectKeyPresses(evt) {
                 buttonSelectState = buttonsList.multi;
                 removeSingleSelect();
                 addMultiSelect();
+                playMenuSelectSFX();
             }
             if(keyPress === ENTER) {
 
@@ -19,11 +20,13 @@ function detectKeyPresses(evt) {
                 buttonSelectState = buttonsList.single;
                 removeMultiSelect();
                 addSingleSelect();
+                playMenuSelectSFX();
             }
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {
                 buttonSelectState = buttonsList.audio;
                 removeMultiSelect();
                 addAudioSelect();
+                playMenuSelectSFX();
             }
             break;
         case buttonsList.audio:
@@ -31,11 +34,13 @@ function detectKeyPresses(evt) {
                 buttonSelectState = buttonsList.multi;
                 removeAudioSelect();
                 addMultiSelect();
+                playMenuSelectSFX();
             }
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {
                 buttonSelectState = buttonsList.highscore;
                 removeAudioSelect();
                 addHighscoreSelect();
+                playMenuSelectSFX();
             }
             break;
         case buttonsList.highscore:
@@ -43,8 +48,15 @@ function detectKeyPresses(evt) {
                 buttonSelectState = buttonsList.audio;
                 removeHighscoreSelect();
                 addAudioSelect();
+                playMenuSelectSFX();
             }
             break;
     }
 
+}
+
+function playMenuSelectSFX(){
+  if(gameState == "menu"){
+    menuSFX.play();
+  }
 }

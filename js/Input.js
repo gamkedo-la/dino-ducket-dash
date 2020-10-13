@@ -48,6 +48,7 @@ function keyPressed(evt){
 	if(gameState == "menu"){
 		if(buttonSelectState === buttonsList.single &&
 			(keyCode === ENTER || keyCode === KEY_SPACEBAR)) {
+			depositSFX.play();
 			initGame();
 		}
 	}

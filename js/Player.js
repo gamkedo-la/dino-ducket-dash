@@ -5,7 +5,7 @@ function playerClass(){
 	this.width = 10;
 	this.height = 10;
 	this.x = 0;
-	this.y = this.height;
+	this.y = this.height*5;
 	
 	this.speed = 10;
 	this.ducketsCarried = 0;

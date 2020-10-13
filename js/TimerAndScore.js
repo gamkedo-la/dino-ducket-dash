@@ -43,7 +43,7 @@ function drawTimer(){
 	let yPos = 0;
 	let secondDisplay = gameSeconds.toString().padStart(2,'0');
 	timerText = gameMinutes + ":" + secondDisplay;
-	drawRect(xPos, yPos, timerBoxWidth, timerBoxHeight, "black");
+	drawRect(xPos, yPos, timerBoxWidth + 2, timerBoxHeight, "black");
 	canvasContext.fillStyle = 'white';
 	canvasContext.fillText(timerText, xPos+5,yPos+25);
 }
@@ -52,16 +52,36 @@ function checkScore(){
 	highScoreList.push(score);
 	highScore = Math.max(...highScoreList);
 	sortedHighScoreList = highScoreList.sort(function(a,b){return b-a});
-	score = 0;
+	//score = 0;
 }		
 
 function drawHighScore(){
+	let labelText = 'High Score:';
+	let labelTextWidth = canvasContext.measureText(labelText).width;
+
 	let hsScoreBoxWidth = 100;
 	let hsScoreBoxHeight = 10;
 	let xPos = canvas.width - (hsScoreBoxWidth*PIXEL_SCALE_UP/2)-5;
 	let yPos = 0;
 	let hsScoreText = highScore.toString().padStart(10,'0');
-	drawRect(xPos, yPos, hsScoreBoxWidth, hsScoreBoxHeight, "black");
+	drawRect(xPos - labelTextWidth - 10,yPos, hsScoreBoxWidth + labelTextWidth, hsScoreBoxHeight, "black");
 	canvasContext.fillStyle = 'white';
-	canvasContext.fillText(hsScoreText, xPos+5,yPos+20);
+	canvasContext.fillText(labelText, xPos - labelTextWidth - 5,yPos+25);
+	canvasContext.fillText(hsScoreText, xPos+5,yPos+25);
+}
+
+function drawCurrentScore()
+{
+	let labelText = 'Score:';
+	let labelTextWidth = canvasContext.measureText(labelText).width;
+	
+	let currentScoreBoxWidth = 10;
+	let currentScoreBoxHeight = 10;
+	let xPos = labelTextWidth;
+	let yPos = 0;
+	let currentScoreText = score.toString().padStart(10,'0');
+	drawRect(0,yPos, labelTextWidth*0.925,currentScoreBoxHeight, 'black');
+	canvasContext.fillStyle = 'white';
+	canvasContext.fillText(labelText, 0,25);
+	canvasContext.fillText(currentScoreText, xPos+5,yPos+25);
 }

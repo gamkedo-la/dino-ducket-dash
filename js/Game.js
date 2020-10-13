@@ -5,6 +5,7 @@ function resetGame(){
   ducketList = [];
   resetTimer();
   checkScore();
+  score = 0;
  }
 
 function initGame(){
@@ -140,6 +141,7 @@ function gameDraw(){
 
   drawTimer();
   drawHighScore();
+  drawCurrentScore();
   
   canvasContext.restore();
 }

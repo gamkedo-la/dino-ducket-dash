@@ -155,3 +155,22 @@ function DucketParticlesManager()
 		}
 	}
 }
+
+function spawnCoins(){
+	ducketList = [];
+	for (var i = 0; i < 20; i++) {
+
+		//WARM UP: limit ducket positioning so all of them are 100% on screen
+		var ducket = new ducketClass();
+		ducket.x = getRandomIntInclusive(DUCKET_WIDTH,canvas.width - DUCKET_WIDTH*3.25);
+		ducket.y = getRandomIntInclusive(DUCKET_HEIGHT,canvas.height - DUCKET_HEIGHT*5);
+		ducket.initCoin();
+		ducketList.push(ducket);
+	}
+}
+
+function checkIfCoinsNeedToRespawn(){
+	if(ducketList.length == 0 && player.ducketsCarried == 0){
+		spawnCoins();
+	}
+}

@@ -12,9 +12,6 @@ function menuUpdate(time){
     }
     else
     {
-        //gamepad for player one exists
-        let p1_Gamepad=gamepads[0];
-
         if(hasBeenPressed === true && timePassed <= timeLimit){
             timePassed += time;
             return;
@@ -23,32 +20,28 @@ function menuUpdate(time){
 
 
         }
-        
     // note: gamepads.length can be >0 but gamepads[0] can be undefined!!!
-    //fix by checking a local variable which is the p1_gamepad
-        if(p1_Gamepad!=null)
-        {
-            if(gamepads[0].axes[1] < -0.5 || gamepads[0].axes[1] != null) {
-                hasBeenPressed = true;
-                let evt = {
-                    code: KEY_UP
-                }
-                detectKeyPresses(evt);
-            } 
-            else if(gamepads[0].axes[1] > 0.5) {
-                hasBeenPressed = true;
-                let evt = {
-                    code: KEY_DOWN
-                }
-                detectKeyPresses(evt);
+        if(gamepads[0].axes[1] < -0.5 || gamepads[0].axes[1] != null) {
+            hasBeenPressed = true;
+            let evt = {
+                code: KEY_UP
             }
-            if(gamepads[0].buttons[0].pressed){
-                let evt = {
-                    code:  ENTER
-                }
-                keyPressed(evt);
+            detectKeyPresses(evt);
+        } 
+        else if(gamepads[0].axes[1] > 0.5) {
+            hasBeenPressed = true;
+            let evt = {
+                code: KEY_DOWN
             }
+            detectKeyPresses(evt);
         }
+        if(gamepads[0].buttons[0].pressed){
+            let evt = {
+                code:  ENTER
+            }
+            keyPressed(evt);
+        }
+    
         timePassed = 0.0;    
     }
 }

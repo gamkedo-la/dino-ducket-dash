@@ -11,6 +11,8 @@ function playerClass(playerNumber){
 	this.ducketsCarried = 0;
     this.controllerThreshold = 0.5;
 	this.stepCounter = 0;
+	this.immunityTimer = 0;
+	this.immunity = false;
 
 	//Things for coop
 	this.playerNumber = playerNumber;
@@ -138,6 +140,12 @@ function playerClass(playerNumber){
         } else { // we are moving
             this.stepCounter++;
             if (this.stepCounter%3==0) decals.add(this.x+10,this.y+30);
+        }
+
+        if(this.immunityTimer > 0){
+        	this.immunityTimer--;
+        }else{
+        	this.immunity = false;
         }
 	}
 	

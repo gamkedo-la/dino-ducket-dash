@@ -82,7 +82,7 @@ function enemyClass(){
 		}
 
 		if(checkCollision(this,player)){
-			if (!godMode)
+			if (!godMode && !player.immunity)
 			{
 				screenShouldBeShaking = true;
 				setTimeout(function(){screenShouldBeShaking = false},100);
@@ -108,6 +108,8 @@ function enemyClass(){
 					gameState = 'gameOver';
 				} else{
 					player.ducketsCarried = 0;
+					player.immunityTimer = 30;
+					player.immunity = true;
 				}
 			}//end of godMode check	
 		}// end of collision check with player

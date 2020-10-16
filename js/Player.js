@@ -95,7 +95,7 @@ function playerClass(){
 			}
 		}
 		if(moveDown){
-			if(this.y < canvas.height - this.height*PIXEL_SCALE_UP - this.height*4){
+			if(this.y < canvas.height - this.height*PIXEL_SCALE_UP - this.height){
 				this.y += (this.speed);
 				this.animationFrameDelay = 1;
 			}

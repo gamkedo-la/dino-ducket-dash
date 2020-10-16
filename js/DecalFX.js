@@ -43,7 +43,7 @@ var decalManager = function() {
         
         // debug spam to determine why the sprites are blurry
         // hmm all the coords and sizes are integers
-        console.log('decal '+decalCount+':'+x+','+y+','+rot+' alpha:'+alpha+' decalsize:'+decalsize+' centerOffset:'+centerOffset+' drawSize:'+drawSize);
+       // console.log('decal '+decalCount+':'+x+','+y+','+rot+' alpha:'+alpha+' decalsize:'+decalsize+' centerOffset:'+centerOffset+' drawSize:'+drawSize);
         
         // rotated and scaled - works great but seems blurry
         /*

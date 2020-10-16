@@ -27,6 +27,12 @@ var moveRight = false;
 var moveUp = false;
 var moveDown = false;
 
+var moveLeft2 = false;
+var moveRight2 = false;
+var moveUp2 = false;
+var moveDown2 = false;
+
+
 var firstClick = false;
 
 function initInput(){
@@ -58,25 +64,61 @@ function keyPressed(evt){
 			initGame();
 		}
 	}
-	switch(keyCode){
-		//movement
-		case KEY_W:
-		case KEY_UP:
-			moveUp = true;
-			break
-		case KEY_A:
-		case KEY_LEFT:
-			moveLeft = true;
-			break
-		case KEY_S:
-		case KEY_DOWN:
-			moveDown = true;
-			break
-		case KEY_D:
-		case KEY_RIGHT:
-			moveRight = true;
-			break
+	if(playMode == 1)
+	{
+		switch(keyCode){
+			//movement
+			case KEY_W:
+			case KEY_UP:
+				moveUp = true;
+				break
+			case KEY_A:
+			case KEY_LEFT:
+				moveLeft = true;
+				break
+			case KEY_S:
+			case KEY_DOWN:
+				moveDown = true;
+				break
+			case KEY_D:
+			case KEY_RIGHT:
+				moveRight = true;
+				break
+		}
+	}
 
+	if(playMode == 2)
+	{
+		switch(keyCode){
+			//movement
+			case KEY_W:
+				moveUp2 = true;
+				break
+			case KEY_UP:
+				moveUp = true;
+				break
+			case KEY_A:
+				moveLeft2 = true;
+				break
+			case KEY_LEFT:
+				moveLeft = true;
+				break
+			case KEY_S:
+				moveDown2 = true;
+				break
+			case KEY_DOWN:
+				moveDown = true;
+				break
+			case KEY_D:
+				moveRight2 = true;
+				break
+			case KEY_RIGHT:
+				moveRight = true;
+				break
+		}
+	}
+
+	switch(keyCode){
 		//mute
 		case KEY_M:
 			if (!isMuted)
@@ -144,23 +186,52 @@ function keyPressed(evt){
 }
 
 function keyReleased(evt){
-	switch(evt.code){
-		case KEY_W:
-		case KEY_UP:
-			moveUp = false;
-			break
-		case KEY_A:
-		case KEY_LEFT:
-			moveLeft = false;
-			break
-		case KEY_S:
-		case KEY_DOWN:
-			moveDown = false;
-			break
-		case KEY_D:
-		case KEY_RIGHT:
-			moveRight = false;
-			break
-		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down
+	if(playMode == 1)
+	{
+		switch(evt.code){
+			case KEY_W:
+			case KEY_UP:
+				moveUp = false;
+				break
+			case KEY_A:
+			case KEY_LEFT:
+				moveLeft = false;
+				break
+			case KEY_S:
+			case KEY_DOWN:
+				moveDown = false;
+				break
+			case KEY_D:
+			case KEY_RIGHT:
+				moveRight = false;
+				break
+		}
 	}
+
+	if(playMode == 2)
+	{
+		switch(evt.code){
+			case KEY_W:
+				moveUp2 = false;
+			case KEY_UP:
+				moveUp = false;				
+				break
+			case KEY_A:
+				moveLeft2 = false;
+			case KEY_LEFT:
+				moveLeft = false;	
+				break
+			case KEY_S:
+				moveDown2 = false;
+			case KEY_DOWN:
+				moveDown = false;
+				break
+			case KEY_D:
+				moveRight2 = false;
+			case KEY_RIGHT:
+				moveRight = false;
+				break
+		}
+	}
+		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down
 }

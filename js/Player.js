@@ -14,7 +14,7 @@ function playerClass(playerNumber){
 
 	//Things for coop
 	this.playerNumber = playerNumber;
-	this.gamepadID;
+	this.gamepadID = 0;
 	this.moveLeft = false;
 	this.moveRight = false;
 	this.moveDown = false;
@@ -69,7 +69,6 @@ function playerClass(playerNumber){
 			this.moveUp = moveUp2;
 			this.moveDown = moveDown2;
 		}
-		console.log(this.playerNumber)
 
 		//get connected gamepads
 		if (this.moveRight)
@@ -84,7 +83,7 @@ function playerClass(playerNumber){
 		var gamepads = navigator.getGamepads();
 
 		//check if there's gamepads connected.
-		if(gamepads.length > 0 && gamepads[0] && gamepads[0].buttons!=undefined){
+		if(gamepads.length > 0 && gamepads[this.gamepadID] && gamepads[this.gamepadID].buttons!=undefined){
 			
 			//gamepad player movement code
 			if(gamepads[this.gamepadID].axes[0] > this.controllerThreshold){

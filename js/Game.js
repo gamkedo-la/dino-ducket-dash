@@ -4,6 +4,7 @@ playMode = 2; //1 for single-player, 2 for coop
 function resetGame(){
   enemies = [];
   ducketList = [];
+  surpriseBoxes = [];
   resetTimer();
   checkScore();
   score = 0;

@@ -5,6 +5,7 @@ function enemyTelegraphClass(){
 	this.height = 20;
   this.timer = 60;
   this.readyToRemove = false;
+	this.spawnType;
 
 	// Animation Variables
 	//WARM UP: Need an enemy spritesheet with two animations (idle, walking) Trello card - https://trello.com/c/wBKqdxs8
@@ -38,13 +39,29 @@ function enemyTelegraphClass(){
     if(this.timer > 0){
       this.timer--
     } else{
-      spawnEnemy(this.x,this.y);
-      this.readyToRemove = true;
+			if(randomIntFromInterval(1,6) == 1){
+				this.spawnType = 'suprise';
+			} else{
+				this.spawnType = 'enemy';
+			}
+			
+			if(this.spawnType == 'enemy'){
+				spawnEnemy(this.x,this.y);
+	      this.readyToRemove = true;
+			} else{
+				spawnSurpriseBox(this.x,this.y);
+				this.readyToRemove = true;
+			}
     }
-
 	}
 
 	this.draw = function(){
 		animate(this);
 	}
+}
+
+function spawnEnemyTelegraph(){
+	var telegraph = new enemyTelegraphClass();
+	telegraph.init();
+	enemyTelegraphs.push(telegraph);
 }

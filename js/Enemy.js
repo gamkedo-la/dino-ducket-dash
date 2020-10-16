@@ -1,5 +1,6 @@
 const ENEMY_WIDTH = 20;
 const ENEMY_HEIGHT = 20;
+var enemies = [];
 
 function enemyClass(){
 	this.x = 100;
@@ -120,4 +121,10 @@ function enemyClass(){
 		// drawRect(this.x,this.y, this.width,this.height, 'white');
 		animate(this,true);
 	}
+}
+
+function spawnEnemy(atX,atY){
+	var enemy = new enemyClass();
+	enemy.init(atX,atY);
+	enemies.push(enemy);
 }

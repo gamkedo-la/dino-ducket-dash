@@ -4,9 +4,10 @@ let timeLimit = 200;
 
 function menuUpdate(time){
     var gamepads = navigator.getGamepads();
-    // make sure we have at least one controller
 
-    if(gamepads.length < 1) {
+    // make sure we have at least one controller
+    // the extra null checks avoid an error below due to chrome permissions
+    if(gamepads.length < 1 || !gamepads[0] || !gamepads[0].axes) { 
         return;
     }
     else
@@ -19,7 +20,12 @@ function menuUpdate(time){
             return;
         } else if (hasBeenPressed === true && timePassed > timeLimit) {
             hasBeenPressed = false;
+
+
         }
+        
+    // note: gamepads.length can be >0 but gamepads[0] can be undefined!!!
+    //fix by checking a local variable which is the p1_gamepad
         if(p1_Gamepad!=null)
         {
             if(gamepads[0].axes[1] < -0.5 || gamepads[0].axes[1] != null) {

@@ -22,9 +22,10 @@ var decalManager = function() {
     var decalCanvas = document.createElement("canvas");
     var decalContext = decalCanvas.getContext("2d"); 
 
-    // FIXME sadly this seems to not do anything
-    // Is it possible the main canvas doesn't have these settings right
-    // so they're good on the decal canvas, but anti-aliased on the main canvas?
+    // ensure crisp pixels:
+    // note: this is ignored! the following lines do nothing
+    // fixed by setting these prior to drawing below
+    // why? these appear to be reset if you resize the canvas
     decalCanvas.style.imageRendering="pixelated";
     decalContext.imageSmoothingEnabled = false;
 	decalContext.msImageSmoothingEnabled = false;
@@ -35,11 +36,14 @@ var decalManager = function() {
 	this.add = function(x,y,rot=0,alpha=0.025,spritenum=0) {
         if (!decalSpritesheet.loaded) return;
         decalCount++;
+        
+        // why are these still blurry?
         x = Math.round(x);
         y = Math.round(y);
         
         // debug spam to determine why the sprites are blurry
-        //console.log('decal '+decalCount+':'+x+','+y+','+rot+' alpha:'+alpha+' decalsize:'+decalsize+' centerOffset:'+centerOffset+' drawSize:'+drawSize);
+        // hmm all the coords and sizes are integers
+        console.log('decal '+decalCount+':'+x+','+y+','+rot+' alpha:'+alpha+' decalsize:'+decalsize+' centerOffset:'+centerOffset+' drawSize:'+drawSize);
         
         // rotated and scaled - works great but seems blurry
         /*
@@ -56,6 +60,14 @@ var decalManager = function() {
         decalContext.restore();
         */
         
+        // this proves the coords are "crisp"
+        //decalContext.fillStyle = "blue";
+        //decalContext.fillRect(x+centerOffset,y+centerOffset,drawSize,drawSize,"BLUE");
+
+        // ensure they are crisp (these settings are reset on a resize event!!!)
+        decalContext.imageSmoothingEnabled = false;
+        decalContext.msImageSmoothingEnabled = false;
+
         // no rotation but still scaled
         decalContext.globalAlpha = alpha;
         decalContext.drawImage(
@@ -68,7 +80,8 @@ var decalManager = function() {
 	};
 
     this.draw = function() {
-		canvasContext.drawImage(decalCanvas, 0, 0);
+        // FIXME: why is this blurry?
+        canvasContext.drawImage(decalCanvas, 0, 0);
 	};
 
 	this.resize = function() {
@@ -89,7 +102,8 @@ var decalManager = function() {
             x = randomIntFromInterval(0,decalCanvas.width);
             y = randomIntFromInterval(0,decalCanvas.height);
             sprnum = randomIntFromInterval(3,9); // skip footsteps and bones
-            // avoid center
+            
+            // avoid center on either axis for a nice + shaped path
             if ((x<decalCanvas.width/2-80 || x>decalCanvas.width/2+80) &&
                 (y<decalCanvas.height/2-80 || y>decalCanvas.height/2+80))
                 this.add(x,y,0,1,sprnum);

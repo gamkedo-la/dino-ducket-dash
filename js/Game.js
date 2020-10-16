@@ -64,6 +64,10 @@ function gameUpdate(){
     enemyTelegraphs[i].update()
   }
   
+  for (var i = 0; i < surpriseBoxes.length; i++) {
+    surpriseBoxes[i].update();
+  }
+  
   moneyBucket.update();
   checkIfCoinsNeedToRespawn()
   
@@ -76,6 +80,12 @@ function gameUpdate(){
   for (var i = 0; i < enemyTelegraphs.length; i++) {
     if(enemyTelegraphs[i].readyToRemove){
       enemyTelegraphs.splice(i,1);
+    }
+  }
+  
+  for (var i = 0; i < surpriseBoxes.length; i++) {
+    if(surpriseBoxes[i].readyToRemove){
+      surpriseBoxes.splice(i,1);
     }
   }
 }
@@ -110,6 +120,10 @@ function gameDraw(){
   
   for (var i = 0; i < enemyTelegraphs.length; i++) {
     enemyTelegraphs[i].draw()
+  }
+  
+  for (var i = 0; i < surpriseBoxes.length; i++) {
+    surpriseBoxes[i].draw()
   }
 
   if (depositInstructionShouldBeShowing)

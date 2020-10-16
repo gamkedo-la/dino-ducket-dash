@@ -7,7 +7,6 @@ var canvasContext;
 
 var player;
 var decals;
-var enemies = [];
 var enemyTelegraphs = [];
 var ducketList = [];
 var menuSprite;
@@ -32,7 +31,8 @@ var allImages = [
 	'images/pterodactyl_sprite_facing_left.png',
 	'images/pterodactyl_sprite_facing_right.png',
 	'images/tile-sand-01.png',
-	'images/UI_Anim.png'
+	'images/UI_Anim.png',
+	'images/SurpriseBox.png'
 ];
 var imagesDownloaded = 0;
 var images = {
@@ -48,6 +48,7 @@ var images = {
 	pterodactyl_sprite_facing_right: {},
 	tile_sand_01: {},
 	UI_Anim: {},
+	SupriseBox: {}
 };
 
 window.onload = function(){
@@ -83,9 +84,8 @@ function init(){
     //WARM UP: can we listen to the "resize" event and resize the canvas while
     //maintaining the aspect ratio?
 	canvas = document.getElementById('gameCanvas');
-    //WARM UP: round these values to the nearest integer to ensure crisp pixels
-	canvas.width = PIXEL_SCALE_UP * canvas.width;
-	canvas.height = PIXEL_SCALE_UP * canvas.height;
+	canvas.width = Math.ceil(PIXEL_SCALE_UP * canvas.width);
+	canvas.height = Math.ceil(PIXEL_SCALE_UP * canvas.height);
 	
 	canvasContext = canvas.getContext('2d');
 	
@@ -128,37 +128,6 @@ function update(){
 	draw();
 }
 
-function spawnCoins(){
-	ducketList = [];
-	for (var i = 0; i < 20; i++) {
-
-		//WARM UP: limit ducket positioning so all of them are 100% on screen
-		var ducket = new ducketClass();
-		ducket.x = getRandomIntInclusive(DUCKET_WIDTH,canvas.width - DUCKET_WIDTH*3.25);
-		ducket.y = getRandomIntInclusive(DUCKET_HEIGHT,canvas.height - DUCKET_HEIGHT*5);
-		ducket.initCoin();
-		ducketList.push(ducket);
-	}
-}
-
-function spawnEnemy(atX,atY){
-	var enemy = new enemyClass();
-	enemy.init(atX,atY);
-	enemies.push(enemy);
-}
-
-function spawnEnemyTelegraph(){
-	var telegraph = new enemyTelegraphClass();
-	telegraph.init();
-	enemyTelegraphs.push(telegraph);
-}
-
-function checkIfCoinsNeedToRespawn(){
-	if(ducketList.length == 0 && player.ducketsCarried == 0){
-		spawnCoins();
-	}
-}
-
 function draw(){
 	cls();
 	if (debugOn)
@@ -189,5 +158,5 @@ function draw(){
 function randomIntFromInterval(min,max){ // min and max included
 	min = Math.ceil(min);
 	max = Math.floor(max);
-    return Math.floor(Math.random()*(max-min+1)) + min;
+  return Math.floor(Math.random()*(max-min+1)) + min;
 }

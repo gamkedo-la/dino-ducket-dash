@@ -100,6 +100,7 @@ function init(){
 	
 	initInput();
     menuInit();
+    characterSelectScreen = new CharacterSelectScreen();
 
 	console.log("Initialization complete. Running game!");
 

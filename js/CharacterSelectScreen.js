@@ -42,7 +42,7 @@ function CharacterSelectScreen()
 		{
 			canvasContext.fillStyle = 'white';
 			canvasContext.fillRect(characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex],this.positionY, this.width,this.height);
-			canvasContext.font = '30px Helvetica';
+			canvasContext.font = '15px "Press Start 2P"';
 			let textWidth = canvasContext.measureText('Player 1').width;
 			canvasContext.fillText('Player 1', characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
 								   this.positionY + this.height + 30);
@@ -100,7 +100,7 @@ function CharacterSelectScreen()
 		{
 			canvasContext.fillStyle = 'white';
 			canvasContext.fillRect(characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex],this.positionY, this.width,this.height);
-			canvasContext.font = '30px Helvetica';
+			canvasContext.font = '15px "Press Start 2P"';
 			let textWidth = canvasContext.measureText('Player 2').width;
 			canvasContext.fillText('Player 2', characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
 								   this.positionY + this.height + 30);
@@ -156,7 +156,7 @@ function CharacterSelectScreen()
 
 	this.draw = function()
 	{
-		animate(this,true);
+		// animate(this,true);
 		//void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
 		this.player1SelectBox.draw();
 		this.player2SelectBox.draw();
@@ -174,7 +174,7 @@ function CharacterSelectScreen()
 								this.position4XCoordinate,canvas.height/2 - this.characterImageHeight/2, 
 								this.characterImageWidth,this.characterImageHeight);
 
-		canvasContext.font = '100px Helvetica';
+		canvasContext.font = '35px "Press Start 2P"';
 		let pressEnterText = 'Press Enter to Start';
 		let pressEnterTextWidth = canvasContext.measureText(this.pressEnterText).width;
 		canvasContext.fillText(pressEnterText, canvas.width/2 - pressEnterTextWidth,canvas.height/2 - this.characterImageHeight/2 + this.characterImageHeight + 150);

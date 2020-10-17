@@ -23,13 +23,27 @@ var allImages = [
 	'images/decals.png',
 	'images/ducket_particle.png',
 	'images/ducket.png',
+
 	'images/enemy_run.png',
 	'images/enemy_telegraph.png',
+	
 	'images/menu_title.png',
-	'images/player_idle_facing_left.png',
-	'images/player_idle_facing_right.png',
+	
+	'images/green_player_idle_facing_left.png',
+	'images/green_player_idle_facing_right.png',
+
+	'images/blue_player_idle_facing_left.png',
+	'images/blue_player_idle_facing_right.png',
+
+	'images/pinkish_player_idle_facing_left.png',
+	'images/pinkish_player_idle_facing_right.png',
+
+	'images/yellow_player_idle_facing_left.png',
+	'images/yellow_player_idle_facing_right.png',
+	
 	'images/pterodactyl_sprite_facing_left.png',
 	'images/pterodactyl_sprite_facing_right.png',
+
 	'images/tile-sand-01.png',
 	'images/UI_Anim.png',
 	'images/SurpriseBox.png'
@@ -42,8 +56,14 @@ var images = {
 	enemy_run: {},
 	enemy_telegraph: {},
 	menu_title: {},
-	player_idle_facing_left: {},
-	player_idle_facing_right: {},
+	green_player_idle_facing_left: {},
+	green_player_idle_facing_right: {},
+	blue_player_idle_facing_left: {},
+	blue_player_idle_facing_right: {},
+	pink_player_idle_facing_left: {},
+	pink_player_idle_facing_right: {},
+	yellow_player_idle_facing_left: {},
+	yellow_player_idle_facing_right: {},
 	pterodactyl_sprite_facing_left: {},
 	pterodactyl_sprite_facing_right: {},
 	tile_sand_01: {},
@@ -113,13 +133,15 @@ function update(){
 		case 'menu': 
 			menuUpdate(1000/FPS);
 			break;
+		case 'character select screen':
+			characterSelectScreen.update();
+			break;
 		case 'game': 
 			menuUI.style.display = 'none';
 			gameUpdate();
 			scoredNotChecked = true;
 			break;
 		case 'gameOver': 
-			console.log("Call Check Score");
 			checkScore();
 			gameOverUpdate();
 			break;
@@ -145,6 +167,9 @@ function draw(){
 	switch (gameState) {
 		case 'menu': 
 			menuDraw();
+			break;
+		case 'character select screen':
+			characterSelectScreen.draw();
 			break;
 		case 'game': 
 			gameDraw();

@@ -1,18 +1,32 @@
 //Elements
+//main menu
 var singleDiv = document.getElementById('single');
 var multiDiv = document.getElementById('multi');
 var audioDiv = document.getElementById('audio');
 var highscoreDiv = document.getElementById('highscore');
+
+//character select
+var greenDino = document.getElementById('greenDino');
+var blueDino = document.getElementById("blueDino");
+var pinkDino = document.getElementById('pinkDino');
+var yellowDino = document.getElementById('yellowDino');
 
 // have the single player mode highlighted when game starts
 this.startMenuShape();
 
 // Enum Object
 var buttonsList = {
+    //main menu
     single: 0,
     multi: 1,
     audio: 2,
-    highscore: 3
+    highscore: 3,
+
+    //character select
+    greenDino: 4,
+    blueDino: 5,
+    pinkDino: 6,
+    yellowDino: 7
 }
 
 // Button State

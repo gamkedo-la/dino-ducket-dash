@@ -54,9 +54,37 @@ function keyPressed(evt){
 	if(gameState == "menu"){
 		if(buttonSelectState === buttonsList.single &&
 			(keyCode === ENTER || keyCode === KEY_SPACEBAR)) {
+			gameState = 'character select screen';
+		console.log('gameState: ' + gameState);
+		keyCode = null;
+		}
+	}
+
+	if (gameState === 'character select screen')
+	{
+		switch(keyCode)
+		{
+			case ENTER || KEY_SPACEBAR:
+			gameState = 'game';
 			depositSFX.play();
 			initGame();
+			break;
+
+			case KEY_RIGHT:
+			characterSelectScreen.player1SelectBox.player1BoxMovesRight();
+			break;
+			case KEY_LEFT:
+			characterSelectScreen.player1SelectBox.player1BoxMovesLeft();
+			break;
+
+			case KEY_A:
+			characterSelectScreen.player2SelectBox.player2BoxMovesLeft();
+			break;
+			case KEY_D:
+			characterSelectScreen.player2SelectBox.player2BoxMovesRight();
+			break;
 		}
+		
 	}
 	
 	if(gameState == 'gameOver'){

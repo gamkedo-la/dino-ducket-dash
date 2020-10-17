@@ -46,7 +46,7 @@ let c = document.getElementById("highscore");
 
 function menuState() {
 		if(s.onmouseup = true){
-			initGame();
+			gameState = 'character select screen';
 		}
 	  }
 

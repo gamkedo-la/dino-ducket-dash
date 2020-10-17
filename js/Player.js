@@ -37,9 +37,8 @@ function playerClass(playerNumber){
 
 	this.initPlayer = function(){
 		//console.log(this.x+"/"+this.y);
-		this.leftSprite = images.player_idle_facing_left;
+		characterSelectScreen.assignSpriteSheets();
 		this.leftSprite.loaded = true;
-		this.rightSprite = images.player_idle_facing_right;
 		this.rightSprite.loaded = true;
 		this.sprite = this.rightSprite;
 		this.frameWidth = this.sprite.width / this.animColumns;

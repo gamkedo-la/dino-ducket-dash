@@ -54,6 +54,7 @@ function keyPressed(evt){
 	if(gameState == "menu"){
 		if(buttonSelectState === buttonsList.single &&
 			(keyCode === ENTER || keyCode === KEY_SPACEBAR)) {
+				x.style.display = "none";
 			gameState = 'character select screen';
 		console.log('gameState: ' + gameState);
 		keyCode = null;

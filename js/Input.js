@@ -72,16 +72,20 @@ function keyPressed(evt){
 			break;
 
 			case KEY_RIGHT:
+			menuSFX.play();
 			characterSelectScreen.player1SelectBox.player1BoxMovesRight();
 			break;
 			case KEY_LEFT:
+			menuSFX.play();
 			characterSelectScreen.player1SelectBox.player1BoxMovesLeft();
 			break;
 
 			case KEY_A:
+			menuSFX.play();
 			characterSelectScreen.player2SelectBox.player2BoxMovesLeft();
 			break;
 			case KEY_D:
+			menuSFX.play();
 			characterSelectScreen.player2SelectBox.player2BoxMovesRight();
 			break;
 		}

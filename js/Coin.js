@@ -33,7 +33,7 @@ function ducketClass(){
 			this.x = randomIntFromInterval(0,canvas.width);
 			this.y = randomIntFromInterval(0,canvas.height);
 			
-			while(checkCollision(this,player)) {
+			while(checkCollision(this,playerArray[0])) {
 				this.x = randomIntFromInterval(0,canvas.width);
 				this.y = randomIntFromInterval(0,canvas.height);
 			}
@@ -46,7 +46,7 @@ function ducketClass(){
 
   this.draw = function(){
 	//WARM UP: Maybe this collision check belongs in the update method?
-		if(checkCollision(this,player)){
+		if(checkCollision(this,playerArray[0])){
 			coinPickUpSFX.play();
 			this.readyToRemove = true;
 			player.ducketsCarried++;

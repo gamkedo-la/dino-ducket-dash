@@ -37,7 +37,7 @@ function playerClass(playerNumber){
 
 	this.initPlayer = function(){
 		//console.log(this.x+"/"+this.y);
-		characterSelectScreen.assignSpriteSheets();
+		characterSelectScreen.assignSpriteSheets(playerNumber);
 		this.leftSprite.loaded = true;
 		this.rightSprite.loaded = true;
 		this.sprite = this.rightSprite;
@@ -56,12 +56,19 @@ function playerClass(playerNumber){
 
 	this.update = function(){
 		//translate inputs to players
+		if(this.playerNumber == 0)
+		{
+			this.moveRight = moveRight0;
+			this.moveLeft = moveLeft0;
+			this.moveUp = moveUp0;
+			this.moveDown = moveDown0;
+		}
 		if(this.playerNumber == 1)
 		{
-			this.moveRight = moveRight;
-			this.moveLeft = moveLeft;
-			this.moveUp = moveUp;
-			this.moveDown = moveDown;
+			this.moveRight = moveRight1;
+			this.moveLeft = moveLeft1;
+			this.moveUp = moveUp1;
+			this.moveDown = moveDown1;
 		}
 		if(this.playerNumber == 2)
 		{
@@ -69,6 +76,13 @@ function playerClass(playerNumber){
 			this.moveLeft = moveLeft2;
 			this.moveUp = moveUp2;
 			this.moveDown = moveDown2;
+		}
+		if(this.playerNumber == 3)
+		{
+			this.moveRight = moveRight3;
+			this.moveLeft = moveLeft3;
+			this.moveUp = moveUp3;
+			this.moveDown = moveDown3;
 		}
 
 		//get connected gamepads

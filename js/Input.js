@@ -11,6 +11,18 @@ const KEY_P = 'KeyP';
 const KEY_C = 'KeyC';
 const KEY_E = 'KeyE';
 const KEY_G = 'KeyG';
+const KEY_I = 'KeyI';
+const KEY_J = 'KeyJ';
+const KEY_K = 'KeyK';
+const KEY_L = 'KeyL';
+const KEY_1 = 'Digit1';
+const KEY_2 = 'Digit2';
+const KEY_3 = 'Digit3';
+const KEY_4 = 'Digit4';
+const KEY_NUM4 = 'Numpad4';
+const KEY_NUM5 = 'Numpad5';
+const KEY_NUM6 = 'Numpad6';
+const KEY_NUM8 = 'Numpad8';
 const KEY_SPACEBAR = 'Space';
 const KEY_UP = 'ArrowUp';
 const KEY_DOWN = 'ArrowDown';
@@ -22,16 +34,25 @@ const ENTER = 'Enter';
 //WARM UP: Add values for "+" and "-" in preparation for volume controls
 //WARM UP: Add values for cheats (stop the enemy's movement? spawn more enemies or duckets?) Trello Card: https://trello.com/c/J4VYQDmw
 
-var moveLeft = false;
-var moveRight = false;
-var moveUp = false;
-var moveDown = false;
+var moveLeft0 = false;
+var moveRight0 = false;
+var moveUp0 = false;
+var moveDown0 = false;
+
+var moveLeft1 = false;
+var moveRight1 = false;
+var moveUp1 = false;
+var moveDown1 = false;
 
 var moveLeft2 = false;
 var moveRight2 = false;
 var moveUp2 = false;
 var moveDown2 = false;
 
+var moveLeft3 = false;
+var moveRight3 = false;
+var moveUp3 = false;
+var moveDown3 = false;
 
 var firstClick = false;
 
@@ -93,25 +114,90 @@ function keyPressed(evt){
 			initGame();
 			break;
 
-			case KEY_RIGHT:
-			menuSFX.play();
-			characterSelectScreen.player1SelectBox.player1BoxMovesRight();
-			break;
-			case KEY_LEFT:
-			menuSFX.play();
-			characterSelectScreen.player1SelectBox.player1BoxMovesLeft();
-			break;
-
-			case KEY_A:
-			menuSFX.play();
-			characterSelectScreen.player2SelectBox.player2BoxMovesLeft();
-			break;
-			case KEY_D:
-			menuSFX.play();
-			characterSelectScreen.player2SelectBox.player2BoxMovesRight();
-			break;
+			case KEY_1:
+				menuSFX.play();
+				playMode = 0;
+				break;
+			case KEY_2:
+				menuSFX.play();
+				playMode = 1;
+				break;
+			case KEY_3:
+				menuSFX.play();
+				playMode = 2;
+				break;		
+			case KEY_4:
+				menuSFX.play();
+				playMode = 3;
+				break;
 		}
-		
+
+		if(playMode == 0)
+		{
+			switch(keyCode)
+			{
+			case KEY_A:
+			case KEY_LEFT:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[0].playerBoxMovesLeft();
+				break;
+			case KEY_D:
+			case KEY_RIGHT:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[0].playerBoxMovesRight();
+				break
+			}
+		}
+		if(playMode > 0)
+		{
+			switch(keyCode)
+			{
+			case KEY_LEFT:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[0].playerBoxMovesLeft();
+				break;
+			case KEY_RIGHT:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[0].playerBoxMovesRight();
+				break;
+			case KEY_A:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[1].playerBoxMovesLeft();
+				break;
+			case KEY_D:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[1].playerBoxMovesRight();
+				break;
+			}
+		}
+		if(playMode > 1)
+		{
+			switch(keyCode)
+			{
+			case KEY_J:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[2].playerBoxMovesLeft();
+				break;
+			case KEY_L:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[2].playerBoxMovesRight();
+				break;
+			}
+		}
+		if(playMode > 2)
+		{
+			switch(keyCode)
+			{
+			case KEY_NUM4:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[3].playerBoxMovesLeft();
+				break;
+			case KEY_NUM6:
+				menuSFX.play();
+				characterSelectScreen.playerSelectBox[3].playerBoxMovesRight();
+				break;
+			}
+		}
 	}
 	
 	if(gameState == 'gameOver'){
@@ -119,56 +205,82 @@ function keyPressed(evt){
 			initGame();
 		}
 	}
-	if(playMode == 1)
+	if(playMode == 0)
 	{
 		switch(keyCode){
 			//movement
 			case KEY_W:
 			case KEY_UP:
-				moveUp = true;
+				moveUp0 = true;
 				break
 			case KEY_A:
 			case KEY_LEFT:
-				moveLeft = true;
+				moveLeft0 = true;
 				break
 			case KEY_S:
 			case KEY_DOWN:
-				moveDown = true;
+				moveDown0 = true;
 				break
 			case KEY_D:
 			case KEY_RIGHT:
-				moveRight = true;
+				moveRight0 = true;
 				break
 		}
 	}
-
-	if(playMode == 2)
+	else
 	{
 		switch(keyCode){
 			//movement
+			case KEY_UP:
+				moveUp0 = true;
+				break
 			case KEY_W:
+				moveUp1 = true;
+				break
+			case KEY_I:
 				moveUp2 = true;
 				break
-			case KEY_UP:
-				moveUp = true;
+			case KEY_NUM8:
+				moveUp3 = true;
 				break
-			case KEY_A:
+
+			case KEY_LEFT:
+				moveLeft0 = true;
+				break
+			case KEY_W:
+				moveLeft1 = true;
+				break
+			case KEY_J:
 				moveLeft2 = true;
 				break
-			case KEY_LEFT:
-				moveLeft = true;
+			case KEY_NUM4:
+				moveLeft3 = true;
+				break
+
+			case KEY_DOWN:
+				moveDown0 = true;
 				break
 			case KEY_S:
+				moveDown1 = true;
+				break
+			case KEY_K:
 				moveDown2 = true;
 				break
-			case KEY_DOWN:
-				moveDown = true;
+			case KEY_NUM5:
+				moveDown3 = true;
+				break
+
+			case KEY_RIGHT:
+				moveRight0 = true;
 				break
 			case KEY_D:
+				moveRight1 = true;
+				break
+			case KEY_L:
 				moveRight2 = true;
 				break
-			case KEY_RIGHT:
-				moveRight = true;
+			case KEY_NUM6:
+				moveRight3 = true;
 				break
 		}
 	}
@@ -241,50 +353,80 @@ function keyPressed(evt){
 }
 
 function keyReleased(evt){
-	if(playMode == 1)
+	if(playMode == 0)
 	{
 		switch(evt.code){
 			case KEY_W:
 			case KEY_UP:
-				moveUp = false;
+				moveUp0 = false;
 				break
 			case KEY_A:
 			case KEY_LEFT:
-				moveLeft = false;
+				moveLeft0 = false;
 				break
 			case KEY_S:
 			case KEY_DOWN:
-				moveDown = false;
+				moveDown0 = false;
 				break
 			case KEY_D:
 			case KEY_RIGHT:
-				moveRight = false;
+				moveRight0 = false;
 				break
 		}
 	}
-
-	if(playMode == 2)
+	else
 	{
 		switch(evt.code){
-			case KEY_W:
-				moveUp2 = false;
 			case KEY_UP:
-				moveUp = false;				
+				moveUp0 = false;
 				break
-			case KEY_A:
-				moveLeft2 = false;
+			case KEY_W:
+				moveUp1 = false;
+				break
+			case KEY_I:
+				moveUp2 = false;
+				break
+			case KEY_NUM8:
+				moveUp3 = false;
+				break
+
 			case KEY_LEFT:
-				moveLeft = false;	
+				moveLeft0 = false;
+				break
+			case KEY_W:
+				moveLeft1 = false;
+				break
+			case KEY_J:
+				moveLeft2 = false;
+				break
+			case KEY_NUM4:
+				moveLeft3 = false;
+				break
+
+			case KEY_DOWN:
+				moveDown0 = false;
 				break
 			case KEY_S:
+				moveDown1 = false;
+				break
+			case KEY_K:
 				moveDown2 = false;
-			case KEY_DOWN:
-				moveDown = false;
+				break
+			case KEY_NUM5:
+				moveDown3 = false;
+				break
+
+			case KEY_RIGHT:
+				moveRight0 = false;
 				break
 			case KEY_D:
+				moveRight1 = false;
+				break
+			case KEY_L:
 				moveRight2 = false;
-			case KEY_RIGHT:
-				moveRight = false;
+				break
+			case KEY_NUM6:
+				moveRight3 = false;
 				break
 		}
 	}

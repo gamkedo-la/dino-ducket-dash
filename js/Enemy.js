@@ -55,7 +55,7 @@ function enemyClass(){
 		this.speedY = 11 - randomSpeedX;
 		this.x = atX;
 		this.y = atY;
-		while((Math.abs(player.x - this.x) < this.frameWidth) && (Math.abs(player.y - this.x < this.frameHeight))) {
+		while((Math.abs(playerArray[0].x - this.x) < this.frameWidth) && (Math.abs(playerArray[0].y - this.x < this.frameHeight))) {
 			this.x = randomIntFromInterval(0,canvas.width);
 			this.y = randomIntFromInterval(0,canvas.height);
 		}
@@ -81,7 +81,7 @@ function enemyClass(){
 			this.speedY *= -1;
 		}
 
-		if(checkCollision(this,player)){
+		if(checkCollision(this,playerArray[0])){
 			if (!godMode && !player.immunity)
 			{
 				screenShouldBeShaking = true;

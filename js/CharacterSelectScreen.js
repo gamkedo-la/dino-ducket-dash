@@ -29,137 +29,100 @@ function CharacterSelectScreen()
 	this.position2XCoordinate = canvas.width/4+(canvas.width*0.025);
 	this.position3XCoordinate = canvas.width/2+(canvas.width*0.025);
 	this.position4XCoordinate = canvas.width*0.75+(canvas.width*0.025);
+	this.cachePlayMode = 10; //10 to let it run on as INIT
+	this.playerID;
 
 	this.arrayOfBoxPositions = [this.position1XCoordinate,this.position2XCoordinate,this.position3XCoordinate,this.position4XCoordinate];
+	this.playerSelectBox = []
 
-	this.player1SelectBox =
-	{
-		boxPositionArrayIndex: 0,
-		positionY: canvas.height/2 - this.characterImageHeight/2,
-		width: this.characterImageWidth,
-		height: this.characterImageHeight,
-		draw: function()
+	this.init = function(){
+		for(let i = 0; i <= playMode; i++)
 		{
-			canvasContext.fillStyle = 'white';
-			canvasContext.fillRect(characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex],this.positionY, this.width,this.height);
-			canvasContext.font = '15px "Press Start 2P"';
-			let textWidth = canvasContext.measureText('Player 1').width;
-			canvasContext.fillText('Player 1', characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
-								   this.positionY + this.height + 30);
-		},
+			this.playerSelectBox[i] =
+			{
+				boxPositionArrayIndex: i,
+				playerID: i,
+				positionY: canvas.height/2 - this.characterImageHeight/2,
+				width: this.characterImageWidth,
+				height: this.characterImageHeight,
+				draw: function()
+				{
+					canvasContext.fillStyle = 'white';
+					canvasContext.fillRect(characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex],this.positionY, this.width,this.height);
+					canvasContext.font = '15px "Press Start P"';
+					let textWidth = canvasContext.measureText('Player ' + (i + 1)).width;
+					canvasContext.fillText('Player ' + (i + 1), characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
+										this.positionY + this.height + 30);
+				},
 
-		player1BoxMovesRight: function()
-		{
-			characterSelectScreen.player1SelectBox.boxPositionArrayIndex++;
-			if (characterSelectScreen.player1SelectBox.boxPositionArrayIndex > 3 )
-			{
-				characterSelectScreen.player1SelectBox.boxPositionArrayIndex = 0;
-			}
-			if (characterSelectScreen.player1SelectBox.boxPositionArrayIndex === characterSelectScreen.player2SelectBox.boxPositionArrayIndex)
-			{
-				characterSelectScreen.player1SelectBox.boxPositionArrayIndex++;
-			}
-			if (characterSelectScreen.player1SelectBox.boxPositionArrayIndex > 3 )
-			{
-				characterSelectScreen.player1SelectBox.boxPositionArrayIndex = 0;
-			}
-			if (characterSelectScreen.player1SelectBox.boxPositionArrayIndex === characterSelectScreen.player2SelectBox.boxPositionArrayIndex)
-			{
-				characterSelectScreen.player1SelectBox.boxPositionArrayIndex++;
-			}
-		},
-		player1BoxMovesLeft: function()
-		{
-			characterSelectScreen.player1SelectBox.boxPositionArrayIndex--;
-			if (characterSelectScreen.player1SelectBox.boxPositionArrayIndex < 0)
-			{
-				characterSelectScreen.player1SelectBox.boxPositionArrayIndex = 3;
-			}
-			if (characterSelectScreen.player1SelectBox.boxPositionArrayIndex === characterSelectScreen.player2SelectBox.boxPositionArrayIndex)
-			{
-				characterSelectScreen.player1SelectBox.boxPositionArrayIndex--;
-			}
-			if (characterSelectScreen.player1SelectBox.boxPositionArrayIndex < 0)
-			{
-				characterSelectScreen.player1SelectBox.boxPositionArrayIndex = 3;
-			}
-			if (characterSelectScreen.player1SelectBox.boxPositionArrayIndex === characterSelectScreen.player2SelectBox.boxPositionArrayIndex)
-			{
-				characterSelectScreen.player1SelectBox.boxPositionArrayIndex--;
+				playerBoxMovesRight: function()
+				{
+					let samePlace = false;
+					this.boxPositionArrayIndex++;
+					if (this.boxPositionArrayIndex > 3)
+					{
+						this.boxPositionArrayIndex = 0;
+					}
+
+					for(let j = 0; j <= playMode; j++)
+					{
+						if( j != this.playerID)
+						{
+							if (this.boxPositionArrayIndex == characterSelectScreen.playerSelectBox[j].boxPositionArrayIndex)
+							{
+								samePlace = true;
+							}
+						}
+					}
+					if(samePlace == true)
+					{
+						this.playerBoxMovesRight();
+					}
+				},
+
+				playerBoxMovesLeft: function()
+				{
+					let samePlace = false;
+					this.boxPositionArrayIndex--;
+					if (this.boxPositionArrayIndex < 0)
+					{
+						this.boxPositionArrayIndex = 3;
+					}
+
+					for(let j = 0; j <= playMode; j++)
+					{
+						if( j != this.playerID)
+						{
+							if (this.boxPositionArrayIndex == characterSelectScreen.playerSelectBox[j].boxPositionArrayIndex)
+							{
+								samePlace = true;	
+							}
+						}
+					}
+					if(samePlace == true)
+					{
+						this.playerBoxMovesLeft();
+					}
+				}
 			}
 		}
 	}
-
-	this.player2SelectBox = 
-	{
-		boxPositionArrayIndex: 3,
-		positionY: canvas.height/2 - this.characterImageHeight/2,
-		width: this.characterImageWidth,
-		height: this.characterImageHeight,
-		draw: function()
-		{
-			canvasContext.fillStyle = 'white';
-			canvasContext.fillRect(characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex],this.positionY, this.width,this.height);
-			canvasContext.font = '15px "Press Start 2P"';
-			let textWidth = canvasContext.measureText('Player 2').width;
-			canvasContext.fillText('Player 2', characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
-								   this.positionY + this.height + 30);
-		},
-
-		player2BoxMovesRight: function()
-		{
-			characterSelectScreen.player2SelectBox.boxPositionArrayIndex++;
-			if (characterSelectScreen.player2SelectBox.boxPositionArrayIndex > 3 )
-			{
-				characterSelectScreen.player2SelectBox.boxPositionArrayIndex = 0;
-			}
-			if (characterSelectScreen.player2SelectBox.boxPositionArrayIndex === characterSelectScreen.player1SelectBox.boxPositionArrayIndex)
-			{
-				characterSelectScreen.player2SelectBox.boxPositionArrayIndex++;
-			}
-			if (characterSelectScreen.player2SelectBox.boxPositionArrayIndex > 3 )
-			{
-				characterSelectScreen.player2SelectBox.boxPositionArrayIndex = 0;
-			}
-			if (characterSelectScreen.player2SelectBox.boxPositionArrayIndex === characterSelectScreen.player1SelectBox.boxPositionArrayIndex)
-			{
-				characterSelectScreen.player2SelectBox.boxPositionArrayIndex++;
-			}
-		},
-		player2BoxMovesLeft: function()
-		{
-			characterSelectScreen.player2SelectBox.boxPositionArrayIndex--;
-			if (characterSelectScreen.player2SelectBox.boxPositionArrayIndex < 0)
-			{
-				characterSelectScreen.player2SelectBox.boxPositionArrayIndex = 3;
-			}
-			if (characterSelectScreen.player2SelectBox.boxPositionArrayIndex === characterSelectScreen.player1SelectBox.boxPositionArrayIndex)
-			{
-				characterSelectScreen.player2SelectBox.boxPositionArrayIndex--;
-			}
-			if (characterSelectScreen.player2SelectBox.boxPositionArrayIndex < 0)
-			{
-				characterSelectScreen.player2SelectBox.boxPositionArrayIndex = 3;
-			}
-			if (characterSelectScreen.player2SelectBox.boxPositionArrayIndex === characterSelectScreen.player1SelectBox.boxPositionArrayIndex)
-			{
-				characterSelectScreen.player2SelectBox.boxPositionArrayIndex--;
-			}
-		}
-	}
-
-
 	this.update = function()
 	{
-
+		if(this.cachePlayMode != playMode)
+		{
+			this.cachePlayMode = playMode;
+			this.init();
+		}
 	}
 
 	this.draw = function()
 	{
 		// animate(this,true);
 		//void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-		this.player1SelectBox.draw();
-		this.player2SelectBox.draw();
+		for(let i = 0; i <= playMode; i++){
+			this.playerSelectBox[i].draw();
+		}
 
 		canvasContext.drawImage(this.greenDinoImage, 0,0, 11,16, 
 								this.position1XCoordinate,canvas.height/2 - this.characterImageHeight/2, 
@@ -180,50 +143,28 @@ function CharacterSelectScreen()
 		canvasContext.fillText(pressEnterText, canvas.width/2 - pressEnterTextWidth,canvas.height/2 - this.characterImageHeight/2 + this.characterImageHeight + 150);
 	}
 
-	this.assignSpriteSheets = function()
+	this.assignSpriteSheets = function(playerNumber)
 	{
-		if (this.player1SelectBox.boxPositionArrayIndex === 0)
-		{
-			player.leftSprite = images.green_player_idle_facing_left;
-			player.rightSprite = images.green_player_idle_facing_right;
-		}
-		else if (this.player1SelectBox.boxPositionArrayIndex === 1)
-		{
-			player.leftSprite = images.blue_player_idle_facing_left;
-			player.rightSprite = images.blue_player_idle_facing_right;
-		}
-		else if (this.player1SelectBox.boxPositionArrayIndex === 2)
-		{
-			player.leftSprite = images.pink_player_idle_facing_left;
-			player.rightSprite = images.pink_player_idle_facing_right;
-		}
-		else if (this.player1SelectBox.boxPositionArrayIndex === 3)
-		{
-			player.leftSprite = images.yellow_player_idle_facing_left;
-			player.rightSprite = images.yellow_player_idle_facing_right;
-		}
 
-
-
-		if (this.player2SelectBox.boxPositionArrayIndex === 0)
+		if (characterSelectScreen.playerSelectBox[playerNumber].boxPositionArrayIndex == 0)
 		{
-			player2.leftSprite = images.green_player_idle_facing_left;
-			player2.rightSprite = images.green_player_idle_facing_right;
+			playerArray[playerNumber].leftSprite = images.green_player_idle_facing_left;
+			playerArray[playerNumber].rightSprite = images.green_player_idle_facing_right;
 		}
-		else if (this.player2SelectBox.boxPositionArrayIndex === 1)
+		else if (characterSelectScreen.playerSelectBox[playerNumber].boxPositionArrayIndex == 1)
 		{
-			player2.leftSprite = images.blue_player_idle_facing_left;
-			player2.rightSprite = images.blue_player_idle_facing_right;
+			playerArray[playerNumber].leftSprite = images.blue_player_idle_facing_left;
+			playerArray[playerNumber].rightSprite = images.blue_player_idle_facing_right;
 		}
-		else if (this.player2SelectBox.boxPositionArrayIndex === 2)
+		else if (characterSelectScreen.playerSelectBox[playerNumber].boxPositionArrayIndex == 2)
 		{
-			player2.leftSprite = images.pink_player_idle_facing_left;
-			player2.rightSprite = images.pink_player_idle_facing_right;
+			playerArray[playerNumber].leftSprite = images.pink_player_idle_facing_left;
+			playerArray[playerNumber].rightSprite = images.pink_player_idle_facing_right;
 		}
-		else if (this.player2SelectBox.boxPositionArrayIndex === 3)
+		else if (characterSelectScreen.playerSelectBox[playerNumber].boxPositionArrayIndex == 3)
 		{
-			player2.leftSprite = images.yellow_player_idle_facing_left;
-			player2.rightSprite = images.yellow_player_idle_facing_right;
+			playerArray[playerNumber].leftSprite = images.yellow_player_idle_facing_left;
+			playerArray[playerNumber].rightSprite = images.yellow_player_idle_facing_right;
 		}
 	}
 }

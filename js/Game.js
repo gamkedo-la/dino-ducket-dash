@@ -1,5 +1,6 @@
 gameIsPaused = false;
-playMode = 2; //1 for single-player, 2 for coop
+playMode = 1; //1 for single-player, 2 for coop
+playerArray = [];
 
 function resetGame(){
   enemies = [];
@@ -21,11 +22,18 @@ function initGame(){
   countdownToGamePlayTimer = new CountdownToGamePlay();
   countdownToGamePlayTimer.init();
 
+  for(let i = 0; i <= playMode; i++)
+  {
+    let player = new playerClass(i);
+    playerArray[i] = player;
+    playerArray[i].initPlayer();
+  }
+  /*
   player = new playerClass(1);
   player2 = new playerClass(2);
   player.initPlayer();
   player2.initPlayer();
-
+  */
   animUI = new animUIClass();
   animUI.init();
   
@@ -54,8 +62,12 @@ function gameUpdate(){
     return;
   }
   updateTimer();
-  player.update();
-  player2.update();
+
+  for(let i = 0; i <= playMode; i++){
+    playerArray[i].update();
+  }
+  //player.update();
+  //player2.update();
   
   animUI.update();
 
@@ -117,8 +129,11 @@ function gameDraw(){
   }
   
   ducketParticlesManager.drawParticleInstances();
-  player.draw();
-  player2.draw();
+  for(let i = 0; i <= playMode; i++){
+    playerArray[i].draw();
+  }
+  //player.draw();
+  //player2.draw();
   
   for (var i = 0; i < enemies.length; i++) {
     enemies[i].draw()

@@ -9,7 +9,7 @@ function moneyBucketClass(){
   this.height = bucketSize;
   
   this.update = function(){
-    if(checkCollision(this,player)){
+    if(checkCollision(this,playerArray[0])){
       if(player.ducketsCarried > 0){
         depositSFX.play();
         score += player.ducketsCarried;

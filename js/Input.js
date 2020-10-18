@@ -42,15 +42,37 @@ function initInput(){
 }
 
 function mouseClicked(evt){
+	if (gameState !== 'input to launch')
+	{
+		return;
+	}
+
 	if(!firstClick){
 		firstClick = true;
 		mainMenuMusic.play();
+		gameState = 'menu';
+		init();
 	}
 }
 
 function keyPressed(evt){
 	let keyCode = evt.code;
 
+	if (gameState == 'loading')
+	{
+		return;
+	}
+
+	if(gameState == 'input to launch')
+	{
+		if (keyCode == ENTER || keyCode == KEY_SPACEBAR)
+		{
+			gameState = 'menu';
+			mainMenuMusic.play();
+			init();
+			keyCode = null;
+		}
+	}
 	if(gameState == "menu"){
 		if(buttonSelectState === buttonsList.single &&
 			(keyCode === ENTER || keyCode === KEY_SPACEBAR)) {

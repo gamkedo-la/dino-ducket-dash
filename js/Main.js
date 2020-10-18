@@ -4,6 +4,7 @@ const PIXEL_SCALE_UP = 3;
 
 var canvas;
 var canvasContext;
+var loadingAndInputToLaunchScreen;
 
 var player;
 var decals;
@@ -11,9 +12,10 @@ var enemyTelegraphs = [];
 var ducketList = [];
 var menuSprite;
 var moneyBucket;
-var gameState = "menu";
+var gameState = "loading";
 var menuUI;
 var animUI;
+
 
 //WARM UP: Looking for a good place to add a comment as a practice commit?
 //How about on the next line?
@@ -80,14 +82,42 @@ window.onload = function(){
 		console.log("gamepad disconnected");
 	});
 	
+	preImageLoadingInit();
+	loadingAndInputToLaunchScreen.drawLoading();
+
   console.log("Initializing game. Downloading "+allImages.length+" sprites.");
   const imagesKeys = Object.keys(images);
   for (var i=0; i<allImages.length; i++) {
 	  images[imagesKeys[i]] = new Image();
-	  images[imagesKeys[i]].onload = startgameIfDownloadsComplete;
+	  images[imagesKeys[i]].onload = function()
+	  {
+	  	gameState = 'input to launch';
+	  	cls();
+	  	loadingAndInputToLaunchScreen.drawInputToLaunch();
+	  };
 
       images[imagesKeys[i]].src = allImages[i];      
   }
+}
+
+
+
+function preImageLoadingInit()
+{
+	canvas = document.getElementById('gameCanvas');
+	canvas.width = Math.ceil(PIXEL_SCALE_UP * canvas.width);
+	canvas.height = Math.ceil(PIXEL_SCALE_UP * canvas.height);
+	
+	canvasContext = canvas.getContext('2d');
+	
+	//let's keep those pixels crisp
+	canvasContext.imageSmoothingEnabled = false;
+	canvasContext.msImageSmoothingEnabled = false;
+	canvasContext.font = "Press Start 2P";
+
+	initInput();
+
+	loadingAndInputToLaunchScreen = new LoadingAndInputToLaunchScreen();
 }
 
 function startgameIfDownloadsComplete() {
@@ -103,22 +133,14 @@ function startgameIfDownloadsComplete() {
 function init(){
     //WARM UP: can we listen to the "resize" event and resize the canvas while
     //maintaining the aspect ratio?
-	canvas = document.getElementById('gameCanvas');
-	canvas.width = Math.ceil(PIXEL_SCALE_UP * canvas.width);
-	canvas.height = Math.ceil(PIXEL_SCALE_UP * canvas.height);
-	
-	canvasContext = canvas.getContext('2d');
-	
-	//let's keep those pixels crisp
-	canvasContext.imageSmoothingEnabled = false;
-	canvasContext.msImageSmoothingEnabled = false;
-	canvasContext.font = "Press Start 2P";
+	gameState = 'menu';
+	x.style.display = "block"; 
 	
     decals = new decalManager(); // fx on the ground
 
     menuUI = document.getElementById('allmenu');
 	
-	initInput();
+	
     menuInit();
     characterSelectScreen = new CharacterSelectScreen();
 

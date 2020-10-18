@@ -39,6 +39,7 @@ function menuDraw(){
 }
 //menuItem variables
 let x = document.getElementById("allmenu");
+x.style.display = "none";
 let s = document.getElementById("single");
 let m = document.getElementById("multi");
 let a = document.getElementById("audio");

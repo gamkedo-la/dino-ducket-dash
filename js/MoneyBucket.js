@@ -9,19 +9,22 @@ function moneyBucketClass(){
   this.height = bucketSize;
   
   this.update = function(){
-    if(checkCollision(this,playerArray[0])){
-      if(player.ducketsCarried > 0){
-        depositSFX.play();
-        score += player.ducketsCarried;
-        player.ducketsCarried = 0;
-        spawnEnemyTelegraph();
+    for(let i = 0; i < playerArray.length; i++)
+    {
+      if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
+        if(playerArray[i].ducketsCarried > 0){
+          depositSFX.play();
+          score += playerArray[i].ducketsCarried;
+          playerArray[i].ducketsCarried = 0;
+          spawnEnemyTelegraph();
 
-        if (depositInstructionShouldBeShowing)
-        {
-          depositInstructionShouldBeShowing = false;
+          if (depositInstructionShouldBeShowing)
+          {
+            depositInstructionShouldBeShowing = false;
+          }
         }
       }
-		}
+    }
   }
   
   this.draw = function(){

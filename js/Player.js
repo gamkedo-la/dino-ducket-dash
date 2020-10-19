@@ -13,6 +13,7 @@ function playerClass(playerNumber){
 	this.stepCounter = 0;
 	this.immunityTimer = 0;
 	this.immunity = false;
+	this.dead = false;
 
 	//Things for coop
 	this.playerNumber = playerNumber;
@@ -199,4 +200,9 @@ function playerClass(playerNumber){
 		animate(this,true);
 		
 	}
+
+	this.kill = function(){
+		this.dead = true;
+	}
+
 }

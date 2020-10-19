@@ -30,10 +30,14 @@ function surpriseBoxClass(){
 	}
 
   this.update = function(){
-    if(checkCollision(this,player)){
-			coinPickUpSFX.play();
-			this.readyToRemove = true;
+	for(let i = 0; i < playerArray.length; i++)
+	{
+		if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
+				coinPickUpSFX.play();
+				this.readyToRemove = true;
+				break;
 		}
+	}
   }
 
   this.draw = function(){

@@ -33,30 +33,37 @@ function ducketClass(){
 			this.x = randomIntFromInterval(0,canvas.width);
 			this.y = randomIntFromInterval(0,canvas.height);
 			
-			while(checkCollision(this,playerArray[0])) {
-				this.x = randomIntFromInterval(0,canvas.width);
-				this.y = randomIntFromInterval(0,canvas.height);
+			for(let i = 0; i < playerArray.length; i++)
+			{
+				while(checkCollision(this,playerArray[i])) {
+					this.x = randomIntFromInterval(0,canvas.width);
+					this.y = randomIntFromInterval(0,canvas.height);
+				}
 			}
 		}
 	}
 
   this.update = function(){
-
-  }
-
-  this.draw = function(){
-	//WARM UP: Maybe this collision check belongs in the update method?
-		if(checkCollision(this,playerArray[0])){
+	for(let i = 0; i < playerArray.length; i++)
+	{
+		if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
 			coinPickUpSFX.play();
 			this.readyToRemove = true;
-			player.ducketsCarried++;
+			console.log(playerArray[i].ducketsCarried)
+			playerArray[i].ducketsCarried++;
 
 			let ducketParticlesInstance = new DucketParticlesInstance(this);
 			ducketParticlesInstance.init();
 			ducketParticlesManager.arrayOfParticleInstances.push(ducketParticlesInstance);
-		} else{
-			animate(this,true);
 		}
+	}
+  }
+
+  this.draw = function(){
+	if(!this.readyToRemove)
+	{
+		animate(this,true);
+	}
   }
 }
 
@@ -170,7 +177,14 @@ function spawnCoins(){
 }
 
 function checkIfCoinsNeedToRespawn(){
-	if(ducketList.length == 0 && player.ducketsCarried == 0){
+	let counter = 0;
+	for(let i = 0; i < playerArray.length; i++)
+	{
+		if(ducketList.length == 0 && playerArray[i].ducketsCarried == 0){
+			counter++;
+		}
+	}
+	if(counter == playerArray.length){
 		spawnCoins();
 	}
 }

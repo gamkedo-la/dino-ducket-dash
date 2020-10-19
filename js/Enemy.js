@@ -56,6 +56,7 @@ function enemyClass(){
 		this.x = atX;
 		this.y = atY;
 		while((Math.abs(playerArray[0].x - this.x) < this.frameWidth) && (Math.abs(playerArray[0].y - this.x < this.frameHeight))) {
+			console.log("whatsmy point")
 			this.x = randomIntFromInterval(0,canvas.width);
 			this.y = randomIntFromInterval(0,canvas.height);
 		}
@@ -81,9 +82,9 @@ function enemyClass(){
 			this.speedY *= -1;
 		}
 
-		if(checkCollision(this,playerArray[0])){
-			if (!godMode && !player.immunity)
-			{
+		for(let i = 0; i < playerArray.length; i++)
+		{
+			if(checkCollision(this,playerArray[i]) && !godMode && !playerArray[i].immunity && !playerArray[i].dead){
 				screenShouldBeShaking = true;
 				setTimeout(function(){screenShouldBeShaking = false},100);
 
@@ -103,16 +104,17 @@ function enemyClass(){
 				
 				hitSFX.play();
 
-				if(player.ducketsCarried <= 0){
-	                decals.deathSplatter(this.x,this.y+50); // pile of bones!
-					gameState = 'gameOver';
+				if(playerArray[i].ducketsCarried <= 0){
+					decals.deathSplatter(this.x,this.y+50); // pile of bones!
+					playerArray[i].kill();
+					//gameState = 'gameOver';
 				} else{
-					player.ducketsCarried = 0;
-					player.immunityTimer = 30;
-					player.immunity = true;
+					playerArray[i].ducketsCarried = 0;
+					playerArray[i].immunityTimer = 30;
+					playerArray[i].immunity = true;
 				}
-			}//end of godMode check	
-		}// end of collision check with player
+			}// end of collision check with player
+		}
 
 		this.x += this.speedX;
 		this.y += this.speedY;

@@ -29,7 +29,7 @@ function enemyTelegraphClass(){
 		let randomY = randomIntFromInterval(0,canvas.height-ENEMY_HEIGHT*4);
 		this.x = randomX;
 		this.y = randomY;
-		while((Math.abs(player.x - this.x) < this.frameWidth) && (Math.abs(player.y - this.x < this.frameHeight))) {
+		while((Math.abs(playerArray[0].x - this.x) < this.frameWidth) && (Math.abs(playerArray[0].y - this.x < this.frameHeight))) {
 			this.x = randomIntFromInterval(0,canvas.width-ENEMY_WIDTH*3);
 			this.y = randomIntFromInterval(0,canvas.height-ENEMY_HEIGHT*4);
 		}

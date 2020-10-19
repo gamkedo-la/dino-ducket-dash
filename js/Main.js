@@ -6,7 +6,7 @@ var canvas;
 var canvasContext;
 var loadingAndInputToLaunchScreen;
 
-var player;
+//var player;
 var decals;
 var enemyTelegraphs = [];
 var ducketList = [];

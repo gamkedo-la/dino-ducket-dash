@@ -2,6 +2,8 @@ gameIsPaused = false;
 playMode = 1; //1 for single-player, 2 for coop
 playerArray = [];
 
+var player = null; // a global pointing to the last player in playerArray
+
 function resetGame(){
   enemies = [];
   ducketList = [];
@@ -24,10 +26,13 @@ function initGame(){
 
   for(let i = 0; i <= playMode; i++)
   {
-    let player = new playerClass(i);
+    player = new playerClass(i); 
     playerArray[i] = player;
     playerArray[i].initPlayer();
   }
+
+  player = playerArray[0]; // FIXME: note that player is a global so that older code still works
+
   /*
   player = new playerClass(1);
   player2 = new playerClass(2);

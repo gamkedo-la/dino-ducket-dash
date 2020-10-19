@@ -247,7 +247,7 @@ function keyPressed(evt){
 			case KEY_LEFT:
 				moveLeft0 = true;
 				break
-			case KEY_W:
+			case KEY_A:					//was key_W here which cause the left key to not work
 				moveLeft1 = true;
 				break
 			case KEY_J:
@@ -393,7 +393,7 @@ function keyReleased(evt){
 			case KEY_LEFT:
 				moveLeft0 = false;
 				break
-			case KEY_W:
+			case KEY_A:					//typo here too! Key_W originally
 				moveLeft1 = false;
 				break
 			case KEY_J:

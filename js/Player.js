@@ -63,6 +63,7 @@ function playerClass(playerNumber){
 			this.moveUp = moveUp0;
 			this.moveDown = moveDown0;
 		}
+		
 		if(this.playerNumber == 1)
 		{
 			this.moveRight = moveRight1;

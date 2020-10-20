@@ -13,6 +13,8 @@ function moneyBucketClass(){
     {
       if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
         if(playerArray[i].ducketsCarried > 0){
+          screenShouldBeShaking = true;
+  				setTimeout(function(){screenShouldBeShaking = false},100);
           depositSFX.play();
           score += playerArray[i].ducketsCarried;
           playerArray[i].ducketsCarried = 0;

@@ -53,6 +53,10 @@ function checkScore(){
 	if(scoredNotChecked){
 		highScoreList.push(score);
 		highScore = Math.max(...highScoreList);
+		intHighestScoreList = localStorage.getItem('highScoreList');
+		if(intHighestScoreList < highScore){
+			localStorage.setItem("highestScore",highScore);
+		}
 		sortedHighScoreList = highScoreList.sort(function(a,b){return b-a});
 		//score = 0;
 		scoredNotChecked = false;
@@ -60,6 +64,7 @@ function checkScore(){
 }		
 
 function drawHighScore(){
+	let highestScoreEverRecorded = localStorage.getItem("highestScore");
 	let labelText = 'High Score:';
 	let labelTextWidth = canvasContext.measureText(labelText).width;
 
@@ -67,7 +72,7 @@ function drawHighScore(){
 	let hsScoreBoxHeight = 10;
 	let xPos = canvas.width - (hsScoreBoxWidth*PIXEL_SCALE_UP/2)-5;
 	let yPos = 0;
-	let hsScoreText = highScore.toString().padStart(10,'0');
+	let hsScoreText = highestScoreEverRecorded.padStart(10,'0');
 	drawRect(xPos - labelTextWidth - 10,yPos, hsScoreBoxWidth + labelTextWidth, hsScoreBoxHeight, "black");
 	canvasContext.fillStyle = 'white';
 	canvasContext.fillText(labelText, xPos - labelTextWidth - 5,yPos+25);

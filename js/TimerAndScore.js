@@ -1,10 +1,10 @@
-const START_MINUTES = 2;
-const START_SECONDS = 59;
+const START_MINUTES = 1;
+const START_SECONDS = 30;
 const START_UPDATEGAMETIME = 60
 var gameMinutes = START_MINUTES;
 var gameSeconds = START_SECONDS;
 var updateGameTime = START_UPDATEGAMETIME;
-var timerText = "3:00";
+var timerText = "1:30";
 
 var score = 0;
 var highScore = 0;

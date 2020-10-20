@@ -64,7 +64,15 @@ function checkScore(){
 }		
 
 function drawHighScore(){
-	let highestScoreEverRecorded = localStorage.getItem("highestScore");
+    
+    // this runs every frame!! FIXME - cache value so we don't do this a million times
+    let highestScoreEverRecorded = localStorage.getItem("highestScore"); 
+
+    // bugfix: if none recorded or browser security denies, don't crash
+    if (highestScoreEverRecorded==undefined) highestScoreEverRecorded = 0;
+
+	let hsScoreText = highestScoreEverRecorded.padStart(10,'0');
+
 	let labelText = 'High Score:';
 	let labelTextWidth = canvasContext.measureText(labelText).width;
 
@@ -72,7 +80,7 @@ function drawHighScore(){
 	let hsScoreBoxHeight = 10;
 	let xPos = canvas.width - (hsScoreBoxWidth*PIXEL_SCALE_UP/2)-5;
 	let yPos = 0;
-	let hsScoreText = highestScoreEverRecorded.padStart(10,'0');
+	let hsScoreText = highestScoreEverRecorded.padStart(10,'0'); // note: highestScoreEverRecorded can be undefined
 	drawRect(xPos - labelTextWidth - 10,yPos, hsScoreBoxWidth + labelTextWidth, hsScoreBoxHeight, "black");
 	canvasContext.fillStyle = 'white';
 	canvasContext.fillText(labelText, xPos - labelTextWidth - 5,yPos+25);

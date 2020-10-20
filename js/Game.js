@@ -51,7 +51,8 @@ function initGame(){
 			}
 }
 
-function gameUpdate(){
+// FIXME this routine can run BEFORE initGame() has run? 
+function gameUpdate(){ 
   let deathCounter = 0;
   if (gameIsPaused || countdownToGamePlayTimer)
   {

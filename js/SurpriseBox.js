@@ -47,7 +47,7 @@ function surpriseBoxClass(){
 }
 
 function spawnSurpriseBox(atX,atY){
-	var surpriseBox = new surpriseBoxClass();
-	surpriseBox.init(atX,atY);
-  surpriseBoxes.push(surpriseBox);
+    var surpriseBox = new surpriseBoxClass();
+    surpriseBox.init(atX,atY);
+    surpriseBoxes.push(surpriseBox);
 }

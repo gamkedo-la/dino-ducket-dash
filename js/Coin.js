@@ -49,10 +49,10 @@ function ducketClass(){
 		if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
 			coinPickUpSFX.play();
 			this.readyToRemove = true;
-			console.log(playerArray[i].ducketsCarried)
 			playerArray[i].ducketsCarried++;
+			console.log("Player is now carrying "+playerArray[i].ducketsCarried+" duckets.");
 
-			let ducketParticlesInstance = new DucketParticlesInstance(this);
+            let ducketParticlesInstance = new DucketParticlesInstance(this);
 			ducketParticlesInstance.init();
 			ducketParticlesManager.arrayOfParticleInstances.push(ducketParticlesInstance);
 		}

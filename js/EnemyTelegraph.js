@@ -36,23 +36,30 @@ function enemyTelegraphClass(){
 	}
 
 	this.update = function(){
-    if(this.timer > 0){
-      this.timer--
-    } else{
-			if(randomIntFromInterval(1,6) == 1){
-				this.spawnType = 'suprise';
-			} else{
-				this.spawnType = 'enemy';
-			}
-			
-			if(this.spawnType == 'enemy'){
-				spawnEnemy(this.x,this.y);
-	      this.readyToRemove = true;
-			} else{
-				spawnSurpriseBox(this.x,this.y);
-				this.readyToRemove = true;
-			}
-    }
+
+        if(this.timer > 0) {
+
+            this.timer--;
+
+        } else {
+                
+            // leave a small crack on the ground
+            decals.cracks(this.x+10,this.y+30);
+
+            if(randomIntFromInterval(1,6) == 1) {
+                this.spawnType = 'suprise';
+            } else {
+                this.spawnType = 'enemy';
+            }
+
+            if(this.spawnType == 'enemy') {
+                spawnEnemy(this.x,this.y);
+                this.readyToRemove = true;
+            } else {
+                spawnSurpriseBox(this.x,this.y);
+                this.readyToRemove = true;
+            }
+        }
 	}
 
 	this.draw = function(){

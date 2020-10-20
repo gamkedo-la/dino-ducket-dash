@@ -14,6 +14,10 @@ var decalManager = function() {
 
     console.log("Decal FX canvas initializing");
 
+    const SKULL_DECAL_NUM = 1;
+    const BONE_DECAL_NUM = 2;
+    const CRACK_DECAL_NUM = 10;
+
     const decalsize = 10; // pixels per sprite on a horizontal spritesheet
     const drawSize = decalsize * PIXEL_SCALE_UP;
     const centerOffset = Math.round(-drawSize/2);
@@ -98,9 +102,10 @@ var decalManager = function() {
     this.scatterDecorations = function() {
         //console.log("Scattering decoration decals");
         var x,y,sprnum;
-        for (var x,y,sprnum,i=0; i<150; i++) {
+        for (var i=0; i<150; i++) {
             x = randomIntFromInterval(0,decalCanvas.width);
             y = randomIntFromInterval(0,decalCanvas.height);
+            
             sprnum = randomIntFromInterval(3,9); // skip footsteps and bones
             
             // avoid center on either axis for a nice + shaped path
@@ -111,13 +116,20 @@ var decalManager = function() {
     }
 
     this.deathSplatter = function(x,y) {
-        console.log("deathSplatter");
-        var x,y,sprnum;
-        this.add(x,y,0,1,1); // skull
+        console.log("deathSplatter at "+x+","+y);
+        this.add(x,y,0,1,SKULL_DECAL_NUM);
         for (var i=0; i<4; i++) {
             this.add(x+randomIntFromInterval(-50,50),
-            y+randomIntFromInterval(-50,50),0,1,2); // bone
+            y+randomIntFromInterval(-50,50),Math.random(Math.PI*2),
+            1,BONE_DECAL_NUM);
         }
+    }
+    
+    this.cracks = function(x,y) {
+        x+=10; y+=10; // center
+        console.log("cracks at "+x+","+y);
+        this.add(x,y,Math.random(Math.PI*2),
+        0.25,CRACK_DECAL_NUM);
     }
 
     this.resize(); // fun the first time right away

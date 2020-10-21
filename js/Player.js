@@ -212,3 +212,52 @@ function playerClass(playerNumber){
 	}
 
 }
+
+function bouncePlayersOffEachOther() {
+    const STR = 4; // speed * this = bounce dist
+    var p1,p2;
+    for(let i = 0; i < playerArray.length; i++) {
+        
+        p1 = playerArray[i];
+        
+        for(let j = 0; j < playerArray.length; j++) {
+        
+            p2 = playerArray[j];
+            
+            // reasons to not bounce
+            if (i==j || p1.immunity || p1.dead || p2.immunity || p2.dead) {
+                continue; // skip the check below
+            }
+
+            // allowed to bounce together! let's check
+            if (checkCollision(p1,p2)) {
+
+                console.log('player'+i+' bumped into player'+j);
+
+                screenShouldBeShaking = true;
+                setTimeout(function(){screenShouldBeShaking = false},1);
+                
+                // change dir
+                p1.speedX *= -STR;
+                p1.speedY *= -STR;
+                p2.speedX *= -STR;
+                p2.speedY *= -STR;
+
+                /* etc?
+                if (p1.sprite === p1.rightSprite)
+                {
+                    p1.sprite = p1.leftSprite;
+                }
+                else if (p1.sprite === p1.leftSprite)
+                {
+                    this.sprite = this.rightSprite;
+                }
+                */
+            
+                hitSFX.play();
+
+            } // collided
+        } // j
+    } // i
+}
+

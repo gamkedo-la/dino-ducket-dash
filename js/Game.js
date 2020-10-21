@@ -96,7 +96,8 @@ function gameUpdate(){
   }
   
   moneyBucket.update();
-  checkIfCoinsNeedToRespawn()
+  checkIfCoinsNeedToRespawn();
+  bouncePlayersOffEachOther();
 
   for (var i = 0; i < ducketList.length; i++) {
     ducketList[i].update();

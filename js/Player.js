@@ -1,3 +1,6 @@
+// if true, a player with >1 duckets hitting one with 0 duckets gives them one
+const SHARE_DUCKETS_IF_IN_NEED = true; 
+
 var godMode = false;
 
 function playerClass(playerNumber){	
@@ -214,7 +217,9 @@ function playerClass(playerNumber){
 }
 
 function bouncePlayersOffEachOther() {
+    
     const STR = 4; // speed * this = bounce dist
+
     var p1,p2;
     for(let i = 0; i < playerArray.length; i++) {
         
@@ -237,6 +242,19 @@ function bouncePlayersOffEachOther() {
                 screenShouldBeShaking = true;
                 setTimeout(function(){screenShouldBeShaking = false},1);
                 
+                if (SHARE_DUCKETS_IF_IN_NEED) {
+                    if (p1.ducketsCarried>1 && p2.ducketsCarried==0) {
+                        p1.ducketsCarried--;
+                        p2.ducketsCarried++;
+                        console.log('player'+i+' gave one ducket to player'+j);
+                    }
+                    else if (p2.ducketsCarried>1 && p1.ducketsCarried==0) {
+                        p2.ducketsCarried--;
+                        p1.ducketsCarried++;
+                        console.log('player'+j+' gave one ducket to player'+i);
+                    }
+                }
+
                 // change dir
                 p1.speedX *= -STR;
                 p1.speedY *= -STR;

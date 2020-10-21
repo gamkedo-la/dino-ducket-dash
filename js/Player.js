@@ -45,13 +45,19 @@ function playerClass(playerNumber){
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true; // FIXME: this is a lie!!!
-		if(this.playerNumber == 1)
-		{
+		if(this.playerNumber == 0) {
 			this.gamepadID = 0;
 		}
-		else if(this.playerNumber == 2)
-		{
+		else if(this.playerNumber == 1) {
+			this.x = 960 - this.sprite.width;
 			this.gamepadID = 1;
+		}
+		else if(this.playerNumber == 2){
+			this.y = 650;
+		}
+		else if(this.playerNumber == 3){
+			this.y = 650;
+			this.x = 960 - this.sprite.width;
 		}
 	}
 

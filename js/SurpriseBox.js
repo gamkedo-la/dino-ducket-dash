@@ -33,7 +33,7 @@ function surpriseBoxClass(){
 	for(let i = 0; i < playerArray.length; i++)
 	{
 		if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
-				coinPickUpSFX.play();
+				powerup01.play();
 				gameSeconds += 20;
 				this.readyToRemove = true;
 				break;

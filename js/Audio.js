@@ -14,6 +14,7 @@ var depositSFX = new soundSingleBufferClass("audio/depositSFX.wav");
 var countdownSecondSFX = new soundSingleBufferClass("audio/countdownSecond.wav");
 var gameStartSFX = new soundSingleBufferClass("audio/gameStart.wav");
 var menuSFX = new soundSingleBufferClass("audio/menuSFX.wav");
+var powerup01 = new soundSingleBufferClass("audio/powerup01.wav");
 
 var mainMenuMusic = new soundLoopsClass("audio/mainmenu.wav");
 var gamePlayMusic = new soundLoopsClass("audio/gameplay.wav");

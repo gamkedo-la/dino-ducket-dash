@@ -138,7 +138,7 @@ function CharacterSelectScreen()
 								this.characterImageWidth,this.characterImageHeight);
 
 		canvasContext.font = '35px "Press Start 2P"';
-		let playerCountText = 'Press 1, 2, 3, 4 Players'
+		let playerCountText = ''
 		let playerCountTextWidth = canvasContext.measureText(playerCountText).width;
 		let pressEnterText = 'Press Enter to Start';
 		let pressEnterTextWidth = canvasContext.measureText(pressEnterText).width;

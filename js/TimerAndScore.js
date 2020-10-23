@@ -45,7 +45,7 @@ function drawTimer(){
 	let secondDisplay = gameSeconds.toString().padStart(2,'0');
 	timerText = gameMinutes + ":" + secondDisplay;
 	drawRect(xPos, yPos, timerBoxWidth + 2, timerBoxHeight, "black");
-	canvasContext.fillStyle = 'white';
+	canvasContext.fillStyle = '#fe4101';
 	canvasContext.fillText(timerText, xPos+5,yPos+25);
 }
 

@@ -34,6 +34,7 @@ function surpriseBoxClass(){
 	{
 		if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
 				coinPickUpSFX.play();
+				gameSeconds += 20;
 				this.readyToRemove = true;
 				break;
 		}

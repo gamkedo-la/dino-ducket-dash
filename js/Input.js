@@ -111,6 +111,8 @@ function keyPressed(evt){
 			case ENTER || KEY_SPACEBAR:
 			gameState = 'game';
 			depositSFX.play();
+			gamePlayMusic.play();
+			gamePlayMusic.setTime(mainMenuMusic.getTime());
 			mainMenuMusic.stop();
 			initGame();
 			break;

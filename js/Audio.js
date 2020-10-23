@@ -13,8 +13,10 @@ var hitSFX = new soundSingleBufferClass("audio/hitSFX.wav");
 var depositSFX = new soundSingleBufferClass("audio/depositSFX.wav");
 var countdownSecondSFX = new soundSingleBufferClass("audio/countdownSecond.wav");
 var gameStartSFX = new soundSingleBufferClass("audio/gameStart.wav");
-var mainMenuMusic = new soundLoopsClass("audio/mainmenu.wav");
 var menuSFX = new soundSingleBufferClass("audio/menuSFX.wav");
+
+var mainMenuMusic = new soundLoopsClass("audio/mainmenu.wav");
+var gamePlayMusic = new soundLoopsClass("audio/gameplay.wav");
 
 //--//sound classes-----------------------------------------------------------
 var backgroundMusic = function backgroundMusicClass() {
@@ -116,6 +118,19 @@ function soundLoopsClass(fullFilenameWithPath) {
 
 	this.stop = function() {
 		sound.pause();
+	}
+
+	this.getTime = function() {
+		return sound.currentTime;
+	}
+
+	this.setTime = function(value) {
+		var newTime = value;
+		while (newTime >= sound.duration) {
+			newTime -= sound.duration;
+		}
+
+		sound.currentTime = newTime;
 	}
 }
 

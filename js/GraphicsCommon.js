@@ -53,15 +53,18 @@ function animate(toAnimate,loop){
 
 	canvasContext.imageSmoothingEnabled = false;
 
+	
     if (!toAnimate.sprite.loaded) {
 		// we are still downloading the image!
 		console.log(`Still loading the image?`)
         return;
     }
-
+	
     canvasContext.drawImage(toAnimate.sprite,
 							column*toAnimate.frameWidth,row*toAnimate.frameHeight,
 							toAnimate.frameWidth,toAnimate.frameHeight,
 							toAnimate.x,toAnimate.y,
 							toAnimate.frameWidth*PIXEL_SCALE_UP,toAnimate.frameHeight*PIXEL_SCALE_UP);
 }
+
+

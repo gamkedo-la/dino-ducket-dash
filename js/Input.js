@@ -86,13 +86,15 @@ function keyPressed(evt){
 
 	if(gameState == 'input to launch')
 	{
-		if (keyCode == ENTER || keyCode == KEY_SPACEBAR)
+		
+		if ((keyCode == ENTER || keyCode == KEY_SPACEBAR ) )
 		{
 			gameState = 'menu';
 			mainMenuMusic.play();
 			init();
 			keyCode = null;
 		}
+		
 	}
 	if(gameState == "menu"){
 		if(buttonSelectState === buttonsList.single &&

@@ -5,7 +5,7 @@ const PIXEL_SCALE_UP = 3;
 var canvas;
 var canvasContext;
 var loadingAndInputToLaunchScreen;
-
+var splashTimer;
 //var player;
 var decals;
 var enemyTelegraphs = [];
@@ -30,6 +30,7 @@ var allImages = [
 	'images/enemy_telegraph.png',
 	
 	'images/menu_title.png',
+	'images/animatedSplashScreen.png',
 	
 	'images/green_player_idle_facing_left.png',
 	'images/green_player_idle_facing_right.png',
@@ -58,6 +59,7 @@ var images = {
 	enemy_run: {},
 	enemy_telegraph: {},
 	menu_title: {},
+	animated_splash:{},
 	green_player_idle_facing_left: {},
 	green_player_idle_facing_right: {},
 	blue_player_idle_facing_left: {},
@@ -83,21 +85,33 @@ window.onload = function(){
 	});
 	
 	preImageLoadingInit();
+	
 	loadingAndInputToLaunchScreen.drawLoading();
+ 
+  	console.log("Initializing game. Downloading "+allImages.length+" sprites.");
+  	
+  	const imagesKeys = Object.keys(images);
+  
 
-  console.log("Initializing game. Downloading "+allImages.length+" sprites.");
-  const imagesKeys = Object.keys(images);
-  for (var i=0; i<allImages.length; i++) {
-	  images[imagesKeys[i]] = new Image();
-	  images[imagesKeys[i]].onload = function()
-	  {
-	  	gameState = 'input to launch';
-	  	cls();
-	  	loadingAndInputToLaunchScreen.drawInputToLaunch();
-	  };
-
-      images[imagesKeys[i]].src = allImages[i];      
-  }
+	for (var i=0; i<allImages.length; i++) {
+		images[imagesKeys[i]] = new Image();
+		images[imagesKeys[i]].onload = function()
+		{
+			gameState = 'input to launch';
+			
+		};
+		
+		images[imagesKeys[i]].src = allImages[i]; 
+	}
+	
+	
+	images.animated_splash.onload=function()
+	{
+		splashTimer=setInterval(function(){return loadingAndInputToLaunchScreen.drawAnimatedSplash();},100);
+		loadingAndInputToLaunchScreen.drawInputToLaunch();
+	}
+	
+	
 }
 
 
@@ -115,22 +129,29 @@ function preImageLoadingInit()
 	canvasContext.msImageSmoothingEnabled = false;
 	canvasContext.font = "Press Start 2P";
 
-	initInput();
-
 	loadingAndInputToLaunchScreen = new LoadingAndInputToLaunchScreen();
+	
+	initInput();
 }
 
+/* possibly redundant code
 function startgameIfDownloadsComplete() {
 	console.log(`${this.src} downloaded ok.`)
     // console.log(allImages[imagesDownloaded]+" downloaded ok.")
     imagesDownloaded++;
     if (imagesDownloaded>=allImages.length) {
-        console.log("All "+imagesDownloaded+" downloads complete! Starting game.");
+		console.log("All "+imagesDownloaded+" downloads complete! Starting game.");
+		
         init();
-    }
+	}
+	
 }
-
+*/
 function init(){
+	
+	//Stop Splash animation
+	clearInterval(splashTimer);
+
     //WARM UP: can we listen to the "resize" event and resize the canvas while
     //maintaining the aspect ratio?
 	gameState = 'menu';
@@ -141,13 +162,14 @@ function init(){
     menuUI = document.getElementById('allmenu');
 	
 	
+
     menuInit();
     characterSelectScreen = new CharacterSelectScreen();
 
 	console.log("Initialization complete. Running game!");
 
-  setInterval(update,1000/FPS);
-
+  	setInterval(update,1000/FPS);
+	
 }
 
 function update(){

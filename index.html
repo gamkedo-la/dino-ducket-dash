@@ -11,7 +11,7 @@
 <body>
 	<!-- WARP UP: horizontally center the canvas in the window -->
 	<div class='header'>DINO DUCKET DASH! Any Key to Play, WASD or Arrow Keys to move</div>
-		<div class="container" id="allmenu">
+	<div class="container" id="allmenu">
 			<div
 				id="single"
 				onmouseup="singlePlayer()"
@@ -47,8 +47,18 @@
 			</div>
 			<div
 				id="highscore"
-				onmouseover="detectMouseHover(buttonsList.highscore)">
+				onmouseover="detectMouseHover(buttonsList.highscore)"
+				onclick ='showHighScore()'>
 				<p>SCOREBOARD</p>
+			</div>
+		</div>
+		<div class="container" id="scoremenu" style="display:none">
+			<p>SCOREBOARD</p>
+			<div
+				id="highscore"
+				onmouseover="detectMouseHover(buttonsList.highscore)"
+				onclick ='hideHighScore()'>
+				<p>BACK TO MENU</p>
 			</div>
 		</div>
 		<div class='popup'onclick="showCredits()">Click to show Credits</div>

@@ -44,7 +44,7 @@ let s = document.getElementById("single");
 let m = document.getElementById("multi");
 let a = document.getElementById("audio");
 let c = document.getElementById("highscore");
-
+let scoreMenu = document.getElementById("scoremenu");
 function singlePlayer() {
 	playMode = 0;
 	transitionAnim.transitionToScene('character select screen');
@@ -67,8 +67,19 @@ function fourPlayers()
 	gameState = 'character select screen';
 }
 
+function hideHighScore(){
+	menuUI.style.display = 'block';
+	scoreMenu.style.display = 'none';
+}
+
 function showHighScore(){
-	
+	menuUI.style.display = 'none';
+	scoreMenu.style.display = 'block';
+	// let scoreArray = highScoreList.split("<br>"); 
+	// let SCOREBOARD = document.getElementById("highScore");
+	// SCOREBOARD.innerHTML = scoreArray;
+	// var tbl = document.createElement("table");
+	// var row = document.createElement("tr");
 }
 
 function showCredits() {

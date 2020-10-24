@@ -1,6 +1,13 @@
+var currentScore = 0;
+
 function gameOverUpdate(){
   //get the gamepads connected 
 	var gamepads = navigator.getGamepads();
+
+	if(currentScore < score){
+		currentScore++;
+		coinPickUpSFX.play();
+	}
 	
 	//check if any button on the gamepad has been pressed
 	if(gamepads.length > 0 && gamepads[0] && gamepads[0].buttons!=undefined){
@@ -19,7 +26,7 @@ function gameOverDraw(){
     canvasContext.fillStyle = '#FFF';
     canvasContext.font = '72px "Press Start 2P"';
     canvasContext.textAlign = 'center';
-	canvasContext.fillText('SCORE: '+ score, canvas.width/2,canvas.height/4);
+	canvasContext.fillText('SCORE: '+ currentScore, canvas.width/2,canvas.height/4);
 	
 	canvasContext.fillStyle = 'black';
 	canvasContext.textAlign = 'start';

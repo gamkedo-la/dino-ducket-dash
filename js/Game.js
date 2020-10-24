@@ -58,7 +58,8 @@ function gameUpdate(){
   if (gameIsPaused || countdownToGamePlayTimer)
   {
     if (gameIsPaused && x.style.display == "none"){
-      menuUI.style.display = 'block';
+        menuUI.style.display = 'block';
+        scoreMenu.style.display = 'none';
       }  
     return;
   }

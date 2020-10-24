@@ -75,6 +75,9 @@ function hideHighScore(){
 function showHighScore(){
 	menuUI.style.display = 'none';
 	scoreMenu.style.display = 'block';
+	let highestScoreEverRecorded = localStorage.getItem("highestScore"); 
+	let score1Number = document.getElementById("score1Number");
+	score1Number.innerHTML = highestScoreEverRecorded;
 	// let scoreArray = highScoreList.split("<br>"); 
 	// let SCOREBOARD = document.getElementById("highScore");
 	// SCOREBOARD.innerHTML = scoreArray;

@@ -7,6 +7,9 @@ var fourPlayersDiv = document.getElementById('fourPlayers');
 var audioDiv = document.getElementById('audio');
 var highscoreDiv = document.getElementById('highscore');
 
+//For  HighScoreMenu
+var exitHighscoreDiv= document.getElementById('exitHighscore');
+
 //character select
 var greenDino = document.getElementById('greenDino');
 var blueDino = document.getElementById("blueDino");
@@ -25,12 +28,12 @@ var buttonsList = {
     fourPlayers: 3,
     audio: 4,
     highscore: 5,
-
+    exitHighscore: 6,
     //character select
-    greenDino: 6,
-    blueDino: 7,
-    pinkDino: 8,
-    yellowDino: 9
+    greenDino: 7,
+    blueDino: 8,
+    pinkDino: 9,
+    yellowDino: 10
 }
 
 // Button State
@@ -100,6 +103,16 @@ function addHighscoreSelect() {
     highscoreDiv.classList.add('buttonSelected');
 }
 
+function removeExitHighscoreSelect() {
+    exitHighscoreDiv.classList.remove('buttonSelected');
+    exitHighscoreDiv.classList.add('buttonUnselected');
+}
+
+function addExitHighscoreSelect() {
+    exitHighscoreDiv.classList.remove('buttonUnselected');
+    exitHighscoreDiv.classList.add('buttonSelected');
+}
+
 function startMenuShape(){
     singleDiv.classList.add('buttonSelected');
     multiDiv.classList.add('buttonUnselected');
@@ -107,4 +120,5 @@ function startMenuShape(){
     fourPlayersDiv.classList.add('buttonUnselected');
     audioDiv.classList.add('buttonUnselected');
     highscoreDiv.classList.add('buttonUnselected');
+    exitHighscoreDiv.classList.add('buttonUnselected');
 }

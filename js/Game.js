@@ -159,6 +159,16 @@ function gameDraw(){
     surpriseBoxes[i].draw()
   }
 
+  if(score >= 1072 && score < 1074)
+  {
+    canvasContext.drawImage(images.animated_splash,19*320,0,320,320,moneyBucket.x-20,moneyBucket.y-10,160,160);
+    if(score == 1072){
+      inputKey();
+      score++;
+    }
+  
+  }
+
   if (depositInstructionShouldBeShowing)
   {
     canvasContext.fillStyle = 'white';

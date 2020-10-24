@@ -12,6 +12,7 @@ var coinPickUpSFX = new soundSingleBufferClass("audio/coinPickUpSFX.wav");
 var hitSFX = new soundSingleBufferClass("audio/hitSFX.wav");
 var depositSFX = new soundSingleBufferClass("audio/depositSFX.wav");
 var countdownSecondSFX = new soundSingleBufferClass("audio/countdownSecond.wav");
+var characterSelect = new soundSingleBufferClass("audio/characterSelect.wav");
 var gameStartSFX = new soundSingleBufferClass("audio/gameStart.wav");
 var menuSFX = new soundSingleBufferClass("audio/menuSFX.wav");
 var powerup01 = new soundSingleBufferClass("audio/powerup01.wav");

@@ -20,61 +20,6 @@ var animUI;
 //WARM UP: Looking for a good place to add a comment as a practice commit?
 //How about on the next line?
 
-//WARM UP: May want to move this list to another file because it will probably get very long
-var allImages = [
-	'images/decals.png',
-	'images/ducket_particle.png',
-	'images/ducket.png',
-
-	'images/enemy_run.png',
-	'images/enemy_telegraph.png',
-	
-	'images/menu_title.png',
-	'images/animatedSplashScreen.png',
-	
-	'images/green_player_idle_facing_left.png',
-	'images/green_player_idle_facing_right.png',
-
-	'images/blue_player_idle_facing_left.png',
-	'images/blue_player_idle_facing_right.png',
-
-	'images/pinkish_player_idle_facing_left.png',
-	'images/pinkish_player_idle_facing_right.png',
-
-	'images/yellow_player_idle_facing_left.png',
-	'images/yellow_player_idle_facing_right.png',
-	
-	'images/pterodactyl_sprite_facing_left.png',
-	'images/pterodactyl_sprite_facing_right.png',
-
-	'images/tile-sand-01.png',
-	'images/UI_Anim.png',
-	'images/SurpriseBox.png'
-];
-var imagesDownloaded = 0;
-var images = {
-	decals: {},
-	ducket_particle: {},
-	ducket: {},
-	enemy_run: {},
-	enemy_telegraph: {},
-	menu_title: {},
-	animated_splash:{},
-	green_player_idle_facing_left: {},
-	green_player_idle_facing_right: {},
-	blue_player_idle_facing_left: {},
-	blue_player_idle_facing_right: {},
-	pink_player_idle_facing_left: {},
-	pink_player_idle_facing_right: {},
-	yellow_player_idle_facing_left: {},
-	yellow_player_idle_facing_right: {},
-	pterodactyl_sprite_facing_left: {},
-	pterodactyl_sprite_facing_right: {},
-	tile_sand_01: {},
-	UI_Anim: {},
-	SupriseBox: {}
-};
-
 window.onload = function(){
 	// Check for game controller plugged in
 	window.addEventListener("gamepadconnected", (evt)=>{
@@ -90,19 +35,10 @@ window.onload = function(){
  
   	console.log("Initializing game. Downloading "+allImages.length+" sprites.");
   	
-  	const imagesKeys = Object.keys(images);
+  	
   
+	loadImages();
 
-	for (var i=0; i<allImages.length; i++) {
-		images[imagesKeys[i]] = new Image();
-		images[imagesKeys[i]].onload = function()
-		{
-			gameState = 'input to launch';
-			
-		};
-		
-		images[imagesKeys[i]].src = allImages[i]; 
-	}
 	
 	
 	images.animated_splash.onload=function()

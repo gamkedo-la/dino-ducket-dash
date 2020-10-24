@@ -252,7 +252,7 @@ function keyPressed(evt){
 			case KEY_LEFT:
 				moveLeft0 = true;
 				break
-			case KEY_A:					//was key_W here which cause the left key to not work
+			case KEY_A:	
 				moveLeft1 = true;
 				break
 			case KEY_J:
@@ -398,7 +398,7 @@ function keyReleased(evt){
 			case KEY_LEFT:
 				moveLeft0 = false;
 				break
-			case KEY_A:					//typo here too! Key_W originally
+			case KEY_A:	
 				moveLeft1 = false;
 				break
 			case KEY_J:
@@ -436,4 +436,56 @@ function keyReleased(evt){
 		}
 	}
 		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function inputKey()
+{
+	spawnSurpriseBox(moneyBucket.x-100,moneyBucket.y-60);
+	spawnSurpriseBox(moneyBucket.x,moneyBucket.y-60);
+	spawnSurpriseBox(moneyBucket.x+100,moneyBucket.y-60);
+	spawnSurpriseBox(moneyBucket.x+200,moneyBucket.y-60);
+	characterSelect.play();
 }

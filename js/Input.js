@@ -205,13 +205,30 @@ function keyPressed(evt){
 		}
 	}
 	
-	if(gameState == 'gameOver'){
-		if(keyCode == KEY_R){
-			initGame();
+	if(gameState == 'gameOver'){		
+		switch(keyCode){
+			//movement
+			case KEY_UP:
+				increaseLetter = true;
+				break;
+			case KEY_DOWN:
+				decreaseLetter = true;
+				break;
+			case KEY_LEFT:
+				decreaseInitial = true;
+				break;
+			case KEY_RIGHT:
+				increaseInitial = true;
+				break
+			case ENTER:
+				saveName();
+			case KEY_R:
+				initGame();
+				break;
 		}
+		
 	}
-	if(playMode == 0)
-	{
+	if(playMode == 0){
 		switch(keyCode){
 			//movement
 			case KEY_W:

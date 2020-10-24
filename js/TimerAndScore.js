@@ -8,9 +8,20 @@ var timerText = "1:30";
 
 var score = 0;
 var highScore = 0;
-var highScoreList = []; //WIP for tracking all scores
+var highScoreList = []; 
 var sortedHighScoreList = [];
 var scoredNotChecked = true;
+var enterNewHighScoreName = false;
+var name = [];
+var letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var firstInitial = letters[0];
+var middleInitial = letters[0];
+var lastInitial = letters[0];	
+var increaseLetter = false;
+var decreaseLetter = false;
+var increaseInitial = false;
+var decreaseInitial = false;
+var initialPosition = [0];
 
 /*
  updateTimer is to keep track of Game Time.    
@@ -57,6 +68,7 @@ function checkScore(){
 		intHighestScoreList = localStorage.getItem('highScoreList');
 		if(intHighestScoreList < highScore){
 			localStorage.setItem("highestScore",highScore);
+			enterNewHighScoreName = true;
 		}
 		sortedHighScoreList = highScoreList.sort(function(a,b){return b-a});
 		//score = 0;
@@ -173,5 +185,13 @@ function countdownSFX(){
 			countdownSecondSFX.play();
 			one = true;
 		}
+	}
+}
+
+function enterNewName(){
+	if(KEY_UP){
+		letters++;
+	} else if (KEY_DOWN){
+		letters--;
 	}
 }

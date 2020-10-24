@@ -11,6 +11,7 @@ function resetGame(){
   surpriseBoxes = [];
   resetTimer();
   checkScore();
+  currentScore = 0; 
   score = 0;
  }
 

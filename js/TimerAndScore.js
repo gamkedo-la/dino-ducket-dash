@@ -28,6 +28,7 @@ function updateTimer(){
 	if(gameSeconds == 0 && gameMinutes == 0){
 		gameState = 'gameOver';
 	}
+	countdownSFX();
 }
 
 function resetTimer(){
@@ -104,4 +105,73 @@ function drawCurrentScore()
 	canvasContext.fillStyle = 'white';
 	canvasContext.fillText(labelText, 0,25);
 	canvasContext.fillText(currentScoreText, xPos+5,yPos+25);
+}
+
+//ugly variables for countdownSFX
+var one = false;
+var two = false;
+var three = false;
+var four = false;
+var five = false;
+var six = false;
+var seven = false;
+var eight = false;
+var nine = false;
+var ten = false;
+
+//ugly function for countdownSFX, not sure how else to do it though
+function countdownSFX(){
+
+	if(gameMinutes == 0 ){
+		
+		if(gameSeconds == 10 && !ten){
+			countdownSecondSFX.play();
+			ten = true;
+		}
+
+		if(gameSeconds == 9 && !nine){
+			countdownSecondSFX.play();
+			nine = true;
+		}
+
+		if(gameSeconds == 8 && !eight){
+			countdownSecondSFX.play();
+			eight = true;
+		}
+
+		if(gameSeconds == 7 && !seven){
+			countdownSecondSFX.play();
+			seven = true;
+		}
+
+		if(gameSeconds == 6 && !six){
+			countdownSecondSFX.play();
+			six = true;
+		}
+
+		if(gameSeconds == 5 && !five){
+			countdownSecondSFX.play();
+			five = true;
+		}
+
+		if(gameSeconds == 4 && !four){
+			countdownSecondSFX.play();
+			four = true;
+		}
+
+		if(gameSeconds == 3 && !three){
+			countdownSecondSFX.play();
+			three = true;
+		}
+
+		if(gameSeconds == 2 && !two){
+			countdownSecondSFX.play();
+			two = true;
+		}
+
+		if(gameSeconds == 1 && !one){
+			countdownSecondSFX.play();
+			one = true;
+		}
+	}
 }

@@ -4,7 +4,7 @@ document.addEventListener('keydown', detectKeyPresses);
 function detectKeyPresses(evt) {
 
     // FIXME don't process keypresses while game is in progress!
-    if (gameState!='menu') return;
+    if (gameState!='menu' && !gameIsPaused) return;
 
     const keyPress = evt.code;
     console.log('buttonSelectState: ' + buttonSelectState);

@@ -1,5 +1,5 @@
 gameIsPaused = false;
-playMode = 0; //0 for 1P, 1 for 2P,.......
+//playMode = 0; //0 for 1P, 1 for 2P,.......
 playerArray = [];
 var screenShouldBeShaking = false;
 var firstPlayThrough = true;

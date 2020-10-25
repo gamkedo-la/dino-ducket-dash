@@ -45,8 +45,22 @@ let m = document.getElementById("multi");
 let a = document.getElementById("audio");
 let c = document.getElementById("highscore");
 
+function singlePlayer() {
+	playMode = 0;
+	gameState = 'character select screen';
+}
+
+function twoPlayer() {
+	playMode = 1;
+	gameState = 'character select screen';
+}
 function menuState() {
-		if(s.onmouseup = true){
+		if(this === s){
+			playMode = 0;
+			gameState = 'character select screen';
+		} else if(this === m) {
+			console.log(`Setting Play Mode to 1`)
+			playMode = 1;
 			gameState = 'character select screen';
 		}
 	  }

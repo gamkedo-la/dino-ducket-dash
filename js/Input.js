@@ -110,6 +110,7 @@ function keyPressed(evt){
 
 	if (gameState === 'character select screen')
 	{
+		console.log(`Play Mode: ${playMode}`)
 		switch(keyCode)
 		{
 			case ENTER || KEY_SPACEBAR:

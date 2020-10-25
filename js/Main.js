@@ -16,7 +16,6 @@ var gameState = "loading";
 var menuUI;
 var animUI;
 
-
 //WARM UP: Looking for a good place to add a comment as a practice commit?
 //How about on the next line?
 
@@ -28,7 +27,7 @@ window.onload = function(){
 	window.addEventListener("gamepaddisconnected", (evt)=>{
 		console.log("gamepad disconnected");
 	});
-	
+	window.addEventListener('resize', resizeCanvas, false);
 	preImageLoadingInit();
 	
 	loadingAndInputToLaunchScreen.drawLoading();
@@ -50,7 +49,12 @@ window.onload = function(){
 	
 }
 
+function resizeCanvas() {
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
 
+	draw();
+}
 
 function preImageLoadingInit()
 {
@@ -59,7 +63,6 @@ function preImageLoadingInit()
 	canvas.height = Math.ceil(PIXEL_SCALE_UP * canvas.height);
 	
 	canvasContext = canvas.getContext('2d');
-	
 	//let's keep those pixels crisp
 	canvasContext.imageSmoothingEnabled = false;
 	canvasContext.msImageSmoothingEnabled = false;
@@ -128,7 +131,7 @@ function update(){
 
 	}	
 
-	draw();
+	resizeCanvas();
 }
 
 function draw(){

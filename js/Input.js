@@ -89,6 +89,7 @@ function keyPressed(evt){
 		
 		if ((keyCode == ENTER || keyCode == KEY_SPACEBAR ) )
 		{
+			menuSelect.play();
 			gameState = 'menu';
 			mainMenuMusic.play();
 			init();
@@ -99,10 +100,11 @@ function keyPressed(evt){
 	if(gameState == "menu"){
 		if(buttonSelectState === buttonsList.single &&
 			(keyCode === ENTER || keyCode === KEY_SPACEBAR)) {
+				menuSelect.play();
 				x.style.display = "none";
-			gameState = 'character select screen';
-		console.log('gameState: ' + gameState);
-		keyCode = null;
+				gameState = 'character select screen';
+				console.log('gameState: ' + gameState);
+				keyCode = null;
 		}
 	}
 
@@ -112,6 +114,7 @@ function keyPressed(evt){
 		{
 			case ENTER || KEY_SPACEBAR:
 			gameState = 'game';
+			menuSelect.play();
 			depositSFX.play();
 			gamePlayMusic.play();
 			gamePlayMusic.setTime(mainMenuMusic.getTime());

@@ -16,6 +16,7 @@ var characterSelect = new soundSingleBufferClass("audio/characterSelect.wav");
 var gameStartSFX = new soundSingleBufferClass("audio/gameStart.wav");
 var menuSFX = new soundSingleBufferClass("audio/menuSFX.wav");
 var powerup01 = new soundSingleBufferClass("audio/powerup01.wav");
+var menuSelect = new soundSingleBufferClass("audio/menuSelect.wav");
 
 var mainMenuMusic = new soundLoopsClass("audio/mainmenu.wav");
 var gamePlayMusic = new soundLoopsClass("audio/gameplay.wav");

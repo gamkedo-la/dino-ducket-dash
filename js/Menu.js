@@ -54,16 +54,6 @@ function twoPlayer() {
 	playMode = 1;
 	gameState = 'character select screen';
 }
-function menuState() {
-		if(this === s){
-			playMode = 0;
-			gameState = 'character select screen';
-		} else if(this === m) {
-			console.log(`Setting Play Mode to 1`)
-			playMode = 1;
-			gameState = 'character select screen';
-		}
-	  }
 
 function showHighScore(){
 	

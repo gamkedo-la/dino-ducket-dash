@@ -23,6 +23,9 @@ function cls(){
 	//setting a default value of '#cdc29e' for the variable would preserve current behavior
 	canvasContext.fillStyle = Colors.gold;
 	canvasContext.fillRect(0,0, canvas.width, canvas.height);
+	canvasContext.fillStyle = 'black';
+	canvasContext.fillRect(0,0, canvas.width, 10*PIXEL_SCALE_UP);
+	
 }
 
 function animate(toAnimate,loop){
@@ -66,5 +69,3 @@ function animate(toAnimate,loop){
 							toAnimate.x,toAnimate.y,
 							toAnimate.frameWidth*PIXEL_SCALE_UP,toAnimate.frameHeight*PIXEL_SCALE_UP);
 }
-
-

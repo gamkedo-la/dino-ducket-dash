@@ -37,13 +37,26 @@ function ducketClass(){
             this.x = getRandomIntInclusive(DUCKET_WIDTH*3,canvas.width-DUCKET_WIDTH*3);
             this.y = getRandomIntInclusive(DUCKET_HEIGHT*3,canvas.height-DUCKET_HEIGHT*3);
                 
-			for(let i = 0; i < playerArray.length; i++)
+            // don't spawn underneath players
+            for(let i = 0; i < playerArray.length; i++)
 			{
 				while(checkCollision(this,playerArray[i])) {
+                    console.log('new coin overlapped a player - trying a new location');
+					this.x = randomIntFromInterval(0,canvas.width);
+					this.y = randomIntFromInterval(0,canvas.height);
+				}
+            }
+            
+            // don't overlap other coins
+            for(let i = 0; i < ducketList.length; i++)
+			{
+				while(checkCollision(this,ducketList[i])) {
+                    console.log('new coin overlapping another coin - trying a new location');
 					this.x = randomIntFromInterval(0,canvas.width);
 					this.y = randomIntFromInterval(0,canvas.height);
 				}
 			}
+
 		}
 	}
 

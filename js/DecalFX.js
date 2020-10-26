@@ -96,10 +96,11 @@ var decalManager = function() {
 
 	this.clear = function() {
         this.resize();
-        decalCanvas.clearRect(0, 0, decalCanvas.width, decalCanvas.height);
+        decalContext.clearRect(0, 0, decalCanvas.width, decalCanvas.height);
 	};
 
     this.scatterDecorations = function() {
+        this.clear(); // FORCES A RESIZE, TOO
         //console.log("Scattering decoration decals");
         var x,y,sprnum;
         for (var i=0; i<150; i++) {

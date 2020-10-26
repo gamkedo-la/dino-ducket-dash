@@ -26,13 +26,17 @@ function ducketClass(){
 		this.sprite.loaded = true;
         this.frameWidth = this.sprite.width / this.animColumns;
         this.frameHeight = this.sprite.height / this.animRows;
-				
+                
+        this.x=this.y=0; // reset so we never skip doing both checks below
+
 		//Never spawn coin under MoneyBucket
 		//WARM UP: Do we also need to make sure coins don't spawn on top of other coins?
-		while(checkCollision(this,moneyBucket)) {
-			this.x = randomIntFromInterval(0,canvas.width);
-			this.y = randomIntFromInterval(0,canvas.height);
-			
+		while(!this.x||!this.y||checkCollision(this,moneyBucket)) {
+
+            // choose a location that is on screen
+            this.x = getRandomIntInclusive(DUCKET_WIDTH*3,canvas.width-DUCKET_WIDTH*3);
+            this.y = getRandomIntInclusive(DUCKET_HEIGHT*3,canvas.height-DUCKET_HEIGHT*3);
+                
 			for(let i = 0; i < playerArray.length; i++)
 			{
 				while(checkCollision(this,playerArray[i])) {
@@ -166,11 +170,7 @@ function DucketParticlesManager()
 function spawnCoins(){
 	ducketList = [];
 	for (var i = 0; i < 20; i++) {
-
-		//WARM UP: limit ducket positioning so all of them are 100% on screen
 		var ducket = new ducketClass();
-		ducket.x = getRandomIntInclusive(DUCKET_WIDTH,canvas.width - DUCKET_WIDTH*3.25);
-		ducket.y = getRandomIntInclusive(DUCKET_HEIGHT,canvas.height - DUCKET_HEIGHT*5);
 		ducket.initCoin();
 		ducketList.push(ducket);
 	}

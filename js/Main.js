@@ -131,7 +131,8 @@ function update(){
 
 	}	
 
-	resizeCanvas();
+	//resizeCanvas();
+	draw();
 }
 
 function draw(){

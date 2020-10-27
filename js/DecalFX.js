@@ -91,7 +91,7 @@ var decalManager = function() {
 	this.resize = function() {
         decalCanvas.width = canvas.width;
         decalCanvas.height = canvas.height;
-        console.log("decalCanvas resized to "+decalCanvas.width+"x"+decalCanvas.height);
+        console.log("decalCanvas size: "+decalCanvas.width+"x"+decalCanvas.height);
 	};
 
 	this.clear = function() {

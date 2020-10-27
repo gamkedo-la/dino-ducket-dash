@@ -1,6 +1,7 @@
 const FPS = 60;
 const ANIMATION_DELAY = 10;
 const PIXEL_SCALE_UP = 3;
+const RESIZE_THE_CANVAS = false; // if true, resizing the browser resizes the game canvas
 
 var canvas;
 var canvasContext;
@@ -27,8 +28,14 @@ window.onload = function(){
 	window.addEventListener("gamepaddisconnected", (evt)=>{
 		console.log("gamepad disconnected");
 	});
-	window.addEventListener('resize', resizeCanvas, false);
-	preImageLoadingInit();
+    
+    if (RESIZE_THE_CANVAS) {
+        // we only need to only subscribe to this event if we want
+        // to adjust the canvas when the browser window changes shape
+        window.addEventListener('resize', resizeCanvas, false);
+    }
+    
+    preImageLoadingInit();
 	
 	loadingAndInputToLaunchScreen.drawLoading();
  
@@ -50,9 +57,11 @@ window.onload = function(){
 }
 
 function resizeCanvas() {
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-
+    if (RESIZE_THE_CANVAS) {
+        canvas.width = window.innerWidth;
+	    canvas.height = window.innerHeight;
+        console.log("resized the canvas to "+canvas.width+"x"+canvas.height);
+    }
 	draw();
 }
 

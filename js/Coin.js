@@ -1,5 +1,8 @@
 const DUCKET_WIDTH = 16;
 const DUCKET_HEIGHT = 16;
+const DUCKET_SPRITE_W = 10;
+const DUCKET_SPRITE_H = 10;
+
 const DUCKETS_PER_LEVEL = 20; // how many to spawn on a fresh level?
 
 function ducketClass(){

@@ -105,7 +105,7 @@ function keyPressed(evt){
 			 (keyCode === ENTER || keyCode === KEY_SPACEBAR) ) {
 				menuSelect.play();
 				x.style.display = "none";
-				gameState = 'character select screen';
+				transitionAnim.transitionToScene('character select screen');
 				console.log('gameState: ' + gameState);
 				keyCode = null;
 		}
@@ -117,7 +117,7 @@ function keyPressed(evt){
 		switch(keyCode)
 		{
 			case ENTER || KEY_SPACEBAR:
-			gameState = 'game';
+			transitionAnim.transitionToScene('game');
 			menuSelect.play();
 			depositSFX.play();
 			gamePlayMusic.play();

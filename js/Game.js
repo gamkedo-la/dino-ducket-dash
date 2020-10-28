@@ -45,7 +45,7 @@ function initGame(){
 
   decals.scatterDecorations(); // rocks and grass etc
   
-  gameState = 'game';
+  transitionAnim.transitionToScene('game');
   if (gameIsPaused === true)
 			{
 				gameIsPaused = false;
@@ -77,7 +77,7 @@ function gameUpdate(){
 
   if(deathCounter == playerArray.length)
   {
-    gameState = 'gameOver';
+    transitionAnim.transitionToScene('gameOver');
   }
   
   animUI.update();

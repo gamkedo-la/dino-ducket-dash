@@ -26,7 +26,9 @@ var allImages = [
 
 	'images/tile-sand-01.png',
 	'images/UI_Anim.png',
-	'images/SurpriseBox.png'
+	'images/SurpriseBox.png',
+	
+	'images/transition.png'
 ];
 var imagesDownloaded = 0;
 var images = {
@@ -49,7 +51,8 @@ var images = {
 	pterodactyl_sprite_facing_right: {},
 	tile_sand_01: {},
 	UI_Anim: {},
-	SupriseBox: {}
+	SupriseBox: {},
+	transition: {}
 };
 
 function loadImages()

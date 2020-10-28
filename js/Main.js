@@ -16,6 +16,7 @@ var moneyBucket;
 var gameState = "loading";
 var menuUI;
 var animUI;
+var transitionAnim;
 
 //WARM UP: Looking for a good place to add a comment as a practice commit?
 //How about on the next line?
@@ -105,14 +106,16 @@ function init(){
 	gameState = 'menu';
 	x.style.display = "block"; 
 	
-    decals = new decalManager(); // fx on the ground
+  decals = new decalManager(); // fx on the ground
+	
+	transitionAnim = new transitionClass();
 
-    menuUI = document.getElementById('allmenu');
+  menuUI = document.getElementById('allmenu');
 	
 	
 
-    menuInit();
-    characterSelectScreen = new CharacterSelectScreen();
+  menuInit();
+  characterSelectScreen = new CharacterSelectScreen();
 
 	console.log("Initialization complete. Running game!");
 
@@ -171,6 +174,8 @@ function draw(){
 			gameOverDraw();
 			break;
 	}	
+	
+	transitionAnim.draw();
 	
 }
 

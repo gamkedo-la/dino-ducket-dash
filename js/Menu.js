@@ -47,12 +47,12 @@ let c = document.getElementById("highscore");
 
 function singlePlayer() {
 	playMode = 0;
-	gameState = 'character select screen';
+	transitionAnim.transitionToScene('character select screen');
 }
 
 function twoPlayer() {
 	playMode = 1;
-	gameState = 'character select screen';
+	transitionAnim.transitionToScene('character select screen');
 }
 
 function threePlayers()

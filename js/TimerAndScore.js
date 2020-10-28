@@ -37,7 +37,7 @@ function updateTimer(){
 		gameSeconds = START_SECONDS
 	}
 	if(gameSeconds == 0 && gameMinutes == 0){
-		gameState = 'gameOver';
+		transitionAnim.transitionToScene('gameOver');
 	}
 	countdownSFX();
 }

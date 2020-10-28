@@ -2,6 +2,7 @@ var allImages = [
 	'images/decals.png',
 	'images/ducket_particle.png',
 	'images/ducket.png',
+	'images/bucket.png',
 
 	'images/enemy_run.png',
 	'images/enemy_telegraph.png',
@@ -35,6 +36,7 @@ var images = {
 	decals: {},
 	ducket_particle: {},
 	ducket: {},
+	bucket: {},
 	enemy_run: {},
 	enemy_telegraph: {},
 	menu_title: {},

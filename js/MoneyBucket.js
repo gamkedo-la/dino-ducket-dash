@@ -32,20 +32,26 @@ function moneyBucketClass(){
   this.draw = function() {
     
     // draw a temporary white square
-    drawRect(this.x, this.y, this.width, this.height, 'white');
-    canvasContext.fillStyle = 'black';
+    //drawRect(this.x, this.y, this.width, this.height, 'white');
+    //canvasContext.fillStyle = 'black';
     
-    let rand = prng(1234); // seed random numbers same each run
+    let rand = prng(777); // seed random numbers same each run
     var ds = DUCKET_SPRITE_W*PIXEL_SCALE_UP;
     // actually draw all the coins just for fun =)
     for (let i=0; i<score; i++) {
         canvasContext.drawImage(images.ducket,
             0,0,//DUCKET_SPRITE_W*(i%6),0, // frame 1-6?
             DUCKET_SPRITE_W,DUCKET_SPRITE_H,
-            this.x + prng()*(scaledbucketSize - ds),
-            this.y + prng()*(scaledbucketSize - ds), 
+            this.x + prng()*(scaledbucketSize - ds - 3),
+            this.y + prng()*(scaledbucketSize - ds - 3), 
             ds,ds);
     }
+
+    // draw the ducket bucket
+    canvasContext.drawImage(images.bucket,
+        0,0,bucketSize,bucketSize,
+        this.x,this.y,scaledbucketSize,scaledbucketSize);
+
 
     // display the coin count on the bucket
     canvasContext.font = '30px "Press Start 2P"';

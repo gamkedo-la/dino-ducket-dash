@@ -2,6 +2,10 @@ document.addEventListener('keydown', detectKeyPresses);
 
 // detect key presses from player and change the UI Buttons
 function detectKeyPresses(evt) {
+
+    // FIXME don't process keypresses while game is in progress!
+    if (gameState!='menu') return;
+
     const keyPress = evt.code;
     console.log('buttonSelectState: ' + buttonSelectState);
     switch(buttonSelectState) {

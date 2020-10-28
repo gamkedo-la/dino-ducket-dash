@@ -15,6 +15,7 @@ const KEY_I = 'KeyI';
 const KEY_J = 'KeyJ';
 const KEY_K = 'KeyK';
 const KEY_L = 'KeyL';
+const KEY_B = 'KeyB';
 const KEY_1 = 'Digit1';
 const KEY_2 = 'Digit2';
 const KEY_3 = 'Digit3';
@@ -348,6 +349,7 @@ function keyPressed(evt){
 			{
 				debugOn = false;
 			}
+			break;
 		case KEY_E:
 		 	if (gameState === 'game' && debugOn)
 		 	{
@@ -372,6 +374,12 @@ function keyPressed(evt){
 		    		godMode = false;
 		    	}
 		    }
+		    break;
+		case KEY_B:
+			if (debugOn)
+			{
+				spawnSurpriseBox(100,100);
+			}
 		//WARM UP: Add cases to handle ARROW Keys as alternative to WASD
 		//WARM UP: Add cases to handle "P"/"M"/"+"/"-" for Pause, Mute, Volume up, Volume down
 		//WARM UP: Add cases to handle cheats (stop the enemy's movement? spawn more enemies or duckets?)

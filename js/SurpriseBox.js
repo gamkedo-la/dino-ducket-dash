@@ -35,10 +35,41 @@ function surpriseBoxClass(){
 		if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
 				powerup01.play();
 				gameSeconds += 20;
+				this.chooseSurpriseAndImplementIt();
 				this.readyToRemove = true;
 				break;
 		}
 	}
+  }
+
+  this.eliminateHalfTheEnemies = function()
+  {
+  	for (let i = 0; i < enemies.length/2; i++)
+				{
+					enemies.splice(0,1);
+				}
+  }
+
+  this.spawnExtraCoins = function()
+  {
+  	for (var i = 0; i < DUCKETS_PER_LEVEL/2; i++) {
+		var ducket = new ducketClass();
+		ducket.initCoin();
+		ducketList.push(ducket);
+	}
+  }
+
+  this.chooseSurpriseAndImplementIt = function()
+  {
+  	let coinFlip = Math.random();
+  	if (coinFlip < 0.5)
+  	{
+  		this.eliminateHalfTheEnemies();
+  	}
+  	else
+  	{
+  		this.spawnExtraCoins();
+  	}
   }
 
   this.draw = function(){

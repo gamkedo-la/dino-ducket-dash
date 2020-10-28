@@ -99,8 +99,10 @@ function keyPressed(evt){
 		
 	}
 	if(gameState == "menu"){
-		if(buttonSelectState === buttonsList.single &&
-			(keyCode === ENTER || keyCode === KEY_SPACEBAR)) {
+		if( (buttonSelectState === buttonsList.single || buttonSelectState === buttonsList.multi ||
+			 buttonSelectState === buttonsList.threePlayers || buttonSelectState === buttonsList.fourPlayers)
+			 &&
+			 (keyCode === ENTER || keyCode === KEY_SPACEBAR) ) {
 				menuSelect.play();
 				x.style.display = "none";
 				gameState = 'character select screen';

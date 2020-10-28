@@ -2,6 +2,8 @@
 //main menu
 var singleDiv = document.getElementById('single');
 var multiDiv = document.getElementById('multi');
+var threePlayersDiv = document.getElementById('threePlayers');
+var fourPlayersDiv = document.getElementById('fourPlayers');
 var audioDiv = document.getElementById('audio');
 var highscoreDiv = document.getElementById('highscore');
 
@@ -19,14 +21,16 @@ var buttonsList = {
     //main menu
     single: 0,
     multi: 1,
-    audio: 2,
-    highscore: 3,
+    threePlayers: 2,
+    fourPlayers: 3,
+    audio: 4,
+    highscore: 5,
 
     //character select
-    greenDino: 4,
-    blueDino: 5,
-    pinkDino: 6,
-    yellowDino: 7
+    greenDino: 6,
+    blueDino: 7,
+    pinkDino: 8,
+    yellowDino: 9
 }
 
 // Button State
@@ -52,6 +56,30 @@ function addMultiSelect() {
     multiDiv.classList.add('buttonSelected');
 }
 
+function removeThreePlayersSelect()
+{
+    threePlayersDiv.classList.remove('buttonSelected');
+    threePlayersDiv.classList.add('buttonUnselected');
+}
+
+function addThreePlayersSelect()
+{
+    threePlayersDiv.classList.remove('buttonUnselected');
+    threePlayersDiv.classList.add('buttonSelected');
+}
+
+function removeFourPlayersSelect()
+{
+    fourPlayersDiv.classList.remove('buttonSelected');
+    fourPlayersDiv.classList.add('buttonUnselected');
+}
+
+function addFourPlayersSelect()
+{
+    fourPlayersDiv.classList.remove('buttonUnselected');
+    fourPlayersDiv.classList.add('buttonSelected');
+}
+
 function removeAudioSelect() {
     audioDiv.classList.remove('buttonSelected');
     audioDiv.classList.add('buttonUnselected');
@@ -75,6 +103,8 @@ function addHighscoreSelect() {
 function startMenuShape(){
     singleDiv.classList.add('buttonSelected');
     multiDiv.classList.add('buttonUnselected');
+    threePlayersDiv.classList.add('buttonUnselected');
+    fourPlayersDiv.classList.add('buttonUnselected');
     audioDiv.classList.add('buttonUnselected');
     highscoreDiv.classList.add('buttonUnselected');
 }

@@ -55,6 +55,18 @@ function twoPlayer() {
 	gameState = 'character select screen';
 }
 
+function threePlayers()
+{
+	playMode = 2;
+	gameState = 'character select screen';
+}
+
+function fourPlayers()
+{
+	playMode = 3;
+	gameState = 'character select screen';
+}
+
 function showHighScore(){
 	
 }

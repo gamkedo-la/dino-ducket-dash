@@ -3,6 +3,7 @@ document.addEventListener('keydown', detectKeyPresses);
 // detect key presses from player and change the UI Buttons
 function detectKeyPresses(evt) {
     const keyPress = evt.code;
+    console.log('buttonSelectState: ' + buttonSelectState);
     switch(buttonSelectState) {
         case buttonsList.single:
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {
@@ -23,17 +24,49 @@ function detectKeyPresses(evt) {
                 playMenuSelectSFX();
             }
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {
-                buttonSelectState = buttonsList.audio;
+                buttonSelectState = buttonsList.threePlayers;
                 removeMultiSelect();
+                addThreePlayersSelect();
+                playMenuSelectSFX();
+            }
+            break;
+        case buttonsList.threePlayers:
+
+            if (keyPress === KEY_UP || keyPress === KEY_W)
+            {
+                buttonSelectState = buttonsList.multi;
+                removeThreePlayersSelect();
+                addMultiSelect();
+                playMenuSelectSFX();
+            }
+            if(keyPress === KEY_DOWN || keyPress === KEY_S) {
+                buttonSelectState = buttonsList.fourPlayers;
+                removeThreePlayersSelect();
+                addFourPlayersSelect();
+                playMenuSelectSFX();
+            }
+                
+            break;
+        case buttonsList.fourPlayers:
+            if (keyPress === KEY_UP || keyPress === KEY_W)
+            {
+                buttonSelectState = buttonsList.threePlayers;
+                removeFourPlayersSelect();
+                addThreePlayersSelect();
+                playMenuSelectSFX();
+            }
+            if(keyPress === KEY_DOWN || keyPress === KEY_S) {
+                buttonSelectState = buttonsList.audio;
+                removeFourPlayersSelect();
                 addAudioSelect();
                 playMenuSelectSFX();
             }
             break;
         case buttonsList.audio:
             if(keyPress === KEY_UP || keyPress === KEY_W) {
-                buttonSelectState = buttonsList.multi;
+                buttonSelectState = buttonsList.fourPlayers;
                 removeAudioSelect();
-                addMultiSelect();
+                addFourPlayersSelect();
                 playMenuSelectSFX();
             }
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {

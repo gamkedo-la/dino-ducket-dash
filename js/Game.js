@@ -9,6 +9,7 @@ function resetGame(){
   enemies = [];
   ducketList = [];
   surpriseBoxes = [];
+  triceratopEnemies = [];
   resetTimer();
   checkScore();
   currentScore = 0; 
@@ -41,6 +42,7 @@ function initGame(){
   ducketParticlesManager = new DucketParticlesManager();
 	
   spawnEnemy(100,100);
+  spawnTriceratops(600,500);
   spawnCoins();
 
   decals.scatterDecorations(); // rocks and grass etc
@@ -95,6 +97,10 @@ function gameUpdate(){
   
   for (var i = 0; i < surpriseBoxes.length; i++) {
     surpriseBoxes[i].update();
+  }
+
+  for (var i = 0; i < triceratopEnemies.length; i++){
+    triceratopEnemies[i].update();
   }
   
   moneyBucket.update();
@@ -159,6 +165,10 @@ function gameDraw(){
   
   for (var i = 0; i < surpriseBoxes.length; i++) {
     surpriseBoxes[i].draw()
+  }
+
+  for (var i = 0; i < triceratopEnemies.length; i++){
+    triceratopEnemies[i].draw();
   }
 
   if(score >= 1072 && score < 1074)

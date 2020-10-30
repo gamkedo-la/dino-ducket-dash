@@ -78,8 +78,8 @@ function triceratopsClass(){
   	}
 
   	this.chargeAt = function(sprite1){
-  		this.speedX = (sprite1.x - this.x) / 6;
-  		this.speedY = (sprite1.y - this.y) / 6;
+  		this.speedX = (sprite1.x - this.x) / 10;
+  		this.speedY = (sprite1.y - this.y) / 10;
   		this.charging = true;
   		this.pathTiming = 0;
   	}

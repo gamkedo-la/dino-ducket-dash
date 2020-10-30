@@ -58,13 +58,13 @@ function twoPlayer() {
 function threePlayers()
 {
 	playMode = 2;
-	gameState = 'character select screen';
+	transitionAnim.transitionToScene('character select screen');
 }
 
 function fourPlayers()
 {
 	playMode = 3;
-	gameState = 'character select screen';
+	transitionAnim.transitionToScene('character select screen');
 }
 
 function hideHighScore(){

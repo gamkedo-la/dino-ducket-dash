@@ -105,6 +105,22 @@ function keyPressed(evt){
 			 (keyCode === ENTER || keyCode === KEY_SPACEBAR) ) {
 				menuSelect.play();
 				x.style.display = "none";
+				
+				switch(buttonSelectState){
+					case buttonsList.single:
+						singlePlayer();
+						break;
+					case buttonsList.multi:
+						twoPlayer();
+						break;
+					case buttonsList.threePlayers:
+						threePlayers();
+						break;
+					case buttonsList.fourPlayers:
+						fourPlayers();
+						break;
+				}
+				
 				transitionAnim.transitionToScene('character select screen');
 				console.log('gameState: ' + gameState);
 				keyCode = null;

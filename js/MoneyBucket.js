@@ -1,5 +1,9 @@
 let bucketSize = 32;
-let scaledbucketSize = bucketSize*PIXEL_SCALE_UP;
+let bucketHeight=48;
+let scaledbucketSize   = bucketSize*PIXEL_SCALE_UP;
+let scaledbucketHeight = bucketHeight*PIXEL_SCALE_UP;
+let typesofBucket=5;
+
 //let bucketFontSize = "24px";
 
 function moneyBucketClass(){
@@ -8,6 +12,8 @@ function moneyBucketClass(){
   this.width = bucketSize;
   this.height = bucketSize;
   
+  this.bucketSprite=32* Math.floor(Math.random()*typesofBucket);
+
   this.update = function(){
     for(let i = 0; i < playerArray.length; i++)
     {
@@ -49,8 +55,8 @@ function moneyBucketClass(){
 
     // draw the ducket bucket
     canvasContext.drawImage(images.bucket,
-        0,0,bucketSize,bucketSize,
-        this.x,this.y,scaledbucketSize,scaledbucketSize);
+        this.bucketSprite,0,bucketSize,bucketHeight,
+        this.x,this.y,scaledbucketSize,scaledbucketHeight);
 
 
     // display the coin count on the bucket

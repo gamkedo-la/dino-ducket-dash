@@ -30,6 +30,7 @@ const KEY_DOWN = 'ArrowDown';
 const KEY_LEFT = 'ArrowLeft';
 const KEY_RIGHT = 'ArrowRight';
 const ENTER = 'Enter';
+const ESC = 'Escape'
 
 //WARM UP: Add values for "P" and "M" in preparation for Pause & Mute functionality
 //WARM UP: Add values for "+" and "-" in preparation for volume controls
@@ -132,6 +133,9 @@ function keyPressed(evt){
 		console.log(`Play Mode: ${playMode}`)
 		switch(keyCode)
 		{
+			case ESC:
+				transitionAnim.transitionToScene('menu');
+				break;
 			case ENTER || KEY_SPACEBAR:
 			transitionAnim.transitionToScene('game');
 			menuSelect.play();

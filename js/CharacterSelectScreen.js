@@ -33,7 +33,7 @@ function CharacterSelectScreen()
 	this.playerID;
 
 	this.arrayOfBoxPositions = [this.position1XCoordinate,this.position2XCoordinate,this.position3XCoordinate,this.position4XCoordinate];
-	this.arrayOfBoxColors = ['green', 'red', 'yellow', 'blue'];
+	this.arrayOfBoxColors = ['#FE4104', '#aad354', '#FFFFFF', '#000000'];
 	this.playerSelectBox = []
 
 	this.init = function(){
@@ -64,7 +64,7 @@ function CharacterSelectScreen()
 
 					canvasContext.fillStyle = characterSelectScreen.arrayOfBoxColors[i];
 					canvasContext.fillRect(this.boxX,this.positionY,this.width,this.height);
-					canvasContext.font = '15px "Press Start P"';
+					canvasContext.font = '15px "Press Start 2P"';
 					let textWidth = canvasContext.measureText('Player ' + (i + 1)).width;
 					canvasContext.fillText('Player ' + (i + 1), characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
 										this.positionY + this.height + 30);

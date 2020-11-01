@@ -39,6 +39,7 @@ function transitionClass(){
         this.frame = 4;
         this.reverseTransition = true;
         this.changeScene();
+        this.backAtMenu();
       }
       
       if(this.reverseTransition && this.frame <= 0){
@@ -52,5 +53,12 @@ function transitionClass(){
       this.nextFrame();
       
     }
-  }  
+  }
+
+  this.backAtMenu = function(){
+    if(gameState == "menu" && x.style.display == "none"){
+      x.style.display = "block";
+    }
+  }
+
 }

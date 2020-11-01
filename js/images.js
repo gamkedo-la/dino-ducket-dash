@@ -29,7 +29,9 @@ var allImages = [
 	'images/UI_Anim.png',
 	'images/SurpriseBox.png',
 	
-	'images/transition.png'
+	'images/transition.png',
+
+	'images/timer-Sheet.png'
 ];
 var imagesDownloaded = 0;
 var images = {

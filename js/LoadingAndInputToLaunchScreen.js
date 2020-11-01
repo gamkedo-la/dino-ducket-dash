@@ -39,9 +39,9 @@ function LoadingAndInputToLaunchScreen()
 		cls();
 		
 		//Internal :Sugggesting reducing this by -1 on release
-		if (this.frame>19)
+		if (this.frame>18)
 		{
-			this.frame=19;
+			this.frame=18;
 		}
 
 		if(this.loopTimer>60)

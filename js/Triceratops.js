@@ -10,6 +10,8 @@ function triceratopsClass(){
 	this.pathTiming;
 	this.detectionDistance; //How far the triceratops can detect player for charge
 	this.charging;
+	this.COOLDOWN_TIME = 100;
+	this.chargeCooldown = this.COOLDOWN_TIME;
 	//WARM UP: how many duckets does the player lose when hit by this enemy?
 
 	// Animation Variables
@@ -87,6 +89,7 @@ function triceratopsClass(){
 	this.update = function(){
 		var oldX = this.x;
 		var oldY = this.y;
+		if(!this.charging) this.chargeCooldown--;
 		if(this.pathTiming >= 60 && !this.charging){
 			this.pathTiming = 0;
 		}
@@ -105,33 +108,38 @@ function triceratopsClass(){
 			this.moveLeft();
 		}
 		if(this.charging && this.pathTiming >= 120){
-			this.charging = false;
+			this.resetCharging();
+			// this.charging = false;
 			this.pathTiming = 0;
 			this.moveLeft();
 		}
 
 		//WARM UP: Does the enemy make a sound when hitting the edges of the canvas?
 		if(this.x < 0){
-			this.charging = false;
+			this.resetCharging();
+			// this.charging = false;
 			this.moveRight();
 			//this.sprite = this.rightSprite;
 		}
 		if(this.x > canvas.width - this.width*PIXEL_SCALE_UP){
-			this.charging = false;
+			this.resetCharging();
+			// this.charging = false;
 			this.moveLeft();
 		}
 		if(this.y < this.height/2){
-			this.charging = false;
+			this.resetCharging();
+			// this.charging = false;
 			this.moveUp();
 		}
 		if(this.y > canvas.height - this.height*PIXEL_SCALE_UP*1.5){
-			this.charging = false;
+			this.resetCharging();
+			// this.charging = false;
 			this.moveDown();
 		}
 
 		for(let i = 0; i < playerArray.length; i++)
 		{
-			if(this.checkDetection(playerArray[i]) && !this.charging){
+			if(this.checkDetection(playerArray[i]) && !this.charging && this.chargeCooldown <= 0){
 				this.chargeAt(playerArray[i]);
 			}
 
@@ -160,6 +168,11 @@ function triceratopsClass(){
 		this.x += this.speedX;
 		this.y += this.speedY;
 
+	}
+
+	this.resetCharging = function(){
+		this.charging = false;
+		this.chargeCooldown = this.COOLDOWN_TIME;
 	}
 
 	this.draw = function(){

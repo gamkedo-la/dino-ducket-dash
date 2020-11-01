@@ -45,10 +45,24 @@ function CharacterSelectScreen()
 				positionY: canvas.height/2 - this.characterImageHeight/2,
 				width: this.characterImageWidth,
 				height: this.characterImageHeight,
+				boxX: 0,
+				boxToX: 0,
+				boxMoveXSpeed: 10,
 				draw: function()
 				{
+					this.boxToX = characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex];					
+					if (this.boxX < this.boxToX - this.boxMoveXSpeed) {					
+						this.boxX += this.boxMoveXSpeed;
+					}
+					else if (this.boxX > this.boxToX + this.boxMoveXSpeed) {
+						this.boxX -= this.boxMoveXSpeed;
+					}
+					else {
+						this.boxX = this.boxToX;
+					}
+
 					canvasContext.fillStyle = 'white';
-					canvasContext.fillRect(characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex],this.positionY, this.width,this.height);
+					canvasContext.fillRect(this.boxX,this.positionY,this.width,this.height);
 					canvasContext.font = '15px "Press Start P"';
 					let textWidth = canvasContext.measureText('Player ' + (i + 1)).width;
 					canvasContext.fillText('Player ' + (i + 1), characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,

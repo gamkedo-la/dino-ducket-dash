@@ -1,5 +1,11 @@
 var triceratopEnemies = [];
 
+const TRI_MOVE_SPEED = 3; // px per frame, was 6 but it felt too fast
+const TRI_CHARGE_TIMESPAN = 120; // max frames to charge at player 
+const TRI_DIR_CHANGE_TIMESPAN = 60; // frames per dir change, was 30 
+const TRI_DETECTION_DISTANCE = 350; // was 200 but it was so close
+const TRI_CHARGE_COOLDOWN_TIME = 120; // was 100
+
 function triceratopsClass(){
 	this.x = 100;
 	this.y = 100;
@@ -12,7 +18,7 @@ function triceratopsClass(){
 	this.pathTiming;
 	this.detectionDistance; //How far the triceratops can detect player for charge
 	this.charging;
-	this.COOLDOWN_TIME = 100;
+	this.COOLDOWN_TIME = TRI_CHARGE_COOLDOWN_TIME;
 	this.chargeCooldown = this.COOLDOWN_TIME;
 	//WARM UP: how many duckets does the player lose when hit by this enemy?
 
@@ -49,7 +55,7 @@ function triceratopsClass(){
 		this.y = atY;
 		this.pathTiming = 0;
 		this.charging = false;
-		this.detectionDistance = 200;
+		this.detectionDistance = TRI_DETECTION_DISTANCE;
 
 		while((Math.abs(playerArray[0].x - this.x) < this.frameWidth) && (Math.abs(playerArray[0].y - this.x < this.frameHeight))) {
 			console.log("whatsmy point")
@@ -59,22 +65,22 @@ function triceratopsClass(){
 	}
 
 	this.moveUp = function(){
-		this.speedY = 6;
+		this.speedY = TRI_MOVE_SPEED;
 		this.speedX = 0;
 	}
 
 	this.moveDown = function(){
-		this.speedY = -6;
+		this.speedY = -TRI_MOVE_SPEED;
 		this.speedX = 0;
 	}
 
 	this.moveLeft = function(){
-		this.speedX = -6;
+		this.speedX = -TRI_MOVE_SPEED;
 		this.speedY = 0;
 	}
 
 	this.moveRight = function(){
-		this.speedX = 6;
+		this.speedX = TRI_MOVE_SPEED;
 		this.speedY = 0;
 	}
 	//checks detection for charge
@@ -92,6 +98,7 @@ function triceratopsClass(){
   	}
 
   	this.chargeAt = function(sprite1){
+        console.log("triceratops is charging!");
   		this.speedX = (sprite1.x - this.x) * this.aggressionFactor;
   		this.speedY = (sprite1.y - this.y) * this.aggressionFactor;	  
 		this.charging = true;
@@ -102,28 +109,35 @@ function triceratopsClass(){
 	this.update = function(){
 		
 		var oldX = this.x;
-		var oldY = this.y;
+        var oldY = this.y;
+        
 		if(!this.charging) this.chargeCooldown--;
-		if(this.pathTiming >= 60 && !this.charging){
+        
+        // reset movement loop timer
+        if(this.pathTiming >= TRI_DIR_CHANGE_TIMESPAN*4 && !this.charging){
 			this.pathTiming = 0;
-		}
+        }
+        
 		this.pathTiming++;
 
-		if(this.pathTiming <= 15 && !this.charging){
+        // move times are evenly split - FIXME? randomize?
+        if(this.pathTiming <= TRI_DIR_CHANGE_TIMESPAN && !this.charging){
 			this.moveUp();
 		}
-		if(this.pathTiming > 15 && this.pathTiming <= 30 && !this.charging){
+		if(this.pathTiming > TRI_DIR_CHANGE_TIMESPAN && this.pathTiming <= TRI_DIR_CHANGE_TIMESPAN*2 && !this.charging){
 			this.sprite = this.rightSprite;
 			this.moveRight();
 		}
-		if(this.pathTiming > 30 && this.pathTiming<= 45 && !this.charging){
+		if(this.pathTiming > TRI_DIR_CHANGE_TIMESPAN*2 && this.pathTiming<= TRI_DIR_CHANGE_TIMESPAN*3 && !this.charging){
 			this.moveDown();
 		}
-		if(this.pathTiming > 45 && !this.charging){
+		if(this.pathTiming > TRI_DIR_CHANGE_TIMESPAN*3 && !this.charging){
 			this.sprite = this.leftSprite;
 			this.moveLeft();
-		}
-		if(this.charging && this.pathTiming >= 120){
+        }
+        
+		if(this.charging && this.pathTiming >= TRI_CHARGE_TIMESPAN){
+            console.log("Triceratops finished charging, resetting.")
 			this.resetCharging();
 			// this.charging = false;
 			this.sprite = this.leftSprite;

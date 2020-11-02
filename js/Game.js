@@ -42,7 +42,6 @@ function initGame(){
   ducketParticlesManager = new DucketParticlesManager();
 	
   spawnEnemy(100,100);
-  spawnTriceratops(600,500);
   spawnCoins();
 
   decals.scatterDecorations(); // rocks and grass etc

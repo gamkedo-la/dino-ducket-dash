@@ -46,16 +46,27 @@ function enemyTelegraphClass(){
             // leave a small crack on the ground
             decals.cracks(this.x+10,this.y+30);
 
-            if(randomIntFromInterval(1,6) == 1) {
+            var randomType = randomIntFromInterval(1,6);
+
+            if(randomType == 1) {
                 this.spawnType = 'suprise';
-            } else {
+            } 
+            else if(randomType == 2){
+            	this.spawnType = 'triceratops';
+            }
+            else {
                 this.spawnType = 'enemy';
             }
 
             if(this.spawnType == 'enemy') {
                 spawnEnemy(this.x,this.y);
                 this.readyToRemove = true;
-            } else {
+            }
+            else if(this.spawnType == 'triceratops'){
+            	spawnTriceratops(this.x,this.y);
+            	this.readyToRemove = true;
+            }
+            else {
                 spawnSurpriseBox(this.x,this.y);
                 this.readyToRemove = true;
             }

@@ -100,11 +100,12 @@ function triceratopsClass(){
 
   	this.chargeAt = function(sprite1){
         
+        /* // buggy - needs work but I ran out of time
         // move toward the player 
         var angleRadians = Math.atan2(sprite1.y-this.y,sprite1.x-this.x);
+        // fixme this ALWAYS returns 6. why?
         this.speedX = TRI_CHARGE_SPEED * Math.cos(angleRadians*Math.PI/180);
         this.speedY = TRI_CHARGE_SPEED * Math.sin(angleRadians*Math.PI/180);
-
         // hmm these values look right but it isn't moving that way?
         console.log("triceratops charging!" +
             " user:"+sprite1.x+","+sprite1.y +
@@ -112,10 +113,10 @@ function triceratopsClass(){
             " angle:"+angleRadians.toFixed(2)+
             " spdX:"+this.speedX.toFixed(2)+
             " spdY:"+this.speedY.toFixed(2));
+        */
 
-        // this felt too fast to possibly dodge  
-        //this.speedX = (sprite1.x - this.x) * this.aggressionFactor;
-  		//this.speedY = (sprite1.y - this.y) * this.aggressionFactor;	  
+        this.speedX = (sprite1.x - this.x) * this.aggressionFactor;
+  		this.speedY = (sprite1.y - this.y) * this.aggressionFactor;	  
         
         this.charging = true;
 		this.pathTiming = 0;

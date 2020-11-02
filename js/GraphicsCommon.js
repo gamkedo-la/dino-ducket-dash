@@ -71,7 +71,6 @@ function animate(toAnimate,loop){
 }
 
 function animateFrameToFrame(toAnimate,loop,frameStart,frameEnd){
-	//WARM UP: use each entity's "flipped" property to render them reversed. Trello card - https://trello.com/c/hMlK5Dfh
 	if (!gameIsPaused)
 	{
 		toAnimate.currentAnimationFrameDelay--;
@@ -81,12 +80,12 @@ function animateFrameToFrame(toAnimate,loop,frameStart,frameEnd){
 		toAnimate.currentAnimationFrameDelay = toAnimate.animationFrameDelay;
 		}
 
-		var maxFrame = (frameEnd- frameStart)- 1;
+		var maxFrame = frameEnd-1;
 		if(toAnimate.currentFrame > maxFrame){
 			if(loop){
-				toAnimate.currentFrame = frameStart;
+				toAnimate.currentFrame = frameStart-1;
 			} else{
-				toAnimate.currentFrame = frameEnd;
+				toAnimate.currentFrame = maxFrame;
 			}
 			
 		}

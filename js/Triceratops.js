@@ -8,6 +8,7 @@ function triceratopsClass(){
 
 	this.speedX; 
 	this.speedY; 
+	this.aggressionFactor=0.05;
 	this.pathTiming;
 	this.detectionDistance; //How far the triceratops can detect player for charge
 	this.charging;
@@ -35,8 +36,8 @@ function triceratopsClass(){
 		this.rightSprite.loaded = true;
 		this.leftSprite = images.triceratops_sprite_facing_left;
 		this.leftSprite.loaded = true;
-		this.sprite = this.rightSprite;
 
+		this.sprite = this.rightSprite;
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true;
@@ -70,13 +71,11 @@ function triceratopsClass(){
 	this.moveLeft = function(){
 		this.speedX = -6;
 		this.speedY = 0;
-		this.sprite=this.leftSprite;
 	}
 
 	this.moveRight = function(){
 		this.speedX = 6;
 		this.speedY = 0;
-		this.sprite=this.rightSprite;
 	}
 	//checks detection for charge
 	this.checkDetection = function(sprite1){
@@ -84,7 +83,8 @@ function triceratopsClass(){
   			sprite1.y + sprite1.height*PIXEL_SCALE_UP > this.y - this.detectionDistance &&
   			sprite1.x < this.x + this.detectionDistance &&
   			sprite1.y < this.y + this.detectionDistance){
-  			return true;
+			return true;
+			  
   		}
   		else{
   			return false;
@@ -92,8 +92,8 @@ function triceratopsClass(){
   	}
 
   	this.chargeAt = function(sprite1){
-  		this.speedX = (sprite1.x - this.x) / 10;
-  		this.speedY = (sprite1.y - this.y) / 10;	  
+  		this.speedX = (sprite1.x - this.x) * this.aggressionFactor;
+  		this.speedY = (sprite1.y - this.y) * this.aggressionFactor;	  
 		this.charging = true;
 		this.pathTiming = 0;
 		  
@@ -113,17 +113,20 @@ function triceratopsClass(){
 			this.moveUp();
 		}
 		if(this.pathTiming > 15 && this.pathTiming <= 30 && !this.charging){
+			this.sprite = this.rightSprite;
 			this.moveRight();
 		}
 		if(this.pathTiming > 30 && this.pathTiming<= 45 && !this.charging){
 			this.moveDown();
 		}
 		if(this.pathTiming > 45 && !this.charging){
+			this.sprite = this.leftSprite;
 			this.moveLeft();
 		}
 		if(this.charging && this.pathTiming >= 120){
 			this.resetCharging();
 			// this.charging = false;
+			this.sprite = this.leftSprite;
 			this.pathTiming = 0;
 			this.moveLeft();
 		}
@@ -133,12 +136,13 @@ function triceratopsClass(){
 			this.resetCharging();
 			// this.charging = false;
 			this.moveRight();
-			//this.sprite = this.rightSprite;
+			this.sprite = this.rightSprite;
 		}
 		if(this.x > canvas.width - this.width*PIXEL_SCALE_UP){
 			this.resetCharging();
 			// this.charging = false;
 			this.moveLeft();
+			this.sprite = this.leftSprite;
 		}
 		if(this.y < this.height/2){
 			this.resetCharging();
@@ -192,7 +196,15 @@ function triceratopsClass(){
 
 	this.draw = function(){
 		//drawRect(this.x,this.y, this.width,this.height, 'white');
-		animateFrameToFrame(this,true,0,2);
+		
+
+		if (this.charging)
+		{
+			animateFrameToFrame(this,true,3,5);
+		}else
+		{
+			animateFrameToFrame(this,true,1,2);
+		}
 
 	}
 	

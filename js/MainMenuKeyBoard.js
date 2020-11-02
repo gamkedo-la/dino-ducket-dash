@@ -89,7 +89,24 @@ function detectKeyPresses(evt) {
             }
             break;
     }
-
+    if (keyPress === ENTER){
+        switch(buttonSelectState){
+            case buttonsList.single:
+                singlePlayer();
+                break;
+            case buttonsList.multi:
+                twoPlayer();
+                break;
+            case buttonsList.threePlayers:
+                threePlayers();
+                break;
+            case buttonsList.fourPlayers:
+                fourPlayers();
+                break;
+         }
+         menuSelect.play();
+         menuUI.style.display = "none";
+        }
 }
 
 function playMenuSelectSFX(){

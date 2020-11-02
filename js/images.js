@@ -25,6 +25,9 @@ var allImages = [
 	'images/pterodactyl_sprite_facing_left.png',
 	'images/pterodactyl_sprite_facing_right.png',
 
+	'images/triceratops_sprite_facing_left.png',
+	'images/triceratops_sprite_facing_right.png',
+
 	'images/tile-sand-01.png',
 	'images/UI_Anim.png',
 	'images/SurpriseBox.png',
@@ -32,6 +35,8 @@ var allImages = [
 	'images/transition.png',
 
 	'images/timer-Sheet.png'
+
+	
 ];
 var imagesDownloaded = 0;
 var images = {
@@ -53,6 +58,8 @@ var images = {
 	yellow_player_idle_facing_right: {},
 	pterodactyl_sprite_facing_left: {},
 	pterodactyl_sprite_facing_right: {},
+	triceratops_sprite_facing_left: {},
+	triceratops_sprite_facing_right: {},
 	tile_sand_01: {},
 	UI_Anim: {},
 	SupriseBox: {},

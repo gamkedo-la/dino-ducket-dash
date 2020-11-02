@@ -69,3 +69,45 @@ function animate(toAnimate,loop){
 							toAnimate.x,toAnimate.y,
 							toAnimate.frameWidth*PIXEL_SCALE_UP,toAnimate.frameHeight*PIXEL_SCALE_UP);
 }
+
+function animateFrameToFrame(toAnimate,loop,frameStart,frameEnd){
+	//WARM UP: use each entity's "flipped" property to render them reversed. Trello card - https://trello.com/c/hMlK5Dfh
+	if (!gameIsPaused)
+	{
+		toAnimate.currentAnimationFrameDelay--;
+		if(toAnimate.currentAnimationFrameDelay <= 0){
+		//console.log(toAnimate.currentFrame);
+		toAnimate.currentFrame++;
+		toAnimate.currentAnimationFrameDelay = toAnimate.animationFrameDelay;
+		}
+
+		var maxFrame = (frameEnd- frameStart)- 1;
+		if(toAnimate.currentFrame > maxFrame){
+			if(loop){
+				toAnimate.currentFrame = frameStart;
+			} else{
+				toAnimate.currentFrame = frameEnd;
+			}
+			
+		}
+	}
+		var column = toAnimate.currentFrame % toAnimate.animColumns;
+		var row = Math.floor(toAnimate.currentFrame / toAnimate.animColumns);
+
+	
+
+	canvasContext.imageSmoothingEnabled = false;
+
+	
+    if (!toAnimate.sprite.loaded) {
+		// we are still downloading the image!
+		console.log(`Still loading the image?`)
+        return;
+    }
+	
+    canvasContext.drawImage(toAnimate.sprite,
+							column*toAnimate.frameWidth,row*toAnimate.frameHeight,
+							toAnimate.frameWidth,toAnimate.frameHeight,
+							toAnimate.x,toAnimate.y,
+							toAnimate.frameWidth*PIXEL_SCALE_UP,toAnimate.frameHeight*PIXEL_SCALE_UP);
+}

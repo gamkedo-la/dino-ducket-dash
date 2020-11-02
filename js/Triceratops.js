@@ -5,6 +5,7 @@ function triceratopsClass(){
 	this.y = 100;
 	this.width = ENEMY_WIDTH;
 	this.height = ENEMY_HEIGHT;
+
 	this.speedX; 
 	this.speedY; 
 	this.pathTiming;
@@ -16,22 +17,30 @@ function triceratopsClass(){
 
 	// Animation Variables
 	//WARM UP: Need an enemy spritesheet with two animations (idle, walking) Trello card - https://trello.com/c/wBKqdxs8
-	//this.leftSprite;
-	//this.rightSprite;
+	this.leftSprite;
+	this.rightSprite;
 	this.sprite;
-	//this.animColumns = 5;
-	//this.animRows = 1;
-	//this.frameWidth;
-	//this.frameHeight;
-	//this.currentFrame = 0;
-	//this.animationFrameDelay = ANIMATION_DELAY;
-	//this.currentAnimationFrameDelay = ANIMATION_DELAY;
-	//this.flipped = true;
+	this.animColumns = 5;
+	this.animRows = 1;
+	this.frameWidth;
+	this.frameHeight;
+	this.currentFrame = 0;
+	this.animationFrameDelay = ANIMATION_DELAY;
+	this.currentAnimationFrameDelay = ANIMATION_DELAY;
+	this.flipped = true;
 
 	this.init = function(atX,atY){
 		
-		//this.sprite = images.triceratops;
-		//this.sprite.loaded = true;
+		this.rightSprite = images.triceratops_sprite_facing_right;
+		this.rightSprite.loaded = true;
+		this.leftSprite = images.triceratops_sprite_facing_left;
+		this.leftSprite.loaded = true;
+		this.sprite = this.rightSprite;
+
+		this.frameWidth = this.sprite.width / this.animColumns;
+		this.frameHeight = this.sprite.height / this.animRows;
+		this.sprite.loaded = true;
+
 		// let randomX = randomIntFromInterval(0,canvas.width);
 		// let randomY = randomIntFromInterval(0,canvas.height);
 		
@@ -40,6 +49,7 @@ function triceratopsClass(){
 		this.pathTiming = 0;
 		this.charging = false;
 		this.detectionDistance = 200;
+
 		while((Math.abs(playerArray[0].x - this.x) < this.frameWidth) && (Math.abs(playerArray[0].y - this.x < this.frameHeight))) {
 			console.log("whatsmy point")
 			this.x = randomIntFromInterval(0,canvas.width);
@@ -60,11 +70,13 @@ function triceratopsClass(){
 	this.moveLeft = function(){
 		this.speedX = -6;
 		this.speedY = 0;
+		this.sprite=this.leftSprite;
 	}
 
 	this.moveRight = function(){
 		this.speedX = 6;
 		this.speedY = 0;
+		this.sprite=this.rightSprite;
 	}
 	//checks detection for charge
 	this.checkDetection = function(sprite1){
@@ -81,12 +93,14 @@ function triceratopsClass(){
 
   	this.chargeAt = function(sprite1){
   		this.speedX = (sprite1.x - this.x) / 10;
-  		this.speedY = (sprite1.y - this.y) / 10;
-  		this.charging = true;
-  		this.pathTiming = 0;
+  		this.speedY = (sprite1.y - this.y) / 10;	  
+		this.charging = true;
+		this.pathTiming = 0;
+		  
   	}
 
 	this.update = function(){
+		
 		var oldX = this.x;
 		var oldY = this.y;
 		if(!this.charging) this.chargeCooldown--;
@@ -174,12 +188,14 @@ function triceratopsClass(){
 		this.charging = false;
 		this.chargeCooldown = this.COOLDOWN_TIME;
 	}
+	
 
 	this.draw = function(){
-		drawRect(this.x,this.y, this.width,this.height, 'white');
-		//animate(this,true);
+		//drawRect(this.x,this.y, this.width,this.height, 'white');
+		animateFrameToFrame(this,true,0,2);
 
 	}
+	
 }
 
 function spawnTriceratops(atX,atY){

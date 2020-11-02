@@ -5,6 +5,7 @@ const TRI_CHARGE_TIMESPAN = 120; // max frames to charge at player
 const TRI_DIR_CHANGE_TIMESPAN = 60; // frames per dir change, was 30 
 const TRI_DETECTION_DISTANCE = 350; // was 200 but it was so close
 const TRI_CHARGE_COOLDOWN_TIME = 120; // was 100
+const TRI_CHARGE_SPEED = 6; // was 0.05 * the distance
 
 function triceratopsClass(){
 	this.x = 100;
@@ -98,10 +99,25 @@ function triceratopsClass(){
   	}
 
   	this.chargeAt = function(sprite1){
-        console.log("triceratops is charging!");
-  		this.speedX = (sprite1.x - this.x) * this.aggressionFactor;
-  		this.speedY = (sprite1.y - this.y) * this.aggressionFactor;	  
-		this.charging = true;
+        
+        // move toward the player 
+        var angleRadians = Math.atan2(sprite1.y-this.y,sprite1.x-this.x);
+        this.speedX = TRI_CHARGE_SPEED * Math.cos(angleRadians*Math.PI/180);
+        this.speedY = TRI_CHARGE_SPEED * Math.sin(angleRadians*Math.PI/180);
+
+        // hmm these values look right but it isn't moving that way?
+        console.log("triceratops charging!" +
+            " user:"+sprite1.x+","+sprite1.y +
+            " dino:"+this.x+","+this.y +
+            " angle:"+angleRadians.toFixed(2)+
+            " spdX:"+this.speedX.toFixed(2)+
+            " spdY:"+this.speedY.toFixed(2));
+
+        // this felt too fast to possibly dodge  
+        //this.speedX = (sprite1.x - this.x) * this.aggressionFactor;
+  		//this.speedY = (sprite1.y - this.y) * this.aggressionFactor;	  
+        
+        this.charging = true;
 		this.pathTiming = 0;
 		  
   	}

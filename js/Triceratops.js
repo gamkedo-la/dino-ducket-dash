@@ -21,6 +21,7 @@ function triceratopsClass(){
 	this.charging;
 	this.COOLDOWN_TIME = TRI_CHARGE_COOLDOWN_TIME;
 	this.chargeCooldown = this.COOLDOWN_TIME;
+	this.stepCounter = 0;
 	//WARM UP: how many duckets does the player lose when hit by this enemy?
 
 	// Animation Variables
@@ -216,6 +217,10 @@ function triceratopsClass(){
 
 		this.x += this.speedX;
 		this.y += this.speedY;
+
+        // triceratops footsteps
+        this.stepCounter++;
+		if (!this.charging || this.stepCounter%3==0) decals.add(this.x+10,this.y+30);
 
 	}
 

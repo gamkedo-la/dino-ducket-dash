@@ -220,7 +220,9 @@ function triceratopsClass(){
 
         // triceratops footsteps
         this.stepCounter++;
-		if (!this.charging || this.stepCounter%3==0) decals.add(this.x+10,this.y+30);
+		if (this.charging || this.stepCounter%3==0) 
+		    decals.add(this.x+randomIntFromInterval(20,30),
+		    this.y+randomIntFromInterval(25,35));
 
 	}
 

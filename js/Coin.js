@@ -28,61 +28,56 @@ function ducketClass(){
 	this.initCoin = function(){
 		this.sprite = images.ducket;
 		this.sprite.loaded = true;
-        this.frameWidth = this.sprite.width / this.animColumns;
-        this.frameHeight = this.sprite.height / this.animRows;
-                
-        this.x=this.y=0; // reset so we never skip doing both checks below
+	  	this.frameWidth = this.sprite.width / this.animColumns;
+	  	this.frameHeight = this.sprite.height / this.animRows;
+	                
+	  	this.x=this.y=0; // reset so we never skip doing both checks below
 
 		//Never spawn coin under MoneyBucket
 		//WARM UP: Do we also need to make sure coins don't spawn on top of other coins?
 		while(!this.x||!this.y||checkCollision(this,moneyBucket)) {
 
-            // choose a location that is on screen
-            this.x = getRandomIntInclusive(DUCKET_WIDTH*3,canvas.width-DUCKET_WIDTH*3);
-            this.y = getRandomIntInclusive(DUCKET_HEIGHT*3,canvas.height-DUCKET_HEIGHT*3);
-                
-            // don't spawn underneath players
-            for(let i = 0; i < playerArray.length; i++)
-			{
+		    // choose a location that is on screen
+		    this.x = getRandomIntInclusive(DUCKET_WIDTH*3,canvas.width - DUCKET_WIDTH * PIXEL_SCALE_UP);
+		    this.y = getRandomIntInclusive(DUCKET_HEIGHT*3,canvas.height - DUCKET_HEIGHT * PIXEL_SCALE_UP);
+		        
+		    // don't spawn underneath players
+		    for(let i = 0; i < playerArray.length; i++){
 				while(checkCollision(this,playerArray[i])) {
-                    console.log('new coin overlapped a player - trying a new location');
-					this.x = randomIntFromInterval(0,canvas.width);
-					this.y = randomIntFromInterval(0,canvas.height);
+		        	console.log('new coin overlapped a player - trying a new location');
+					this.x = randomIntFromInterval(0,canvas.width-DUCKET_WIDTH * PIXEL_SCALE_UP);
+					this.y = randomIntFromInterval(0,canvas.height-DUCKET_HEIGHT * PIXEL_SCALE_UP);
 				}
-            }
-            
-            // don't overlap other coins
-            for(let i = 0; i < ducketList.length; i++)
-			{
+		    }
+		          
+		    // don't overlap other coins
+		    for(let i = 0; i < ducketList.length; i++) {
 				while(checkCollision(this,ducketList[i])) {
-                    console.log('new coin overlapping another coin - trying a new location');
-					this.x = randomIntFromInterval(0,canvas.width);
-					this.y = randomIntFromInterval(0,canvas.height);
+		      		console.log('new coin overlapping another coin - trying a new location');
+					this.x = randomIntFromInterval(0,canvas.width - DUCKET_WIDTH * PIXEL_SCALE_UP);
+					this.y = randomIntFromInterval(0,canvas.height - DUCKET_HEIGHT * PIXEL_SCALE_UP);
 				}
 			}
-
 		}
 	}
 
-  this.update = function(){
-	for(let i = 0; i < playerArray.length; i++)
-	{
-		if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
-			coinPickUpSFX.play();
-			this.readyToRemove = true;
-			playerArray[i].ducketsCarried++;
-			console.log("Player is now carrying "+playerArray[i].ducketsCarried+" duckets.");
+	this.update = function(){
+		for(let i = 0; i < playerArray.length; i++){
+			if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
+				coinPickUpSFX.play();
+				this.readyToRemove = true;
+				playerArray[i].ducketsCarried++;
+				console.log("Player is now carrying "+playerArray[i].ducketsCarried+" duckets.");
 
-            let ducketParticlesInstance = new DucketParticlesInstance(this);
-			ducketParticlesInstance.init();
-			ducketParticlesManager.arrayOfParticleInstances.push(ducketParticlesInstance);
+	            let ducketParticlesInstance = new DucketParticlesInstance(this);
+				ducketParticlesInstance.init();
+				ducketParticlesManager.arrayOfParticleInstances.push(ducketParticlesInstance);
+			}
 		}
-	}
-  }
+  	}
 
   this.draw = function(){
-	if(!this.readyToRemove)
-	{
+	if(!this.readyToRemove){
 		animate(this,true);
 	}
   }

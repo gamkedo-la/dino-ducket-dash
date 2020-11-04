@@ -51,7 +51,7 @@ function enemyTelegraphClass(){
             if(randomType == 1) {
                 this.spawnType = 'suprise';
             } 
-            else if(randomType == 2){
+            else if(randomType == 2 || randomType == 3){
             	this.spawnType = 'triceratops';
             }
             else {

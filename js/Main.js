@@ -98,21 +98,19 @@ function startgameIfDownloadsComplete() {
 */
 function init(isResettingGame = false){
 	
+	menuUI = document.getElementById('allmenu');
 	//Stop Splash animation
 	clearInterval(splashTimer);
 
     //WARM UP: can we listen to the "resize" event and resize the canvas while
     //maintaining the aspect ratio?
 	gameState = 'menu';
-	x.style.display = "block"; 
+	menuUI.style.display = "block"; 
 	
   decals = new decalManager(); // fx on the ground
 	
 	transitionAnim = new transitionClass();
 
-  menuUI = document.getElementById('allmenu');
-	
-	
 
   menuInit();
   characterSelectScreen = new CharacterSelectScreen();

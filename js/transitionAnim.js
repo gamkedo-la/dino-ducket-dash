@@ -56,8 +56,8 @@ function transitionClass(){
   }
 
   this.backAtMenu = function(){
-    if(gameState == "menu" && x.style.display == "none"){
-      x.style.display = "block";
+    if(gameState == "menu" && menuUI.style.display == "none"){
+      menuUI.style.display = "block";
     }
   }
 

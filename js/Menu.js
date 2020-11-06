@@ -38,12 +38,7 @@ function menuDraw(){
 	menuSprite.draw();
 }
 //menuItem variables
-let x = document.getElementById("allmenu");
-x.style.display = "none";
-let s = document.getElementById("single");
-let m = document.getElementById("multi");
-let a = document.getElementById("audio");
-let c = document.getElementById("highscore");
+
 let scoreMenu = document.getElementById("scoremenu");
 function singlePlayer() {
 	playMode = 0;
@@ -102,9 +97,9 @@ function showHighScore(){
 
 function showCredits() {
 	console.log('creditsss');
-	if(x.style.display === "none"){
-		x.style.display = "block"; 
+	if(menuUI.style.display === "none"){
+		menuUI.style.display = "block"; 
 		 } else {
-		   x.style.display = "none";
+		   menuUI.style.display = "none";
 		 }
 }

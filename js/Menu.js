@@ -75,9 +75,24 @@ function hideHighScore(){
 function showHighScore(){
 	menuUI.style.display = 'none';
 	scoreMenu.style.display = 'block';
-	let highestScoreEverRecorded = localStorage.getItem("highestScore"); 
-	let score1Number = document.getElementById("score1Number");
-	score1Number.innerHTML = highestScoreEverRecorded;
+	let maxScoresToShow = 3;
+	let scoreToShow = maxScoresToShow;
+	if (sortedHighScoreList.length < scoreToShow) {
+		scoreToShow = sortedHighScoreList.length;
+	}
+	for (let i=0; i<scoreToShow; i++){
+		let scoreNumber = document.getElementById("score" + (i+1) + "Number");
+		scoreNumber.innerHTML = sortedHighScoreList[i];
+		let scoreName = document.getElementById("score" + (i+1) + "Name");
+		scoreName.innerHTML = "zzz";
+	}
+	
+	for (let i=scoreToShow; i<maxScoresToShow; i++){
+		let scoreNumber = document.getElementById("score" + (i+1) + "Number");
+		scoreNumber.innerHTML = 0;
+		let scoreName = document.getElementById("score" + (i+1) + "Name");
+		scoreName.innerHTML = "___";
+	}
 	// let scoreArray = highScoreList.split("<br>"); 
 	// let SCOREBOARD = document.getElementById("highScore");
 	// SCOREBOARD.innerHTML = scoreArray;

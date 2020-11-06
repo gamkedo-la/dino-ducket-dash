@@ -248,7 +248,8 @@ function keyPressed(evt){
 				increaseInitial = true;
 				break
 			case ENTER:
-				saveName();
+				//saveName();
+				break;
 			case KEY_R:
 				initGame();
 				break;

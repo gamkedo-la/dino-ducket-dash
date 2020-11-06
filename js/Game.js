@@ -61,7 +61,7 @@ function gameUpdate(){
     if (gameIsPaused && x.style.display == "none"){
         menuUI.style.display = 'block';
         scoreMenu.style.display = 'none';
-      }  
+      }
     return;
   }
   updateTimer();

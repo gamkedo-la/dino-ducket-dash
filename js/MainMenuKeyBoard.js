@@ -89,6 +89,7 @@ function detectKeyPresses(evt) {
             }
             break;
     }
+    console.log(keyPress, ENTER);
     if (keyPress === ENTER){
         switch(buttonSelectState){
             case buttonsList.single:
@@ -106,7 +107,8 @@ function detectKeyPresses(evt) {
          }
          menuSelect.play();
          menuUI.style.display = "none";
-        }
+         gameIsPaused = false;
+    }
 }
 
 function playMenuSelectSFX(){

@@ -106,7 +106,7 @@ function keyPressed(evt){
 			 (keyCode === ENTER || keyCode === KEY_SPACEBAR) ) {
 				menuSelect.play();
 				x.style.display = "none";
-				
+			   gameIsPaused = false;
 				switch(buttonSelectState){
 					case buttonsList.single:
 						singlePlayer();

@@ -59,16 +59,28 @@ function surpriseBoxClass(){
 	}
   }
 
+  this.doubleDucketsCarried = function()
+  {
+	for(let i = 0; i < playerArray.length; i++)
+	{
+		playerArray[i].ducketsCarried += playerArray[i].ducketsCarried;
+	}
+  }
+
   this.chooseSurpriseAndImplementIt = function()
   {
-  	let coinFlip = Math.random();
+	  let coinFlip = Math.random();
   	if (coinFlip < 0.5)
   	{
   		this.eliminateHalfTheEnemies();
   	}
-  	else
+  	else if(coinFlip > 0.5 && coinFlip < 0.8)
   	{
   		this.spawnExtraCoins();
+	}
+	  else if(coinFlip > 0.8)
+  	{
+  		this.doubleDucketsCarried();
   	}
   }
 

@@ -67,7 +67,7 @@ function ducketClass(){
 				coinPickUpSFX.play();
 				this.readyToRemove = true;
 				playerArray[i].ducketsCarried++;
-				console.log("Player is now carrying "+playerArray[i].ducketsCarried+" duckets.");
+				//console.log("Player is now carrying "+playerArray[i].ducketsCarried+" duckets.");
 
 	            let ducketParticlesInstance = new DucketParticlesInstance(this);
 				ducketParticlesInstance.init();

@@ -12,6 +12,7 @@ function playerClass(playerNumber){
 	
 	this.speed = 10;
 	this.ducketsCarried = 0;
+	this.insideDucketBucket = false;
     this.controllerThreshold = 0.5;
 	this.stepCounter = 0;
 	this.immunityTimer = 0;

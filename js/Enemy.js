@@ -84,7 +84,7 @@ function enemyClass(){
 
 		for(let i = 0; i < playerArray.length; i++)
 		{
-			if(checkCollision(this,playerArray[i]) && !godMode && !playerArray[i].immunity && !playerArray[i].dead){
+			if(checkCollision(this,playerArray[i]) && !godMode && !playerArray[i].immunity && !playerArray[i].dead && !playerArray[i].insideDucketBucket){
 				screenShouldBeShaking = true;
 				setTimeout(function(){screenShouldBeShaking = false},100);
 

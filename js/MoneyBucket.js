@@ -18,6 +18,7 @@ function moneyBucketClass(){
     for(let i = 0; i < playerArray.length; i++)
     {
       if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
+        playerArray[i].insideDucketBucket = true;
         if(playerArray[i].ducketsCarried > 0){
           screenShouldBeShaking = true;
   				setTimeout(function(){screenShouldBeShaking = false},100);
@@ -31,6 +32,8 @@ function moneyBucketClass(){
             depositInstructionShouldBeShowing = false;
           }
         }
+      } else {
+        playerArray[i].insideDucketBucket = false;
       }
     }
   }

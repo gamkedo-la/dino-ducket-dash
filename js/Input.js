@@ -252,6 +252,10 @@ function keyPressed(evt){
 			case KEY_R:
 				initGame();
 				break;
+			case ESC:				
+				gameState = 'menu';
+				init(true);
+				break;
 		}
 		
 	}

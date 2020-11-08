@@ -96,7 +96,7 @@ function startgameIfDownloadsComplete() {
 	
 }
 */
-function init(){
+function init(isResettingGame = false){
 	
 	//Stop Splash animation
 	clearInterval(splashTimer);
@@ -119,7 +119,9 @@ function init(){
 
 	console.log("Initialization complete. Running game!");
 
-  	setInterval(update,1000/FPS);
+	if (!isResettingGame) {
+	    setInterval(update,1000/FPS);
+	}
 	
 }
 

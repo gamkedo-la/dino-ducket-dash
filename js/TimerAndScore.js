@@ -1,5 +1,5 @@
-const START_MINUTES = 0;
-const START_SECONDS = 15;
+const START_MINUTES = 1;
+const START_SECONDS = 30;
 const START_UPDATEGAMETIME = 60
 var gameMinutes = START_MINUTES;
 var gameSeconds = START_SECONDS;

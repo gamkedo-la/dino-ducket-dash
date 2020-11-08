@@ -34,7 +34,7 @@ var allImages = [
 	
 	'images/transition.png',
 
-	'images/timer-Sheet.png'
+	'images/timerSheet.png'
 
 	
 ];
@@ -63,7 +63,8 @@ var images = {
 	tile_sand_01: {},
 	UI_Anim: {},
 	SupriseBox: {},
-	transition: {}
+	transition: {},
+	timerSheet: {},
 };
 
 function loadImages()

@@ -1,6 +1,7 @@
 function CountdownToGamePlay()
 {
 	this.secondsLeft = 3;
+	var timerClock = new countdownTimer();
 
 	this.init = function()
 	{
@@ -26,6 +27,8 @@ function CountdownToGamePlay()
 			if (window.countdownToGamePlayTimer.secondsLeft > 0)
 			{
 				countdownSecondSFX.play();
+				drawRect(canvas.width / 2, canvas.height / 2, 50, 50, 'white'); // COUNTDOWN TIMER SPRITESHEET NOT WORKING: tried to test if drawing a dummy timer works. Doesn't work
+
 			}
 
 			if (window.countdownToGamePlayTimer.secondsLeft === 0)
@@ -37,3 +40,20 @@ function CountdownToGamePlay()
 		}
 	}
 }
+
+// HELP : This one not working.
+function countdownTimer() {
+	this.initTimer = function() {
+		this.sprite = images.timerSheet;
+		this.sprite.loaded = true;
+	  	this.frameWidth = this.sprite.width / this.animColumns;
+		this.frameHeight = this.sprite.height / this.animRows;
+		
+		this.x = (canvas.width / 2) - 50;
+		this.y = (canvas.height / 2) + 50;
+	}
+
+	this.draw = function() {
+		animate(this, true);
+	}
+} 

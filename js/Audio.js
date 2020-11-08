@@ -8,18 +8,18 @@ const VOLUME_INCREMENT = 0.0333;
 
 //define sounds
 // var backgroundSong = new soundLoopsClass("");
-var coinPickUpSFX = new soundSingleBufferClass("audio/coinPickUpSFX.wav");
-var hitSFX = new soundSingleBufferClass("audio/hitSFX.wav");
-var depositSFX = new soundSingleBufferClass("audio/depositSFX.wav");
-var countdownSecondSFX = new soundSingleBufferClass("audio/countdownSecond.wav");
-var characterSelect = new soundSingleBufferClass("audio/characterSelect.wav");
-var gameStartSFX = new soundSingleBufferClass("audio/gameStart.wav");
-var menuSFX = new soundSingleBufferClass("audio/menuSFX.wav");
-var powerup01 = new soundSingleBufferClass("audio/powerup01.wav");
-var menuSelect = new soundSingleBufferClass("audio/menuSelect.wav");
+var coinPickUpSFX = new soundSingleBufferClass("audio/coinPickUpSFX.ogg");
+var hitSFX = new soundSingleBufferClass("audio/hitSFX.ogg");
+var depositSFX = new soundSingleBufferClass("audio/depositSFX.ogg");
+var countdownSecondSFX = new soundSingleBufferClass("audio/countdownSecond.ogg");
+var characterSelect = new soundSingleBufferClass("audio/characterSelect.ogg");
+var gameStartSFX = new soundSingleBufferClass("audio/gameStart.ogg");
+var menuSFX = new soundSingleBufferClass("audio/menuSFX.ogg");
+var powerup01 = new soundSingleBufferClass("audio/powerup01.ogg");
+var menuSelect = new soundSingleBufferClass("audio/menuSelect.ogg");
 
-var mainMenuMusic = new soundLoopsClass("audio/mainmenu.wav");
-var gamePlayMusic = new soundLoopsClass("audio/gameplay.wav");
+var mainMenuMusic = new soundLoopsClass("audio/mainmenu.ogg");
+var gamePlayMusic = new soundLoopsClass("audio/gameplay.ogg");
 
 //--//sound classes-----------------------------------------------------------
 var backgroundMusic = function backgroundMusicClass() {

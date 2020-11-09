@@ -56,31 +56,35 @@ const timerspritespeed = 10; // frames per sprite frame
 const timerunningout = 30; // how many sec left
 const timerwobblesize = 10; // up and down anim
 const timerwobblespeed = 10; // frames per wobble
-const timerxoffset = 12; // to center the sprite
-const timeryoffset = 20; // px from top of screen
+const timerxoffset = -30; // to center the sprite
+const timeryoffset = 10; // px from top of screen
 
 function drawTimer(){
 	let timerBoxWidth = 20;
 	let timerBoxHeight = 10;
 	let xPos = canvas.width/2 - (timerBoxWidth*PIXEL_SCALE_UP/2);
 	let yPos = 0;
-	
 	let secondDisplay = gameSeconds.toString().padStart(2,'0');
 
     // draw timer bg
 	drawRect(xPos, yPos, timerBoxWidth + 2, timerBoxHeight, "black");
 	
     // draw the timer icon if we're running out of timerText
-    if (gameMinutes==0 && gameSeconds<=timerunningout) { // FIXME
-    	console.log("warning: time is running out! " + gameMinutes);
+    if (gameMinutes==0 && gameSeconds<=timerunningout) {
+    	//console.log("warning: time is running out! " + gameMinutes);
         canvasContext.drawImage(images.timerSheet,
-            timerspritesize*Math.floor(timerframecount++ / timerspritespeed) % timerspriteframes,0,timerspritesize,timerspritesize,
-            xPos+timerxoffset,timeryoffset+yPos+Math.sin(timerframecount/timerwobblespeed)*timerwobblesize,timerspritesize,timerspritesize);
+            timerspritesize*((Math.round(timerframecount++/timerspritespeed))%timerspriteframes),
+            0,
+            timerspritesize,
+            timerspritesize,
+            xPos+timerxoffset,
+            yPos+timeryoffset+Math.sin(timerframecount/timerwobblespeed)*timerwobblesize,
+            timerspritesize*PIXEL_SCALE_UP,
+            timerspritesize*PIXEL_SCALE_UP);
     }
 
     // render the time text on top ie "1:30"
 	timerText = gameMinutes + ":" + secondDisplay;
-
 	canvasContext.fillStyle = '#fe4101';
 	canvasContext.fillText(timerText, xPos+5,yPos+25);
 }

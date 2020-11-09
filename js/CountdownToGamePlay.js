@@ -15,8 +15,8 @@ function CountdownToGamePlay()
 		canvasContext.font = '150px "Press Start 2P"';
 		canvasContext.textAlign = 'center';
 		canvasContext.fillText(this.secondsLeft, canvas.width/2,canvas.height/1.75);
-
 		canvasContext.textAlign = 'start';
+		// FIXME we could put the animated timer sprite here TODO
 	}
 
 	this.decreaseSecondsLeft = function()

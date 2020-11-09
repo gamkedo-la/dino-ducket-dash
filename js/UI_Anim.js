@@ -21,7 +21,7 @@ function animUIClass(){
 		this.frameHeight = this.sprite.height / this.animRows;
 		this.sprite.loaded = true;
 	}
-
+//just a comment
 	this.update = function(){
     if(this.currentFrame >= 8){
       this.visible = false;

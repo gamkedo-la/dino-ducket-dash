@@ -28,7 +28,7 @@ var initialPosition = [0];
 */
 function updateTimer(){
 	updateGameTime--;
-	if(updateGameTime == 0){4
+	if(updateGameTime == 0){
 		gameSeconds--;
 		updateGameTime = START_UPDATEGAMETIME;
 	}
@@ -53,7 +53,7 @@ var timerframecount = 0;
 const timerspritesize = 50; // px
 const timerspriteframes = 8; // anim len
 const timerspritespeed = 10; // frames per sprite frame
-const timerunningout = 30; // how many sec left
+const timerunningout = 10; // how many sec left
 const timerwobblesize = 10; // up and down anim
 const timerwobblespeed = 10; // frames per wobble
 const timerxoffset = -30; // to center the sprite

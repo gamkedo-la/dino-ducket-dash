@@ -12,8 +12,8 @@ function detectMouseHover(item){
         case buttonsList.fourPlayers:
             removeFourPlayersSelect();
             break; 
-        case buttonsList.audio:
-            removeAudioSelect();
+        case buttonsList.help:
+            removeHelpSelect();
             break;
         case buttonsList.highscore:
             removeHighscoreSelect();
@@ -33,8 +33,8 @@ function detectMouseHover(item){
         case buttonsList.fourPlayers:
             addFourPlayersSelect();
             break;
-        case buttonsList.audio:
-            addAudioSelect();
+        case buttonsList.help:
+            addHelpSelect();
             break;
         case buttonsList.highscore:
             addHighscoreSelect();

@@ -130,7 +130,7 @@
   transform: translateY(40px);
 }
 
-#audio {
+#help {
   position:relative;
     width:230px;
     height:50px;
@@ -144,14 +144,14 @@
 
 }
 
-/*#audio:hover {*/
+/*#help:hover {*/
 /*    background:#aad354;*/
 /*    color:black;*/
 /*    transform:scale(+1.5);*/
 /*    transition:0.5s;*/
 /*}*/
 
-#audio:active {
+#help:active {
   background-color: #ffffff;
   box-shadow: 0 5px #666;
   transform: translateY(40px);

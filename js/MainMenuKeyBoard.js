@@ -60,36 +60,36 @@ function detectKeyPresses(evt) {
                 playMenuSelectSFX();
             }
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {
-                buttonSelectState = buttonsList.audio;
+                buttonSelectState = buttonsList.help;
                 removeFourPlayersSelect();
-                addAudioSelect();
+                addHelpSelect();
                 playMenuSelectSFX();
             }
             break;
-        case buttonsList.audio:
+        case buttonsList.help:
             if(keyPress === KEY_UP || keyPress === KEY_W) {
                 buttonSelectState = buttonsList.fourPlayers;
-                removeAudioSelect();
+                removeHelpSelect();
                 addFourPlayersSelect();
                 playMenuSelectSFX();
             }
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {
                 buttonSelectState = buttonsList.highscore;
-                removeAudioSelect();
+                removeHelpSelect();
                 addHighscoreSelect();
                 playMenuSelectSFX();
             }
             break;
         case buttonsList.highscore:
             if(keyPress === KEY_UP || keyPress === KEY_W) {
-                buttonSelectState = buttonsList.audio;
+                buttonSelectState = buttonsList.help;
                 removeHighscoreSelect();
-                addAudioSelect();
+                addHelpSelect();
                 playMenuSelectSFX();
             }
             break;
     }
-    console.log(keyPress, ENTER);
+
     if (keyPress === ENTER){
         switch(buttonSelectState){
             case buttonsList.single:

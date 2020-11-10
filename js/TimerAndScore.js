@@ -28,13 +28,13 @@ var initialPosition = [0];
 */
 function updateTimer(){
 	updateGameTime--;
-	if(updateGameTime == 0){
+	if(updateGameTime <= 0){
 		gameSeconds--;
 		updateGameTime = START_UPDATEGAMETIME;
 	}
 	if (gameSeconds < 0){
 		gameMinutes--;
-		gameSeconds = START_SECONDS
+		gameSeconds = 59;
 	}
 	if(gameSeconds == 0 && gameMinutes == 0){
 		transitionAnim.transitionToScene('gameOver');

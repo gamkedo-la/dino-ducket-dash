@@ -131,6 +131,7 @@ function update(){
 			menuUpdate(1000/FPS);
 			break;
 		case 'character select screen':
+			menuUI.style.display = 'none';
 			characterSelectScreen.update();
 			break;
 		case 'game': 

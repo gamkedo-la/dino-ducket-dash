@@ -95,8 +95,8 @@ function showHighScore(){
 	// var row = document.createElement("tr");
 }
 
-function showCredits() {
-	console.log("CREDITS");
+function showHelp() {
+	console.log("HELP");
 }
 
 function backToMenu(){
@@ -111,4 +111,8 @@ function exitMenu(){
 	if(menuUI.style.display === "block"){
 		menuUI.style.display = "none";
 		 }
+}
+
+function showCredits() {
+	console.log("CREDITS");
 }

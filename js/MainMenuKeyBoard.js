@@ -16,10 +16,7 @@ function detectKeyPresses(evt) {
                 addMultiSelect();
                 playMenuSelectSFX();
             }
-            if(keyPress === ENTER) {
-
-            }
-            break;
+        break;           
         case buttonsList.multi:
             if(keyPress === KEY_UP || keyPress === KEY_W) {
                 buttonSelectState = buttonsList.single;
@@ -104,14 +101,22 @@ function detectKeyPresses(evt) {
             case buttonsList.fourPlayers:
                 fourPlayers();
                 break;
-         }
+            case buttonsList.highscore:
+                showHighScore();
+                addExitHighscoreSelect();
+                break;
+            case buttonsList.exitHighscore:
+                hideHighScore();
+                removeExitHighscoreSelect();
+                break;
+             }
          menuSelect.play();
          exitMenu();
-    }
 }
 
-function playMenuSelectSFX(){
-  if(gameState == "menu"){
-    menuSFX.play();
-  }
+    function playMenuSelectSFX(){
+        if(gameState == "menu"){
+            menuSFX.play();
+        }
+    }
 }

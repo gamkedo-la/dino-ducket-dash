@@ -39,7 +39,7 @@ window.onload = function(){
     preImageLoadingInit();
 
     menuUI = document.getElementById('allmenu');
-    menuUI.style.display = "none";
+	menuUI.style.display = "none";
 	
 	loadingAndInputToLaunchScreen.drawLoading();
  

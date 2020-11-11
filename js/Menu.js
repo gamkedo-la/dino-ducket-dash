@@ -110,5 +110,6 @@ function exitMenu(){
 	console.log('exitMenu');
 	if(menuUI.style.display === "block"){
 		menuUI.style.display = "none";
+		gameIsPaused = false;
 		 }
 }

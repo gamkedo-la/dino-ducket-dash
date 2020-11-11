@@ -105,8 +105,7 @@ function keyPressed(evt){
 			 &&
 			 (keyCode === ENTER || keyCode === KEY_SPACEBAR) ) {
 				menuSelect.play();
-				menuUI.style.display = "none";
-			   gameIsPaused = false;
+				exitMenu();
 				switch(buttonSelectState){
 					case buttonsList.single:
 						singlePlayer();

@@ -107,7 +107,6 @@ function detectKeyPresses(evt) {
          }
          menuSelect.play();
          exitMenu();
-         gameIsPaused = false;
     }
 }
 

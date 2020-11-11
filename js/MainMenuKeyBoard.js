@@ -106,7 +106,7 @@ function detectKeyPresses(evt) {
                 break;
          }
          menuSelect.play();
-         menuUI.style.display = "none";
+         exitMenu();
          gameIsPaused = false;
     }
 }

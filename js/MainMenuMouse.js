@@ -41,5 +41,5 @@ function detectMouseHover(item){
             break;
     }
     buttonSelectState = item;
-
+    menuSelect.play();
 }

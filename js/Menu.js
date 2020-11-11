@@ -63,12 +63,12 @@ function fourPlayers()
 }
 
 function hideHighScore(){
-	menuUI.style.display = 'block';
+	backToMenu();
 	scoreMenu.style.display = 'none';
 }
 
 function showHighScore(){
-	menuUI.style.display = 'none';
+	exitMenu();
 	scoreMenu.style.display = 'block';
 	let maxScoresToShow = 3;
 	let scoreToShow = maxScoresToShow;
@@ -96,10 +96,19 @@ function showHighScore(){
 }
 
 function showCredits() {
-	console.log('creditsss');
+	console.log("CREDITS");
+}
+
+function backToMenu(){
+	console.log('backToMenu');
 	if(menuUI.style.display === "none"){
 		menuUI.style.display = "block"; 
-		 } else {
-		   menuUI.style.display = "none";
+		 } 
+}
+
+function exitMenu(){
+	console.log('exitMenu');
+	if(menuUI.style.display === "block"){
+		menuUI.style.display = "none";
 		 }
 }

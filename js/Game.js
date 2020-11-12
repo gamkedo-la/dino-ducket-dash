@@ -89,6 +89,10 @@ function gameUpdate(){
   for (var i = 0; i < enemies.length; i++) {
     enemies[i].update()
   }
+
+  for (var i = 0; i < surpriseTexts.length; i++) {
+    surpriseTexts[i].update()
+  }
   
   for (var i = 0; i < enemyTelegraphs.length; i++) {
     enemyTelegraphs[i].update()
@@ -122,6 +126,12 @@ function gameUpdate(){
   for (var i = 0; i < surpriseBoxes.length; i++) {
     if(surpriseBoxes[i].readyToRemove){
       surpriseBoxes.splice(i,1);
+    }
+  }
+
+  for (var i = 0; i < surpriseTexts.length; i++) {
+    if(surpriseTexts[i].readyToRemove){
+      surpriseTexts.splice(i,1);
     }
   }
 }
@@ -168,6 +178,10 @@ function gameDraw(){
 
   for (var i = 0; i < triceratopEnemies.length; i++){
     triceratopEnemies[i].draw();
+  }
+
+  for (var i = 0; i < surpriseTexts.length; i++) {
+    surpriseTexts[i].draw()
   }
 
   if(score >= 1072 && score < 1074)

@@ -34,7 +34,9 @@ var allImages = [
 	
 	'images/transition.png',
 
-	'images/timerSheet.png'
+	'images/timerSheet.png',
+
+	'images/knockOverylay.png'
 
 	
 ];
@@ -65,6 +67,7 @@ var images = {
 	SupriseBox: {},
 	transition: {},
 	timerSheet: {},
+	knockOverlay:{}
 };
 
 function loadImages()

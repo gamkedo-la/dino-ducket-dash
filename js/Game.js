@@ -2,6 +2,7 @@ gameIsPaused = false;
 playMode = 0; //0 for 1P, 1 for 2P,.......
 playerArray = [];
 var screenShouldBeShaking = false;
+var damageOverlay=false;
 var firstPlayThrough = true;
 var depositInstructionShouldBeShowing = true;
 
@@ -142,10 +143,14 @@ function gameUpdate(){
 function gameDraw(){
   if (screenShouldBeShaking)
   {
+    if(damageOverlay)
+    {
+      DrawOverlay(images.knockOverlay,0,0,320,240);
+    }
     canvasContext.save();
     let shakeCoordinateX = getRandomIntInclusive(0,canvas.width/20);
     let shakeCoordinateY = getRandomIntInclusive(0,canvas.height/20);
-    canvasContext.translate(shakeCoordinateX,shakeCoordinateY);
+    canvasContext.translate(shakeCoordinateX,shakeCoordinateY); 
   }
 
   moneyBucket.draw();

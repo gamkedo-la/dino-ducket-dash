@@ -86,8 +86,10 @@ function enemyClass(){
 		{
 			if(checkCollision(this,playerArray[i]) && !godMode && !playerArray[i].immunity && !playerArray[i].dead && !playerArray[i].insideDucketBucket){
 				screenShouldBeShaking = true;
-				setTimeout(function(){screenShouldBeShaking = false},100);
+				damageOverlay=true;
+				setTimeout(function(){screenShouldBeShaking = false,damageOverlay=false},100);
 
+				
 				this.x = oldX;
 				this.y = oldY;
 				this.speedX *= -1;

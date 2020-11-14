@@ -110,3 +110,11 @@ function animateFrameToFrame(toAnimate,loop,frameStart,frameEnd){
 							toAnimate.x,toAnimate.y,
 							toAnimate.frameWidth*PIXEL_SCALE_UP,toAnimate.frameHeight*PIXEL_SCALE_UP);
 }
+
+function DrawOverlay(img,pos_x,pos_y,dimen_x,dimen_y)
+{
+	canvasContext.save();
+	canvasContext.globalAlpha=0.4;
+    canvasContext.drawImage(img,pos_x,pos_y,dimen_x*PIXEL_SCALE_UP,dimen_y*PIXEL_SCALE_UP);
+	canvasContext.restore();
+}

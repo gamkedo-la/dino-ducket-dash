@@ -128,7 +128,9 @@ function triceratopsClass(){
 		
 		var oldX = this.x;
         var oldY = this.y;
-        
+		var dustParticles = new runDustParticles();
+		var isRunning = false;
+		
 		if(!this.charging) this.chargeCooldown--;
         
         // reset movement loop timer
@@ -137,6 +139,7 @@ function triceratopsClass(){
         }
         
 		this.pathTiming++;
+		dustParticles.init();
 
         // move times are evenly split - FIXME? randomize?
         if(this.pathTiming <= TRI_DIR_CHANGE_TIMESPAN && !this.charging){
@@ -153,7 +156,11 @@ function triceratopsClass(){
 			this.sprite = this.leftSprite;
 			this.moveLeft();
         }
-        
+		
+		if (this.charging) {
+			dustParticles.draw();
+		}
+
 		if(this.charging && this.pathTiming >= TRI_CHARGE_TIMESPAN){
             console.log("Triceratops finished charging, resetting.")
 			this.resetCharging();
@@ -253,4 +260,33 @@ function spawnTriceratops(atX,atY){
 	var enemy = new triceratopsClass();
 	enemy.init(atX,atY);
 	triceratopEnemies.push(enemy);
+}
+
+function runDustParticles() {
+	this.x;
+    this.y;
+    this.sprite;
+	this.animColumns = 13;
+	this.animRows = 1;
+    this.frameWidth;
+    this.frameHeight;
+    this.currentFrame = 0;
+    this.animationFrameDelay = ANIMATION_DELAY;
+    this.currentAnimationFrameDelay = ANIMATION_DELAY;
+	this.flipped = true;
+    
+    this.init=function(_x, _y)
+    {
+        this.x=_x;
+        this.y=_y;
+        this.sprite=images.dust;
+		this.sprite.loaded=true;
+		this.frameWidth = this.sprite.width / this.animColumns;
+		this.frameHeight = this.sprite.height / this.animRows;
+    }
+
+    this.draw=function()
+    {
+       animate(this, true);
+    }
 }

@@ -38,7 +38,8 @@ var allImages = [
 
 	'images/knockOverylay.png',
 
-	'images/confetti.png'
+	'images/confetti.png',
+	'images/dust.png'
 
 	
 ];
@@ -70,7 +71,8 @@ var images = {
 	transition: {},
 	timerSheet: {},
 	knockOverlay:{},
-	confetti:{}
+	confetti:{},
+	dust:{}
 };
 
 function loadImages()

@@ -6,6 +6,7 @@ const TRI_DIR_CHANGE_TIMESPAN = 60; // frames per dir change, was 30
 const TRI_DETECTION_DISTANCE = 350; // was 200 but it was so close
 const TRI_CHARGE_COOLDOWN_TIME = 120; // was 100
 const TRI_CHARGE_SPEED = 6; // was 0.05 * the distance
+const TRI_DUST_COOLDOWN_TIME = 3;
 
 function triceratopsClass(){
 	this.x = 100;
@@ -22,6 +23,7 @@ function triceratopsClass(){
 	this.COOLDOWN_TIME = TRI_CHARGE_COOLDOWN_TIME;
 	this.chargeCooldown = this.COOLDOWN_TIME;
 	this.stepCounter = 0;
+	this.dustCooldown = TRI_DUST_COOLDOWN_TIME;
 	//WARM UP: how many duckets does the player lose when hit by this enemy?
 
 	// Animation Variables
@@ -37,6 +39,7 @@ function triceratopsClass(){
 	this.animationFrameDelay = ANIMATION_DELAY;
 	this.currentAnimationFrameDelay = ANIMATION_DELAY;
 	this.flipped = true;
+	this.dustParticles = [];
 
 	this.init = function(atX,atY){
 		
@@ -128,7 +131,6 @@ function triceratopsClass(){
 		
 		var oldX = this.x;
         var oldY = this.y;
-		var dustParticles = new runDustParticles();
 		var isRunning = false;
 		
 		if(!this.charging) this.chargeCooldown--;
@@ -139,7 +141,6 @@ function triceratopsClass(){
         }
         
 		this.pathTiming++;
-		dustParticles.init();
 
         // move times are evenly split - FIXME? randomize?
         if(this.pathTiming <= TRI_DIR_CHANGE_TIMESPAN && !this.charging){
@@ -157,8 +158,12 @@ function triceratopsClass(){
 			this.moveLeft();
         }
 		
-		if (this.charging) {
-			dustParticles.draw();
+		this.dustCooldown++;
+		if (this.charging && this.dustCooldown >= TRI_DUST_COOLDOWN_TIME) {
+			const newParticle = new runDustParticles();
+			newParticle.init(this.x, this.y);
+			this.dustParticles.push(newParticle);
+			this.dustCooldown = 0;
 		}
 
 		if(this.charging && this.pathTiming >= TRI_CHARGE_TIMESPAN){
@@ -275,9 +280,18 @@ function triceratopsClass(){
 	
 
 	this.draw = function(){
-		//drawRect(this.x,this.y, this.width,this.height, 'white');
-		
+		for (const particle of this.dustParticles) {
+			particle.draw();
+			if(particle.currentFrame === particle.animColumns - 1) {
+				particle.shouldRemove = true
+			}
+		}
 
+		for (let i = this.dustParticles.length - 1; i >= 0; i--) {
+			if(this.dustParticles[i].shouldRemove) {
+				this.dustParticles.splice(i, 1);
+			}
+		}
 		if (this.charging)
 		{
 			animateFrameToFrame(this,true,3,5);
@@ -285,7 +299,6 @@ function triceratopsClass(){
 		{
 			animateFrameToFrame(this,true,1,2);
 		}
-
 	}
 	
 }
@@ -308,19 +321,21 @@ function runDustParticles() {
     this.animationFrameDelay = ANIMATION_DELAY;
     this.currentAnimationFrameDelay = ANIMATION_DELAY;
 	this.flipped = true;
+	this.shouldRemove = false;
     
     this.init=function(_x, _y)
     {
-        this.x=_x;
-        this.y=_y;
+		this.x = _x;
+		this.y = _y;
         this.sprite=images.dust;
 		this.sprite.loaded=true;
 		this.frameWidth = this.sprite.width / this.animColumns;
 		this.frameHeight = this.sprite.height / this.animRows;
     }
 
-    this.draw=function()
+    this.draw=function(_x, _y)
     {
+		// console.log(this.sprite.src)
        animate(this, true);
     }
 }

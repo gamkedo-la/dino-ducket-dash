@@ -61,7 +61,7 @@ function animate(toAnimate,loop){
 		// we are still downloading the image!
 		console.log(`Still loading the image?`)
         return;
-    }
+	}
 	
     canvasContext.drawImage(toAnimate.sprite,
 							column*toAnimate.frameWidth,row*toAnimate.frameHeight,
@@ -102,7 +102,7 @@ function animateFrameToFrame(toAnimate,loop,frameStart,frameEnd){
 		// we are still downloading the image!
 		console.log(`Still loading the image?`)
         return;
-    }
+	}
 	
     canvasContext.drawImage(toAnimate.sprite,
 							column*toAnimate.frameWidth,row*toAnimate.frameHeight,

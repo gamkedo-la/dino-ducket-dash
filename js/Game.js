@@ -145,7 +145,7 @@ function gameDraw(){
   {
     if(damageOverlay)
     {
-      DrawOverlay(images.knockOverlay,0,0,320,240);
+      DrawOverlay(images.knockOverlay,0,0,320,240)
     }
     canvasContext.save();
     let shakeCoordinateX = getRandomIntInclusive(0,canvas.width/20);

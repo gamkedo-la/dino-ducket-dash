@@ -1,8 +1,11 @@
+
+
 let bucketSize = 32;
 let bucketHeight=48;
 let scaledbucketSize   = bucketSize*PIXEL_SCALE_UP;
 let scaledbucketHeight = bucketHeight*PIXEL_SCALE_UP;
 let typesofBucket=5;
+let depositRegister=false;
 
 //let bucketFontSize = "24px";
 
@@ -14,14 +17,25 @@ function moneyBucketClass(){
   
   this.bucketSprite=32* Math.floor(Math.random()*typesofBucket);
 
+  this.celebrateDeposit=new confettiClass();
+  this.celebrateDeposit.init(this.x-7,this.y);
+
   this.update = function(){
     for(let i = 0; i < playerArray.length; i++)
     {
       if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
         playerArray[i].insideDucketBucket = true;
         if(playerArray[i].ducketsCarried > 0){
+          
+          //Was trying to put confetti at the player's position
+          //this.celebrateDeposit.x=playerArray[i].x;
+          //this.celebrateDeposit.y=playerArray[i].y;      
+          
           screenShouldBeShaking = true;
-  				setTimeout(function(){screenShouldBeShaking = false},100);
+          depositRegister=true;
+    
+          setTimeout(function(){screenShouldBeShaking = false},100); 
+          setTimeout(function(){depositRegister=false},1000);
           depositSFX.play();
           score += playerArray[i].ducketsCarried;
           playerArray[i].ducketsCarried = 0;
@@ -56,11 +70,13 @@ function moneyBucketClass(){
             ds,ds);
     }
 
+    
+
+    
     // draw the ducket bucket
     canvasContext.drawImage(images.bucket,
         this.bucketSprite,0,bucketSize,bucketHeight,
         this.x,this.y,scaledbucketSize,scaledbucketHeight);
-
 
     // display the coin count on the bucket
     canvasContext.font = '30px "Press Start 2P"';
@@ -78,8 +94,47 @@ function moneyBucketClass(){
       canvasContext.lineTo(canvas.width/2,canvas.height);
       canvasContext.stroke();
     }
+
+    //draw confetti
+    if(depositRegister)
+    {
+      this.celebrateDeposit.draw();
+    }
   }
   
+}
+
+
+function confettiClass()
+{
+    this.x;
+    this.y;
+    this.sprite;
+    this.animColumns = 4;
+    this.animRows = 1;
+    this.frameWidth;
+    this.frameHeight;
+    this.currentFrame = 0;
+    this.animationFrameDelay = ANIMATION_DELAY;
+    this.currentAnimationFrameDelay = ANIMATION_DELAY;
+    this.flipped = true;
+    
+    this.init=function(_x,_y)
+    {
+        this.x=_x;
+        this.y=_y;
+        this.sprite=images.confetti;
+        this.sprite.loaded=true;
+        this.frameWidth = this.sprite.width / this.animColumns;
+		    this.frameHeight = this.sprite.height / this.animRows;
+    }
+
+    this.draw=function()
+    {
+       animate(this,true);
+        //canvasContext.drawImage(images.confetti,0,0,48*PIXEL_SCALE_UP,48*PIXEL_SCALE_UP);
+    }
+    
 }
 
 

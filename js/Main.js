@@ -37,6 +37,9 @@ window.onload = function(){
     }
     
     preImageLoadingInit();
+
+    menuUI = document.getElementById('allmenu');
+    menuUI.style.display = "none";
 	
 	loadingAndInputToLaunchScreen.drawLoading();
  
@@ -98,7 +101,6 @@ function startgameIfDownloadsComplete() {
 */
 function init(isResettingGame = false){
 	
-	menuUI = document.getElementById('allmenu');
 	//Stop Splash animation
 	clearInterval(splashTimer);
 
@@ -107,13 +109,13 @@ function init(isResettingGame = false){
 	gameState = 'menu';
 	menuUI.style.display = "block"; 
 	
-  decals = new decalManager(); // fx on the ground
+  	decals = new decalManager(); // fx on the ground
 	
 	transitionAnim = new transitionClass();
 
 
-  menuInit();
-  characterSelectScreen = new CharacterSelectScreen();
+  	menuInit();
+  	characterSelectScreen = new CharacterSelectScreen();
 
 	console.log("Initialization complete. Running game!");
 

@@ -157,7 +157,6 @@ function triceratopsClass(){
 		if(this.charging && this.pathTiming >= TRI_CHARGE_TIMESPAN){
             console.log("Triceratops finished charging, resetting.")
 			this.resetCharging();
-			// this.charging = false;
 			this.sprite = this.leftSprite;
 			this.pathTiming = 0;
 			this.moveLeft();
@@ -166,24 +165,20 @@ function triceratopsClass(){
 		//WARM UP: Does the enemy make a sound when hitting the edges of the canvas?
 		if(this.x < 0){
 			this.resetCharging();
-			// this.charging = false;
 			this.moveRight();
 			this.sprite = this.rightSprite;
 		}
 		if(this.x > canvas.width - this.width*PIXEL_SCALE_UP){
 			this.resetCharging();
-			// this.charging = false;
 			this.moveLeft();
 			this.sprite = this.leftSprite;
 		}
 		if(this.y < this.height/2){
 			this.resetCharging();
-			// this.charging = false;
 			this.moveUp();
 		}
 		if(this.y > canvas.height - this.height*PIXEL_SCALE_UP*1.5){
 			this.resetCharging();
-			// this.charging = false;
 			this.moveDown();
 		}
 
@@ -193,7 +188,46 @@ function triceratopsClass(){
 				this.chargeAt(playerArray[i]);
 			}
 
-			if(checkCollision(this,playerArray[i]) && !godMode && !playerArray[i].immunity && !playerArray[i].dead){
+			if(checkCollision(this, moneyBucket)) {
+				screenShouldBeShaking = true;
+				damageOverlay=true;
+				setTimeout(function(){screenShouldBeShaking = false,damageOverlay=false},100);
+
+				if(this.charging) {
+					if(this.speedX >= 0 && this.speedY >= 0) {
+						//charging right&down
+						this.moveUp();
+					} else if(this.speedX >= 0 && this.speedY <= 0) {
+						//charging right&Up
+						this.moveDown();
+					} else if(this.speedX <= 0 && this.speedY >= 0) {
+						//charging left&down
+						this.moveRight();
+					} else if(this.speedX <= 0 && this.speedY <= 0) {
+						//charging left&up
+						this.moveLeft();
+					}
+
+					this.resetCharging()
+				} else {
+					if(this.speedX > 0) {
+						this.moveLeft();
+					} else if(this.speedX < 0) {
+						this.moveRight();
+					} else {
+						if(this.speedY > 0) {
+							this.moveUp();
+						} else {
+							this.moveDown();
+						}
+					}
+				}
+
+				this.x = oldX;
+				this.y = oldY;
+				
+				hitSFX.play();
+			} else if(checkCollision(this,playerArray[i]) && !godMode && !playerArray[i].immunity && !playerArray[i].dead){
 				screenShouldBeShaking = true;
 				damageOverlay=true;
 				setTimeout(function(){screenShouldBeShaking = false,damageOverlay=false},100);

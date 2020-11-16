@@ -202,14 +202,43 @@ function playerClass(playerNumber){
 	}
 
 	this.draw = function(){
-		//drawRect(this.x,this.y, this.sprite.width,this.sprite.height, 'white');
-		canvasContext.fillStyle = '#fe4101';
-		canvasContext.font = '14px "Press Start 2P"'
-		canvasContext.fillText(this.ducketsCarried, this.x+11,this.y);
 
-		canvasContext.fillStyle = 'black';
 		canvasContext.font = '14px "Press Start 2P"'
-		canvasContext.fillText(this.ducketsCarried, this.x+10,this.y-1);
+		
+		let dark = 'black';
+		let dinoRed = '#fe4101';
+		let dinoGreen = '#aad354';
+		
+		let fg = dark;
+		let bg = dinoGreen;
+
+		let x = this.x+10;
+	    let y = this.y-1;
+
+        // flicker (reverse) the colors if we are vulnerable!
+		if (this.ducketsCarried==0) {
+			if (frameCount%16<8) {
+    		    bg = dark;
+	    	    fg = dinoRed;
+			} else {
+    		    bg = dinoRed;
+	    	    fg = dark;
+			}
+        }
+
+		canvasContext.fillStyle = bg;
+		canvasContext.fillText(this.ducketsCarried,x,y+2);
+		canvasContext.fillText(this.ducketsCarried,x,y-2);
+		canvasContext.fillText(this.ducketsCarried,x+2,y);
+		canvasContext.fillText(this.ducketsCarried,x-2,y);
+		canvasContext.fillText(this.ducketsCarried,x+2,y+2);
+		canvasContext.fillText(this.ducketsCarried,x-2,y-2);
+		canvasContext.fillText(this.ducketsCarried,x-2,y+2);
+		canvasContext.fillText(this.ducketsCarried,x+2,y-2);
+
+		canvasContext.fillStyle = fg;
+		canvasContext.font = '14px "Press Start 2P"'
+		canvasContext.fillText(this.ducketsCarried,x,y);
 		
 		animate(this,true);
 		

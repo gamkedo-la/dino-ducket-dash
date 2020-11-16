@@ -1,3 +1,4 @@
+var frameCount = 0;
 gameIsPaused = false;
 playMode = 0; //0 for 1P, 1 for 2P,.......
 playerArray = [];
@@ -141,6 +142,9 @@ function gameUpdate(){
 //Drawing after here
 //
 function gameDraw(){
+
+  frameCount++;
+
   if (screenShouldBeShaking)
   {
     if(damageOverlay)

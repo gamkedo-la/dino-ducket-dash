@@ -133,6 +133,9 @@ function CharacterSelectScreen()
 
 	this.draw = function()
 	{
+		
+        this.animateIntroText();
+        
 		// animate(this,true);
 		//void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
 		for(let i = 0; i <= playMode; i++){
@@ -185,4 +188,39 @@ function CharacterSelectScreen()
 			playerArray[playerNumber].rightSprite = images.yellow_player_idle_facing_right;
 		}
 	}
+
+    // a simple little intro cinematic that plays while
+    // this screen is active, telling the story of
+    // how we got here via an npc text style ui
+    this.animateIntroText = function() {
+
+  		canvasContext.font = '35px "Press Start 2P"';
+		
+		if (!this.introFrames) {
+			this.introFrames = 0;
+            this.introTXT = [
+                "DINO NEEDS DUCKETS",
+                "TO BUY SPACESHIP!",
+                "",
+                "Fill the ducket bucket",
+                "to escape the meteor!"];
+			console.log("Starting intro cinematic story text...");
+		}
+
+        this.introFrames++;
+		
+        let x = canvas.width/2;
+        let y = 80;
+        let txtlen = Math.floor(this.introFrames/10);
+		canvasContext.textAlign = "center";
+
+        for (var line=0; line<this.introTXT.length; line++) {
+		    canvasContext.fillText(this.introTXT[line].substr(0,txtlen),x,y);
+            y+=35;
+            txtlen-=this.introTXT[line].length;
+        }
+
+
+    }
+
 }

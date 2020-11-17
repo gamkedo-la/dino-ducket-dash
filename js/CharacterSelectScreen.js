@@ -202,14 +202,14 @@ function CharacterSelectScreen()
                 "DINO NEEDS DUCKETS",
                 "TO BUY SPACESHIP!",
                 "",
-                "Fill the ducket bucket",
-                "to escape the meteor!"];
+                "Fill ducket bucket",
+                "to escape meteor!"];
 			console.log("Starting intro cinematic story text...");
 		}
 
         this.introFrames++;
 		
-        let x = canvas.width/2;
+        let x = Math.round(canvas.width/2);
         let y = 80;
         let txtlen = Math.floor(this.introFrames/10);
 		canvasContext.textAlign = "center";

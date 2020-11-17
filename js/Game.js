@@ -207,7 +207,7 @@ function gameDraw(){
     canvasContext.fillStyle = 'white';
     canvasContext.font = '15px "Press Start 2P"';
     canvasContext.textAlign = 'center';
-    canvasContext.fillText("Deposit Coins Here!", canvas.width/2,(canvas.height/2) - (scaledbucketSize/2) - 15);
+      canvasContext.fillText(_("Deposit Coins Here!"), canvas.width/2,(canvas.height/2) - (scaledbucketSize/2) - 15);
     canvasContext.textAlign = 'start';
   }
 
@@ -223,7 +223,7 @@ function gameDraw(){
     canvasContext.fillStyle = 'white';
     canvasContext.font = '35px "Press Start 2P"';
     canvasContext.textAlign = 'center';
-    canvasContext.fillText("Collect and Deposit Coins!", canvas.width/2,canvas.height*0.33);
+      canvasContext.fillText(_("Collect and Deposit Coins!"), canvas.width/2,canvas.height*0.33);
     canvasContext.textAlign = 'start';
   }
 

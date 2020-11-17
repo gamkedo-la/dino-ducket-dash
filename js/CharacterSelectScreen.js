@@ -65,8 +65,8 @@ function CharacterSelectScreen()
 					canvasContext.fillStyle = characterSelectScreen.arrayOfBoxColors[i];
 					canvasContext.fillRect(this.boxX,this.positionY,this.width,this.height);
 					canvasContext.font = '15px "Press Start 2P"';
-					let textWidth = canvasContext.measureText('Player ' + (i + 1)).width;
-					canvasContext.fillText('Player ' + (i + 1), characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
+					let textWidth = canvasContext.measureText(_('Player') + ' ' + (i + 1)).width;
+					canvasContext.fillText(_('Player') + ' ' + (i + 1), characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
 										this.positionY + this.height + 30);
 				},
 
@@ -158,7 +158,7 @@ function CharacterSelectScreen()
 		canvasContext.font = '35px "Press Start 2P"';
 		let playerCountText = ''
 		let playerCountTextWidth = canvasContext.measureText(playerCountText).width;
-		let pressEnterText = 'Press Enter to Start';
+		let pressEnterText = _('Press Enter to Start');
 		let pressEnterTextWidth = canvasContext.measureText(pressEnterText).width;
 		canvasContext.fillText(playerCountText, canvas.width/2 - playerCountTextWidth/2,canvas.height/2 - this.characterImageHeight/2 + this.characterImageHeight + 100);
 		canvasContext.fillText(pressEnterText, canvas.width/2 - pressEnterTextWidth/2,canvas.height/2 - this.characterImageHeight/2 + this.characterImageHeight + 150);
@@ -199,11 +199,11 @@ function CharacterSelectScreen()
 		if (!this.introFrames) {
 			this.introFrames = 0;
             this.introTXT = [
-                "DINO NEEDS DUCKETS",
-                "TO BUY SPACESHIP!",
+                _("DINO NEEDS DUCKETS"),
+                _("TO BUY SPACESHIP!"),
                 "",
-                "Fill ducket bucket",
-                "to escape meteor!"];
+                _("Fill ducket bucket"),
+                _("to escape meteor!")];
 			console.log("Starting intro cinematic story text...");
 		}
 

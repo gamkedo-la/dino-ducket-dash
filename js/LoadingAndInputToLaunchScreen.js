@@ -17,7 +17,7 @@ function LoadingAndInputToLaunchScreen()
 		canvasContext.fillRect(this.x,this.y, this.width,this.height);
 
 		canvasContext.fillStyle = '#FE4101';
-		let loadingText = 'Loading...';
+		let loadingText = _('Loading...');
 		canvasContext.font = '25px "Press Start 2P"';
 		let loadingTextWidth = canvasContext.measureText(loadingText).width;
 		canvasContext.fillText(loadingText, canvas.width/2 - loadingTextWidth/2,canvas.height/2 - 50);
@@ -28,7 +28,7 @@ function LoadingAndInputToLaunchScreen()
 	{
 		//canvasContext.fillStyle = '#CDC29E';
 		canvasContext.fillStyle = 'rgb(254,60,1.0,'+this.opacity%1.0+')';
-		let inputToLaunchText = 'Click or Press Enter to Start';
+		let inputToLaunchText = _('Click or Press Enter to Start');
 		canvasContext.font = '25px "Press Start 2P"';
 		let inputToLaunchTextWidth = canvasContext.measureText(inputToLaunchText).width;
 		canvasContext.fillText(inputToLaunchText, canvas.width/2 - inputToLaunchTextWidth/2,canvas.height - 50);		

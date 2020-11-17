@@ -48,6 +48,8 @@ function gameOverDraw(){
     }
   
     canvasContext.textAlign = 'start'; 
+
+    DrawOverlay(images.knockOverlay,0,0,320,240);
   
     return;
 }

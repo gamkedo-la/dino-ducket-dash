@@ -201,8 +201,8 @@ function triceratopsClass(){
 			}
 
 			if(checkCollision(this, moneyBucket)) {
-				screenShouldBeShaking = true;
-				damageOverlay=true;
+				screenShouldBeShaking = false;
+				damageOverlay=false;
 				setTimeout(function(){screenShouldBeShaking = false,damageOverlay=false},100);
 
 				if(this.charging) {

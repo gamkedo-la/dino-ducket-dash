@@ -139,9 +139,6 @@ function keyPressed(evt){
 			transitionAnim.transitionToScene('game');
 			menuSelect.play();
 			depositSFX.play();
-			gamePlayMusic.play();
-			gamePlayMusic.setTime(mainMenuMusic.getTime());
-			mainMenuMusic.stop();
 			initGame();
 			break;
 
@@ -250,10 +247,12 @@ function keyPressed(evt){
 				//saveName();
 				break;
 			case KEY_R:
+				menuSelect.play();
 				initGame();
 				break;
 			case ESC:				
 				gameState = 'menu';
+				menuSelect.play();
 				init(true);
 				break;
 		}

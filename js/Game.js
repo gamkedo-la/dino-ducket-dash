@@ -53,6 +53,10 @@ function initGame(){
 			{
 				gameIsPaused = false;
 			}
+
+  gamePlayMusic.play();
+  gamePlayMusic.setTime(mainMenuMusic.getTime());
+  mainMenuMusic.stop();
 }
 
 // FIXME this routine can run BEFORE initGame() has run? 
@@ -80,6 +84,10 @@ function gameUpdate(){
 
   if(deathCounter == playerArray.length)
   {
+
+        mainMenuMusic.play();
+        mainMenuMusic.setTime(gamePlayMusic.getTime());
+        gamePlayMusic.stop();
     transitionAnim.transitionToScene('gameOver');
   }
   

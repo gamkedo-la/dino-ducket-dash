@@ -1,4 +1,4 @@
-
+// Audio.js by Michael Fewkes
 var musicVolume = 0.7;
 var effectsVolume = 0.7;
 var isMuted = false;

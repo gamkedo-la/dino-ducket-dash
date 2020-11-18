@@ -15,6 +15,17 @@ const catalog = {
 		'PRESS R TO TRY AGAIN!': '¡PULSA R PARA REINTENTAR!',
 		'PRESS ESC TO GO BACK TO MAIN MENU!': '¡PULSA ESC PARA VOLVER AL MENU!',
 		'HIGH SCORES': 'MAXIMOS PUNTAJES',
+		'DINO DUCKET DASH! Any Key to Play, WASD or Arrow Keys to move': '¡DINO DUCKET DASH! Cualquier tecla para jugar, WASD o flechas para moverse',
+		'1 PLAY': '1 JUGADOR',
+		'2 PLAY': '2 JUGADOR',
+		'3 PLAY': '3 JUGADOR',
+		'4 PLAY': '4 JUGADOR',
+		'HELP': 'AYUDA',
+		'SCOREBOARD': 'PUNTAJES',
+		'BACK': 'VOLVER',
+		'Click to show Credits': 'Click para ver creditos',
+		'Score': 'Puntos',
+		'High Score': 'Máximo',
 	},
 };
 
@@ -29,3 +40,9 @@ function gettext(str) {
 }
 
 const _ = gettext;
+
+window.addEventListener('load', (event) => {
+	document.querySelectorAll('p,.header,#creditsBtn').forEach(element => {
+		element.innerText = _(element.innerText);
+	});
+});

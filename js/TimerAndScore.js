@@ -117,7 +117,7 @@ function drawHighScore(){
 
 	let hsScoreText = highestScoreEverRecorded.padStart(10,'0');
 
-	let labelText = 'High Score:';
+	let labelText = _('High Score') + ':';
 	let labelTextWidth = canvasContext.measureText(labelText).width;
 
 	let hsScoreBoxWidth = 100;
@@ -133,7 +133,7 @@ function drawHighScore(){
 
 function drawCurrentScore()
 {
-	let labelText = 'Score:';
+	let labelText = _('Score') + ':';
 	let labelTextWidth = canvasContext.measureText(labelText).width;
 	
 	let currentScoreBoxWidth = 10;

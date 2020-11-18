@@ -211,7 +211,7 @@ function CharacterSelectScreen()
 		
         let x = Math.round(canvas.width/2);
         let y = 80;
-        let txtlen = Math.floor(this.introFrames/10);
+        let txtlen = Math.floor(this.introFrames/2);
 		canvasContext.textAlign = "center";
 
         for (var line=0; line<this.introTXT.length; line++) {

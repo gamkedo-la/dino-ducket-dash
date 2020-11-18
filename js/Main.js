@@ -75,7 +75,7 @@ function preImageLoadingInit()
 	canvas.width = Math.ceil(PIXEL_SCALE_UP * canvas.width);
 	canvas.height = Math.ceil(PIXEL_SCALE_UP * canvas.height);
 	
-	canvasContext = canvas.getContext('2d');
+	canvasContext = canvas.getContext('2d',{alpha: false}); // NOTE: we use alpha false so that the canvas font rendering has crisp edges
 	//let's keep those pixels crisp
 	canvasContext.imageSmoothingEnabled = false;
 	canvasContext.msImageSmoothingEnabled = false;

@@ -79,7 +79,7 @@ function moneyBucketClass(){
         this.x,this.y,scaledbucketSize,scaledbucketHeight);
 
     // display the coin count on the bucket
-    canvasContext.font = '30px "Press Start 2P"';
+    canvasContext.font = '32px "Press Start 2P"';
     canvasContext.textAlign = 'center';
     canvasContext.fillStyle = "black";
     canvasContext.fillText(score, canvas.width/2+1,(canvas.height/2)+16+1);

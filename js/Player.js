@@ -203,7 +203,7 @@ function playerClass(playerNumber){
 
 	this.draw = function(){
 
-		canvasContext.font = '14px "Press Start 2P"'
+		canvasContext.font = '16px "Press Start 2P"'
 		
 		let dark = 'black';
 		let dinoRed = '#fe4101';
@@ -237,7 +237,7 @@ function playerClass(playerNumber){
 		canvasContext.fillText(this.ducketsCarried,x+2,y-2);
 
 		canvasContext.fillStyle = fg;
-		canvasContext.font = '14px "Press Start 2P"'
+		canvasContext.font = '16px "Press Start 2P"'
 		canvasContext.fillText(this.ducketsCarried,x,y);
 		
 		animate(this,true);

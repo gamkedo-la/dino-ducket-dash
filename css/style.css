@@ -22,6 +22,10 @@ canvas {
     image-rendering: -moz-crisp-edges;
     image-rendering: -o-crisp-edges;
     image-rendering: pixelated;
+
+    font-smooth: none;
+    font-smoothing: none;
+    -webkit-font-smoothing: none;
 }
 
 .header { 

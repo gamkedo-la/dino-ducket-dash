@@ -64,10 +64,11 @@ function CharacterSelectScreen()
 
 					canvasContext.fillStyle = characterSelectScreen.arrayOfBoxColors[i];
 					canvasContext.fillRect(this.boxX,this.positionY,this.width,this.height);
-					canvasContext.font = '15px "Press Start 2P"';
+					canvasContext.font = '16px "Press Start 2P"';
 					let textWidth = canvasContext.measureText(_('Player') + ' ' + (i + 1)).width;
-					canvasContext.fillText(_('Player') + ' ' + (i + 1), characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
-										this.positionY + this.height + 30);
+					canvasContext.fillText(_('Player') + ' ' + (i + 1), 
+					    32 + characterSelectScreen.arrayOfBoxPositions[this.boxPositionArrayIndex] + this.width/2 - textWidth/2,
+						this.positionY + this.height + 30);
 				},
 
 				playerBoxMovesRight: function()
@@ -155,7 +156,7 @@ function CharacterSelectScreen()
 								this.position4XCoordinate,canvas.height/2 - this.characterImageHeight/2, 
 								this.characterImageWidth,this.characterImageHeight);
 
-		canvasContext.font = '35px "Press Start 2P"';
+		canvasContext.font = '32px "Press Start 2P"';
 		let playerCountText = ''
 		let playerCountTextWidth = canvasContext.measureText(playerCountText).width;
 		let pressEnterText = _('Press Enter to Start');
@@ -194,7 +195,7 @@ function CharacterSelectScreen()
     // how we got here via an npc text style ui
     this.animateIntroText = function() {
 
-  		canvasContext.font = '35px "Press Start 2P"';
+  		canvasContext.font = '32px "Press Start 2P"';
 		
 		if (!this.introFrames) {
 			this.introFrames = 0;

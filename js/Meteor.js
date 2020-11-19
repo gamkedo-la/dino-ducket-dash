@@ -32,8 +32,8 @@ function meteorClass(){
 
 	this.update = function(){
 
-		this.speedX = 5;
-		this.speedY = 5;
+		this.speedX = 10;
+		this.speedY = 10;
 
 		//var oldX = this.x;
         //var oldY = this.y;

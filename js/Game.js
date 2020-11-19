@@ -55,10 +55,13 @@ function initGame(){
 			{
 				gameIsPaused = false;
 			}
+  else
+  {
+    gamePlayMusic.play();
+    gamePlayMusic.setTime(mainMenuMusic.getTime());
+    mainMenuMusic.stop();
+  }
 
-  gamePlayMusic.play();
-  gamePlayMusic.setTime(mainMenuMusic.getTime());
-  mainMenuMusic.stop();
 }
 
 // FIXME this routine can run BEFORE initGame() has run? 

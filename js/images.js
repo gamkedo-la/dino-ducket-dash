@@ -39,7 +39,11 @@ var allImages = [
 	'images/knockOverylay.png',
 
 	'images/confetti.png',
-	'images/dust.png'
+	'images/dust.png',
+
+	'images/meteorshadow.png',
+	'images/meteor.png'
+
 
 	
 ];
@@ -72,7 +76,9 @@ var images = {
 	timerSheet: {},
 	knockOverlay:{},
 	confetti:{},
-	dust:{}
+	dust:{},
+	meteorshadow:{},
+	meteor:{},
 };
 
 function loadImages()

@@ -12,6 +12,8 @@ function resetGame(){
   ducketList = [];
   surpriseBoxes = [];
   triceratopEnemies = [];
+  meteors = [];
+  meteorLandings = [];
   resetTimer();
   checkScore();
   currentScore = 0; 
@@ -114,6 +116,14 @@ function gameUpdate(){
   for (var i = 0; i < triceratopEnemies.length; i++){
     triceratopEnemies[i].update();
   }
+
+  for(var i = 0; i < meteorLandings.length; i++){
+    meteorLandings[i].update();
+  }
+
+  for (var i = 0; i < meteors.length; i++){
+    meteors[i].update();
+  }
   
   moneyBucket.update();
   checkIfCoinsNeedToRespawn();
@@ -142,6 +152,10 @@ function gameUpdate(){
     if(surpriseTexts[i].readyToRemove){
       surpriseTexts.splice(i,1);
     }
+  }
+
+  if(gameMinutes <= 0 && gameSeconds <= 30){
+    meteorShower();
   }
 }
 
@@ -198,6 +212,14 @@ function gameDraw(){
 
   for (var i = 0; i < surpriseTexts.length; i++) {
     surpriseTexts[i].draw()
+  }
+
+  for (var i = 0; i < meteorLandings.length; i++) {
+    meteorLandings[i].draw();
+  }
+
+  for (var i = 0; i < meteors.length; i++){
+    meteors[i].draw();
   }
 
   if(score >= 1072 && score < 1074)

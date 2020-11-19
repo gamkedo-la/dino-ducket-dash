@@ -258,6 +258,7 @@ function triceratopsClass(){
 					playerArray[i].ducketsCarried = 0;
 					playerArray[i].immunityTimer = 30;
 					playerArray[i].immunity = true;
+					surpriseTexts.push(new surpriseBoxTextClass(this.x,this.y,"DUCKETS LOST!"));
 				}
 			}// end of collision check with player
 		}

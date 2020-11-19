@@ -1,4 +1,4 @@
-showingCredits = false;
+var showingCredits = false;
 
 function menuClass(){
   //Menu Variables
@@ -28,9 +28,7 @@ function menuClass(){
   
   this.draw = function(){
   	if(showingCredits) {
-  		canvasContext.fillStyle = 'blue';
-		canvasContext.font = '18px Helvetica';
-		canvasContext.fillText('Click anywhere to exit credits!', 30,canvas.height - 30);
+  		drawCredits();
   	} else {
     	animate(this,true);
 	}
@@ -132,5 +130,80 @@ function exitIfShowingCredits() { // called from canvas mousedown event hook
 	if(showingCredits) {
 		showingCredits = false;
 		menuUI.style.display = "block";
-	}	
+	}
 }
+
+var creditsMaxCharWidthToWrap = 120;
+var creditsScrollRate = 0.0;
+var creditsScroll = 0;
+
+var creditNameList = [
+"Gabriel Cornish: Project lead, core gameplay, music integration, placeholder art, canvas scale, font selection, ducket and enemy spawning, game over and replay support, PS4 controller support, coin sound, animation frame timing, coin loss on damage, sounds (hit, deposit, menu, character select), menu art improvement, odds tuning, color palette, screen transitions, surprise box announcement",
+"Stebs: Sprite flipping, debug cheats, coin particles, countdown timer sound hookup, pause fix, mute key, intervals error fix, bounds checking, screenshake, in-game instructions, coin spawning improvements, initial character selection, loading screen, additional surprise box outcome, 3-4 player selection from menu",
+"Christer \"McFunkypants\" Kaitila: DecalFX feature and assorted uses (footsteps, ground cracks), collision bounce, coin overlap avoidance, ducket bucket, triceratops attack and related effects, timer animation touch up, UI flash when in danger, intro sequence, CSS fixes (removed scrollbars, canvas centers, etc), loading fix, gamepad null checks, pixel scale improvement, assorted bug fixes, font improvement",
+"Carson Sanders: Triceratops enemy implementation, brief immunity after damage, display value rounding, surprise box reset, game over screen polish (score counts up, plays sounds), additional sound integration",
+"Jeff \"Axphin\" Hanlon: Triceratops enemy art, enemy attack telegraph animation, sound effects (7), sand tile, dino animation speed tuning, coin bucket and UI position tweaks",
+"Muhammed \"EyeForcz\" Durmusoglu: Co-op 2 & 4 player support, gamepad bug fix, start sequence polish, surprise box feature",
+"Vince McKeown: Pterodactyle sprite, timer implementation, enemy randomization, clock bug fix, high score local storage, high score initials",
+"I-wei Chen: Random bucket designs, animation strip support, Triceratops sprite hookup, assorted fixes (gamepad, keyboard control, movement related), screen crack effect, ducket deposit effect",
+"H Trayford: Safe enemy spawn margin, image loading code, UI layout improvement, variable player menu hookup, Triceratops attack recharge delay, bucket protection from flying enemy and boss, dust particle fix",
+"Michael \"Misha\" Fewkes: Music (menu, gameplay), audio file format conversion for compatibility, volume mixing",
+"Vaan Hope Khani: Cactus art, menu code (including high scores readout), exit button, canvas resize, audio button fix",
+"Jose Reque Martinez: Menu key and controller support, key input refactor,  escape button, player select to main menu transition",
+"Charlene A.: Timer sprite (animation and integration), dust particle sprite",
+"Gonzalo Delgado: T-Rex player sprite, localization support with Spanish translations (both JS and HTML)",
+"Randy Tan Shaoxian: Selection box smoothing, selectable player colors, transition from game over back to menu",
+"JoansitoColimon: Special thanks for practice commit (welcome to HomeTeam Apollo!)",
+    " ",
+    "Made by members of HomeTeam GameDev (Apollo!)"," ","Join at HomeTeamGameDev.com to make games with us!",
+    ];
+
+function drawCredits(){
+	var posX = 10;
+	var posHeight = 60;
+	var count = 0;
+
+	var anyDrew = false;
+	canvasContext.font = '17px Helvetica';
+	canvasContext.textAlign = 'left';
+	for (count; count < creditNameList.length; count++){
+		var drawAt = posHeight+count*18-creditsScroll;
+		canvasContext.fillStyle = 'black';
+		canvasContext.fillText(creditNameList[count], posX, drawAt);
+		canvasContext.fillStyle = 'white';
+		canvasContext.fillText(creditNameList[count].substr(0, creditNameList[count].indexOf(':')), posX-1, drawAt-1); // names pop
+		anyDrew = true;
+	}
+	canvasContext.fillStyle = 'yellow';
+	canvasContext.font = '18px Helvetica';
+	canvasContext.textAlign = "center";
+	canvasContext.fillText('-- Click anywhere to return to the menu --', canvas.width/2,canvas.height - 30);
+	canvasContext.textAlign = "left";
+
+	creditsScroll+=creditsScrollRate;
+	if(anyDrew==false) { // reset, all off screen
+		creditsScroll=0;
+	}
+}
+
+function wrapCredits(){ // note: gets calling immediately after definition
+    var newCut = [];
+    var findEnd;
+    for(var i=0;i<creditNameList.length;i++) {
+        while(creditNameList[i].length > 0) {
+            findEnd = creditsMaxCharWidthToWrap;
+            if(creditNameList[i].length > creditsMaxCharWidthToWrap) {
+                for(var ii=findEnd;ii>0;ii--) {
+                    if(creditNameList[i].charAt(ii) == " ") {
+                        findEnd=ii;
+                        break;
+                    }
+                }
+            }
+            newCut.push(creditNameList[i].substring(0, findEnd));
+            creditNameList[i] = creditNameList[i].substring(findEnd, creditNameList[i].length);
+        }
+    }
+    creditNameList = newCut;
+}
+wrapCredits();

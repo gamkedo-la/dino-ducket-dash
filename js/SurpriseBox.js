@@ -35,7 +35,7 @@ function surpriseBoxClass(){
 	{
 		if(checkCollision(this,playerArray[i]) && !playerArray[i].dead){
 				powerup01.play();
-				gameSeconds += 20;
+				//gameSeconds += 20;
 				this.chooseSurpriseAndImplementIt();
 				this.readyToRemove = true;
 				break;

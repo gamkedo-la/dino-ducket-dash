@@ -208,16 +208,16 @@ function triceratopsClass(){
 				if(this.charging) {
 					if(this.speedX >= 0 && this.speedY >= 0) {
 						//charging right&down
-						this.moveUp();
+						this.moveLeft();
 					} else if(this.speedX >= 0 && this.speedY <= 0) {
 						//charging right&Up
-						this.moveDown();
+						this.moveLeft();
 					} else if(this.speedX <= 0 && this.speedY >= 0) {
 						//charging left&down
 						this.moveRight();
 					} else if(this.speedX <= 0 && this.speedY <= 0) {
 						//charging left&up
-						this.moveLeft();
+						this.moveRight();
 					}
 
 					this.resetCharging()
@@ -237,8 +237,8 @@ function triceratopsClass(){
 
 				this.x = oldX;
 				this.y = oldY;
-				
-				hitSFX.play();
+			
+				//hitSFX.play();
 			} else if(checkCollision(this,playerArray[i]) && !godMode && !playerArray[i].immunity && !playerArray[i].dead){
 				screenShouldBeShaking = true;
 				damageOverlay=true;

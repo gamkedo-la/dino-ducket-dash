@@ -65,6 +65,7 @@ function initInput(){
 }
 
 function mouseClicked(evt){
+	exitIfShowingCredits();
 	if (gameState !== 'input to launch')
 	{
 		return;

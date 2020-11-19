@@ -1,3 +1,5 @@
+showingCredits = false;
+
 function menuClass(){
   //Menu Variables
 	this.x = 0;
@@ -25,7 +27,13 @@ function menuClass(){
 	}
   
   this.draw = function(){
-    animate(this,true);
+  	if(showingCredits) {
+  		canvasContext.fillStyle = 'blue';
+		canvasContext.font = '18px Helvetica';
+		canvasContext.fillText('Click anywhere to exit credits!', 30,canvas.height - 30);
+  	} else {
+    	animate(this,true);
+	}
   }
 }
 
@@ -103,16 +111,26 @@ function backToMenu(){
 	console.log('backToMenu');
 	if(menuUI.style.display === "none"){
 		menuUI.style.display = "block"; 
-		 }
+	}
 }
 
 function exitMenu(){
 	console.log('exitMenu');
 	if(menuUI.style.display === "block"){
 		menuUI.style.display = "none";
-		 }
+	}
 }
 
 function showCredits() {
-	console.log("CREDITS");
+	if(showingCredits == false) {
+		showingCredits = true;
+		menuUI.style.display = "none";
+	}
+}
+
+function exitIfShowingCredits() { // called from canvas mousedown event hook
+	if(showingCredits) {
+		showingCredits = false;
+		menuUI.style.display = "block";
+	}	
 }

@@ -44,6 +44,8 @@ function meteorLandingClass(){
 								playerArray[i].immunityTimer = 30;
 								playerArray[i].immunity = true;
 							}
+
+							hitSFX.play();
 						}
 					}
 
@@ -51,6 +53,7 @@ function meteorLandingClass(){
 					for(var k = 0; k < enemies.length; k++){
 						if(checkCollision(this, enemies[k])){
 							enemies.splice(k);
+							hitSFX.play();
 						}
 					}
 
@@ -58,6 +61,7 @@ function meteorLandingClass(){
 					for(var k = 0; k < triceratopEnemies.length; k++){
 						if(checkCollision(this, triceratopEnemies[k])){
 							triceratopEnemies.splice(k);
+							hitSFX.play();
 						}
 					}
 

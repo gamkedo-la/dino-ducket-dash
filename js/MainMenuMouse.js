@@ -12,6 +12,9 @@ function detectMouseHover(item){
         case buttonsList.fourPlayers:
             removeFourPlayersSelect();
             break; 
+        case buttonsList.credits:
+            removeCreditsSelect();
+            break; 
         case buttonsList.help:
             removeHelpSelect();
             break;
@@ -33,6 +36,9 @@ function detectMouseHover(item){
         case buttonsList.fourPlayers:
             addFourPlayersSelect();
             break;
+        case buttonsList.credits:
+            addCreditsSelect();
+            break; 
         case buttonsList.help:
             addHelpSelect();
             break;

@@ -91,7 +91,7 @@
     position:relative;
     width:200px;
     height:50px;
-    bottom:250px;
+    bottom:230px;
     padding:50%;
     border-radius:50px;
     text-align:center;
@@ -109,7 +109,7 @@
     position:relative;
     width:200px;
     height:50px;
-    bottom:270px;
+    bottom:230px;
     padding:50%;
     border-radius:50px;
     text-align:center;
@@ -123,6 +123,23 @@
   transform: translateY(10px);
 }
 
+#creditsMain {
+    position:relative;
+    width:200px;
+    height:50px;
+    bottom:230px;
+    padding:50%;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    color:white;
+}
+
+#creditsMain:active {
+  background-color: #ffffff;
+  box-shadow: 0 5px #666;
+  transform: translateY(10px);
+}
 
 #options:active {
   background-color: #ffffff;

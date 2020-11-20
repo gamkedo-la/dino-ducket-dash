@@ -36,6 +36,11 @@
 				onmouseover="detectMouseHover(buttonsList.fourPlayers)">
 				<p>4 PLAY</p>
 			</div>
+			<div id="creditsMain"
+				onmouseup="showCredits()"
+				onmouseover="detectMouseHover(buttonsList.credits)">
+				<p>CREDITS</p>p>
+			</div>
 			<div
 				id="help"
 				onmouseover="detectMouseHover(buttonsList.help)">
@@ -69,8 +74,7 @@
 				</tr>			
 				</table>
 			</div>
-		</div>
-		<div id="creditsBtn" class='popup' onclick="showCredits()">Click here to show Credits</div>
+		</div>		
 	<canvas id='gameCanvas' width="320" height="240"></canvas>
 	<script src="js/i18n.js"></script>
 	<script src="js/Coin.js"></script>

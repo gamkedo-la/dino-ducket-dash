@@ -5,6 +5,7 @@ var multiDiv = document.getElementById('multi');
 var threePlayersDiv = document.getElementById('threePlayers');
 var fourPlayersDiv = document.getElementById('fourPlayers');
 var helpDiv = document.getElementById('help');
+var creditsDiv = document.getElementById('creditsMain');
 var highscoreDiv = document.getElementById('highscore');
 
 //For  HighScoreMenu
@@ -27,13 +28,14 @@ var buttonsList = {
     threePlayers: 2,
     fourPlayers: 3,
     help: 4,
-    highscore: 5,
-    exitHighscore: 6,
+    credits: 6,
+    highscore: 7,
+    exitHighscore: 8,
     //character select
-    greenDino: 7,
-    blueDino: 8,
-    pinkDino: 9,
-    yellowDino: 10
+    greenDino: 9,
+    blueDino: 10,
+    pinkDino: 11,
+    yellowDino: 12
 }
 
 // Button State
@@ -93,6 +95,16 @@ function addHelpSelect() {
     helpDiv.classList.add('buttonSelected');
 }
 
+function addCreditsSelect() {
+    creditsDiv.classList.remove('buttonUnselected');
+    creditsDiv.classList.add('buttonSelected');
+}
+
+function removeCreditsSelect() {
+    creditsDiv.classList.remove('buttonSelected');
+    creditsDiv.classList.add('buttonUnselected');
+}
+
 function removeHighscoreSelect() {
     highscoreDiv.classList.remove('buttonSelected');
     highscoreDiv.classList.add('buttonUnselected');
@@ -118,6 +130,7 @@ function startMenuShape(){
     multiDiv.classList.add('buttonUnselected');
     threePlayersDiv.classList.add('buttonUnselected');
     fourPlayersDiv.classList.add('buttonUnselected');
+    creditsDiv.classList.add('buttonUnselected');
     helpDiv.classList.add('buttonUnselected');
     highscoreDiv.classList.add('buttonUnselected');
     exitHighscoreDiv.classList.add('buttonUnselected');

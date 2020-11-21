@@ -89,10 +89,9 @@ function gameUpdate(){
 
   if(deathCounter == playerArray.length)
   {
-
-        mainMenuMusic.play();
-        mainMenuMusic.setTime(gamePlayMusic.getTime());
-        gamePlayMusic.stop();
+    mainMenuMusic.play();
+    mainMenuMusic.setTime(gamePlayMusic.getTime());
+    gamePlayMusic.stop();
     transitionAnim.transitionToScene('gameOver');
   }
   
@@ -166,7 +165,6 @@ function gameUpdate(){
 //Drawing after here
 //
 function gameDraw(){
-
   frameCount++;
 
   if (screenShouldBeShaking)
@@ -261,10 +259,13 @@ function gameDraw(){
   }
 
   
-
-  drawTimer();
-  drawHighScore();
-  drawCurrentScore();
+  if (countdownToGamePlayTimer) {
+    drawRect(0, 0, canvas.width, 10, 'black');
+  } else {
+    drawTimer();
+    drawHighScore();
+    drawCurrentScore();
+  }
   
   canvasContext.restore();
 }

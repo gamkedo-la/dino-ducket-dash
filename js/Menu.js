@@ -179,7 +179,7 @@ function drawCredits(){
 	canvasContext.fillStyle = 'yellow';
 	canvasContext.font = '18px Helvetica';
 	canvasContext.textAlign = "center";
-	canvasContext.fillText('-- Click anywhere to return to the menu --', canvas.width/2,canvas.height - 30);
+	canvasContext.fillText('-- Click or Enter to return to the menu --', canvas.width/2,canvas.height - 30);
 	canvasContext.textAlign = "left";
 
 	creditsScroll+=creditsScrollRate;

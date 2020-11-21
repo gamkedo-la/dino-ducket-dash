@@ -55,13 +55,13 @@ function detectKeyPresses(evt) {
                 playMenuSelectSFX();
             }
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {
-                buttonSelectState = buttonsList.help;
+                buttonSelectState = buttonsList.highscore;
                 removeFourPlayersSelect();
-                addHelpSelect();
+                addHighscoreSelect();
                 playMenuSelectSFX();
             }
             break;
-        case buttonsList.help:
+        /*case buttonsList.help:
             if(keyPress === KEY_UP || keyPress === KEY_W) {
                 buttonSelectState = buttonsList.fourPlayers;
                 removeHelpSelect();
@@ -74,12 +74,12 @@ function detectKeyPresses(evt) {
                 addHighscoreSelect();
                 playMenuSelectSFX();
             }
-            break;
+            break;*/
         case buttonsList.highscore:
             if(keyPress === KEY_UP || keyPress === KEY_W) {
-                buttonSelectState = buttonsList.help;
+                buttonSelectState = buttonsList.fourPlayers;
                 removeHighscoreSelect();
-                addHelpSelect();
+                addFourPlayersSelect();
                 playMenuSelectSFX();
             }
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {
@@ -121,7 +121,11 @@ function detectKeyPresses(evt) {
                 hideHighScore();
                 removeExitHighscoreSelect();
                 break;
-             }
+            case buttonsList.credits:
+                showCredits();
+                break;
+        }
+
          menuSelect.play();
          exitMenu();
 }

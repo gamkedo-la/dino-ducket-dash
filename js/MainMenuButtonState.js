@@ -27,7 +27,7 @@ var buttonsList = {
     multi: 1,
     threePlayers: 2,
     fourPlayers: 3,
-    help: 4,
+    //help: 4,
     credits: 6,
     highscore: 7,
     exitHighscore: 8,
@@ -85,6 +85,7 @@ function addFourPlayersSelect()
     fourPlayersDiv.classList.add('buttonSelected');
 }
 
+/*
 function removeHelpSelect() {
     helpDiv.classList.remove('buttonSelected');
     helpDiv.classList.add('buttonUnselected');
@@ -93,7 +94,7 @@ function removeHelpSelect() {
 function addHelpSelect() {
     helpDiv.classList.remove('buttonUnselected');
     helpDiv.classList.add('buttonSelected');
-}
+}*/
 
 function addCreditsSelect() {
     creditsDiv.classList.remove('buttonUnselected');
@@ -131,7 +132,7 @@ function startMenuShape(){
     threePlayersDiv.classList.add('buttonUnselected');
     fourPlayersDiv.classList.add('buttonUnselected');
     creditsDiv.classList.add('buttonUnselected');
-    helpDiv.classList.add('buttonUnselected');
+    //helpDiv.classList.add('buttonUnselected');
     highscoreDiv.classList.add('buttonUnselected');
     exitHighscoreDiv.classList.add('buttonUnselected');
 }

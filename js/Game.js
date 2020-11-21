@@ -166,6 +166,9 @@ function gameUpdate(){
 //
 function gameDraw(){
   frameCount++;
+  if (countdownToGamePlayTimer) {
+    drawRect(0, 0, canvas.width, 10, Colors.black);
+  }
 
   if (screenShouldBeShaking)
   {
@@ -259,9 +262,7 @@ function gameDraw(){
   }
 
   
-  if (countdownToGamePlayTimer) {
-    drawRect(0, 0, canvas.width, 10, 'black');
-  } else {
+  if (!countdownToGamePlayTimer) {
     drawTimer();
     drawHighScore();
     drawCurrentScore();

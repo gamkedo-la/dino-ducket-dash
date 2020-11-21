@@ -1,5 +1,5 @@
 //A color structure
-let Colors={gold:'#cdc29e'}
+let Colors={gold:'#cdc29e', black: '#000000'};
 
 function drawRect(atX,atY, rectWidth,rectHeight, fillColor){
 	canvasContext.fillStyle = fillColor;
@@ -25,7 +25,6 @@ function cls(){
 	canvasContext.fillRect(0,0, canvas.width, canvas.height);
 	canvasContext.fillStyle = 'black';
 	canvasContext.fillRect(0,0, canvas.width, 10*PIXEL_SCALE_UP);
-	
 }
 
 function animate(toAnimate,loop){

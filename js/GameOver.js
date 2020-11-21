@@ -32,9 +32,9 @@ function gameOverDraw(){
 	canvasContext.textAlign = 'start';
     canvasContext.fillText(_('GAME OVER!'), canvas.width/6,canvas.height/2);
   
-    canvasContext.font = '32px "Press Start 2P"'
+	canvasContext.font = '24px "Press Start 2P"'	
+	canvasContext.fillText(_('PRESS ESC TO GO BACK TO MAIN MENU!'), canvas.width/11,canvas.height/1.7);	
 	canvasContext.fillText(_('PRESS R TO TRY AGAIN!'), canvas.width/4,canvas.height/1.5);	
-	canvasContext.fillText(_('PRESS ESC TO GO BACK TO MAIN MENU!'), canvas.width/9,canvas.height/1.7);	
   
     /// draw High Score List 
     canvasContext.textAlign = 'center';

@@ -101,6 +101,12 @@ function keyPressed(evt){
 		
 	}
 	if(gameState == "menu"){
+		if(keyCode === ENTER || keyCode === KEY_SPACEBAR) {
+			if(showingCredits) {
+				return;
+			}
+		}
+
 		if( (buttonSelectState === buttonsList.single || buttonSelectState === buttonsList.multi ||
 			 buttonSelectState === buttonsList.threePlayers || buttonSelectState === buttonsList.fourPlayers)
 			 &&

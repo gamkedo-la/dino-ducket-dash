@@ -7,7 +7,7 @@ function detectKeyPresses(evt) {
     if (gameState!='menu' && !gameIsPaused) return;
 
     const keyPress = evt.code;
-    console.log('buttonSelectState: ' + buttonSelectState);
+    //console.log('buttonSelectState: ' + buttonSelectState);
     switch(buttonSelectState) {
         case buttonsList.single:
             if(keyPress === KEY_DOWN || keyPress === KEY_S) {
@@ -100,7 +100,11 @@ function detectKeyPresses(evt) {
     }
 
     if (keyPress === ENTER){
-        switch(buttonSelectState){
+            if(showingCredits) {
+                exitIfShowingCredits();
+                return;
+            }
+            switch(buttonSelectState){
             case buttonsList.single:
                 singlePlayer();
                 break;

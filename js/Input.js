@@ -61,11 +61,19 @@ var firstClick = false;
 function initInput(){
 	document.addEventListener('keydown', keyPressed);
 	document.addEventListener('keyup', keyReleased);
-	document.addEventListener('mousedown',mouseClicked);
+	document.addEventListener('click',mouseClicked);
+	document.addEventListener('mousedown',mouseDown);
+}
+
+function mouseDown(evt) {
+	var rect = canvas.getBoundingClientRect();
+	var mouseY = evt.clientY - rect.top;
+	if(mouseY < 70) {
+		exitIfShowingCredits();
+	}
 }
 
 function mouseClicked(evt){
-	exitIfShowingCredits();
 	if (gameState !== 'input to launch')
 	{
 		return;

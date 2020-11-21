@@ -162,7 +162,7 @@ var creditNameList = [
 
 function drawCredits(){
 	var posX = 10;
-	var posHeight = 60;
+	var posHeight = 70;
 	var count = 0;
 
 	var anyDrew = false;
@@ -179,7 +179,7 @@ function drawCredits(){
 	canvasContext.fillStyle = 'yellow';
 	canvasContext.font = '18px Helvetica';
 	canvasContext.textAlign = "center";
-	canvasContext.fillText('-- Click or Enter to return to the menu --', canvas.width/2,canvas.height - 30);
+	canvasContext.fillText('-- Press Enter or CLICK HERE to return to the menu --', canvas.width/2,50);
 	canvasContext.textAlign = "left";
 
 	creditsScroll+=creditsScrollRate;

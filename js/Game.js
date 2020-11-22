@@ -69,9 +69,9 @@ function gameUpdate(){
   let deathCounter = 0;
   if (gameIsPaused || countdownToGamePlayTimer)
   {
-    if (gameIsPaused && menuUI.style.display == "none"){
-        backToMenu();
-      }
+    if (gameIsPaused && menuUI.style.display == "none" && scoreMenu.style.display == 'none'){
+          backToMenu();
+        }
     return;
   }
   updateTimer();

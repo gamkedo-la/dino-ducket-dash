@@ -106,18 +106,16 @@ function showHighScore(){
 }
 
 function showHelp() {
-	console.log("HELP");
+	
 }
 
 function backToMenu(){
-	console.log('backToMenu');
 	if(menuUI.style.display === "none"){
 		menuUI.style.display = "block"; 
 	}
 }
 
 function exitMenu(){
-	console.log('exitMenu');
 	if(menuUI.style.display === "block"){
 		menuUI.style.display = "none";
 	}

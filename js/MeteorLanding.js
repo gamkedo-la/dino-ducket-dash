@@ -52,7 +52,7 @@ function meteorLandingClass(){
 					//meteor kills enemies
 					for(var k = 0; k < enemies.length; k++){
 						if(checkCollision(this, enemies[k])){
-							enemies.splice(k);
+							enemies.splice(k, 1);
 							hitSFX.play();
 						}
 					}
@@ -60,12 +60,12 @@ function meteorLandingClass(){
 
 					for(var k = 0; k < triceratopEnemies.length; k++){
 						if(checkCollision(this, triceratopEnemies[k])){
-							triceratopEnemies.splice(k);
+							triceratopEnemies.splice(k, 1);
 							hitSFX.play();
 						}
 					}
 
-					meteors.splice(i); // remove meteor
+					meteors.splice(i, 1); // remove meteor
 
 				}
 			}

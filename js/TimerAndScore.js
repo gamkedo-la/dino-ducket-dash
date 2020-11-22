@@ -127,8 +127,8 @@ function drawHighScore(){
 
     drawRect(xPos - labelTextWidth - 10,yPos, hsScoreBoxWidth + labelTextWidth, hsScoreBoxHeight, "black");
 	canvasContext.fillStyle = 'white';
-	canvasContext.fillText(labelText, xPos - labelTextWidth - 5,yPos+25);
-	canvasContext.fillText(hsScoreText, xPos+5,yPos+25);
+	canvasContext.fillText(labelText, xPos - labelTextWidth - 20,yPos+25);
+	canvasContext.fillText(hsScoreText, xPos-10,yPos+25);
 }
 
 function drawCurrentScore()
@@ -143,8 +143,8 @@ function drawCurrentScore()
 	let currentScoreText = score.toString().padStart(10,'0');
 	drawRect(0,yPos, labelTextWidth*0.925,currentScoreBoxHeight, 'black');
 	canvasContext.fillStyle = 'white';
-	canvasContext.fillText(labelText, 0,25);
-	canvasContext.fillText(currentScoreText, xPos+5,yPos+25);
+	canvasContext.fillText(labelText, 5,25);
+	canvasContext.fillText(currentScoreText, xPos+10,yPos+25);
 }
 
 //ugly variables for countdownSFX

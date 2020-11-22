@@ -155,7 +155,7 @@ var creditNameList = [
 "Charlene A.: Timer sprite (animation and integration), dust particle sprite",
 "Gonzalo Delgado: T-Rex player sprite, localization support with Spanish translations (both JS and HTML)",
 "Randy Tan Shaoxian: Selection box smoothing, selectable player colors, transition from game over back to menu",
-"JoansitoColimon: Special thanks for practice commit (welcome to HomeTeam Apollo!)",
+"Joansito Colimon: Special thanks for practice commit (welcome to HomeTeam Apollo!)",
     " ",
     "Made by members of HomeTeam GameDev (Apollo!)"," ","Join at HomeTeamGameDev.com to make games with us!",
     ];

@@ -33,8 +33,7 @@ function detectKeyPresses(evt) {
             break;
         case buttonsList.threePlayers:
 
-            if (keyPress === KEY_UP || keyPress === KEY_W)
-            {
+            if (keyPress === KEY_UP || keyPress === KEY_W){
                 buttonSelectState = buttonsList.multi;
                 removeThreePlayersSelect();
                 addMultiSelect();
@@ -49,8 +48,7 @@ function detectKeyPresses(evt) {
                 
             break;
         case buttonsList.fourPlayers:
-            if (keyPress === KEY_UP || keyPress === KEY_W)
-            {
+            if (keyPress === KEY_UP || keyPress === KEY_W){
                 buttonSelectState = buttonsList.threePlayers;
                 removeFourPlayersSelect();
                 addThreePlayersSelect();
@@ -84,7 +82,21 @@ function detectKeyPresses(evt) {
                 addHelpSelect();
                 playMenuSelectSFX();
             }
+            if(keyPress === KEY_DOWN || keyPress === KEY_S) {
+                buttonSelectState = buttonsList.credits;
+                removeHighscoreSelect();
+                addCreditsSelect();
+                playMenuSelectSFX();
+            }
             break;
+        case buttonsList.credits:
+                if(keyPress === KEY_UP || keyPress === KEY_W) {
+                    buttonSelectState = buttonsList.highscore;
+                    removeCreditsSelect();
+                    addHighscoreSelect();
+                    playMenuSelectSFX();
+                }
+        break;
     }
 
     if (keyPress === ENTER){

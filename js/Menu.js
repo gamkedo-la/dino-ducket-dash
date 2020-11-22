@@ -68,14 +68,18 @@ function fourPlayers()
 	transitionAnim.transitionToScene('character select screen');
 }
 
-function hideHighScore(){
+function hideHighScore(){	
 	backToMenu();
-	scoreMenu.style.display = 'none';
+	if(scoreMenu.style.display == 'block') {
+		scoreMenu.style.display = 'none';
+	}
 }
 
 function showHighScore(){
 	exitMenu();
-	scoreMenu.style.display = 'block';
+	if(scoreMenu.style.display=='none'){
+		scoreMenu.style.display = 'block';
+	}
 	let maxScoresToShow = 3;
 	let scoreToShow = maxScoresToShow;
 	if (sortedHighScoreList.length < scoreToShow) {

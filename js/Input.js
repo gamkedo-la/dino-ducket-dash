@@ -376,6 +376,7 @@ function keyPressed(evt){
 			{
 				gameIsPaused = false;
 			}
+			creditsDiv.style.display = (gameIsPaused ? "none" : "block");
 			console.log('gameIsPaused: ' + gameIsPaused);
 			break;
 

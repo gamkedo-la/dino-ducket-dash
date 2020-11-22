@@ -96,17 +96,18 @@ function detectKeyPresses(evt) {
                     addHighscoreSelect();
                     playMenuSelectSFX();
                 }
-        break;
+                break;
         case buttonsList.exitHighscore:
-                if(scoreMenu.style.display =='block' && keyPress === ENTER) {
-                    buttonSelectState = buttonsList.exitHighscore;
-                    addHighscoreSelect();
-                    playMenuSelectSFX();
-                }
-        break;
+            if(scoreMenu.style.display =='block' && keyPress === ENTER) {
+                buttonSelectState = buttonsList.exitHighscore;
+                addHighscoreSelect();
+                playMenuSelectSFX();
+            }
+            break;
     }
 
     if (keyPress === ENTER){
+            hideHighScore();
             if(showingCredits) {
                 exitIfShowingCredits();
                 return;
@@ -125,10 +126,13 @@ function detectKeyPresses(evt) {
                 fourPlayers();
                 break;
             case buttonsList.highscore:
+                buttonSelectState = buttonsList.exitHighscore;
+                addExitHighscoreSelect()
                 showHighScore();
                 break;
             case buttonsList.exitHighscore:
-                hideHighScore();
+                //hideHighScore();
+                menuUI.style.display = "block";
                 break;
             case buttonsList.credits:
                 showCredits();

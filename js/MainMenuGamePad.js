@@ -28,20 +28,61 @@ function menuUpdate(time){
             }
             detectKeyPresses(evt);
         } 
-        else if(gamepads[0].axes[1] > 0.5) {
+        else if(gamepads[0].axes[1]> 0.5) {
             hasBeenPressed = true;
             let evt = {
                 code: KEY_DOWN
             }
             detectKeyPresses(evt);
-        }
-        if(gamepads[0].buttons[0].pressed){
+        } 
+        if(gamepads[0].buttons[0] || buttons[1] || buttons[2] || buttons[3].pressed){
             let evt = {
                 code:  ENTER
             }
             keyPressed(evt);
         }
-    
+
+        if(gamepads.length > 0 && gamepads[this.gamepadID] && gamepads[this.gamepadID].buttons!=undefined){
+            if(gamepads[0].buttons[9].pressed){
+                let evt = {
+                    code:  KEY_P
+                }
+                keyPressed(evt);
+            }
+            
+            if(gamepads[0].buttons[7].pressed) {
+                hasBeenPressed = true;
+                let evt = {
+                    code: KEY_P
+                }
+                detectKeyPresses(evt);
+            } 
+            if(gamepads[0].buttons[5].pressed){
+                let evt = {
+                    code:  KEY_UP
+                }
+                keyPressed(evt);
+            }
+            if(gamepads[0].buttons[6].pressed){
+                let evt = {
+                    code:  KEY_DOWN
+                }
+                keyPressed(evt);
+            }
+            if(gamepads[0].buttons[7].pressed){
+                let evt = {
+                    code:  KEY_LEFT
+                }
+                keyPressed(evt);
+            }
+            if(gamepads[0].buttons[8].pressed){
+                let evt = {
+                    code:  KEY_RIGHT
+                }
+                keyPressed(evt);
+            }
+        }
+        
         timePassed = 0.0;    
     }
 }

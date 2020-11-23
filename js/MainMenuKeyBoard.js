@@ -97,6 +97,13 @@ function detectKeyPresses(evt) {
                     playMenuSelectSFX();
                 }
         break;
+        case buttonsList.exitHighscore:
+                if(scoreMenu.style.display =='block' && keyPress === ENTER) {
+                    buttonSelectState = buttonsList.exitHighscore;
+                    addHighscoreSelect();
+                    playMenuSelectSFX();
+                }
+        break;
     }
 
     if (keyPress === ENTER){
@@ -119,11 +126,9 @@ function detectKeyPresses(evt) {
                 break;
             case buttonsList.highscore:
                 showHighScore();
-                addExitHighscoreSelect();
                 break;
             case buttonsList.exitHighscore:
                 hideHighScore();
-                removeExitHighscoreSelect();
                 break;
             case buttonsList.credits:
                 showCredits();

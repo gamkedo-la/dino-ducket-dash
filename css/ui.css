@@ -18,9 +18,12 @@
 #scoremenu{
   width:0px;
   height:0px;
+  bottom:220px;
   position:sticky;
   cursor:pointer;
   line-height:52px;
+  font-size:40px;
+  border-radius:50px;
 }
 
 
@@ -62,7 +65,7 @@
 
 #multi {
   position:relative;
-    width:210px;
+    width:200px;
     height:50px;
     bottom:230px;
     right:50%;
@@ -178,7 +181,7 @@
   position:relative;
     width:245px;
     height:50px;
-    bottom:250px;
+    bottom:230px;
     right:50%;
     /*background:#fe4101;*/
     text-align:center;

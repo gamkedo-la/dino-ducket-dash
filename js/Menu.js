@@ -147,7 +147,7 @@ var creditNameList = [
 "Jeff \"Axphin\" Hanlon: Triceratops enemy art, enemy attack telegraph animation, sound effects (7), sand tile, dino animation speed tuning, coin bucket and UI position tweaks",
 "Muhammed \"EyeForcz\" Durmusoglu: Co-op 2 & 4 player support, gamepad bug fix, start sequence polish, surprise box feature",
 "Vince McKeown: Pterodactyle sprite, timer implementation, enemy randomization, clock bug fix, high score local storage, high score initials",
-"I-wei Chen: Random bucket designs, animation strip support, Triceratops sprite hookup, assorted fixes (gamepad, keyboard control, movement related), screen crack effect, ducket deposit effect",
+"I-wei Chen: Random bucket designs, animation strip support, Triceratops sprite hookup, assorted fixes (gamepad, keyboard control, movement related), screen crack effect, ducket deposit effect, splash screen animation",
 "H Trayford: Safe enemy spawn margin, image loading code, UI layout improvement, variable player menu hookup, Triceratops attack recharge delay, bucket protection from flying enemy and boss, dust particle fix",
 "Michael \"Misha\" Fewkes: Music (menu, gameplay), audio file format conversion for compatibility, volume mixing",
 "Vaan Hope Khani: Cactus art, menu code (including high scores readout), exit button, canvas resize, audio button fix",
